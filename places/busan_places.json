@@ -1,0 +1,2961 @@
+{
+  "source": "kakaomap",
+  "places": [
+    {
+      "place_id": "10481190",
+      "url": "https://place.map.kakao.com/10481190",
+      "name": "성일손칼국수",
+      "branch": null,
+      "category": "칼국수",
+      "address": "부산 서구 해안새벽시장길 8 1층",
+      "phone": "051-244-1547",
+      "menus": [
+        {
+          "name": "칼국수",
+          "price": 5000,
+          "price_text": "5,000원",
+          "description": "사장님이 직접 반죽하고 밀어 쫄깃한 면발과 깊고 진한",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "짜장면",
+          "price": 5000,
+          "price_text": "5,000원",
+          "description": null,
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": {
+        "min": 5000,
+        "max": 5000
+      },
+      "facilities": null,
+      "business_hours": {
+        "fri": {
+          "open": "09:00",
+          "close": "19:00",
+          "break": null,
+          "last_order": null
+        },
+        "sat": {
+          "open": "09:00",
+          "close": "19:00",
+          "break": null,
+          "last_order": null
+        },
+        "sun": null,
+        "mon": {
+          "open": "09:00",
+          "close": "19:00",
+          "break": null,
+          "last_order": null
+        },
+        "tue": {
+          "open": "09:00",
+          "close": "19:00",
+          "break": null,
+          "last_order": null
+        },
+        "wed": {
+          "open": "09:00",
+          "close": "19:00",
+          "break": null,
+          "last_order": null
+        },
+        "thu": {
+          "open": "09:00",
+          "close": "19:00",
+          "break": null,
+          "last_order": null
+        }
+      },
+      "business_hours_raw": "영업 중 / 19:00 까지 / 금(11/6)|09:00 ~ 19:00 / 토(11/7)|09:00 ~ 19:00 / 일(11/8)|휴무일 / 월(11/9)|09:00 ~ 19:00 / 화(11/10)|09:00 ~ 19:00 / 수(11/11)|09:00 ~ 19:00 / 목(11/12)|09:00 ~ 19:00",
+      "closed_days": [
+        "일요일 휴무일"
+      ],
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": null,
+      "status": "ok"
+    },
+    {
+      "place_id": "1637130079",
+      "url": "https://place.map.kakao.com/1637130079",
+      "name": "연동본가해장국",
+      "branch": "연산본점",
+      "category": "해장국",
+      "address": "부산 연제구 과정로 311-1 1층",
+      "phone": "051-861-0928",
+      "menus": [
+        {
+          "name": "한우해장국",
+          "price": 8000,
+          "price_text": "8,000원",
+          "description": "1++ 한우와 표고버섯, 콩나물, 무가 듬뿍 들어간 맑",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "선지내장해장국",
+          "price": 8000,
+          "price_text": "8,000원",
+          "description": "잡내 없이 부드럽고 쫄깃한 선지와 내장이 듬뿍 들어간",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "비빔밥",
+          "price": 8000,
+          "price_text": "8,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "김밥",
+          "price": 3500,
+          "price_text": "3,500원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "우동",
+          "price": 6000,
+          "price_text": "6,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "비빔우동",
+          "price": 7000,
+          "price_text": "7,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "국수",
+          "price": 6000,
+          "price_text": "6,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "비빔국수",
+          "price": 7000,
+          "price_text": "7,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "한우소고기전골 (중)",
+          "price": 33000,
+          "price_text": "33,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "한우소고기전골(대)",
+          "price": 43000,
+          "price_text": "43,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "한우내장전골 (중)",
+          "price": 33000,
+          "price_text": "33,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "한우내장전골(대)",
+          "price": 43000,
+          "price_text": "43,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "편육",
+          "price": 10000,
+          "price_text": "10,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "시락국",
+          "price": 7000,
+          "price_text": "7,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "오뎅",
+          "price": 3000,
+          "price_text": "3,000원",
+          "description": null,
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": {
+        "min": 3000,
+        "max": 43000
+      },
+      "facilities": [
+        "단체석",
+        "키즈메뉴",
+        "유아의자 있음"
+      ],
+      "business_hours": {
+        "fri": {
+          "open": "00:00",
+          "close": "24:00",
+          "break": null,
+          "last_order": null
+        },
+        "sat": {
+          "open": "00:00",
+          "close": "24:00",
+          "break": null,
+          "last_order": null
+        },
+        "sun": {
+          "open": "00:00",
+          "close": "24:00",
+          "break": null,
+          "last_order": null
+        },
+        "mon": {
+          "open": "00:00",
+          "close": "24:00",
+          "break": null,
+          "last_order": null
+        },
+        "tue": {
+          "open": "00:00",
+          "close": "24:00",
+          "break": null,
+          "last_order": null
+        },
+        "wed": {
+          "open": "00:00",
+          "close": "24:00",
+          "break": null,
+          "last_order": null
+        },
+        "thu": {
+          "open": "00:00",
+          "close": "24:00",
+          "break": null,
+          "last_order": null
+        }
+      },
+      "business_hours_raw": "영업 중 / 24시간 영업 / 연중무휴 / 금(11/6)|00:00 ~ 24:00 / 토(11/7)|00:00 ~ 24:00 / 일(11/8)|00:00 ~ 24:00 / 월(11/9)|00:00 ~ 24:00 / 화(11/10)|00:00 ~ 24:00 / 수(11/11)|00:00 ~ 24:00 / 목(11/12)|00:00 ~ 24:00",
+      "closed_days": null,
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": null,
+      "status": "ok"
+    },
+    {
+      "place_id": "26235538",
+      "url": "https://place.map.kakao.com/26235538",
+      "name": "새옹지마",
+      "branch": null,
+      "category": "실내포장마차",
+      "address": "부산 중구 광복로97번안길 10",
+      "phone": "051-256-5868",
+      "menus": [
+        {
+          "name": "들게탕",
+          "price": 55000,
+          "price_text": "55,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "백합탕",
+          "price": 35000,
+          "price_text": "35,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "문어숙회",
+          "price": 35000,
+          "price_text": "35,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "한치숙회",
+          "price": 35000,
+          "price_text": "35,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "새우구이",
+          "price": 40000,
+          "price_text": "40,000원",
+          "description": null,
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": {
+        "min": 35000,
+        "max": 55000
+      },
+      "facilities": [
+        "단체석",
+        "채식 메뉴",
+        "테라스"
+      ],
+      "business_hours": {
+        "fri": {
+          "open": "16:00",
+          "close": "01:00",
+          "break": null,
+          "last_order": null
+        },
+        "sat": {
+          "open": "16:00",
+          "close": "01:00",
+          "break": null,
+          "last_order": null
+        },
+        "sun": {
+          "open": "16:00",
+          "close": "01:00",
+          "break": null,
+          "last_order": null
+        },
+        "mon": null,
+        "tue": {
+          "open": "16:00",
+          "close": "01:00",
+          "break": null,
+          "last_order": null
+        },
+        "wed": {
+          "open": "16:00",
+          "close": "01:00",
+          "break": null,
+          "last_order": null
+        },
+        "thu": {
+          "open": "16:00",
+          "close": "01:00",
+          "break": null,
+          "last_order": null
+        }
+      },
+      "business_hours_raw": "영업 중 / 01:00 까지 / 금(11/6)|16:00 ~ 01:00 / 토(11/7)|16:00 ~ 01:00 / 일(11/8)|16:00 ~ 01:00 / 월(11/9)|휴무일 / 화(11/10)|16:00 ~ 01:00 / 수(11/11)|16:00 ~ 01:00 / 목(11/12)|16:00 ~ 01:00",
+      "closed_days": [
+        "월요일 휴무일"
+      ],
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": null,
+      "status": "ok"
+    },
+    {
+      "place_id": "25862687",
+      "url": "https://place.map.kakao.com/25862687",
+      "name": "제일통닭",
+      "branch": null,
+      "category": "치킨",
+      "address": "부산 동래구 시실로24번길 16 1층",
+      "phone": "051-554-2105",
+      "menus": [],
+      "menu_board_image_only": false,
+      "price_range": null,
+      "facilities": null,
+      "business_hours": {
+        "fri": {
+          "open": "10:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        },
+        "sat": {
+          "open": "10:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        },
+        "sun": {
+          "open": "10:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        },
+        "mon": {
+          "open": "10:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        },
+        "tue": {
+          "open": "10:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        },
+        "wed": {
+          "open": "10:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        },
+        "thu": {
+          "open": "10:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        }
+      },
+      "business_hours_raw": "영업 중 / 22:00 까지 / 금(11/6)|10:00 ~ 22:00 / 토(11/7)|10:00 ~ 22:00 / 일(11/8)|10:00 ~ 22:00 / 월(11/9)|10:00 ~ 22:00 / 화(11/10)|10:00 ~ 22:00 / 수(11/11)|10:00 ~ 22:00 / 목(11/12)|10:00 ~ 22:00",
+      "closed_days": null,
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": {
+        "text": "금요일 18시에 방문했는데 대기하는 동안 전화주문이 끊기지가 않았다",
+        "source": "blog",
+        "evidence": "카카오맵 블로그 리뷰 미리보기"
+      },
+      "status": "ok"
+    },
+    {
+      "place_id": "174036066",
+      "url": "https://place.map.kakao.com/174036066",
+      "name": "유화",
+      "branch": null,
+      "category": "일식",
+      "address": "부산 해운대구 좌동로91번길 39 2층",
+      "phone": "010-9231-3987",
+      "menus": [
+        {
+          "name": "오마카세",
+          "price": 55000,
+          "price_text": "55,000원",
+          "description": null,
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": {
+        "min": 55000,
+        "max": 55000
+      },
+      "facilities": [
+        "콜키지 부과",
+        "바테이블"
+      ],
+      "business_hours": {
+        "fri": {
+          "open": "13:00",
+          "close": "21:30",
+          "break": null,
+          "last_order": null
+        },
+        "sat": {
+          "open": "13:00",
+          "close": "21:30",
+          "break": null,
+          "last_order": null
+        },
+        "sun": {
+          "open": "13:00",
+          "close": "21:30",
+          "break": null,
+          "last_order": null
+        },
+        "mon": {
+          "open": "13:00",
+          "close": "21:30",
+          "break": null,
+          "last_order": null
+        },
+        "tue": {
+          "open": "13:00",
+          "close": "21:30",
+          "break": null,
+          "last_order": null
+        },
+        "wed": null,
+        "thu": {
+          "open": "13:00",
+          "close": "21:30",
+          "break": null,
+          "last_order": null
+        }
+      },
+      "business_hours_raw": "영업 중 / 21:30 까지 / 금(11/6)|13:00 ~ 21:30 / 토(11/7)|13:00 ~ 21:30 / 일(11/8)|13:00 ~ 21:30 / 월(11/9)|13:00 ~ 21:30 / 화(11/10)|13:00 ~ 21:30 / 수(11/11)|휴무일 / 목(11/12)|13:00 ~ 21:30",
+      "closed_days": [
+        "수요일 휴무일"
+      ],
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": null,
+      "status": "ok"
+    },
+    {
+      "place_id": "1217266338",
+      "url": "https://place.map.kakao.com/1217266338",
+      "name": "합천돼지국밥",
+      "branch": "해운대본점",
+      "category": "국밥",
+      "address": "부산 해운대구 구남로8번길 48",
+      "phone": "051-741-1152",
+      "menus": [
+        {
+          "name": "불국밥",
+          "price": 11000,
+          "price_text": "11,000원",
+          "description": "얼큰하고 매콤한 국물에 부드러운 돼지고기가 듬뿍 들어간",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "뼈다귀해장국",
+          "price": 12000,
+          "price_text": "12,000원",
+          "description": "진하고 구수한 국물과 부드러운 고기가 어우러진 해장국",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "불스페셜국밥",
+          "price": 14000,
+          "price_text": "14,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "불섞어",
+          "price": 11000,
+          "price_text": "11,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "불순대",
+          "price": 11000,
+          "price_text": "11,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "불내장",
+          "price": 11000,
+          "price_text": "11,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "불뼈해장국",
+          "price": 13000,
+          "price_text": "13,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "감자탕(소)",
+          "price": 37000,
+          "price_text": "37,000원",
+          "description": null,
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": {
+        "min": 11000,
+        "max": 37000
+      },
+      "facilities": [
+        "장애인 시설",
+        "테라스"
+      ],
+      "business_hours": {
+        "fri": {
+          "open": "08:00",
+          "close": "21:30",
+          "break": null,
+          "last_order": null
+        },
+        "sat": {
+          "open": "08:00",
+          "close": "21:30",
+          "break": null,
+          "last_order": null
+        },
+        "sun": {
+          "open": "08:00",
+          "close": "21:30",
+          "break": null,
+          "last_order": null
+        },
+        "mon": {
+          "open": "08:00",
+          "close": "21:30",
+          "break": null,
+          "last_order": null
+        },
+        "tue": {
+          "open": "08:00",
+          "close": "21:30",
+          "break": null,
+          "last_order": null
+        },
+        "wed": {
+          "open": "08:00",
+          "close": "21:30",
+          "break": null,
+          "last_order": null
+        },
+        "thu": {
+          "open": "08:00",
+          "close": "21:30",
+          "break": null,
+          "last_order": null
+        }
+      },
+      "business_hours_raw": "영업 중 / 21:30 까지 / 금(11/6)|08:00 ~ 21:30 / 토(11/7)|08:00 ~ 21:30 / 일(11/8)|08:00 ~ 21:30 / 월(11/9)|08:00 ~ 21:30 / 화(11/10)|08:00 ~ 21:30 / 수(11/11)|08:00 ~ 21:30 / 목(11/12)|08:00 ~ 21:30",
+      "closed_days": null,
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": null,
+      "status": "ok"
+    },
+    {
+      "place_id": "1638045431",
+      "url": "https://place.map.kakao.com/1638045431",
+      "name": "순덕이국밥",
+      "branch": null,
+      "category": "국밥",
+      "address": "부산 사하구 사하로 202-4 한샘종합쇼핑센타 1층",
+      "phone": null,
+      "menus": [],
+      "menu_board_image_only": false,
+      "price_range": null,
+      "facilities": null,
+      "business_hours": {
+        "fri": {
+          "open": "14:00",
+          "close": "21:00",
+          "break": null,
+          "last_order": null
+        },
+        "sat": {
+          "open": "14:00",
+          "close": "21:00",
+          "break": null,
+          "last_order": null
+        },
+        "sun": {
+          "open": "14:00",
+          "close": "21:00",
+          "break": null,
+          "last_order": null
+        },
+        "mon": {
+          "open": "14:00",
+          "close": "21:00",
+          "break": null,
+          "last_order": null
+        },
+        "tue": {
+          "open": "14:00",
+          "close": "21:00",
+          "break": null,
+          "last_order": null
+        },
+        "wed": {
+          "open": "14:00",
+          "close": "21:00",
+          "break": null,
+          "last_order": null
+        },
+        "thu": {
+          "open": "14:00",
+          "close": "21:00",
+          "break": null,
+          "last_order": null
+        }
+      },
+      "business_hours_raw": "영업 중 / 21:00 까지 / 금(11/6)|14:00 ~ 21:00 / 토(11/7)|14:00 ~ 21:00 / 일(11/8)|14:00 ~ 21:00 / 월(11/9)|14:00 ~ 21:00 / 화(11/10)|14:00 ~ 21:00 / 수(11/11)|14:00 ~ 21:00 / 목(11/12)|14:00 ~ 21:00",
+      "closed_days": null,
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": null,
+      "status": "ok"
+    },
+    {
+      "place_id": "11962918",
+      "url": "https://place.map.kakao.com/11962918",
+      "name": "신선식당",
+      "branch": null,
+      "category": "한식",
+      "address": "부산 동구 조방로49번길 13 제일아파트 상가 1층",
+      "phone": "051-631-9209",
+      "menus": [
+        {
+          "name": "생선구이",
+          "price": 13500,
+          "price_text": "13,500원",
+          "description": "가자미, 갈치, 삼치, 고등어, 열기 등 다양한 생선구",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "대구탕",
+          "price": 13500,
+          "price_text": "13,500원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "대구지리",
+          "price": 13500,
+          "price_text": "13,500원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "동태탕",
+          "price": 11500,
+          "price_text": "11,500원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "알탕",
+          "price": 13500,
+          "price_text": "13,500원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "대구뽈찜(중)",
+          "price": 40000,
+          "price_text": "40,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "대구뽈찜(대)",
+          "price": 50000,
+          "price_text": "50,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "모듬생선구이",
+          "price": 40000,
+          "price_text": "40,000원",
+          "description": null,
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": {
+        "min": 11500,
+        "max": 50000
+      },
+      "facilities": null,
+      "business_hours": {
+        "fri": {
+          "open": "11:00",
+          "close": "21:00",
+          "break": "15:30~16:40",
+          "last_order": null
+        },
+        "sat": {
+          "open": "11:00",
+          "close": "21:00",
+          "break": "15:30~16:40",
+          "last_order": null
+        },
+        "sun": null,
+        "mon": {
+          "open": "11:00",
+          "close": "21:00",
+          "break": "15:30~16:40",
+          "last_order": null
+        },
+        "tue": {
+          "open": "11:00",
+          "close": "21:00",
+          "break": "15:30~16:40",
+          "last_order": null
+        },
+        "wed": {
+          "open": "11:00",
+          "close": "21:00",
+          "break": "15:30~16:40",
+          "last_order": null
+        },
+        "thu": {
+          "open": "11:00",
+          "close": "21:00",
+          "break": "15:30~16:40",
+          "last_order": null
+        }
+      },
+      "business_hours_raw": "영업 중 / 21:00 까지 / 금(11/6)|11:00 ~ 21:00|15:30 ~ 16:40 브레이크타임 / 토(11/7)|11:00 ~ 21:00|15:30 ~ 16:40 브레이크타임 / 일(11/8)|휴무일 / 월(11/9)|11:00 ~ 21:00|15:30 ~ 16:40 브레이크타임 / 화(11/10)|11:00 ~ 21:00|15:30 ~ 16:40 브레이크타임 / 수(11/11)|11:00 ~ 21:00|15:30 ~ 16:40 브레이크타임 / 목(11/12)|11:00 ~ 21:00|15:30 ~ 16:40 브레이크타임",
+      "closed_days": [
+        "일요일 휴무일"
+      ],
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": {
+        "text": "생선구이 가성비 맛집 \"신선식당\" 점심 웨이팅, 주차 … 11시 50분쯤 도착했는데도 줄이 이마이 길었어요 웨이팅 없이 오시려면 더 일찍 오셔야 할 것 같습니다",
+        "source": "blog",
+        "evidence": "카카오맵 블로그 리뷰 미리보기"
+      },
+      "status": "ok"
+    },
+    {
+      "place_id": "1973757570",
+      "url": "https://place.map.kakao.com/1973757570",
+      "name": "양경옥",
+      "branch": null,
+      "category": "냉면",
+      "address": "부산 수영구 민락본동로31번길 16 1층",
+      "phone": null,
+      "menus": [
+        {
+          "name": "평양냉면",
+          "price": 14000,
+          "price_text": "14,000원",
+          "description": "적당히 짭짤하고 육향 깊은 육수에 얇고 몽글한 메밀면과",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "비빔냉면",
+          "price": 14000,
+          "price_text": "14,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "맑은곰탕",
+          "price": 14000,
+          "price_text": "14,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "편육",
+          "price": 10000,
+          "price_text": "10,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "편육 반접시",
+          "price": 5000,
+          "price_text": "5,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "소불고기(300g)",
+          "price": 25000,
+          "price_text": "25,000원",
+          "description": null,
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": {
+        "min": 5000,
+        "max": 25000
+      },
+      "facilities": [
+        "단체석",
+        "콜키지 무료",
+        "유아의자 있음"
+      ],
+      "business_hours": {
+        "fri": {
+          "open": "11:00",
+          "close": "17:00",
+          "break": null,
+          "last_order": "16:30"
+        },
+        "sat": {
+          "open": "11:00",
+          "close": "17:00",
+          "break": null,
+          "last_order": "16:30"
+        },
+        "sun": {
+          "open": "11:00",
+          "close": "17:00",
+          "break": null,
+          "last_order": "16:30"
+        },
+        "mon": null,
+        "tue": {
+          "open": "11:00",
+          "close": "17:00",
+          "break": null,
+          "last_order": "16:30"
+        },
+        "wed": {
+          "open": "11:00",
+          "close": "17:00",
+          "break": null,
+          "last_order": "16:30"
+        },
+        "thu": {
+          "open": "11:00",
+          "close": "17:00",
+          "break": null,
+          "last_order": "16:30"
+        }
+      },
+      "business_hours_raw": "금(11/6)|11:00 ~ 17:00|16:30 라스트오더 / 토(11/7)|11:00 ~ 17:00|16:30 라스트오더 / 일(11/8)|11:00 ~ 17:00|16:30 라스트오더 / 월(11/9)|휴무일 / 화(11/10)|11:00 ~ 17:00|16:30 라스트오더 / 수(11/11)|11:00 ~ 17:00|16:30 라스트오더 / 목(11/12)|11:00 ~ 17:00|16:30 라스트오더",
+      "closed_days": [
+        "월요일 휴무일"
+      ],
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": null,
+      "status": "ok"
+    },
+    {
+      "place_id": "16217434",
+      "url": "https://place.map.kakao.com/16217434",
+      "name": "부영집",
+      "branch": null,
+      "category": "장어",
+      "address": "부산 서구 자갈치로 12-1",
+      "phone": "051-243-6495",
+      "menus": [
+        {
+          "name": "꼼장어양념구이(소)",
+          "price": 40000,
+          "price_text": "40,000원",
+          "description": "매콤달콤한 양념에 볶아 고소함 더한 꼼장어",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "꼼장어통구이(반반)",
+          "price": 60000,
+          "price_text": "60,000원",
+          "description": "껍질째 통으로 구워 겉은 바삭하고 속은 쫄깃한 꼼장어",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "꼼장어깻잎덮개찜(반반)",
+          "price": 60000,
+          "price_text": "60,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "꼼장어깻잎덮개찜(소)",
+          "price": 40000,
+          "price_text": "40,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "꼼장어깻잎덮개찜(중)",
+          "price": 50000,
+          "price_text": "50,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "꼼장어깻잎덮개찜(대)",
+          "price": 70000,
+          "price_text": "70,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "꼼장어깻잎덮개찜(특대)",
+          "price": 85000,
+          "price_text": "85,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "꼼장어소금구이(반반)",
+          "price": 60000,
+          "price_text": "60,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "꼼장어소금구이(소)",
+          "price": 40000,
+          "price_text": "40,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "꼼장어소금구이(중)",
+          "price": 50000,
+          "price_text": "50,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "꼼장어소금구이(대)",
+          "price": 70000,
+          "price_text": "70,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "꼼장어소금구이(특대)",
+          "price": 85000,
+          "price_text": "85,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "꼼장어양념구이(반반)",
+          "price": 60000,
+          "price_text": "60,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "꼼장어양념구이(중)",
+          "price": 50000,
+          "price_text": "50,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "꼼장어양념구이(대)",
+          "price": 70000,
+          "price_text": "70,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "꼼장어양념구이(특대)",
+          "price": 85000,
+          "price_text": "85,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "꼼장어통구이(소)",
+          "price": 40000,
+          "price_text": "40,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "꼼장어통구이(중)",
+          "price": 50000,
+          "price_text": "50,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "꼼장어통구이(대)",
+          "price": 70000,
+          "price_text": "70,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "꼼장어통구이(특대)",
+          "price": 85000,
+          "price_text": "85,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "꼼장어수육(반반)",
+          "price": 60000,
+          "price_text": "60,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "꼼장어수육(소)",
+          "price": 40000,
+          "price_text": "40,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "꼼장어수육(중)",
+          "price": 50000,
+          "price_text": "50,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "꼼장어수육(대)",
+          "price": 70000,
+          "price_text": "70,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "꼼장어수육(특대)",
+          "price": 85000,
+          "price_text": "85,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "장어구이(반반)",
+          "price": 60000,
+          "price_text": "60,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "장어구이(소)",
+          "price": 40000,
+          "price_text": "40,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "장어구이(중)",
+          "price": 50000,
+          "price_text": "50,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "장어구이(대)",
+          "price": 70000,
+          "price_text": "70,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "장어구이(특대)",
+          "price": 85000,
+          "price_text": "85,000원",
+          "description": null,
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": {
+        "min": 40000,
+        "max": 85000
+      },
+      "facilities": [
+        "테라스",
+        "고기구워주는 집"
+      ],
+      "business_hours": {
+        "fri": {
+          "open": "12:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        },
+        "sat": {
+          "open": "12:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        },
+        "sun": {
+          "open": "12:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        },
+        "mon": {
+          "open": "12:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        },
+        "tue": {
+          "open": "12:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        },
+        "wed": {
+          "open": "12:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        },
+        "thu": null
+      },
+      "business_hours_raw": "영업 중 / 22:00 까지 / 금(11/6)|12:00 ~ 22:00 / 토(11/7)|12:00 ~ 22:00 / 일(11/8)|12:00 ~ 22:00 / 월(11/9)|12:00 ~ 22:00 / 화(11/10)|12:00 ~ 22:00 / 수(11/11)|12:00 ~ 22:00 / 목(11/12)|휴무일",
+      "closed_days": [
+        "목요일 휴무일"
+      ],
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": null,
+      "status": "ok"
+    },
+    {
+      "place_id": "16400014",
+      "url": "https://place.map.kakao.com/16400014",
+      "name": "작은시장횟집",
+      "branch": null,
+      "category": "회",
+      "address": "부산 영도구 작은시장1길 16",
+      "phone": "051-415-5041",
+      "menus": [
+        {
+          "name": "회정식(소)",
+          "price": 12000,
+          "price_text": "12,000원",
+          "description": "신선한 회와 매운탕, 다양한 밑반찬이 포함된 회정식",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "회정식(중)",
+          "price": 15000,
+          "price_text": "15,000원",
+          "description": "쫀득한 회와 매운탕, 다양한 밑반찬이 포함된 한 상",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "전복물회(중)",
+          "price": 20000,
+          "price_text": "20,000원",
+          "description": "전복과 아삭한 채소가 듬뿍 들어간 새콤매콤한 물회",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "모듬회(4~5인)",
+          "price": 100000,
+          "price_text": "100,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "모듬회(3~4인)",
+          "price": 70000,
+          "price_text": "70,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "모듬회(2~3인)",
+          "price": 50000,
+          "price_text": "50,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "모듬회(2인)",
+          "price": 40000,
+          "price_text": "40,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "모듬회(1인)",
+          "price": 30000,
+          "price_text": "30,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "회정식(대)",
+          "price": 20000,
+          "price_text": "20,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "회덮밥(소)",
+          "price": 12000,
+          "price_text": "12,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "회덮밥(중)",
+          "price": 15000,
+          "price_text": "15,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "회덮밥(대)",
+          "price": 20000,
+          "price_text": "20,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "물회(소)",
+          "price": 12000,
+          "price_text": "12,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "물회(중)",
+          "price": 15000,
+          "price_text": "15,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "물회(대)",
+          "price": 20000,
+          "price_text": "20,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "도다리(소)",
+          "price": 15000,
+          "price_text": "15,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "도다리(중)",
+          "price": 20000,
+          "price_text": "20,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "전복물회(소)",
+          "price": 15000,
+          "price_text": "15,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "우럭구이",
+          "price": 20000,
+          "price_text": "20,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "생선구이",
+          "price": 20000,
+          "price_text": "20,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "우럭탕(1인)(계절)",
+          "price": 15000,
+          "price_text": "15,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "도다리쑥국(1인)(계절)",
+          "price": 15000,
+          "price_text": "15,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "물메기탕",
+          "price": 15000,
+          "price_text": "15,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "고급어종",
+          "price": null,
+          "price_text": "변동가격",
+          "description": null,
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": {
+        "min": 12000,
+        "max": 100000
+      },
+      "facilities": [
+        "단체석",
+        "프라이빗룸"
+      ],
+      "business_hours": {
+        "fri": {
+          "open": "11:00",
+          "close": "21:00",
+          "break": null,
+          "last_order": null
+        },
+        "sat": {
+          "open": "11:00",
+          "close": "21:00",
+          "break": null,
+          "last_order": null
+        },
+        "sun": {
+          "open": "11:00",
+          "close": "21:00",
+          "break": null,
+          "last_order": null
+        },
+        "mon": {
+          "open": "11:00",
+          "close": "21:00",
+          "break": null,
+          "last_order": null
+        },
+        "tue": {
+          "open": "11:00",
+          "close": "21:00",
+          "break": null,
+          "last_order": null
+        },
+        "wed": {
+          "open": "11:00",
+          "close": "21:00",
+          "break": null,
+          "last_order": null
+        },
+        "thu": {
+          "open": "11:00",
+          "close": "21:00",
+          "break": null,
+          "last_order": null
+        }
+      },
+      "business_hours_raw": "영업 중 / 21:00 까지 / 금(11/6)|11:00 ~ 21:00 / 토(11/7)|11:00 ~ 21:00 / 일(11/8)|11:00 ~ 21:00 / 월(11/9)|11:00 ~ 21:00 / 화(11/10)|11:00 ~ 21:00 / 수(11/11)|11:00 ~ 21:00 / 목(11/12)|11:00 ~ 21:00",
+      "closed_days": null,
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": null,
+      "status": "ok"
+    },
+    {
+      "place_id": "26599991",
+      "url": "https://place.map.kakao.com/26599991",
+      "name": "국보미역",
+      "branch": "본점",
+      "category": "한식",
+      "address": "부산 기장군 기장읍 공수1길 3",
+      "phone": "051-723-2332",
+      "menus": [
+        {
+          "name": "전복 미역죽",
+          "price": 20000,
+          "price_text": "20,000원",
+          "description": "전복과 부드러운 미역이 어우러진 진한 국물의 미역죽",
+          "badges": [
+            "사장님 추천",
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "순살 가자미 미역국",
+          "price": 17000,
+          "price_text": "17,000원",
+          "description": "뼈 없이 큼직한 순살 가자미와 부드러운 미역이 어우러진",
+          "badges": [
+            "사장님 추천",
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "소고기 미역국",
+          "price": 18000,
+          "price_text": "18,000원",
+          "description": "잘게 찢은 소고기와 부드러운 미역이 진하고 담백한 국물",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "국보 미역국 (가자미)",
+          "price": 17000,
+          "price_text": "17,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "얼큰 소고기 미역국",
+          "price": 18000,
+          "price_text": "18,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "순살 전복 가자미 미역국",
+          "price": 22000,
+          "price_text": "22,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "전복 황태 미역국",
+          "price": 22000,
+          "price_text": "22,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "전복 조개 미역국",
+          "price": 22000,
+          "price_text": "22,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "전복 소고기 미역국",
+          "price": 23000,
+          "price_text": "23,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "얼큰 전복 소고기 미역국",
+          "price": 23000,
+          "price_text": "23,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "황태 미역국",
+          "price": 17000,
+          "price_text": "17,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "조개 미역국",
+          "price": 17000,
+          "price_text": "17,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "전복 미역국",
+          "price": 21000,
+          "price_text": "21,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "전복구이 (중) (8마리)",
+          "price": 40000,
+          "price_text": "40,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "전복회무침 (소) (2마리)",
+          "price": 15000,
+          "price_text": "15,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "국보빈대떡 (소)",
+          "price": 3000,
+          "price_text": "3,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "전복 가자미 미역국",
+          "price": 22000,
+          "price_text": "22,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "전복구이 (대) (12마리)",
+          "price": 50000,
+          "price_text": "50,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "국보빈대떡 (대)",
+          "price": 10000,
+          "price_text": "10,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "전복회무침 (중) (5마리)",
+          "price": 30000,
+          "price_text": "30,000원",
+          "description": null,
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": {
+        "min": 3000,
+        "max": 50000
+      },
+      "facilities": [
+        "단체석",
+        "유아의자 있음"
+      ],
+      "business_hours": {
+        "fri": {
+          "open": "08:30",
+          "close": "19:40",
+          "break": null,
+          "last_order": null
+        },
+        "sat": {
+          "open": "08:30",
+          "close": "20:30",
+          "break": null,
+          "last_order": null
+        },
+        "sun": {
+          "open": "08:30",
+          "close": "20:30",
+          "break": null,
+          "last_order": null
+        },
+        "mon": {
+          "open": "08:30",
+          "close": "19:40",
+          "break": null,
+          "last_order": null
+        },
+        "tue": {
+          "open": "08:30",
+          "close": "19:40",
+          "break": null,
+          "last_order": null
+        },
+        "wed": {
+          "open": "08:30",
+          "close": "19:40",
+          "break": null,
+          "last_order": null
+        },
+        "thu": {
+          "open": "08:30",
+          "close": "19:40",
+          "break": null,
+          "last_order": null
+        }
+      },
+      "business_hours_raw": "영업 중 / 19:40 까지 / 금(11/6)|08:30 ~ 19:40 / 토(11/7)|08:30 ~ 20:30 / 일(11/8)|08:30 ~ 20:30 / 월(11/9)|08:30 ~ 19:40 / 화(11/10)|08:30 ~ 19:40 / 수(11/11)|08:30 ~ 19:40 / 목(11/12)|08:30 ~ 19:40",
+      "closed_days": null,
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": null,
+      "status": "ok"
+    },
+    {
+      "place_id": "262646861",
+      "url": "https://place.map.kakao.com/262646861",
+      "name": "올바릇 식당",
+      "branch": "기장본점",
+      "category": "해물,생선",
+      "address": "부산 기장군 일광읍 문오성길 61 1,2층",
+      "phone": "070-8845-7277",
+      "menus": [
+        {
+          "name": "꼬막육전대판",
+          "price": 39000,
+          "price_text": "39,000원",
+          "description": "쫄깃한 새꼬막무침과 달콤매콤한 꼬막비빔밥, 고소한 소고",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "꼬막대판",
+          "price": 39000,
+          "price_text": "39,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "꼬막일인상",
+          "price": 13000,
+          "price_text": "13,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "소고기육전",
+          "price": 13000,
+          "price_text": "13,000원",
+          "description": null,
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": {
+        "min": 13000,
+        "max": 39000
+      },
+      "facilities": [
+        "단체석",
+        "유아의자 있음"
+      ],
+      "business_hours": {
+        "fri": {
+          "open": "11:00",
+          "close": "20:00",
+          "break": "16:00~17:00",
+          "last_order": null
+        },
+        "sat": {
+          "open": "11:00",
+          "close": "20:00",
+          "break": null,
+          "last_order": null
+        },
+        "sun": {
+          "open": "11:00",
+          "close": "20:00",
+          "break": null,
+          "last_order": null
+        },
+        "mon": {
+          "open": "11:00",
+          "close": "20:00",
+          "break": "16:00~17:00",
+          "last_order": null
+        },
+        "tue": {
+          "open": "11:00",
+          "close": "20:00",
+          "break": "16:00~17:00",
+          "last_order": null
+        },
+        "wed": {
+          "open": "11:00",
+          "close": "20:00",
+          "break": "16:00~17:00",
+          "last_order": null
+        },
+        "thu": {
+          "open": "11:00",
+          "close": "20:00",
+          "break": "16:00~17:00",
+          "last_order": null
+        }
+      },
+      "business_hours_raw": "영업 중 / 20:00 까지 / 금(11/6)|11:00 ~ 20:00|16:00 ~ 17:00 브레이크타임 / 토(11/7)|11:00 ~ 20:00 / 일(11/8)|11:00 ~ 20:00 / 월(11/9)|11:00 ~ 20:00|16:00 ~ 17:00 브레이크타임 / 화(11/10)|11:00 ~ 20:00|16:00 ~ 17:00 브레이크타임 / 수(11/11)|11:00 ~ 20:00|16:00 ~ 17:00 브레이크타임 / 목(11/12)|11:00 ~ 20:00|16:00 ~ 17:00 브레이크타임",
+      "closed_days": null,
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": {
+        "text": "꼬막비빔밥을 맛볼 수 있는 곳인데 주말에는 항상 웨이팅이 있는 기장맛집이에요 … 기장 올바릇식당 본점 주차부터 2층 웨이팅 팁",
+        "source": "blog",
+        "evidence": "카카오맵 블로그 리뷰 미리보기"
+      },
+      "status": "ok"
+    },
+    {
+      "place_id": "1193211263",
+      "url": "https://place.map.kakao.com/1193211263",
+      "name": "해녀할매집",
+      "branch": null,
+      "category": "해물,생선",
+      "address": "부산 기장군 기장읍 동암해안길 39-3 1-2층",
+      "phone": "010-7536-3193",
+      "menus": [
+        {
+          "name": "전복죽 (자연산)",
+          "price": 20000,
+          "price_text": "20,000원",
+          "description": "전복 내장과 큼직한 전복이 듬뿍 들어간 고소하고 녹진한",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "해물탕",
+          "price": 45000,
+          "price_text": "45,000원",
+          "description": "키조개, 낙지, 전복, 가리비 등 다양한 해산물이 푸짐",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "해물라면",
+          "price": 5000,
+          "price_text": "5,000원",
+          "description": "가리비, 홍합, 바지락 등 해산물이 푸짐히 들어간 시원",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "따개비죽",
+          "price": 12000,
+          "price_text": "12,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "해산물 (소)",
+          "price": 30000,
+          "price_text": "30,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "해산물 (중)",
+          "price": 40000,
+          "price_text": "40,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "해산물 (대)",
+          "price": 50000,
+          "price_text": "50,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "해삼",
+          "price": 10000,
+          "price_text": "10,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "소라",
+          "price": 10000,
+          "price_text": "10,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "멍게",
+          "price": 10000,
+          "price_text": "10,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "개불",
+          "price": 20000,
+          "price_text": "20,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "낙지",
+          "price": 20000,
+          "price_text": "20,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "회",
+          "price": 45000,
+          "price_text": "45,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "문어숙회",
+          "price": 20000,
+          "price_text": "20,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "밀고동",
+          "price": 20000,
+          "price_text": "20,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "홍삼",
+          "price": 20000,
+          "price_text": "20,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "멍게비빔밥",
+          "price": 10000,
+          "price_text": "10,000원",
+          "description": null,
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": {
+        "min": 5000,
+        "max": 50000
+      },
+      "facilities": [
+        "단체석",
+        "유아의자 있음"
+      ],
+      "business_hours": {
+        "fri": {
+          "open": "09:30",
+          "close": "21:00",
+          "break": "15:00~17:00",
+          "last_order": null
+        },
+        "sat": {
+          "open": "09:30",
+          "close": "21:00",
+          "break": "15:00~17:00",
+          "last_order": null
+        },
+        "sun": {
+          "open": "09:30",
+          "close": "21:00",
+          "break": "15:00~17:00",
+          "last_order": null
+        },
+        "mon": {
+          "open": "09:30",
+          "close": "21:00",
+          "break": "15:00~17:00",
+          "last_order": null
+        },
+        "tue": null,
+        "wed": null,
+        "thu": {
+          "open": "09:30",
+          "close": "21:00",
+          "break": "15:00~17:00",
+          "last_order": null
+        }
+      },
+      "business_hours_raw": "영업 중 / 21:00 까지 / 금(11/6)|09:30 ~ 21:00|15:00 ~ 17:00 브레이크타임 / 토(11/7)|09:30 ~ 21:00|15:00 ~ 17:00 브레이크타임 / 일(11/8)|09:30 ~ 21:00|15:00 ~ 17:00 브레이크타임 / 월(11/9)|09:30 ~ 21:00|15:00 ~ 17:00 브레이크타임 / 화(11/10)|휴무일 / 수(11/11)|휴무일 / 목(11/12)|09:30 ~ 21:00|15:00 ~ 17:00 브레이크타임",
+      "closed_days": [
+        "화요일 휴무일",
+        "수요일 휴무일"
+      ],
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": null,
+      "status": "ok"
+    },
+    {
+      "place_id": "19147489",
+      "url": "https://place.map.kakao.com/19147489",
+      "name": "간판없는김치찌개",
+      "branch": null,
+      "category": "찌개,전골",
+      "address": "부산 중구 중구로29번길 10-6",
+      "phone": null,
+      "menus": [
+        {
+          "name": "김치찌개",
+          "price": 7000,
+          "price_text": "7,000원",
+          "description": "비계 많은 돼지고기와 어묵, 신김치가 자작하게 졸여진",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "라면사리",
+          "price": null,
+          "price_text": null,
+          "description": null,
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": {
+        "min": 7000,
+        "max": 7000
+      },
+      "facilities": null,
+      "business_hours": {
+        "fri": {
+          "open": "10:00",
+          "close": "20:00",
+          "break": null,
+          "last_order": null
+        },
+        "sat": {
+          "open": "10:00",
+          "close": "20:00",
+          "break": null,
+          "last_order": null
+        },
+        "sun": {
+          "open": "10:00",
+          "close": "20:00",
+          "break": null,
+          "last_order": null
+        },
+        "mon": {
+          "open": "10:00",
+          "close": "20:00",
+          "break": null,
+          "last_order": null
+        },
+        "tue": {
+          "open": "10:00",
+          "close": "20:00",
+          "break": null,
+          "last_order": null
+        },
+        "wed": {
+          "open": "10:00",
+          "close": "20:00",
+          "break": null,
+          "last_order": null
+        },
+        "thu": {
+          "open": "10:00",
+          "close": "20:00",
+          "break": null,
+          "last_order": null
+        }
+      },
+      "business_hours_raw": "영업 중 / 20:00 까지 / 금(11/6)|10:00 ~ 20:00 / 토(11/7)|10:00 ~ 20:00 / 일(11/8)|10:00 ~ 20:00 / 월(11/9)|10:00 ~ 20:00 / 화(11/10)|10:00 ~ 20:00 / 수(11/11)|10:00 ~ 20:00 / 목(11/12)|10:00 ~ 20:00",
+      "closed_days": null,
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": null,
+      "status": "ok"
+    },
+    {
+      "place_id": "21445112",
+      "url": "https://place.map.kakao.com/21445112",
+      "name": "신창토스트",
+      "branch": null,
+      "category": "토스트",
+      "address": "부산 중구 광복로39번길 21-1 1층",
+      "phone": "051-245-1724",
+      "menus": [
+        {
+          "name": "스페샬토스트",
+          "price": 4500,
+          "price_text": "4,500원",
+          "description": "계란지단, 햄, 치즈, 양배추가 들어간 바삭한 옛날식",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "콩국",
+          "price": 3500,
+          "price_text": "3,500원",
+          "description": "고소하고 진한 따뜻한 콩국물에 쫄깃한 인절미 고명이 더",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "햄토스트",
+          "price": 3500,
+          "price_text": "3,500원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "쨈토스트",
+          "price": 2000,
+          "price_text": "2,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "치즈토스트",
+          "price": 4000,
+          "price_text": "4,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "토스트",
+          "price": 3000,
+          "price_text": "3,000원",
+          "description": null,
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": {
+        "min": 2000,
+        "max": 4500
+      },
+      "facilities": [
+        "채식 메뉴",
+        "바테이블"
+      ],
+      "business_hours": {
+        "fri": {
+          "open": "07:00",
+          "close": "17:30",
+          "break": null,
+          "last_order": null
+        },
+        "sat": {
+          "open": "07:00",
+          "close": "17:30",
+          "break": null,
+          "last_order": null
+        },
+        "sun": {
+          "open": "07:00",
+          "close": "17:30",
+          "break": null,
+          "last_order": null
+        },
+        "mon": {
+          "open": "07:00",
+          "close": "17:30",
+          "break": null,
+          "last_order": null
+        },
+        "tue": {
+          "open": "07:00",
+          "close": "17:30",
+          "break": null,
+          "last_order": null
+        },
+        "wed": null,
+        "thu": {
+          "open": "07:00",
+          "close": "17:30",
+          "break": null,
+          "last_order": null
+        }
+      },
+      "business_hours_raw": "금(11/6)|07:00 ~ 17:30 / 토(11/7)|07:00 ~ 17:30 / 일(11/8)|07:00 ~ 17:30 / 월(11/9)|07:00 ~ 17:30 / 화(11/10)|07:00 ~ 17:30 / 수(11/11)|휴무일 / 목(11/12)|07:00 ~ 17:30",
+      "closed_days": [
+        "수요일 휴무일"
+      ],
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": null,
+      "status": "ok"
+    },
+    {
+      "place_id": "1307679203",
+      "url": "https://place.map.kakao.com/1307679203",
+      "name": "문토스트",
+      "branch": null,
+      "category": "토스트",
+      "address": "부산 해운대구 송정해변로 16 1층",
+      "phone": "010-4559-4559",
+      "menus": [
+        {
+          "name": "매운치즈(반달토스트 3700원)",
+          "price": 6900,
+          "price_text": "6,900원",
+          "description": null,
+          "badges": [
+            "사장님 추천"
+          ]
+        },
+        {
+          "name": "모짜렐라치즈(반달토스트3300원)",
+          "price": 6000,
+          "price_text": "6,000원",
+          "description": "두툼한 계란과 쭉 늘어나는 부드러운 모짜렐라 치즈 토스",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "매운토스트",
+          "price": 5900,
+          "price_text": "5,900원",
+          "description": "반달",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "치즈먹은새우(반달토스트)",
+          "price": 5000,
+          "price_text": "5,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "아메리카노",
+          "price": 2500,
+          "price_text": "2,500원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "카페라떼",
+          "price": 4000,
+          "price_text": "4,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "바베큐치즈(반달토스트 )",
+          "price": 5000,
+          "price_text": "5,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "베이컨치즈(반달토스트)",
+          "price": 5000,
+          "price_text": "5,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "닭가슴살치즈(반달토스트)",
+          "price": 5000,
+          "price_text": "5,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "고구마치즈(반달토스트)",
+          "price": 5000,
+          "price_text": "5,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "카라멜마끼아또",
+          "price": 4500,
+          "price_text": "4,500원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "스팀우유",
+          "price": 2500,
+          "price_text": "2,500원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "문토스트",
+          "price": 5000,
+          "price_text": "5,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "밀크커피",
+          "price": 2500,
+          "price_text": "2,500원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "드립헤이즐넛",
+          "price": 3000,
+          "price_text": "3,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "카페모카",
+          "price": 4500,
+          "price_text": "4,500원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "바닐라/녹차라떼",
+          "price": 4000,
+          "price_text": "4,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "코코아/율무라떼",
+          "price": 4000,
+          "price_text": "4,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "고구마라떼",
+          "price": 4500,
+          "price_text": "4,500원",
+          "description": null,
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": {
+        "min": 2500,
+        "max": 6900
+      },
+      "facilities": [
+        "바테이블"
+      ],
+      "business_hours": {
+        "fri": {
+          "open": "14:30",
+          "close": "02:30",
+          "break": null,
+          "last_order": null
+        },
+        "sat": {
+          "open": "14:30",
+          "close": "02:30",
+          "break": null,
+          "last_order": null
+        },
+        "sun": {
+          "open": "14:30",
+          "close": "02:30",
+          "break": null,
+          "last_order": null
+        },
+        "mon": {
+          "open": "14:30",
+          "close": "02:30",
+          "break": null,
+          "last_order": null
+        },
+        "tue": null,
+        "wed": {
+          "open": "14:30",
+          "close": "02:30",
+          "break": null,
+          "last_order": null
+        },
+        "thu": {
+          "open": "14:30",
+          "close": "02:30",
+          "break": null,
+          "last_order": null
+        }
+      },
+      "business_hours_raw": "영업 중 / 02:30 까지 / 금(11/6)|14:30 ~ 02:30 / 토(11/7)|14:30 ~ 02:30 / 일(11/8)|14:30 ~ 02:30 / 월(11/9)|14:30 ~ 02:30 / 화(11/10)|휴무일 / 수(11/11)|14:30 ~ 02:30 / 목(11/12)|14:30 ~ 02:30",
+      "closed_days": [
+        "화요일 휴무일"
+      ],
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": null,
+      "status": "ok"
+    },
+    {
+      "place_id": "11061484",
+      "url": "https://place.map.kakao.com/11061484",
+      "name": "복성반점",
+      "branch": null,
+      "category": "중국요리",
+      "address": "부산 사하구 하신중앙로 289 1층",
+      "phone": "051-291-7834",
+      "menus": [
+        {
+          "name": "짬뽕",
+          "price": 10000,
+          "price_text": "10,000원",
+          "description": "한치, 새우, 조갯살 등 해산물이 듬뿍 올라가고 국물이",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "짜장면",
+          "price": 7000,
+          "price_text": "7,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "군만두",
+          "price": 7000,
+          "price_text": "7,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "우동",
+          "price": 10000,
+          "price_text": "10,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "간짜장",
+          "price": 10000,
+          "price_text": "10,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "울면",
+          "price": 10000,
+          "price_text": "10,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "유니짜장",
+          "price": 11000,
+          "price_text": "11,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "삼선짜장",
+          "price": 11000,
+          "price_text": "11,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "삼선간짜장",
+          "price": 11000,
+          "price_text": "11,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "삼선우동",
+          "price": 11000,
+          "price_text": "11,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "삼선짬뽕",
+          "price": 11000,
+          "price_text": "11,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "사천짜장",
+          "price": 11000,
+          "price_text": "11,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "사천짬뽕",
+          "price": 12000,
+          "price_text": "12,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "기스면",
+          "price": 12000,
+          "price_text": "12,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "쟁반짜장",
+          "price": 24000,
+          "price_text": "24,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "볶음밥",
+          "price": 10000,
+          "price_text": "10,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "짜장밥",
+          "price": 10000,
+          "price_text": "10,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "짬뽕밥",
+          "price": 10000,
+          "price_text": "10,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "잡채밥",
+          "price": 11000,
+          "price_text": "11,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "오무라이스",
+          "price": 11000,
+          "price_text": "11,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "돈부리",
+          "price": 12000,
+          "price_text": "12,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "삼선볶음밥",
+          "price": 12000,
+          "price_text": "12,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "삼선짬뽕밥",
+          "price": 12000,
+          "price_text": "12,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "사천짬뽕밥",
+          "price": 12000,
+          "price_text": "12,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "삼선짜장밥",
+          "price": 12000,
+          "price_text": "12,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "새우볶음밥",
+          "price": 12000,
+          "price_text": "12,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "사천짜장밥",
+          "price": 12000,
+          "price_text": "12,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "잡탕밥",
+          "price": 28000,
+          "price_text": "28,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "유산슬밥",
+          "price": 28000,
+          "price_text": "28,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "짬뽕탕",
+          "price": 11000,
+          "price_text": "11,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "삼선짬뽕탕",
+          "price": 25000,
+          "price_text": "25,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "탕수육",
+          "price": 28000,
+          "price_text": "28,000원",
+          "description": null,
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": {
+        "min": 7000,
+        "max": 28000
+      },
+      "facilities": [
+        "단체석"
+      ],
+      "business_hours": {
+        "fri": {
+          "open": "11:00",
+          "close": "21:00",
+          "break": null,
+          "last_order": null
+        },
+        "sat": {
+          "open": "11:00",
+          "close": "21:00",
+          "break": null,
+          "last_order": null
+        },
+        "sun": {
+          "open": "11:00",
+          "close": "21:00",
+          "break": null,
+          "last_order": null
+        },
+        "mon": {
+          "open": "11:00",
+          "close": "21:00",
+          "break": null,
+          "last_order": null
+        },
+        "tue": null,
+        "wed": {
+          "open": "11:00",
+          "close": "21:00",
+          "break": null,
+          "last_order": null
+        },
+        "thu": {
+          "open": "11:00",
+          "close": "21:00",
+          "break": null,
+          "last_order": null
+        }
+      },
+      "business_hours_raw": "영업 중 / 21:00 까지 / 금(11/6)|11:00 ~ 21:00 / 토(11/7)|11:00 ~ 21:00 / 일(11/8)|11:00 ~ 21:00 / 월(11/9)|11:00 ~ 21:00 / 화(11/10)|휴무일 / 수(11/11)|11:00 ~ 21:00 / 목(11/12)|11:00 ~ 21:00",
+      "closed_days": [
+        "화요일 휴무일"
+      ],
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": null,
+      "status": "ok"
+    },
+    {
+      "place_id": "24075241",
+      "url": "https://place.map.kakao.com/24075241",
+      "name": "양평칼국수",
+      "branch": null,
+      "category": "칼국수",
+      "address": "부산 사하구 다대로 680-1 1층",
+      "phone": "051-265-0907",
+      "menus": [
+        {
+          "name": "양평칼국수",
+          "price": 8000,
+          "price_text": "8,000원",
+          "description": "닭육수로 끓인 칼국수로, 담백하고 진한 맛과 쫄깃한 면",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "해물파전",
+          "price": 16000,
+          "price_text": "16,000원",
+          "description": "오징어, 새우, 파가 듬뿍 들어가 겉은 바삭하고 속은",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "비빔칼국수",
+          "price": 9000,
+          "price_text": "9,000원",
+          "description": "칼국수 면에 새콤달콤매콤한 양념과 아삭한 야채가 어우러",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "멸치칼국수",
+          "price": 8000,
+          "price_text": "8,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "고기만두",
+          "price": 4000,
+          "price_text": "4,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "김치왕만두",
+          "price": 5000,
+          "price_text": "5,000원",
+          "description": null,
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": {
+        "min": 4000,
+        "max": 16000
+      },
+      "facilities": [
+        "단체석",
+        "유아의자 있음"
+      ],
+      "business_hours": {
+        "fri": {
+          "open": "11:00",
+          "close": "20:00",
+          "break": "15:30~17:00",
+          "last_order": "19:30"
+        },
+        "sat": {
+          "open": "11:00",
+          "close": "15:30",
+          "break": null,
+          "last_order": "15:00"
+        },
+        "sun": null,
+        "mon": {
+          "open": "11:00",
+          "close": "20:00",
+          "break": "15:30~17:00",
+          "last_order": "19:30"
+        },
+        "tue": {
+          "open": "11:00",
+          "close": "20:00",
+          "break": "15:30~17:00",
+          "last_order": "19:30"
+        },
+        "wed": {
+          "open": "11:00",
+          "close": "20:00",
+          "break": "15:30~17:00",
+          "last_order": "19:30"
+        },
+        "thu": {
+          "open": "11:00",
+          "close": "20:00",
+          "break": "15:30~17:00",
+          "last_order": "19:30"
+        }
+      },
+      "business_hours_raw": "영업 중 / 20:00 까지 / 금(11/6)|11:00 ~ 20:00|15:30 ~ 17:00 브레이크타임|19:30 라스트오더 / 토(11/7)|11:00 ~ 15:30|15:00 라스트오더 / 일(11/8)|휴무일 / 월(11/9)|11:00 ~ 20:00|15:30 ~ 17:00 브레이크타임|19:30 라스트오더 / 화(11/10)|11:00 ~ 20:00|15:30 ~ 17:00 브레이크타임|19:30 라스트오더 / 수(11/11)|11:00 ~ 20:00|15:30 ~ 17:00 브레이크타임|19:30 라스트오더 / 목(11/12)|11:00 ~ 20:00|15:30 ~ 17:00 브레이크타임|19:30 라스트오더",
+      "closed_days": [
+        "일요일 휴무일"
+      ],
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": {
+        "text": "(나까지 세팀 대기 중 … 문 열길 기다리고 있는데요",
+        "source": "blog",
+        "evidence": "카카오맵 블로그 리뷰 미리보기"
+      },
+      "status": "ok"
+    },
+    {
+      "place_id": "12437177",
+      "url": "https://place.map.kakao.com/12437177",
+      "name": "덕이네손수제비",
+      "branch": null,
+      "category": "수제비",
+      "address": "부산 사하구 다대로 698 1층",
+      "phone": "051-262-4959",
+      "menus": [
+        {
+          "name": "해물수제비",
+          "price": 8000,
+          "price_text": "8,000원",
+          "description": "동죽조개가 듬뿍 들어가 시원하고 깔끔한 수제비 양도 푸",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "해물파전",
+          "price": 14000,
+          "price_text": "14,000원",
+          "description": "오징어와 새우가 듬뿍 들어간 바삭하고 촉촉한 해물파전",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "생채 비빔밥",
+          "price": 8000,
+          "price_text": "8,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "얼큰수제비",
+          "price": 8000,
+          "price_text": "8,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "김치수제비",
+          "price": 8000,
+          "price_text": "8,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "얼큰칼국수",
+          "price": 8000,
+          "price_text": "8,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "들깨칼국수",
+          "price": 9000,
+          "price_text": "9,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "해물칼국수",
+          "price": 8000,
+          "price_text": "8,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "생채비빔밥",
+          "price": 8000,
+          "price_text": "8,000원",
+          "description": null,
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": {
+        "min": 8000,
+        "max": 14000
+      },
+      "facilities": [
+        "유아의자 있음"
+      ],
+      "business_hours": {
+        "fri": {
+          "open": "11:00",
+          "close": "21:00",
+          "break": null,
+          "last_order": "20:00"
+        },
+        "sat": {
+          "open": "11:00",
+          "close": "21:00",
+          "break": null,
+          "last_order": "20:00"
+        },
+        "sun": {
+          "open": "11:00",
+          "close": "21:00",
+          "break": null,
+          "last_order": "20:00"
+        },
+        "mon": {
+          "open": "11:00",
+          "close": "21:00",
+          "break": null,
+          "last_order": "20:00"
+        },
+        "tue": {
+          "open": "11:00",
+          "close": "21:00",
+          "break": null,
+          "last_order": "20:00"
+        },
+        "wed": null,
+        "thu": {
+          "open": "11:00",
+          "close": "21:00",
+          "break": null,
+          "last_order": "20:00"
+        }
+      },
+      "business_hours_raw": "영업 중 / 21:00 까지 / 금(11/6)|11:00 ~ 21:00|20:00 라스트오더 / 토(11/7)|11:00 ~ 21:00|20:00 라스트오더 / 일(11/8)|11:00 ~ 21:00|20:00 라스트오더 / 월(11/9)|11:00 ~ 21:00|20:00 라스트오더 / 화(11/10)|11:00 ~ 21:00|20:00 라스트오더 / 수(11/11)|휴무일 / 목(11/12)|11:00 ~ 21:00|20:00 라스트오더",
+      "closed_days": [
+        "수요일 휴무일"
+      ],
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": null,
+      "status": "ok"
+    }
+  ],
+  "extracted_at": "2026-11-06T18:20:30+09:00"
+}

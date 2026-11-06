@@ -1,0 +1,3177 @@
+{
+  "source": "kakaomap",
+  "places": [
+    {
+      "place_id": "686766181",
+      "url": "https://place.map.kakao.com/686766181",
+      "name": "인하순대국",
+      "branch": null,
+      "category": "순대",
+      "address": "서울 서초구 서초대로51길 31 1층",
+      "phone": "02-533-3080",
+      "menus": [
+        {
+          "name": "순대국",
+          "price": 10000,
+          "price_text": "10,000원",
+          "description": "잡내 없고 맑으며 깔끔한 국물에 푸짐한 순대와 고기가",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "우거지순대국",
+          "price": 12000,
+          "price_text": "12,000원",
+          "description": "두툼한 순대와 고기, 구수한 우거지와 들깨가루가 어우러",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "모듬",
+          "price": 22000,
+          "price_text": "22,000원",
+          "description": "머릿고기+순대",
+          "badges": []
+        },
+        {
+          "name": "수육",
+          "price": 35000,
+          "price_text": "35,000원",
+          "description": "머릿고기+오소리+순대",
+          "badges": []
+        },
+        {
+          "name": "순대국 (특)",
+          "price": 12000,
+          "price_text": "12,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "순대국정식",
+          "price": 14000,
+          "price_text": "14,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "내장만",
+          "price": 12000,
+          "price_text": "12,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "콩국수 (여름메뉴)",
+          "price": 11000,
+          "price_text": "11,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "인하순대",
+          "price": 16000,
+          "price_text": "16,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "술국",
+          "price": 18000,
+          "price_text": "18,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "전골",
+          "price": 35000,
+          "price_text": "35,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "내장볶음",
+          "price": 22000,
+          "price_text": "22,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "오소리",
+          "price": 22000,
+          "price_text": "22,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "오소리(대)",
+          "price": 35000,
+          "price_text": "35,000원",
+          "description": null,
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": {
+        "min": 10000,
+        "max": 35000
+      },
+      "facilities": null,
+      "business_hours": {
+        "fri": {
+          "open": "05:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        },
+        "sat": {
+          "open": "05:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        },
+        "sun": null,
+        "mon": {
+          "open": "05:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        },
+        "tue": {
+          "open": "05:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        },
+        "wed": {
+          "open": "05:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        },
+        "thu": {
+          "open": "05:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        }
+      },
+      "business_hours_raw": "영업 중 / 22:00 까지 / 금(11/6)|05:00 ~ 22:00 / 토(11/7)|05:00 ~ 22:00 / 일(11/8)|휴무일 / 월(11/9)|05:00 ~ 22:00 / 화(11/10)|05:00 ~ 22:00 / 수(11/11)|05:00 ~ 22:00 / 목(11/12)|05:00 ~ 22:00",
+      "closed_days": [
+        "일요일 휴무일"
+      ],
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": {
+        "text": "교대역 직장인이 추천하는 … 순대국 웨이팅 내돈내산 점심 맛집 … 잡내없이 맑은 국물과 담백한 맛이 일품인 순대국 웨이팅 맛집인데요",
+        "source": "blog",
+        "evidence": "카카오맵 블로그 리뷰 미리보기"
+      },
+      "status": "ok"
+    },
+    {
+      "place_id": "1509530716",
+      "url": "https://place.map.kakao.com/1509530716",
+      "name": "인하순대국 아들집",
+      "branch": null,
+      "category": "순대",
+      "address": "서울 서초구 반포대로28길 21-4 1층 102호",
+      "phone": "02-525-5023",
+      "menus": [
+        {
+          "name": "순대국",
+          "price": 10000,
+          "price_text": "10,000원",
+          "description": "다양한 고기와 내장, 당면순대가 들어간 진한 국물 순대",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "순대국정식",
+          "price": 14000,
+          "price_text": "14,000원",
+          "description": "순대국과 야채 피순대, 머리고기, 간이 함께 제공되는",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "모듬",
+          "price": 22000,
+          "price_text": "22,000원",
+          "description": "머릿고기+순대",
+          "badges": []
+        },
+        {
+          "name": "수육",
+          "price": 35000,
+          "price_text": "35,000원",
+          "description": "머릿고기+오소리+순대",
+          "badges": []
+        },
+        {
+          "name": "순대국 (특)",
+          "price": 12000,
+          "price_text": "12,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "인하순대",
+          "price": 16000,
+          "price_text": "16,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "술국",
+          "price": 18000,
+          "price_text": "18,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "전골",
+          "price": 35000,
+          "price_text": "35,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "내장볶음",
+          "price": 22000,
+          "price_text": "22,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "오소리",
+          "price": 22000,
+          "price_text": "22,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "오소리 (대)",
+          "price": 35000,
+          "price_text": "35,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "콩국수 (여름메뉴)",
+          "price": 11000,
+          "price_text": "11,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "내장만",
+          "price": 12000,
+          "price_text": "12,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "우거지순대국",
+          "price": 12000,
+          "price_text": "12,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "돼지껍데기",
+          "price": 15000,
+          "price_text": "15,000원",
+          "description": null,
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": {
+        "min": 10000,
+        "max": 35000
+      },
+      "facilities": [
+        "단체석",
+        "바테이블"
+      ],
+      "business_hours": {
+        "fri": {
+          "open": "05:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": "21:30"
+        },
+        "sat": {
+          "open": "05:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": "21:30"
+        },
+        "sun": {
+          "open": "05:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": "21:30"
+        },
+        "mon": {
+          "open": "05:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": "21:30"
+        },
+        "tue": {
+          "open": "05:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": "21:30"
+        },
+        "wed": {
+          "open": "05:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": "21:30"
+        },
+        "thu": {
+          "open": "05:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": "21:30"
+        }
+      },
+      "business_hours_raw": "영업 중 / 22:00 까지 / 금(11/6)|05:00 ~ 22:00|21:30 라스트오더 / 토(11/7)|05:00 ~ 22:00|21:30 라스트오더 / 일(11/8)|05:00 ~ 22:00|21:30 라스트오더 / 월(11/9)|05:00 ~ 22:00|21:30 라스트오더 / 화(11/10)|05:00 ~ 22:00|21:30 라스트오더 / 수(11/11)|05:00 ~ 22:00|21:30 라스트오더 / 목(11/12)|05:00 ~ 22:00|21:30 라스트오더",
+      "closed_days": null,
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": null,
+      "status": "ok"
+    },
+    {
+      "place_id": "27243699",
+      "url": "https://place.map.kakao.com/27243699",
+      "name": "방배순대국",
+      "branch": null,
+      "category": "순대",
+      "address": "서울 서초구 효령로31길 46 1층",
+      "phone": null,
+      "menus": [
+        {
+          "name": "순대국",
+          "price": 10000,
+          "price_text": "10,000원",
+          "description": "진한 국물에 머릿고기와 순대가 풍부하게 들어간 순대국",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "뼈해장국",
+          "price": 10000,
+          "price_text": "10,000원",
+          "description": "진하게 우러난 국물에 큼직한 뼈와 부드러운 고기가 듬뿍",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "선지해장국",
+          "price": 10000,
+          "price_text": "10,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "소내장탕",
+          "price": 11000,
+          "price_text": "11,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "아바이(순대국)",
+          "price": 11000,
+          "price_text": "11,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "아바이(순대만)",
+          "price": 11000,
+          "price_text": "11,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "양선지해장국",
+          "price": 11000,
+          "price_text": "11,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "맛보기순대",
+          "price": 4000,
+          "price_text": "4,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "맛보기편육",
+          "price": 4000,
+          "price_text": "4,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "물만두",
+          "price": 6000,
+          "price_text": "6,000원",
+          "description": null,
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": {
+        "min": 4000,
+        "max": 11000
+      },
+      "facilities": [
+        "단체석"
+      ],
+      "business_hours": {
+        "fri": {
+          "open": "09:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        },
+        "sat": {
+          "open": "09:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        },
+        "sun": null,
+        "mon": {
+          "open": "09:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        },
+        "tue": {
+          "open": "09:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        },
+        "wed": {
+          "open": "09:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        },
+        "thu": {
+          "open": "09:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        }
+      },
+      "business_hours_raw": "영업 중 / 22:00 까지 / 금(11/6)|09:00 ~ 22:00 / 토(11/7)|09:00 ~ 22:00 / 일(11/8)|휴무일 / 월(11/9)|09:00 ~ 22:00 / 화(11/10)|09:00 ~ 22:00 / 수(11/11)|09:00 ~ 22:00 / 목(11/12)|09:00 ~ 22:00",
+      "closed_days": [
+        "일요일 휴무일"
+      ],
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": {
+        "text": "여긴 점심시간만 되면 늘 웨이팅이에요 … 웨이팅도 생기는 모습을 보니 역시 많이들 찾는 집이구나 싶(데일리 혜오즈, 2026)",
+        "source": "blog",
+        "evidence": "카카오맵 블로그 리뷰 미리보기"
+      },
+      "status": "ok"
+    },
+    {
+      "place_id": "1119413400",
+      "url": "https://place.map.kakao.com/1119413400",
+      "name": "악소",
+      "branch": null,
+      "category": "카페",
+      "address": "서울 서초구 양재천로19길 14 1층",
+      "phone": "02-794-1142",
+      "menus": [
+        {
+          "name": "브랏 부어스트",
+          "price": 9900,
+          "price_text": "9,900원",
+          "description": "뉘른베르거 소시지와 자우어크라우트, 부드러운 브룃헨과",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "브룃헨과 햄",
+          "price": 4400,
+          "price_text": "4,400원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "브룃헨과 치즈",
+          "price": 4400,
+          "price_text": "4,400원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "브룃헨과 햄 치즈",
+          "price": 4900,
+          "price_text": "4,900원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "브룃헨과 치즈 살라미",
+          "price": 5400,
+          "price_text": "5,400원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "브룃헨과 치즈 플라이쉬케재",
+          "price": 6900,
+          "price_text": "6,900원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "브룃헨과 햄 치즈 에그",
+          "price": 6900,
+          "price_text": "6,900원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "커리 부어스트",
+          "price": 9900,
+          "price_text": "9,900원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "에스프레소",
+          "price": 4500,
+          "price_text": "4,500원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "아메리카노",
+          "price": 4500,
+          "price_text": "4,500원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "카페라떼",
+          "price": 5500,
+          "price_text": "5,500원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "바닐라라떼",
+          "price": 6000,
+          "price_text": "6,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "카페모카",
+          "price": 6500,
+          "price_text": "6,500원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "카라멜마끼아또",
+          "price": 6500,
+          "price_text": "6,500원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "캐모마일",
+          "price": 6000,
+          "price_text": "6,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "얼그레이",
+          "price": 5500,
+          "price_text": "5,500원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "아쌈",
+          "price": 5500,
+          "price_text": "5,500원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "아이스티",
+          "price": 5500,
+          "price_text": "5,500원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "초콜릿라떼",
+          "price": 6000,
+          "price_text": "6,000원",
+          "description": null,
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": {
+        "min": 4400,
+        "max": 9900
+      },
+      "facilities": [
+        "단체석",
+        "테라스"
+      ],
+      "business_hours": {
+        "fri": {
+          "open": "10:00",
+          "close": "19:00",
+          "break": null,
+          "last_order": null
+        },
+        "sat": {
+          "open": "10:00",
+          "close": "19:00",
+          "break": null,
+          "last_order": null
+        },
+        "sun": {
+          "open": "10:00",
+          "close": "19:00",
+          "break": null,
+          "last_order": null
+        },
+        "mon": {
+          "open": "10:00",
+          "close": "19:00",
+          "break": null,
+          "last_order": null
+        },
+        "tue": {
+          "open": "10:00",
+          "close": "19:00",
+          "break": null,
+          "last_order": null
+        },
+        "wed": {
+          "open": "10:00",
+          "close": "19:00",
+          "break": null,
+          "last_order": null
+        },
+        "thu": {
+          "open": "10:00",
+          "close": "19:00",
+          "break": null,
+          "last_order": null
+        }
+      },
+      "business_hours_raw": "영업 중 / 19:00 까지 / 금(11/6)|10:00 ~ 19:00 / 토(11/7)|10:00 ~ 19:00 / 일(11/8)|10:00 ~ 19:00 / 월(11/9)|10:00 ~ 19:00 / 화(11/10)|10:00 ~ 19:00 / 수(11/11)|10:00 ~ 19:00 / 목(11/12)|10:00 ~ 19:00",
+      "closed_days": null,
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": null,
+      "status": "ok"
+    },
+    {
+      "place_id": "1838006228",
+      "url": "https://place.map.kakao.com/1838006228",
+      "name": "부안애서",
+      "branch": "청계본점",
+      "category": "육류,고기",
+      "address": "서울 서초구 청계산로 223 1층",
+      "phone": "02-572-0110",
+      "menus": [
+        {
+          "name": "부안아버지의 닭도리탕",
+          "price": 52000,
+          "price_text": "52,000원",
+          "description": "토마토와 레몬이 들어가 감칠맛과 산뜻함이 어우러진 닭도",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "청계산돌갈비 (2인이상)",
+          "price": 25000,
+          "price_text": "25,000원",
+          "description": "350도 고온 숯불 화덕에서 3분 30초 초벌한 부드럽",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "산전수전",
+          "price": 18000,
+          "price_text": "18,000원",
+          "description": "밀가루 없이 미나리와 보리새우로 바삭하게 부쳐낸 전",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "김치찌개+돼지두루치기 (점심특선)",
+          "price": 13000,
+          "price_text": "13,000원",
+          "description": "평일 14:00까지",
+          "badges": []
+        },
+        {
+          "name": "숯불 푸른바다 보리굴비",
+          "price": 25000,
+          "price_text": "25,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "부안김치찌개(1인분)",
+          "price": 14000,
+          "price_text": "14,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "부안식묵은지",
+          "price": 8000,
+          "price_text": "8,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "구운묵은지두부삼합",
+          "price": 38000,
+          "price_text": "38,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "벌교꼬막 돌미나리초무침",
+          "price": 37000,
+          "price_text": "37,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "미나리와생두부",
+          "price": 15000,
+          "price_text": "15,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "전라도 국산 꽃게 양념게장 (300g)",
+          "price": 18000,
+          "price_text": "18,000원",
+          "description": null,
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": {
+        "min": 8000,
+        "max": 52000
+      },
+      "facilities": [
+        "단체석",
+        "채식 메뉴",
+        "유아의자 있음"
+      ],
+      "business_hours": {
+        "fri": {
+          "open": "11:00",
+          "close": "21:10",
+          "break": null,
+          "last_order": null
+        },
+        "sat": {
+          "open": "10:30",
+          "close": "20:40",
+          "break": null,
+          "last_order": null
+        },
+        "sun": {
+          "open": "10:30",
+          "close": "20:40",
+          "break": null,
+          "last_order": null
+        },
+        "mon": {
+          "open": "11:00",
+          "close": "21:10",
+          "break": null,
+          "last_order": null
+        },
+        "tue": {
+          "open": "11:00",
+          "close": "21:10",
+          "break": null,
+          "last_order": null
+        },
+        "wed": {
+          "open": "11:00",
+          "close": "21:10",
+          "break": null,
+          "last_order": null
+        },
+        "thu": {
+          "open": "11:00",
+          "close": "21:10",
+          "break": null,
+          "last_order": null
+        }
+      },
+      "business_hours_raw": "영업 중 / 21:10 까지 / 금(11/6)|11:00 ~ 21:10 / 토(11/7)|10:30 ~ 20:40 / 일(11/8)|10:30 ~ 20:40 / 월(11/9)|11:00 ~ 21:10 / 화(11/10)|11:00 ~ 21:10 / 수(11/11)|11:00 ~ 21:10 / 목(11/12)|11:00 ~ 21:10",
+      "closed_days": null,
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": null,
+      "status": "ok"
+    },
+    {
+      "place_id": "105060594",
+      "url": "https://place.map.kakao.com/105060594",
+      "name": "서초삼계탕",
+      "branch": null,
+      "category": "삼계탕",
+      "address": "서울 서초구 반포대로30길 63 영서빌딩 1-2층",
+      "phone": "02-6953-9985",
+      "menus": [
+        {
+          "name": "한방삼계탕",
+          "price": null,
+          "price_text": null,
+          "description": "한방 약재와 찹쌀밥이 어우러진 진한 국물의 삼계탕",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "닭볶음탕",
+          "price": null,
+          "price_text": null,
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "해물파전",
+          "price": null,
+          "price_text": null,
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "전복죽",
+          "price": null,
+          "price_text": null,
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "안동찜닭",
+          "price": null,
+          "price_text": null,
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "닭발편육",
+          "price": null,
+          "price_text": null,
+          "description": null,
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": null,
+      "facilities": [
+        "프라이빗룸",
+        "케이크 반입 가능",
+        "유아의자 있음"
+      ],
+      "business_hours": {
+        "fri": {
+          "open": "09:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": "21:20"
+        },
+        "sat": {
+          "open": "09:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": "21:20"
+        },
+        "sun": {
+          "open": "09:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": "21:20"
+        },
+        "mon": {
+          "open": "09:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": "21:20"
+        },
+        "tue": {
+          "open": "09:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": "21:20"
+        },
+        "wed": {
+          "open": "09:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": "21:20"
+        },
+        "thu": {
+          "open": "09:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": "21:20"
+        }
+      },
+      "business_hours_raw": "영업 중 / 22:00 까지 / 금(11/6)|09:00 ~ 22:00|21:20 라스트오더 / 토(11/7)|09:00 ~ 22:00|21:20 라스트오더 / 일(11/8)|09:00 ~ 22:00|21:20 라스트오더 / 월(11/9)|09:00 ~ 22:00|21:20 라스트오더 / 화(11/10)|09:00 ~ 22:00|21:20 라스트오더 / 수(11/11)|09:00 ~ 22:00|21:20 라스트오더 / 목(11/12)|09:00 ~ 22:00|21:20 라스트오더",
+      "closed_days": null,
+      "reservation": {
+        "available": true,
+        "method": "카카오맵 예약 (삼계탕 식사 예약)"
+      },
+      "waiting": null,
+      "status": "ok"
+    },
+    {
+      "place_id": "19554744",
+      "url": "https://place.map.kakao.com/19554744",
+      "name": "꿈꾸는다락방",
+      "branch": null,
+      "category": "디저트카페",
+      "address": "서울 서초구 청두곶길 12 두원아파트상가 1층",
+      "phone": "010-8999-7996",
+      "menus": [
+        {
+          "name": "찹쌀떡 팥빙수 (2인)",
+          "price": 13000,
+          "price_text": "13,000원",
+          "description": "떡방아간찹쌀떡",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "곶감 팥빙수 (2인)",
+          "price": 13000,
+          "price_text": "13,000원",
+          "description": "우유눈꽃 얼음에 곶감과 국내산 수제 팥앙금이 듬뿍 올라",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "녹차아이스크림 팥빙수 (2인)",
+          "price": 13000,
+          "price_text": "13,000원",
+          "description": "부드러운 우유 얼음 위에 녹차 아이스크림과 수제 팥앙금",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "팥만빙수 (2인)",
+          "price": null,
+          "price_text": "변동가격",
+          "description": "100%눈꽃우유빙수 직접삶는 국산팥",
+          "badges": []
+        },
+        {
+          "name": "바닐라라떼",
+          "price": 4500,
+          "price_text": "4,500원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "카페모카",
+          "price": 4500,
+          "price_text": "4,500원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "카라멜 마끼아또",
+          "price": 4500,
+          "price_text": "4,500원",
+          "description": null,
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": {
+        "min": 4500,
+        "max": 13000
+      },
+      "facilities": [
+        "반려동물 동반",
+        "테라스"
+      ],
+      "business_hours": {
+        "fri": {
+          "open": "11:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        },
+        "sat": {
+          "open": "11:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        },
+        "sun": {
+          "open": "11:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        },
+        "mon": {
+          "open": "11:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        },
+        "tue": {
+          "open": "11:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        },
+        "wed": {
+          "open": "11:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        },
+        "thu": {
+          "open": "11:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        }
+      },
+      "business_hours_raw": "영업 중 / 22:00 까지 / 금(11/6)|11:00 ~ 22:00 / 토(11/7)|11:00 ~ 22:00 / 일(11/8)|11:00 ~ 22:00 / 월(11/9)|11:00 ~ 22:00 / 화(11/10)|11:00 ~ 22:00 / 수(11/11)|11:00 ~ 22:00 / 목(11/12)|11:00 ~ 22:00",
+      "closed_days": null,
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": null,
+      "status": "ok"
+    },
+    {
+      "place_id": "15615201",
+      "url": "https://place.map.kakao.com/15615201",
+      "name": "크로스비",
+      "branch": null,
+      "category": "와인바",
+      "address": "서울 서초구 양재천로 115 1층",
+      "phone": "02-576-7754",
+      "menus": [
+        {
+          "name": "베이컨 토마토 파스타",
+          "price": 18000,
+          "price_text": "18,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "명란 로제 파스타",
+          "price": 19000,
+          "price_text": "19,000원",
+          "description": "주문 최다 파스타! 이유가 있습니다",
+          "badges": []
+        },
+        {
+          "name": "베이컨 새우 볶음밥",
+          "price": 18000,
+          "price_text": "18,000원",
+          "description": "베이컨과 새우, 야채가 들어간 양식 볶음밥",
+          "badges": []
+        },
+        {
+          "name": "해산물 떡볶이",
+          "price": 22000,
+          "price_text": "22,000원",
+          "description": "크로스비 명품 떡볶이",
+          "badges": []
+        },
+        {
+          "name": "여러가지 올리브",
+          "price": 12000,
+          "price_text": "12,000원",
+          "description": "씨있는 그린 올리브 여러종류, 블랙 올리브등 올리브 모",
+          "badges": []
+        },
+        {
+          "name": "부라타치즈 샐러드",
+          "price": 18000,
+          "price_text": "18,000원",
+          "description": "부드러운 부라타 치즈가 들어간 샐러드로 한끼 식사로도",
+          "badges": []
+        },
+        {
+          "name": "시저 샐러드",
+          "price": 18000,
+          "price_text": "18,000원",
+          "description": "앤초비가 들어간 시저 드레싱에 버물려진 로메인 상추,",
+          "badges": []
+        },
+        {
+          "name": "라구 소스 파스타",
+          "price": 18000,
+          "price_text": "18,000원",
+          "description": "소고기와 토마토 베이스의 깊은맛이 있는 라구소스 파스타",
+          "badges": []
+        },
+        {
+          "name": "멜론과 프로슈토",
+          "price": 14000,
+          "price_text": "14,000원",
+          "description": "와인안주로 좋은 멜론 프로슈토",
+          "badges": []
+        },
+        {
+          "name": "뵈프 부르기뇽",
+          "price": 28000,
+          "price_text": "28,000원",
+          "description": "사태부위를 레드와인과 여러가지 채소를 함께 3시간 졸여",
+          "badges": []
+        },
+        {
+          "name": "치아바타 빵",
+          "price": 3500,
+          "price_text": "3,500원",
+          "description": "플레인 치아바타빵과 함께 제공되는 프랑스 버터로 구성되",
+          "badges": []
+        },
+        {
+          "name": "호두 타르트",
+          "price": 5000,
+          "price_text": "5,000원",
+          "description": "고소한 호두와 타르트의 바삭한 맛이 어우러진 호두 타르",
+          "badges": []
+        },
+        {
+          "name": "아이스 아메리카노",
+          "price": 2500,
+          "price_text": "2,500원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "따뜻한 아메리카노",
+          "price": 2500,
+          "price_text": "2,500원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "콜라 355mL",
+          "price": 2000,
+          "price_text": "2,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "스프라이트 355mL",
+          "price": 2000,
+          "price_text": "2,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "페리에 플레인 330mL",
+          "price": 3000,
+          "price_text": "3,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "산펠레그리노 250mL",
+          "price": 3000,
+          "price_text": "3,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "제로콜라 355mL",
+          "price": 2000,
+          "price_text": "2,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "보데가베르데 마카베오 화이트와인 750ml",
+          "price": 29000,
+          "price_text": "29,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "보데가베르데 가르나차 로제와인 750ml",
+          "price": 29000,
+          "price_text": "29,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "보데가베르데 스페인 레드와인 750ml",
+          "price": 29000,
+          "price_text": "29,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "지 비니에 블랑드블랑 샴페인 750ml",
+          "price": 128000,
+          "price_text": "128,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "알베르 모레르 프랑스 알자스 크레망 샴페인 750ml",
+          "price": 68000,
+          "price_text": "68,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "오피아 프랑스 무알콜 레드 와인 750ml",
+          "price": 29000,
+          "price_text": "29,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "오피아 프랑스 무알콜 로제 와인 750ml",
+          "price": 29000,
+          "price_text": "29,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "오피아 프랑스 샤르도네 무알콜 화이트 와인 750ml",
+          "price": 29000,
+          "price_text": "29,000원",
+          "description": null,
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": {
+        "min": 2000,
+        "max": 128000
+      },
+      "facilities": [
+        "단체석",
+        "반려동물 동반",
+        "콜키지 부과",
+        "테라스",
+        "라이브밴드 공연"
+      ],
+      "business_hours": {
+        "fri": {
+          "open": "12:00",
+          "close": "01:00",
+          "break": null,
+          "last_order": null
+        },
+        "sat": {
+          "open": "12:00",
+          "close": "01:00",
+          "break": null,
+          "last_order": null
+        },
+        "sun": {
+          "open": "12:00",
+          "close": "24:00",
+          "break": null,
+          "last_order": null
+        },
+        "mon": {
+          "open": "12:00",
+          "close": "01:00",
+          "break": null,
+          "last_order": null
+        },
+        "tue": {
+          "open": "12:00",
+          "close": "01:00",
+          "break": null,
+          "last_order": null
+        },
+        "wed": {
+          "open": "12:00",
+          "close": "01:00",
+          "break": null,
+          "last_order": null
+        },
+        "thu": {
+          "open": "12:00",
+          "close": "01:00",
+          "break": null,
+          "last_order": null
+        }
+      },
+      "business_hours_raw": "영업 중 / 01:00 까지 / 금(11/6)|12:00 ~ 01:00 / 토(11/7)|12:00 ~ 01:00 / 일(11/8)|12:00 ~ 24:00 / 월(11/9)|12:00 ~ 01:00 / 화(11/10)|12:00 ~ 01:00 / 수(11/11)|12:00 ~ 01:00 / 목(11/12)|12:00 ~ 01:00",
+      "closed_days": null,
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": null,
+      "status": "ok"
+    },
+    {
+      "place_id": "661927676",
+      "url": "https://place.map.kakao.com/661927676",
+      "name": "양재오제섞어",
+      "branch": "양재본점",
+      "category": "한식",
+      "address": "서울 서초구 바우뫼로41길 8 정훈빌딩 1층",
+      "phone": "02-573-1351",
+      "menus": [
+        {
+          "name": "쭈꾸미볶음",
+          "price": 36000,
+          "price_text": "36,000원",
+          "description": "주꾸미＋콩나물＋쌈채소",
+          "badges": []
+        },
+        {
+          "name": "선동오징어볶음",
+          "price": 21000,
+          "price_text": "21,000원",
+          "description": "오징어＋콩나물＋쌈채소",
+          "badges": []
+        },
+        {
+          "name": "제육볶음",
+          "price": 18000,
+          "price_text": "18,000원",
+          "description": "제육＋쌈채소",
+          "badges": []
+        },
+        {
+          "name": "오제2인（오징어제육）",
+          "price": 24000,
+          "price_text": "24,000원",
+          "description": "오징어＋제육＋콩나물＋쌈채소",
+          "badges": []
+        },
+        {
+          "name": "오제3인",
+          "price": 36000,
+          "price_text": "36,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "쭈꾸미볶음3인",
+          "price": 54000,
+          "price_text": "54,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "계란말이",
+          "price": 11000,
+          "price_text": "11,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "눈꽃치즈계란말이",
+          "price": 13000,
+          "price_text": "13,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "계란찜",
+          "price": 4500,
+          "price_text": "4,500원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "오제볶음",
+          "price": 13000,
+          "price_text": "13,000원",
+          "description": "오징어＋제육＋쌈채소",
+          "badges": []
+        },
+        {
+          "name": "쌈채소（추가）",
+          "price": 1500,
+          "price_text": "1,500원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "콩나물（추가）",
+          "price": 500,
+          "price_text": "500원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "공기밥",
+          "price": 1500,
+          "price_text": "1,500원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "볶음밥",
+          "price": 5500,
+          "price_text": "5,500원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "소면사리",
+          "price": 3500,
+          "price_text": "3,500원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "콜라 355mL",
+          "price": 2500,
+          "price_text": "2,500원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "사이다 355mL",
+          "price": 2500,
+          "price_text": "2,500원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "카스",
+          "price": 6000,
+          "price_text": "6,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "참이슬 후레쉬",
+          "price": 5000,
+          "price_text": "5,000원",
+          "description": null,
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": {
+        "min": 500,
+        "max": 54000
+      },
+      "facilities": [
+        "단체석",
+        "채식 메뉴"
+      ],
+      "business_hours": {
+        "fri": {
+          "open": "11:00",
+          "close": "22:00",
+          "break": "15:30~17:00",
+          "last_order": "15:00"
+        },
+        "sat": {
+          "open": "11:30",
+          "close": "21:00",
+          "break": "15:30~17:00",
+          "last_order": "15:00"
+        },
+        "sun": {
+          "open": "11:30",
+          "close": "21:00",
+          "break": "15:30~17:00",
+          "last_order": "15:00"
+        },
+        "mon": {
+          "open": "11:00",
+          "close": "22:00",
+          "break": "15:30~17:00",
+          "last_order": "15:00"
+        },
+        "tue": {
+          "open": "11:00",
+          "close": "22:00",
+          "break": "15:30~17:00",
+          "last_order": "15:00"
+        },
+        "wed": {
+          "open": "11:00",
+          "close": "22:00",
+          "break": "15:30~17:00",
+          "last_order": "15:00"
+        },
+        "thu": {
+          "open": "11:00",
+          "close": "22:00",
+          "break": "15:30~17:00",
+          "last_order": "15:00"
+        }
+      },
+      "business_hours_raw": "영업 중 / 22:00 까지 / 금(11/6)|11:00 ~ 22:00|15:30 ~ 17:00 브레이크타임|15:00 라스트오더 / 토(11/7)|11:30 ~ 21:00|15:30 ~ 17:00 브레이크타임|15:00 라스트오더 / 일(11/8)|11:30 ~ 21:00|15:30 ~ 17:00 브레이크타임|15:00 라스트오더 / 월(11/9)|11:00 ~ 22:00|15:30 ~ 17:00 브레이크타임|15:00 라스트오더 / 화(11/10)|11:00 ~ 22:00|15:30 ~ 17:00 브레이크타임|15:00 라스트오더 / 수(11/11)|11:00 ~ 22:00|15:30 ~ 17:00 브레이크타임|15:00 라스트오더 / 목(11/12)|11:00 ~ 22:00|15:30 ~ 17:00 브레이크타임|15:00 라스트오더",
+      "closed_days": null,
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": null,
+      "status": "ok"
+    },
+    {
+      "place_id": "17382395",
+      "url": "https://place.map.kakao.com/17382395",
+      "name": "뀌쏭82",
+      "branch": null,
+      "category": "양식",
+      "address": "서울 강남구 양재천로 167 아성빌딩 1층",
+      "phone": "02-529-3582",
+      "menus": [
+        {
+          "name": "양갈비",
+          "price": 49000,
+          "price_text": "49,000원",
+          "description": "칙피와 여러가지 야채로 만든 소스와 그라나파다노 크럼블",
+          "badges": [
+            "사장님 추천"
+          ]
+        },
+        {
+          "name": "양파스프",
+          "price": 18000,
+          "price_text": "18,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "삼겹살",
+          "price": 42000,
+          "price_text": "42,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "닭가슴살",
+          "price": 39000,
+          "price_text": "39,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "오리가슴살",
+          "price": 38000,
+          "price_text": "38,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "광어 퐁피두",
+          "price": 34000,
+          "price_text": "34,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "관자요리",
+          "price": 32000,
+          "price_text": "32,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "람블라스",
+          "price": 29000,
+          "price_text": "29,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "리조또",
+          "price": 32000,
+          "price_text": "32,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "시저샐러드",
+          "price": 25000,
+          "price_text": "25,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "라비올레",
+          "price": 31000,
+          "price_text": "31,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "퐁듀까망베르",
+          "price": 35000,
+          "price_text": "35,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "이베리코 하몬 베요타 플레이트",
+          "price": 45000,
+          "price_text": "45,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "한우채끝등심스테이크(150g)",
+          "price": 72000,
+          "price_text": "72,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "문어 오일 파스타",
+          "price": 33000,
+          "price_text": "33,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "뵈프 부르기뇽",
+          "price": 57000,
+          "price_text": "57,000원",
+          "description": null,
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": {
+        "min": 18000,
+        "max": 72000
+      },
+      "facilities": null,
+      "business_hours": {
+        "fri": {
+          "open": "11:45",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        },
+        "sat": {
+          "open": "11:45",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        },
+        "sun": {
+          "open": "11:45",
+          "close": "21:30",
+          "break": null,
+          "last_order": null
+        },
+        "mon": null,
+        "tue": {
+          "open": "17:45",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        },
+        "wed": {
+          "open": "11:45",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        },
+        "thu": {
+          "open": "11:45",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        }
+      },
+      "business_hours_raw": "영업 중 / 22:00 까지 / 금(11/6)|11:45 ~ 22:00 / 토(11/7)|11:45 ~ 22:00 / 일(11/8)|11:45 ~ 21:30 / 월(11/9)|휴무일 / 화(11/10)|17:45 ~ 22:00 / 수(11/11)|11:45 ~ 22:00 / 목(11/12)|11:45 ~ 22:00",
+      "closed_days": [
+        "월요일 휴무일"
+      ],
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": null,
+      "status": "ok"
+    },
+    {
+      "place_id": "16443347",
+      "url": "https://place.map.kakao.com/16443347",
+      "name": "토속청국장전문",
+      "branch": null,
+      "category": "한식",
+      "address": "서울 서초구 양재천로11길 12 1층",
+      "phone": null,
+      "menus": [
+        {
+          "name": "청국장정식",
+          "price": 10000,
+          "price_text": "10,000원",
+          "description": "구수한 청국장과 보쌈, 다양한 나물과 김치전이 포함된",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "부추전",
+          "price": 11000,
+          "price_text": "11,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "김치전",
+          "price": 11000,
+          "price_text": "11,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "뽈찜",
+          "price": 26000,
+          "price_text": "26,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "홍어",
+          "price": 16000,
+          "price_text": "16,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "보쌈",
+          "price": 16000,
+          "price_text": "16,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "코다리찜",
+          "price": 26000,
+          "price_text": "26,000원",
+          "description": null,
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": {
+        "min": 10000,
+        "max": 26000
+      },
+      "facilities": null,
+      "business_hours": {
+        "fri": {
+          "open": "10:30",
+          "close": "20:00",
+          "break": "15:00~16:00",
+          "last_order": null
+        },
+        "sat": null,
+        "sun": {
+          "open": "10:30",
+          "close": "20:00",
+          "break": "15:00~16:00",
+          "last_order": null
+        },
+        "mon": {
+          "open": "10:30",
+          "close": "20:00",
+          "break": "15:00~16:00",
+          "last_order": null
+        },
+        "tue": {
+          "open": "10:30",
+          "close": "20:00",
+          "break": "15:00~16:00",
+          "last_order": null
+        },
+        "wed": {
+          "open": "10:30",
+          "close": "20:00",
+          "break": "15:00~16:00",
+          "last_order": null
+        },
+        "thu": {
+          "open": "10:30",
+          "close": "20:00",
+          "break": "15:00~16:00",
+          "last_order": null
+        }
+      },
+      "business_hours_raw": "영업 중 / 20:00 까지 / 금(11/6)|10:30 ~ 20:00|15:00 ~ 16:00 브레이크타임 / 토(11/7)|휴무일 / 일(11/8)|10:30 ~ 20:00|15:00 ~ 16:00 브레이크타임 / 월(11/9)|10:30 ~ 20:00|15:00 ~ 16:00 브레이크타임 / 화(11/10)|10:30 ~ 20:00|15:00 ~ 16:00 브레이크타임 / 수(11/11)|10:30 ~ 20:00|15:00 ~ 16:00 브레이크타임 / 목(11/12)|10:30 ~ 20:00|15:00 ~ 16:00 브레이크타임",
+      "closed_days": [
+        "토요일 휴무일"
+      ],
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": {
+        "text": "휴무 : 매주 토요일 웨이팅 : 현장웨이팅 주차 : x",
+        "source": "blog",
+        "evidence": "카카오맵 블로그 리뷰 미리보기"
+      },
+      "status": "ok"
+    },
+    {
+      "place_id": "1280456164",
+      "url": "https://place.map.kakao.com/1280456164",
+      "name": "유성옥",
+      "branch": null,
+      "category": "국밥",
+      "address": "서울 서초구 서초대로51길 14 JH엘로펌애비뉴빌딩 1층 104호",
+      "phone": "02-2088-8320",
+      "menus": [
+        {
+          "name": "돈복쟁반",
+          "price": 50000,
+          "price_text": "50,000원",
+          "description": "최고급 돼지고기 수육과 버섯, 채소를 육수에 끓여 먹는",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "돼지국밥",
+          "price": 10000,
+          "price_text": "10,000원",
+          "description": "돼지사골, 한우뼈로 우려낸 돼지국밥입니다",
+          "badges": []
+        },
+        {
+          "name": "수육(한접시)",
+          "price": 30000,
+          "price_text": "30,000원",
+          "description": "항정살, 목살 수육",
+          "badges": []
+        },
+        {
+          "name": "매운 오돌뼈볶음",
+          "price": 18000,
+          "price_text": "18,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "내장국밥",
+          "price": 12000,
+          "price_text": "12,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "항정국밥",
+          "price": 13000,
+          "price_text": "13,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "모듬국밥",
+          "price": 13000,
+          "price_text": "13,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "냉반",
+          "price": 12000,
+          "price_text": "12,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "도토리묵무침",
+          "price": 15000,
+          "price_text": "15,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "도래창볶음(소금/간장)",
+          "price": 20000,
+          "price_text": "20,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "수육(반접시)",
+          "price": 17000,
+          "price_text": "17,000원",
+          "description": null,
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": {
+        "min": 10000,
+        "max": 50000
+      },
+      "facilities": [
+        "단체석",
+        "콜키지 무료"
+      ],
+      "business_hours": {
+        "fri": {
+          "open": "11:00",
+          "close": "22:00",
+          "break": "15:00~17:00",
+          "last_order": "21:30"
+        },
+        "sat": {
+          "open": "11:00",
+          "close": "22:00",
+          "break": "15:00~17:00",
+          "last_order": "21:30"
+        },
+        "sun": null,
+        "mon": {
+          "open": "11:00",
+          "close": "22:00",
+          "break": "15:00~17:00",
+          "last_order": "21:30"
+        },
+        "tue": {
+          "open": "11:00",
+          "close": "22:00",
+          "break": "15:00~17:00",
+          "last_order": "21:30"
+        },
+        "wed": {
+          "open": "11:00",
+          "close": "22:00",
+          "break": "15:00~17:00",
+          "last_order": "21:30"
+        },
+        "thu": {
+          "open": "11:00",
+          "close": "22:00",
+          "break": "15:00~17:00",
+          "last_order": "21:30"
+        }
+      },
+      "business_hours_raw": "영업 중 / 22:00 까지 / 금(11/6)|11:00 ~ 22:00|15:00 ~ 17:00 브레이크타임|21:30 라스트오더 / 토(11/7)|11:00 ~ 22:00|15:00 ~ 17:00 브레이크타임|21:30 라스트오더 / 일(11/8)|휴무일 / 월(11/9)|11:00 ~ 22:00|15:00 ~ 17:00 브레이크타임|21:30 라스트오더 / 화(11/10)|11:00 ~ 22:00|15:00 ~ 17:00 브레이크타임|21:30 라스트오더 / 수(11/11)|11:00 ~ 22:00|15:00 ~ 17:00 브레이크타임|21:30 라스트오더 / 목(11/12)|11:00 ~ 22:00|15:00 ~ 17:00 브레이크타임|21:30 라스트오더",
+      "closed_days": [
+        "일요일 휴무일"
+      ],
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": null,
+      "status": "ok"
+    },
+    {
+      "place_id": "1196999232",
+      "url": "https://place.map.kakao.com/1196999232",
+      "name": "서초목살",
+      "branch": null,
+      "category": "육류,고기",
+      "address": "서울 서초구 강남대로43길 15 1층",
+      "phone": "02-588-1288",
+      "menus": [
+        {
+          "name": "누룽지",
+          "price": 6000,
+          "price_text": "6,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "물냉면",
+          "price": 7000,
+          "price_text": "7,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "비빔냉면",
+          "price": 7000,
+          "price_text": "7,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "된장찌개(추가)",
+          "price": 6000,
+          "price_text": "6,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "치즈계란찜(추가)",
+          "price": 6000,
+          "price_text": "6,000원",
+          "description": null,
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": {
+        "min": 6000,
+        "max": 7000
+      },
+      "facilities": [
+        "단체석",
+        "콜키지 무료",
+        "유아의자 있음",
+        "고기구워주는 집"
+      ],
+      "business_hours": {
+        "fri": {
+          "open": "11:00",
+          "close": "22:00",
+          "break": "14:00~17:00",
+          "last_order": null
+        },
+        "sat": {
+          "open": "16:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        },
+        "sun": {
+          "open": "16:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        },
+        "mon": {
+          "open": "11:00",
+          "close": "22:00",
+          "break": "14:00~17:00",
+          "last_order": null
+        },
+        "tue": {
+          "open": "11:00",
+          "close": "22:00",
+          "break": "14:00~17:00",
+          "last_order": null
+        },
+        "wed": {
+          "open": "11:00",
+          "close": "22:00",
+          "break": "14:00~17:00",
+          "last_order": null
+        },
+        "thu": {
+          "open": "11:00",
+          "close": "22:00",
+          "break": "14:00~17:00",
+          "last_order": null
+        }
+      },
+      "business_hours_raw": "영업 중 / 22:00 까지 / 금(11/6)|11:00 ~ 22:00|14:00 ~ 17:00 브레이크타임 / 토(11/7)|16:00 ~ 22:00 / 일(11/8)|16:00 ~ 22:00 / 월(11/9)|11:00 ~ 22:00|14:00 ~ 17:00 브레이크타임 / 화(11/10)|11:00 ~ 22:00|14:00 ~ 17:00 브레이크타임 / 수(11/11)|11:00 ~ 22:00|14:00 ~ 17:00 브레이크타임 / 목(11/12)|11:00 ~ 22:00|14:00 ~ 17:00 브레이크타임",
+      "closed_days": null,
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": null,
+      "status": "ok"
+    },
+    {
+      "place_id": "8617941",
+      "url": "https://place.map.kakao.com/8617941",
+      "name": "태평양일식 별관",
+      "branch": null,
+      "category": "일식집",
+      "address": "서울 서초구 서초중앙로24길 18 지하1층",
+      "phone": "02-599-8564",
+      "menus": [
+        {
+          "name": "회정식",
+          "price": null,
+          "price_text": null,
+          "description": "생선초밥과 잡채, 지리탕이 포함된 해산물 코스",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "모둠회",
+          "price": null,
+          "price_text": null,
+          "description": "참치, 광어, 전복, 바다가재 등 다양한 활어회와 해산",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "특회정식",
+          "price": null,
+          "price_text": null,
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "생선초밥",
+          "price": null,
+          "price_text": null,
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "장어덮밥",
+          "price": null,
+          "price_text": null,
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "히레",
+          "price": null,
+          "price_text": null,
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "특회덮밥",
+          "price": null,
+          "price_text": null,
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "활어회덮밥",
+          "price": null,
+          "price_text": null,
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "새우튀김",
+          "price": null,
+          "price_text": null,
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "회덮밥",
+          "price": null,
+          "price_text": null,
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "도미머리구이",
+          "price": null,
+          "price_text": null,
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "보리굴비",
+          "price": null,
+          "price_text": null,
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "복탕",
+          "price": null,
+          "price_text": null,
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "생대구탕",
+          "price": null,
+          "price_text": null,
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "복분자",
+          "price": null,
+          "price_text": null,
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "민어탕",
+          "price": null,
+          "price_text": null,
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "장어정식",
+          "price": null,
+          "price_text": null,
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "정식",
+          "price": null,
+          "price_text": null,
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "특정식",
+          "price": null,
+          "price_text": null,
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "도다리쑥국",
+          "price": null,
+          "price_text": null,
+          "description": null,
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": null,
+      "facilities": [
+        "단체석",
+        "프라이빗룸"
+      ],
+      "business_hours": {
+        "fri": {
+          "open": "11:30",
+          "close": "22:30",
+          "break": null,
+          "last_order": null
+        },
+        "sat": {
+          "open": "11:30",
+          "close": "22:30",
+          "break": null,
+          "last_order": null
+        },
+        "sun": {
+          "open": "11:30",
+          "close": "22:30",
+          "break": null,
+          "last_order": null
+        },
+        "mon": {
+          "open": "11:30",
+          "close": "22:30",
+          "break": null,
+          "last_order": null
+        },
+        "tue": {
+          "open": "11:30",
+          "close": "22:30",
+          "break": null,
+          "last_order": null
+        },
+        "wed": {
+          "open": "11:30",
+          "close": "22:30",
+          "break": null,
+          "last_order": null
+        },
+        "thu": {
+          "open": "11:30",
+          "close": "22:30",
+          "break": null,
+          "last_order": null
+        }
+      },
+      "business_hours_raw": "영업 중 / 22:30 까지 / 금(11/6)|11:30 ~ 22:30 / 토(11/7)|11:30 ~ 22:30 / 일(11/8)|11:30 ~ 22:30 / 월(11/9)|11:30 ~ 22:30 / 화(11/10)|11:30 ~ 22:30 / 수(11/11)|11:30 ~ 22:30 / 목(11/12)|11:30 ~ 22:30",
+      "closed_days": null,
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": null,
+      "status": "ok"
+    },
+    {
+      "place_id": "11107346",
+      "url": "https://place.map.kakao.com/11107346",
+      "name": "아카사카일식",
+      "branch": "강남역본점",
+      "category": "일식",
+      "address": "서울 서초구 서초대로74길 23 서초타운트라팰리스 지하1층 2호",
+      "phone": "02-585-1145",
+      "menus": [
+        {
+          "name": "복국 오마카세 한상",
+          "price": 16000,
+          "price_text": "16,000원",
+          "description": "복어껍질무침, 복어껍질젤리, 복어이리두부, 복어살 저민",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "프리미어 정식 (점심메뉴)",
+          "price": 50000,
+          "price_text": "50,000원",
+          "description": "후구 차완무시, 전채요리, 사시미 모리아와세, 스시 모",
+          "badges": []
+        },
+        {
+          "name": "곽문영셰프오마카세(디너메뉴)",
+          "price": 100000,
+          "price_text": "100,000원",
+          "description": null,
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": {
+        "min": 16000,
+        "max": 100000
+      },
+      "facilities": [
+        "프라이빗룸",
+        "콜키지 무료",
+        "테라스",
+        "바테이블"
+      ],
+      "business_hours": {
+        "fri": {
+          "open": "11:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": "20:00"
+        },
+        "sat": {
+          "open": "11:00",
+          "close": "21:00",
+          "break": "14:30~17:00",
+          "last_order": null
+        },
+        "sun": null,
+        "mon": {
+          "open": "11:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": "20:00"
+        },
+        "tue": {
+          "open": "11:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": "20:00"
+        },
+        "wed": {
+          "open": "11:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": "20:00"
+        },
+        "thu": {
+          "open": "11:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": "20:00"
+        }
+      },
+      "business_hours_raw": "영업 중 / 22:00 까지 / 금(11/6)|11:00 ~ 22:00|20:00 라스트오더 / 토(11/7)|11:00 ~ 21:00|14:30 ~ 17:00 브레이크타임 / 일(11/8)|휴무일 / 월(11/9)|11:00 ~ 22:00|20:00 라스트오더 / 화(11/10)|11:00 ~ 22:00|20:00 라스트오더 / 수(11/11)|11:00 ~ 22:00|20:00 라스트오더 / 목(11/12)|11:00 ~ 22:00|20:00 라스트오더",
+      "closed_days": [
+        "일요일 휴무일"
+      ],
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": null,
+      "status": "ok"
+    },
+    {
+      "place_id": "21412170",
+      "url": "https://place.map.kakao.com/21412170",
+      "name": "진미정생선구이",
+      "branch": null,
+      "category": "해물,생선",
+      "address": "서울 서초구 사임당로 33 1층",
+      "phone": "02-525-5337",
+      "menus": [
+        {
+          "name": "고등어구이",
+          "price": 13000,
+          "price_text": "13,000원",
+          "description": "겉은 바삭하고 속은 촉촉한 고등어를 소금구이로 조리한",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "볼락구이",
+          "price": 13000,
+          "price_text": "13,000원",
+          "description": "껍질 얇고 살이 통통하며 연하고 고소한 생선구이",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "제육쌈밥(2인)",
+          "price": 28000,
+          "price_text": "28,000원",
+          "description": "매콤달콤한 양념에 볶은 제육과 신선한 쌈채소가 함께 제",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "가자미구이",
+          "price": 12000,
+          "price_text": "12,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "삼치구이",
+          "price": 13000,
+          "price_text": "13,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "이면수구이",
+          "price": 13000,
+          "price_text": "13,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "갈치구이",
+          "price": 13000,
+          "price_text": "13,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "오징어쌈밥(2인)",
+          "price": 28000,
+          "price_text": "28,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "제육덮밥",
+          "price": 13000,
+          "price_text": "13,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "제주생오겹살(200g)",
+          "price": 20000,
+          "price_text": "20,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "제주생삼겹살(200g)",
+          "price": 20000,
+          "price_text": "20,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "제육볶음",
+          "price": 40000,
+          "price_text": "40,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "오징어볶음",
+          "price": 40000,
+          "price_text": "40,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "생선모듬구이",
+          "price": 40000,
+          "price_text": "40,000원",
+          "description": null,
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": {
+        "min": 12000,
+        "max": 40000
+      },
+      "facilities": [
+        "단체석"
+      ],
+      "business_hours": {
+        "fri": {
+          "open": "11:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        },
+        "sat": {
+          "open": "11:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        },
+        "sun": {
+          "open": "11:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        },
+        "mon": {
+          "open": "11:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        },
+        "tue": {
+          "open": "11:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        },
+        "wed": {
+          "open": "11:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        },
+        "thu": {
+          "open": "11:00",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        }
+      },
+      "business_hours_raw": "영업 중 / 22:00 까지 / 연중무휴 / 금(11/6)|11:00 ~ 22:00 / 토(11/7)|11:00 ~ 22:00 / 일(11/8)|11:00 ~ 22:00 / 월(11/9)|11:00 ~ 22:00 / 화(11/10)|11:00 ~ 22:00 / 수(11/11)|11:00 ~ 22:00 / 목(11/12)|11:00 ~ 22:00",
+      "closed_days": null,
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": null,
+      "status": "ok"
+    },
+    {
+      "place_id": "14491510",
+      "url": "https://place.map.kakao.com/14491510",
+      "name": "청솔게르마늄감자탕",
+      "branch": null,
+      "category": "감자탕",
+      "address": "서울 서초구 반포대로30길 53 조광빌딩 지하1층",
+      "phone": "02-585-5872",
+      "menus": [
+        {
+          "name": "감자탕(대)",
+          "price": 48000,
+          "price_text": "48,000원",
+          "description": "우거지와 깻잎이 듬뿍 들어가 국물이 맑고 깊은 감자탕",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "감자탕(중)",
+          "price": 38000,
+          "price_text": "38,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "감자탕(소)",
+          "price": 28000,
+          "price_text": "28,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "해장국",
+          "price": 11000,
+          "price_text": "11,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "볶음밥 (2인 기준)",
+          "price": 6000,
+          "price_text": "6,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "해물전",
+          "price": 15000,
+          "price_text": "15,000원",
+          "description": null,
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": {
+        "min": 6000,
+        "max": 48000
+      },
+      "facilities": [
+        "단체석"
+      ],
+      "business_hours": {
+        "fri": {
+          "open": "09:30",
+          "close": "21:30",
+          "break": null,
+          "last_order": null
+        },
+        "sat": {
+          "open": "10:00",
+          "close": "20:00",
+          "break": null,
+          "last_order": null
+        },
+        "sun": null,
+        "mon": {
+          "open": "09:30",
+          "close": "21:30",
+          "break": null,
+          "last_order": null
+        },
+        "tue": {
+          "open": "09:30",
+          "close": "21:30",
+          "break": null,
+          "last_order": null
+        },
+        "wed": {
+          "open": "09:30",
+          "close": "21:30",
+          "break": null,
+          "last_order": null
+        },
+        "thu": {
+          "open": "09:30",
+          "close": "21:30",
+          "break": null,
+          "last_order": null
+        }
+      },
+      "business_hours_raw": "영업 중 / 21:30 까지 / 금(11/6)|09:30 ~ 21:30 / 토(11/7)|10:00 ~ 20:00 / 일(11/8)|휴무일 / 월(11/9)|09:30 ~ 21:30 / 화(11/10)|09:30 ~ 21:30 / 수(11/11)|09:30 ~ 21:30 / 목(11/12)|09:30 ~ 21:30",
+      "closed_days": [
+        "일요일 휴무일"
+      ],
+      "reservation": {
+        "available": true,
+        "method": "카카오맵 예약 (청솔게르마늄감자탕 예약하기)"
+      },
+      "waiting": null,
+      "status": "ok"
+    },
+    {
+      "place_id": "19015248",
+      "url": "https://place.map.kakao.com/19015248",
+      "name": "아따맵소",
+      "branch": null,
+      "category": "찌개,전골",
+      "address": "서울 서초구 서초대로40길 88 1층",
+      "phone": "02-598-0955",
+      "menus": [
+        {
+          "name": "생돼지고추장찌개(2인이상)",
+          "price": 13000,
+          "price_text": "13,000원",
+          "description": "두툼한 돼지고기와 감자, 애호박, 양파, 두부, 풋고추",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "미역수제비",
+          "price": 12000,
+          "price_text": "12,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "짬뽕수제비",
+          "price": 12000,
+          "price_text": "12,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "감자탕(2인이상)(수,목)",
+          "price": 13000,
+          "price_text": "13,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "생갈비찜",
+          "price": 65000,
+          "price_text": "65,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "두루치기",
+          "price": 59000,
+          "price_text": "59,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "매콤달콤닭찜(중)",
+          "price": 40000,
+          "price_text": "40,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "매콤달콤닭찜(대)",
+          "price": 55000,
+          "price_text": "55,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "엄나무백숙",
+          "price": 100000,
+          "price_text": "100,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "코다리",
+          "price": 45000,
+          "price_text": "45,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "야채전",
+          "price": 22000,
+          "price_text": "22,000원",
+          "description": null,
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": {
+        "min": 12000,
+        "max": 100000
+      },
+      "facilities": null,
+      "business_hours": {
+        "fri": {
+          "open": "10:00",
+          "close": "21:30",
+          "break": null,
+          "last_order": null
+        },
+        "sat": null,
+        "sun": null,
+        "mon": {
+          "open": "10:00",
+          "close": "21:30",
+          "break": null,
+          "last_order": null
+        },
+        "tue": {
+          "open": "10:00",
+          "close": "21:30",
+          "break": null,
+          "last_order": null
+        },
+        "wed": {
+          "open": "10:00",
+          "close": "21:30",
+          "break": null,
+          "last_order": null
+        },
+        "thu": {
+          "open": "10:00",
+          "close": "21:30",
+          "break": null,
+          "last_order": null
+        }
+      },
+      "business_hours_raw": "영업 중 / 21:30 까지 / 금(11/6)|10:00 ~ 21:30 / 토(11/7)|휴무일 / 일(11/8)|휴무일 / 월(11/9)|10:00 ~ 21:30 / 화(11/10)|10:00 ~ 21:30 / 수(11/11)|10:00 ~ 21:30 / 목(11/12)|10:00 ~ 21:30",
+      "closed_days": [
+        "토요일 휴무일",
+        "일요일 휴무일"
+      ],
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": {
+        "text": "웨이팅이 생길 때도 (심블루의 맛집노트, 2026)",
+        "source": "blog",
+        "evidence": "카카오맵 블로그 리뷰 미리보기"
+      },
+      "status": "ok"
+    },
+    {
+      "place_id": "10432494",
+      "url": "https://place.map.kakao.com/10432494",
+      "name": "삼풍치킨",
+      "branch": "교대본점",
+      "category": "치킨",
+      "address": "서울 서초구 서초중앙로24길 18",
+      "phone": "02-595-9992",
+      "menus": [
+        {
+          "name": "오븐치킨",
+          "price": 21000,
+          "price_text": "21,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "오븐간장치킨",
+          "price": 22000,
+          "price_text": "22,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "마늘오븐치킨",
+          "price": 23000,
+          "price_text": "23,000원",
+          "description": null,
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": {
+        "min": 21000,
+        "max": 23000
+      },
+      "facilities": [
+        "테라스"
+      ],
+      "business_hours": {
+        "fri": {
+          "open": "11:00",
+          "close": "24:00",
+          "break": null,
+          "last_order": null
+        },
+        "sat": null,
+        "sun": {
+          "open": "11:00",
+          "close": "24:00",
+          "break": null,
+          "last_order": null
+        },
+        "mon": {
+          "open": "11:00",
+          "close": "24:00",
+          "break": null,
+          "last_order": null
+        },
+        "tue": {
+          "open": "11:00",
+          "close": "24:00",
+          "break": null,
+          "last_order": null
+        },
+        "wed": {
+          "open": "11:00",
+          "close": "24:00",
+          "break": null,
+          "last_order": null
+        },
+        "thu": {
+          "open": "11:00",
+          "close": "24:00",
+          "break": null,
+          "last_order": null
+        }
+      },
+      "business_hours_raw": "영업 중 / 24:00 까지 / 금(11/6)|11:00 ~ 24:00 / 토(11/7)|휴무일 / 일(11/8)|11:00 ~ 24:00 / 월(11/9)|11:00 ~ 24:00 / 화(11/10)|11:00 ~ 24:00 / 수(11/11)|11:00 ~ 24:00 / 목(11/12)|11:00 ~ 24:00",
+      "closed_days": [
+        "토요일 휴무일"
+      ],
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": null,
+      "status": "ok"
+    },
+    {
+      "place_id": "21236921",
+      "url": "https://place.map.kakao.com/21236921",
+      "name": "신선옥",
+      "branch": null,
+      "category": "곰탕",
+      "address": "서울 서초구 서초대로45길 9",
+      "phone": "02-537-4895",
+      "menus": [
+        {
+          "name": "곰탕",
+          "price": 11000,
+          "price_text": "11,000원",
+          "description": "맑고 깊은 국물에 얇은 한우 고기가 넉넉히 들어간 곰탕",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "곰탕(특)",
+          "price": 15000,
+          "price_text": "15,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "내포탕",
+          "price": 12000,
+          "price_text": "12,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "내포탕(특)",
+          "price": 16000,
+          "price_text": "16,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "도가니탕",
+          "price": 18000,
+          "price_text": "18,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "꼬리곰탕",
+          "price": 22000,
+          "price_text": "22,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "수육(소)",
+          "price": 28000,
+          "price_text": "28,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "수육(중)",
+          "price": 42000,
+          "price_text": "42,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "수육(대)",
+          "price": 55000,
+          "price_text": "55,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "양버섯찜(소)",
+          "price": 28000,
+          "price_text": "28,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "양버섯찜(중)",
+          "price": 42000,
+          "price_text": "42,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "양버섯찜(대)",
+          "price": 55000,
+          "price_text": "55,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "도가니무침(소)",
+          "price": 28000,
+          "price_text": "28,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "도가니무침(중)",
+          "price": 42000,
+          "price_text": "42,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "도가니무침(대)",
+          "price": 55000,
+          "price_text": "55,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "모듬수육(중)",
+          "price": 55000,
+          "price_text": "55,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "모듬수육(대)",
+          "price": 65000,
+          "price_text": "65,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "꼬리찜(소)",
+          "price": 55000,
+          "price_text": "55,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "꼬리찜(중)",
+          "price": 75000,
+          "price_text": "75,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "꼬리찜(대)",
+          "price": 95000,
+          "price_text": "95,000원",
+          "description": null,
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": {
+        "min": 11000,
+        "max": 95000
+      },
+      "facilities": [
+        "단체석"
+      ],
+      "business_hours": {
+        "fri": {
+          "open": "09:30",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        },
+        "sat": {
+          "open": "09:30",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        },
+        "sun": {
+          "open": "09:30",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        },
+        "mon": {
+          "open": "09:30",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        },
+        "tue": {
+          "open": "09:30",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        },
+        "wed": {
+          "open": "09:30",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        },
+        "thu": {
+          "open": "09:30",
+          "close": "22:00",
+          "break": null,
+          "last_order": null
+        }
+      },
+      "business_hours_raw": "영업 중 / 22:00 까지 / 금(11/6)|09:30 ~ 22:00 / 토(11/7)|09:30 ~ 22:00 / 일(11/8)|09:30 ~ 22:00 / 월(11/9)|09:30 ~ 22:00 / 화(11/10)|09:30 ~ 22:00 / 수(11/11)|09:30 ~ 22:00 / 목(11/12)|09:30 ~ 22:00",
+      "closed_days": null,
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": null,
+      "status": "ok"
+    }
+  ],
+  "extracted_at": "2026-11-06T17:51:34+09:00"
+}

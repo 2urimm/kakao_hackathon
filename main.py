@@ -496,7 +496,7 @@ def _make_reservation(db: Session, background: BackgroundTasks | None, room_id: 
 def _find_recommendation(db: Session, room_id: int, before_id: int) -> tuple[Message, Place] | None:
     """직전 봇 답변에서 추천 식당 찾기.
     1) 메시지에 place 가 붙어 있으면 그것
-    2) 없으면 본문에 나온 식당 이름을 demo_places.json 목록에서 찾음 (가장 먼저 언급된 곳)
+    2) 없으면 본문에 나온 식당 이름을 places/ 목록에서 찾음 (가장 먼저 언급된 곳)
     이 서버가 올린 안내(예약/택시 알림, "못 찾았어요" 등)는 건너뛰고, 그 앞의 진짜 답변 하나만 본다.
     그 답변에 아는 식당이 없으면 None (더 예전 답변의 식당을 잘못 예약하지 않게)."""
     bot_msgs = db.scalars(
@@ -662,7 +662,7 @@ def add_participant(reservation_id: int, body: ParticipantIn, background: Backgr
 
 @app.get("/api/places")
 def list_places():
-    """데모 식당 목록 (demo_places.json). 봇 답변에 이 이름이 나오면 "@봇 예약해줘" 로 예약 가능."""
+    """데모 식당 목록 (places/*.json, 메뉴 등 상세 제외). 봇 답변에 이 이름이 나오면 "@봇 예약해줘" 로 예약 가능."""
     return load_places()
 
 
