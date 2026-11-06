@@ -11,19 +11,24 @@
   4. 저장되는 순간 ws://<서버IP>:<PORT>/ws/<room_id> 에 연결된 프론트로 바로 푸시
      (웹소켓을 못 쓰면 GET /api/messages?room_id=...&after_id=<마지막 id> 폴링도 가능)
 
-예약:
-  1. 봇이 음식점을 추천할 때 메시지에 place {place_id, place_name, x, y} 를 같이 저장 → 프론트가 "예약하기" 버튼 표시
-  2. 카카오맵 목업 → POST /api/reservations {room_id, place_id, place_name, reserved_at, requested_by, participant_names}
-     participant_names 생략 = 방 멤버 전원 (봇 제외). 프론트에서 X 로 뺀 사람 빼고 보내면 그 사람들만 참여
-  3. 이 서버가 예약 + 참여자 저장 → MCP 서버 reserve 도구 호출 → 받은 안내 문구를 봇 메시지로 채팅방에 올림 (웹소켓 푸시)
-  4. 참여자 각자 GET /api/reservations?user_name=<이름> 으로 자기 예약 장소 목록 조회
+예약 (채팅으로):
+  1. 답변 생성 서버가 음식점을 추천할 때 메시지에 place {place_id, place_name, x, y} 를 같이 저장
+  2. 채팅 "@봇 내일 7시에 예약해줘" → 답변 서버로 안 보내고 이 서버가 처리
+     - 그 방에서 봇이 가장 최근에 추천한 식당(place 붙은 봇 메시지)을 예약
+     - 날짜/시간/인원은 이 문장 → 없으면 추천 받기 전후 대화에서 찾음. 시간이 끝내 없으면 봇이 되물음
+     - 참여자 = 방 멤버 전원 (봇 제외)
+  3. 예약 + 참여자 저장 → MCP 서버 reserve 도구 호출 → 안내 문구를 봇 메시지로 채팅방에 올림 (웹소켓 푸시)
+  4. 예약 카드에서 X → DELETE /api/reservations/{id}/participants/{user_id} 로 참여자 제외
+  5. 참여자 각자 GET /api/reservations?user_name=<이름> 으로 자기 예약 장소 목록 조회
 """
 import logging
+import re
 import socket
 from collections import defaultdict
 from datetime import datetime
 from typing import Literal
 
+import anyio.from_thread
 import httpx
 import uvicorn
 from fastapi import BackgroundTasks, Depends, FastAPI, HTTPException, WebSocket, WebSocketDisconnect
@@ -34,7 +39,9 @@ from sqlalchemy.dialects.mysql import insert as mysql_insert
 from sqlalchemy.orm import Session, selectinload
 
 import config
-from database import Message, Reservation, ReservationParticipant, Room, RoomMember, User, get_db, init_db
+from database import (Message, Reservation, ReservationParticipant, Room, RoomMember, SessionLocal, User,
+                      get_db, init_db)
+from when_parser import parse_when
 
 log = logging.getLogger("uvicorn.error")
 
@@ -50,7 +57,7 @@ init_db()
 
 # ---------- 요청/응답 스키마 ----------
 class Place(BaseModel):
-    """봇이 추천한 장소. 이게 붙은 메시지에 프론트가 "예약하기" 버튼을 띄운다."""
+    """봇이 추천한 장소. "@봇 예약해줘" 하면 가장 최근에 추천된 이 장소를 예약한다."""
     place_id: str = Field(..., min_length=1, max_length=50, examples=["12345"], description="카카오 장소 ID")
     place_name: str = Field(..., min_length=1, max_length=200, examples=["성수 파스타집"])
     x: float | None = Field(None, ge=-180, le=180, description="경도 (선택)")
@@ -70,7 +77,7 @@ class MessageOut(BaseModel):
     room_id: int
     content: str
     created_at: datetime
-    place: Place | None = None           # 추천 장소가 붙은 메시지면 값이 있음 → "예약하기" 버튼
+    place: Place | None = None           # 봇이 추천한 식당이면 값이 있음 ("@봇 예약해줘" 대상)
     reservation_id: int | None = None    # 예약 안내 메시지면 그 예약 id
     # 저장 응답에서만 의미 있음: True면 봇을 호출했으니 곧 봇 답변이 올라옴 ("답변 중..." 표시용)
     bot_called: bool = False
@@ -123,6 +130,10 @@ class ReservationIn(BaseModel):
         None, examples=[["유림", "민수"]],
         description="참여자 이름 목록. 생략(null)하면 방 멤버 전원(봇 제외). 요청자는 항상 포함. 방 멤버만 가능")
     party_size: int | None = Field(None, ge=1, le=100, description="인원 수. 생략하면 참여자 수")
+
+
+class ParticipantIn(BaseModel):
+    user_name: str = Field(..., min_length=1, max_length=100, examples=["지수"], description="다시 넣을 방 멤버 이름")
 
 
 class ReservationStatusIn(BaseModel):
@@ -200,9 +211,10 @@ def _ensure_member(db: Session, room_id: int, user: User) -> None:
     db.execute(mysql_insert(RoomMember).values(room_id=room_id, user_id=user.id).prefix_with("IGNORE"))
 
 
-def _post_message(db: Session, background: BackgroundTasks, room_id: int, user_name: str, content: str,
+def _post_message(db: Session, background: BackgroundTasks | None, room_id: int, user_name: str, content: str,
                   place: "Place | None" = None, reservation_id: int | None = None) -> MessageOut:
-    """메시지 저장 + 그 방 웹소켓으로 푸시 (채팅 / 봇 답변 / 예약 안내 공통)."""
+    """메시지 저장 + 그 방 웹소켓으로 푸시 (채팅 / 봇 답변 / 예약 안내 공통).
+    background=None 은 이미 백그라운드 작업(스레드) 안이라는 뜻 → 바로 푸시."""
     user = _get_or_create_user(db, user_name)
     _ensure_member(db, room_id, user)
     msg = Message(user_id=user.id, room_id=room_id, content=content, reservation_id=reservation_id)
@@ -211,8 +223,11 @@ def _post_message(db: Session, background: BackgroundTasks, room_id: int, user_n
     db.add(msg)
     db.commit()
     db.refresh(msg)
-    out = _to_out(msg, _should_call_bot(user.name, content))
-    background.add_task(hub.broadcast, room_id, out.model_dump(mode="json"))
+    out = _to_out(msg, _bot_will_reply(user.name, content))
+    if background is not None:
+        background.add_task(hub.broadcast, room_id, out.model_dump(mode="json"))
+    else:
+        anyio.from_thread.run(hub.broadcast, room_id, out.model_dump(mode="json"))
     return out
 
 
@@ -250,12 +265,28 @@ hub = RoomHub()
 
 
 # ---------- 챗봇 호출 ----------
+# "@봇 예약해줘 / 예약 좀 해줘 / 예약하자 / 예약 잡아줘 / 예약 부탁해" → 예약 요청
+_RESERVE_RE = re.compile(r"예약\s*(?:을\s*)?(?:좀\s*)?(?:해|하자|할게|할래|부탁|ㄱ|잡아|진행|넣어)")
+
+
+def _bot_mentioned(user_name: str, content: str) -> bool:
+    # 봇이 쓴 메시지는 봇을 다시 부르지 않음 (무한루프 방지)
+    return user_name != config.BOT_NAME and config.BOT_TRIGGER in content
+
+
+def _is_reserve_request(user_name: str, content: str) -> bool:
+    return _bot_mentioned(user_name, content) and bool(_RESERVE_RE.search(content))
+
+
 def _should_call_bot(user_name: str, content: str) -> bool:
-    return (
-        bool(config.ANSWER_SERVER_URL)
-        and user_name != config.BOT_NAME          # 봇 답변이 봇을 다시 부르는 무한루프 방지
-        and config.BOT_TRIGGER in content
-    )
+    """답변 생성 서버로 넘길지. 예약 요청은 이 서버가 직접 처리하므로 넘기지 않음."""
+    return (bool(config.ANSWER_SERVER_URL) and _bot_mentioned(user_name, content)
+            and not _is_reserve_request(user_name, content))
+
+
+def _bot_will_reply(user_name: str, content: str) -> bool:
+    """곧 봇 메시지가 올라오는지 (프론트 "봇이 답변 중..." 표시용)."""
+    return _should_call_bot(user_name, content) or _is_reserve_request(user_name, content)
 
 
 def _recent_context(db: Session, room_id: int) -> list[dict]:
@@ -339,12 +370,15 @@ def add_member(room_id: int, body: MemberIn, db: Session = Depends(get_db)):
 @app.post("/api/messages", response_model=MessageOut)
 def save_message(body: MessageIn, background: BackgroundTasks, db: Session = Depends(get_db)):
     """채팅 1건 저장. 방이 없으면 404. 처음 보는 유저면 자동 등록하고, 보낸 사람은 그 방 멤버로 자동 등록.
-    내용에 BOT_TRIGGER(기본 "@봇")가 있으면 답변 생성 서버를 호출한다.
-    봇 답변이 음식점 하나를 추천하는 거면 place 를 같이 보내면 프론트가 "예약하기" 버튼을 띄울 수 있다."""
+    - "@봇 ... 예약해줘" → 그 방에서 봇이 가장 최근에 추천한 식당을 예약 (이 서버가 처리)
+    - 그 밖의 "@봇 ..." → 답변 생성 서버 호출
+    - 봇 답변이 음식점 하나를 추천하는 거면 place 를 같이 보내야 "@봇 예약해줘" 로 예약할 수 있다."""
     _require_room(db, body.room_id)
     # 저장 즉시 그 방에 연결된 프론트들에게 푸시 (봇 답변도 이 경로로 저장되므로 생성 즉시 표시됨)
     out = _post_message(db, background, body.room_id, body.user_name, body.content, body.place)
-    if out.bot_called:
+    if _is_reserve_request(out.user_name, out.content):
+        background.add_task(_reserve_from_chat, body.room_id, out.user_name, out.id)
+    elif _should_call_bot(out.user_name, out.content):
         # 응답을 먼저 돌려주고, 답변 서버 호출은 뒤에서 처리 (프론트가 기다리지 않게)
         # 답변 생성 서버의 room_id 는 문자열 타입이라 str 로 변환해서 보냄
         background.add_task(_send_to_answer_server,
@@ -414,22 +448,18 @@ def _pick_participants(db: Session, room_id: int, requester: User, names: list[s
     return [requester] + [u for u in members.values() if u.id != requester.id]
 
 
-@app.post("/api/reservations", response_model=ReservationOut)
-def create_reservation(body: ReservationIn, background: BackgroundTasks, db: Session = Depends(get_db)):
-    """음식점 예약 요청 (카카오맵 목업의 예약 버튼에서 호출).
-    참여자: participant_names 생략 시 방 멤버 전원(봇 제외), 프론트에서 X 로 뺀 사람은 빼고 보내면 됨.
-    예약 + 참여자를 저장하고 MCP 서버 reserve 도구를 호출한 뒤, 안내 문구를 봇 메시지로 채팅방에 올린다.
-    MCP 서버가 꺼져 있어도 예약은 저장되고 안내 문구는 이 서버가 만든다 (mcp_ok=false)."""
-    _require_room(db, body.room_id)
-    requester = _get_or_create_user(db, body.requested_by)
-    _ensure_member(db, body.room_id, requester)
-    people = _pick_participants(db, body.room_id, requester, body.participant_names)
-
-    place_id = body.place_id.strip()
+def _make_reservation(db: Session, background: BackgroundTasks | None, room_id: int, requester: User,
+                      place_id: str, place_name: str, reserved_at: datetime,
+                      participant_names: list[str] | None = None,
+                      party_size: int | None = None) -> tuple[Reservation, str, bool]:
+    """예약 + 참여자 저장 → MCP reserve 호출 → 안내 문구를 봇 메시지로 채팅방에 올림. (예약, 문구, MCP 성공)"""
+    _ensure_member(db, room_id, requester)
+    people = _pick_participants(db, room_id, requester, participant_names)
+    place_id = place_id.strip()
     r = Reservation(
-        room_id=body.room_id, user_id=requester.id, place_id=place_id, place_name=body.place_name.strip(),
-        reserved_at=body.reserved_at.replace(tzinfo=None, second=0, microsecond=0),
-        party_size=body.party_size or len(people),
+        room_id=room_id, user_id=requester.id, place_id=place_id, place_name=place_name.strip(),
+        reserved_at=reserved_at.replace(tzinfo=None, second=0, microsecond=0),
+        party_size=party_size or len(people),
         link=f"https://place.map.kakao.com/{place_id}",
         participants=[ReservationParticipant(user_id=u.id) for u in people],
     )
@@ -442,8 +472,73 @@ def create_reservation(body: ReservationIn, background: BackgroundTasks, db: Ses
         text = (f"📅 {requester.name}님이 {r.place_name} {r.reserved_at:%Y-%m-%d %H:%M} {r.party_size}명 예약을 "
                 f"요청했어요. 예약 링크: {r.link}")
     text += f"\n👥 참여: {', '.join(u.name for u in people)}"
-    _post_message(db, background, r.room_id, config.BOT_NAME, text,
+    _post_message(db, background, room_id, config.BOT_NAME, text,
                   place=Place(place_id=r.place_id, place_name=r.place_name), reservation_id=r.id)
+    return r, text, mcp_ok
+
+
+def _reserve_from_chat(room_id: int, requester_name: str, request_msg_id: int) -> None:
+    """"@봇 ... 예약해줘" 처리 (백그라운드). 그 방에서 봇이 가장 최근에 추천한 식당을 예약한다."""
+    with SessionLocal() as db:
+        try:
+            # 직전 추천 = 이 요청보다 앞선, place 가 붙은 봇 메시지 중 예약 안내가 아닌 것
+            rec = db.scalar(
+                select(Message).join(User)
+                .where(Message.room_id == room_id, Message.id < request_msg_id, User.name == config.BOT_NAME,
+                       Message.place_id.is_not(None), Message.reservation_id.is_(None))
+                .order_by(Message.id.desc()).limit(1))
+            if rec is None:
+                _post_message(db, None, room_id, config.BOT_NAME,
+                              "예약할 식당을 못 찾았어요 🥲 먼저 \"@봇 OO 맛집 추천해줘\"로 식당을 추천받은 뒤 "
+                              "\"@봇 내일 저녁 7시에 예약해줘\"라고 말해 주세요.")
+                return
+
+            # 날짜/시간/인원: 이 요청 → 추천 받기 직전의 봇 메시지 이후 대화 (최신 → 오래된 순)
+            prev_bot_id = db.scalar(
+                select(Message.id).join(User)
+                .where(Message.room_id == room_id, Message.id < rec.id, User.name == config.BOT_NAME)
+                .order_by(Message.id.desc()).limit(1)) or 0
+            talk = db.scalars(
+                select(Message).join(User)
+                .where(Message.room_id == room_id, Message.id > prev_bot_id, Message.id <= request_msg_id,
+                       User.name != config.BOT_NAME)
+                .order_by(Message.id.desc()).limit(config.CONTEXT_MESSAGES)).all()
+            when, party = parse_when([(m.content, m.created_at) for m in talk], datetime.now())
+            if when is None:
+                _post_message(db, None, room_id, config.BOT_NAME,
+                              f"{rec.place_name} 몇 시로 예약할까요? ⏰\n예) \"@봇 내일 저녁 7시에 예약해줘\"",
+                              place=Place(place_id=rec.place_id, place_name=rec.place_name,
+                                          x=rec.place_x, y=rec.place_y))
+                return
+
+            # 같은 말을 두 번 해서 같은 예약이 또 생기지 않게
+            dup = db.scalar(select(Reservation).where(
+                Reservation.room_id == room_id, Reservation.place_id == rec.place_id,
+                Reservation.reserved_at == when, Reservation.status != "cancelled"))
+            if dup is not None:
+                _post_message(db, None, room_id, config.BOT_NAME,
+                              f"{dup.place_name} {dup.reserved_at:%m월 %d일 %H:%M} 예약은 이미 돼 있어요 🙂",
+                              reservation_id=dup.id)
+                return
+
+            requester = _get_or_create_user(db, requester_name)
+            _make_reservation(db, None, room_id, requester, rec.place_id, rec.place_name, when, party_size=party)
+        except Exception:
+            log.exception("채팅 예약 처리 실패 (room=%s, msg=%s)", room_id, request_msg_id)
+            db.rollback()
+            _post_message(db, None, room_id, config.BOT_NAME, "예약 중에 문제가 생겼어요 😢 잠시 후 다시 말해 주세요.")
+
+
+@app.post("/api/reservations", response_model=ReservationOut)
+def create_reservation(body: ReservationIn, background: BackgroundTasks, db: Session = Depends(get_db)):
+    """(선택) 화면에서 직접 예약할 때. 보통은 채팅 "@봇 내일 7시에 예약해줘" 로 예약된다.
+    참여자: participant_names 생략 시 방 멤버 전원(봇 제외).
+    예약 + 참여자를 저장하고 MCP 서버 reserve 도구를 호출한 뒤, 안내 문구를 봇 메시지로 채팅방에 올린다.
+    MCP 서버가 꺼져 있어도 예약은 저장되고 안내 문구는 이 서버가 만든다 (mcp_ok=false)."""
+    _require_room(db, body.room_id)
+    requester = _get_or_create_user(db, body.requested_by)
+    r, text, mcp_ok = _make_reservation(db, background, body.room_id, requester, body.place_id, body.place_name,
+                                        body.reserved_at, body.participant_names, body.party_size)
     return _reservation_out(_get_reservation(db, r.id), message=text, mcp_ok=mcp_ok)
 
 
@@ -488,6 +583,43 @@ def update_reservation_status(reservation_id: int, body: ReservationStatusIn, ba
     }[r.status]
     _post_message(db, background, r.room_id, config.BOT_NAME, text,
                   place=Place(place_id=r.place_id, place_name=r.place_name), reservation_id=r.id)
+    return _reservation_out(_get_reservation(db, r.id), message=text)
+
+
+@app.delete("/api/reservations/{reservation_id}/participants/{user_id}", response_model=ReservationOut)
+def remove_participant(reservation_id: int, user_id: int, background: BackgroundTasks, db: Session = Depends(get_db)):
+    """예약 카드에서 참여자 칩의 X. 그 사람 계정의 예약 목록에서 빠지고, 인원이 1 줄고, 채팅방에 안내가 올라간다.
+    예약한 사람(requested_by)은 뺄 수 없음 (400)."""
+    r = _get_reservation(db, reservation_id)
+    p = next((p for p in r.participants if p.user_id == user_id), None)
+    if p is None:
+        raise HTTPException(404, f"user_id {user_id} 는 예약 {reservation_id} 의 참여자가 아닙니다.")
+    if user_id == r.user_id:
+        raise HTTPException(400, "예약한 사람은 뺄 수 없어요. 예약을 취소하려면 PATCH 로 status=cancelled.")
+    name = p.user.name
+    r.participants.remove(p)
+    r.party_size = max(1, r.party_size - 1)
+    db.commit()
+    text = f"👋 {name}님이 {r.place_name} 예약에서 빠졌어요. (이제 {r.party_size}명)"
+    _post_message(db, background, r.room_id, config.BOT_NAME, text, reservation_id=r.id)
+    return _reservation_out(_get_reservation(db, r.id), message=text)
+
+
+@app.post("/api/reservations/{reservation_id}/participants", response_model=ReservationOut)
+def add_participant(reservation_id: int, body: ParticipantIn, background: BackgroundTasks,
+                    db: Session = Depends(get_db)):
+    """X 로 뺀 사람 다시 넣기 (방 멤버만). 인원이 1 늘고 채팅방에 안내가 올라간다."""
+    r = _get_reservation(db, reservation_id)
+    [user] = _pick_participants(db, r.room_id, r.user, [body.user_name])[1:] or [None]
+    if user is None:
+        raise HTTPException(400, "예약한 사람은 이미 참여자예요.")
+    if any(p.user_id == user.id for p in r.participants):
+        return _reservation_out(r)
+    r.participants.append(ReservationParticipant(user_id=user.id))
+    r.party_size += 1
+    db.commit()
+    text = f"🙌 {user.name}님이 {r.place_name} 예약에 함께해요. (이제 {r.party_size}명)"
+    _post_message(db, background, r.room_id, config.BOT_NAME, text, reservation_id=r.id)
     return _reservation_out(_get_reservation(db, r.id), message=text)
 
 
