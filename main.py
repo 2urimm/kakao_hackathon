@@ -7,15 +7,17 @@
   1. 프론트 → POST /api/messages  ("@봇 ..." 채팅)
   2. 이 서버가 저장 후, 그 방의 최근 대화를 답변 생성 서버 POST /api/chat 으로 전달 (백그라운드)
   3. 답변 생성 서버가 답변을 만들어서 → 이 서버 POST /api/messages 로 user_name=BOT_NAME 으로 저장
-  4. 프론트는 GET /api/messages?room_id=...&after_id=<마지막 id> 로 새 메시지(봇 답변 포함) 확인
+  4. 저장되는 순간 ws://<서버IP>:<PORT>/ws/<room_id> 에 연결된 프론트로 바로 푸시
+     (웹소켓을 못 쓰면 GET /api/messages?room_id=...&after_id=<마지막 id> 폴링도 가능)
 """
 import logging
 import socket
+from collections import defaultdict
 from datetime import datetime
 
 import httpx
 import uvicorn
-from fastapi import BackgroundTasks, Depends, FastAPI
+from fastapi import BackgroundTasks, Depends, FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, ConfigDict, Field
 from sqlalchemy import select
@@ -70,6 +72,33 @@ def _to_out(m: Message, bot_called: bool = False) -> MessageOut:
     )
 
 
+# ---------- 실시간 푸시 (웹소켓) ----------
+class RoomHub:
+    """방별로 연결된 웹소켓 목록. 새 메시지가 저장되면 그 방에 연결된 모두에게 바로 보낸다."""
+
+    def __init__(self) -> None:
+        self.rooms: dict[str, set[WebSocket]] = defaultdict(set)
+
+    async def join(self, room_id: str, ws: WebSocket) -> None:
+        await ws.accept()
+        self.rooms[room_id].add(ws)
+
+    def leave(self, room_id: str, ws: WebSocket) -> None:
+        self.rooms[room_id].discard(ws)
+        if not self.rooms[room_id]:
+            del self.rooms[room_id]
+
+    async def broadcast(self, room_id: str, data: dict) -> None:
+        for ws in list(self.rooms.get(room_id, ())):
+            try:
+                await ws.send_json(data)
+            except Exception:  # 끊긴 연결은 정리
+                self.leave(room_id, ws)
+
+
+hub = RoomHub()
+
+
 # ---------- 챗봇 호출 ----------
 def _should_call_bot(user_name: str, content: str) -> bool:
     return (
@@ -122,11 +151,28 @@ def save_message(body: MessageIn, background: BackgroundTasks, db: Session = Dep
     db.refresh(msg)
 
     bot_called = _should_call_bot(name, body.content)
+    out = _to_out(msg, bot_called)
+    # 그 방에 연결된 프론트들에게 바로 푸시 (봇 답변도 이 경로로 저장되므로 생성 즉시 표시됨)
+    background.add_task(hub.broadcast, body.room_id, out.model_dump(mode="json"))
     if bot_called:
         # 응답을 먼저 돌려주고, 답변 서버 호출은 뒤에서 처리 (프론트가 기다리지 않게)
         background.add_task(_send_to_answer_server,
                             {"room_id": body.room_id, "messages": _recent_context(db, body.room_id)})
-    return _to_out(msg, bot_called)
+    return out
+
+
+@app.websocket("/ws/{room_id}")
+async def room_socket(ws: WebSocket, room_id: str):
+    """실시간 수신용. 연결해두면 이 방에 저장되는 새 메시지(봇 답변 포함)가 MessageOut JSON으로 바로 온다.
+    보내기는 계속 POST /api/messages 사용. 클라이언트가 보내는 텍스트는 무시(연결 유지용 ping 정도로만)."""
+    await hub.join(room_id, ws)
+    try:
+        while True:
+            await ws.receive_text()
+    except WebSocketDisconnect:
+        pass
+    finally:
+        hub.leave(room_id, ws)
 
 
 @app.get("/api/messages", response_model=list[MessageOut])
@@ -167,6 +213,7 @@ if __name__ == "__main__":
     shown = _local_ip() if config.HOST == "0.0.0.0" else config.HOST
     print(f"\n  프론트에 알려줄 주소 →  http://{shown}:{config.PORT}")
     print(f"  API 문서            →  http://{shown}:{config.PORT}/docs")
+    print(f"  실시간 수신         →  ws://{shown}:{config.PORT}/ws/<room_id>")
     if config.ANSWER_SERVER_URL:
         print(f"  답변 생성 서버      →  {config.ANSWER_SERVER_URL}  (호출어: {config.BOT_TRIGGER}, 봇 이름: {config.BOT_NAME})\n", flush=True)
     else:

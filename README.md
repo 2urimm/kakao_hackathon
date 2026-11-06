@@ -72,9 +72,11 @@ python main.py
                                                     │ 저장 후, 그 방 최근 대화 20개를
                                                     ▼ POST /api/chat 으로 전달 (202 접수)
                                               답변 생성 서버
-                                                    │ 답변 생성 (약 10초)
+                                                    │ 답변 생성 (LLM 생성 시간, 약 10초)
 채팅 저장 서버 ◀──POST /api/messages user_name="봇"──┘
-프론트 ──GET /api/messages?room_id=...&after_id=<마지막 id>──▶ 봇 답변 확인
+      │ 저장되는 즉시 (수십 ms)
+      ▼
+프론트 ◀── 웹소켓 ws://<서버IP>:8000/ws/<room_id> 로 푸시 (기다림/폴링 없음)
 ```
 
 `.env` 설정:
@@ -109,9 +111,25 @@ python main.py
 ### 채팅 조회 `GET /api/messages?room_id=room1&user_name=유림&limit=50`
 모든 파라미터 선택. 오래된 → 최신 순으로 최근 `limit`개.
 
-### 새 메시지만 조회 (봇 답변 기다릴 때) `GET /api/messages?room_id=room1&after_id=12`
-`id`가 12보다 큰 메시지만 반환. 프론트는 화면의 마지막 메시지 `id`를 넣고 2~3초마다 호출하면 봇 답변을 받을 수 있음.
+### 실시간 수신 (웹소켓) `ws://<서버IP>:<PORT>/ws/<room_id>`
+연결해두면 그 방에 저장되는 **모든 새 메시지(다른 사람 채팅 + 봇 답변)** 가 저장 즉시 `MessageOut` JSON으로 온다.
+보내기는 계속 `POST /api/messages`. 내가 보낸 메시지도 웹소켓으로 한 번 더 오니 `id`로 중복 제거.
+
+```js
+const ws = new WebSocket(`ws://${SERVER_IP}:8000/ws/${roomId}`);
+ws.onmessage = (e) => {
+  const msg = JSON.parse(e.data);   // {id, user_name, room_id, content, created_at, bot_called}
+  if (msg.bot_called) showTyping();              // 누가 @봇 불렀음 → "봇이 답변 중..."
+  if (msg.user_name === "봇") hideTyping();      // 봇 답변 도착
+  addMessage(msg);                               // id 로 중복 체크 후 화면에 추가
+};
+ws.onclose = () => setTimeout(reconnect, 1000);  // 와이파이 끊기면 재연결 + after_id 로 놓친 것 받아오기
+```
+
 봇 답변(`content`)은 마크다운(`###`, `**굵게**`, 목록)으로 오니 마크다운 렌더링 추천.
+
+### 새 메시지만 조회 `GET /api/messages?room_id=room1&after_id=12`
+`id`가 12보다 큰 메시지만 반환. 웹소켓 재연결 후 끊긴 동안 놓친 메시지를 받아올 때 사용 (웹소켓을 못 쓰면 2~3초마다 폴링해도 됨).
 
 ### 유저 목록 `GET /api/users`
 
