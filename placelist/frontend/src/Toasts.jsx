@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { AppCtx } from "./context.js";
-import { DRank, DTemp } from "./ui.jsx";
+import { DRank, DTemp, tierText } from "./ui.jsx";
 import { fmtWhen } from "./chat.js";
 import { PLMap } from "./map.js";
 
@@ -10,14 +10,14 @@ const CHAT_HEAD = { requested: "새 예약", confirmed: "예약 확정", cancell
 function Effect({ ev }) {
   const e = ev.effect, p = ev.place;
   if (ev.type === "chat") return <div className="fx">함께: {ev.participants.join(", ")}</div>;
-  if (ev.type === "cancelled") return <div className="fx">취소되어 온도 반영을 되돌렸어요</div>;
-  if (ev.type === "pending") return <div className="fx">확정되면 온도에 반영돼요</div>;
+  if (ev.type === "cancelled") return <div className="fx">취소되어 레벨 반영을 되돌렸어요</div>;
+  if (ev.type === "pending") return <div className="fx">확정되면 레벨에 반영돼요</div>;
   if (!e) return null;
   const [b, a] = e.list_temp, [rb, ra] = e.rank;
   return (
     <>
-      <div className="fx">'{ev.list.title}' 온도 <b>{b.toFixed(1)} → {a.toFixed(1)}℃</b> <DTemp d={a - b} /></div>
-      <div className="fx">{e.curator}님 {e.group} 온도 {e.curator_temp[0].toFixed(1)} → {e.curator_temp[1].toFixed(1)}℃</div>
+      <div className="fx">'{ev.list.title}' <b>{tierText(b)} → {tierText(a)}</b> <DTemp d={a - b} /></div>
+      <div className="fx">카이드 {e.curator}님 {e.group} {tierText(e.curator_temp[0])} → {tierText(e.curator_temp[1])}</div>
       <div className="fx">
         {p.지역} {p.업종} 랭킹 {ra == null ? "" : rb === ra ? `${ra}위 유지` : <><b>{rb}위 → {ra}위</b> <DRank d={rb - ra} /></>}
       </div>

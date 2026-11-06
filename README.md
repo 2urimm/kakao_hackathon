@@ -338,7 +338,8 @@ python server.py 8200                 # http://localhost:8200  (채팅 서버가
 - **이름 로그인**: 처음 들어오면 이름 입력 (비밀번호 없음). 채팅방에서 쓰는 이름과 같아야 그 사람의 예약이 보인다.
 - **내 예약**: 채팅 서버 `GET /api/reservations?user_name=<이름>` 을 3초마다 읽어 "내 리스트" 탭 카드, 지도 초록 "예약" 핀, 리스트 상세 배지, 새 예약 알림으로 표시
 - **단톡방 친구**: 같은 채팅방 멤버는 자동으로 친구 (`GET /api/rooms?user_name=`). 친구가 잡은 예약도 카드와 지도 핀으로
-- **온도 반영**: 채팅 서버가 예약 시 placelist `POST /api/reservation` 호출 (`chat_server/.env` 의 `PLACELIST_URL`) → 예약 카드에 "리스트 온도 45.1 → 45.8℃ · 랭킹 3위 → 1위"
+- **레벨 반영**: 채팅 서버가 예약 시 placelist `POST /api/reservation` 호출 (`chat_server/.env` 의 `PLACELIST_URL`) → 예약 카드에 "블루 Lv.75 → 블루 Lv.78 · 랭킹 3위 → 1위"
+- **티어·레벨**: 카카오맵 배지 티어표 그대로 (브론즈 Lv1~10 · 실버 11~30 · 골드 31~60 · 블루 61~80 · 퍼플 81~100, 점수 0~19,300). 서버 계산(온도 30~50℃)은 그대로 두고 화면에서 레벨 1~100 으로 고르게 펼침 (1℃ ≈ 5레벨) — `placelist/frontend/src/ui.jsx` 의 `tierOf`
 - 설정: `placelist/frontend/public/config.js` (빌드 후 `placelist/web/config.js`)
   - `CHAT_API_BASE`: 채팅 서버 주소 (예: `http://172.168.45.126:8000`)
   - `KAKAO_JS_KEY`: 카카오 디벨로퍼스 앱 "쩝쩝박사 placelist" 의 JavaScript 키. **접속 주소를 그 키의 JS SDK 도메인에 등록해야** 카카오맵이 뜸 (현재 `http://localhost:8200`, `http://172.168.45.126:8200`, `http://localhost:5173`). 등록 안 된 주소면 OpenStreetMap 대체 지도

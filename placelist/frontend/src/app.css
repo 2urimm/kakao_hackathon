@@ -331,3 +331,7 @@ details.why summary{cursor:pointer;font-weight:600;font-size:13px}
 /* ---- 카이드 (카카오맵 + 가이드) 한 줄 설명 ---- */
 .kaide-note{padding:8px 4px 0;text-align:center}
 .kaide-hint{font-weight:400}
+/* ---- 카카오맵 티어·레벨 ---- */
+.lv{display:inline-flex;align-items:center;gap:3px;font-weight:800;white-space:nowrap}
+.tier-badge{flex:none;vertical-align:-2px}
+.bigtemp .v{display:flex;align-items:center;gap:6px}

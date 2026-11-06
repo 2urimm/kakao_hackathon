@@ -3,7 +3,7 @@ import { AppCtx } from "../context.js";
 import { qs, useApi } from "../api.js";
 import { PLMap } from "../map.js";
 import { usePins } from "../pins.js";
-import { Avatar, DRank, DTemp, FolderRow, Ico, tColor, useFlashing } from "../ui.jsx";
+import { Avatar, DRank, DTemp, FolderRow, Ico, Lv, tColor, useFlashing } from "../ui.jsx";
 
 function Podium({ c, i, kind, onCurator }) {
   const flashing = useFlashing();
@@ -15,7 +15,7 @@ function Podium({ c, i, kind, onCurator }) {
         <div className="top-r"><span className={`medal m${i + 1}`}>{i + 1}</span><span className="small sub">{c.지역} · <Ico n={c.업종} px={14} /> {c.업종}</span></div>
         <div className="pt">{c.title}</div>
         <div className="m">{c.curator} · {c.n_items}곳 · 구독 {c.subscribers}{c.friend ? " · 친구" : ""}</div>
-        <div className="pv2" style={{ color: tColor(c.temp) }}>{c.temp.toFixed(1)}℃ <DTemp d={c.temp_delta} /><DRank d={c.rank_delta} /></div>
+        <div className="pv2" style={{ color: tColor(c.temp) }}><Lv t={c.temp} full /> <DTemp d={c.temp_delta} /><DRank d={c.rank_delta} /></div>
         {i === 0 && <div className="prev">{(c.preview || []).map(n => <span key={n}>{n}</span>)}</div>}
       </div>
     );
@@ -25,7 +25,7 @@ function Podium({ c, i, kind, onCurator }) {
       <div className="top-r"><span className={`medal m${i + 1}`}>{i + 1}</span><span className="small sub">{c.group}</span></div>
       <div className="pt">{c.curator}{c.friend && <span className="badge">친구</span>}</div>
       <div className="m">{c.bio}</div>
-      <div className="pv2" style={{ color: tColor(c.temp) }}>{c.temp.toFixed(1)}℃ <DTemp d={c.temp_delta} /><DRank d={c.rank_delta} /></div>
+      <div className="pv2" style={{ color: tColor(c.temp) }}><Lv t={c.temp} full /> <DTemp d={c.temp_delta} /><DRank d={c.rank_delta} /></div>
     </div>
   );
 }
@@ -72,7 +72,7 @@ export default function Ranking() {
                   <div className="t">{c.curator}{c.friend && <span className="badge f">친구</span>}</div>
                   <div className="m">{c.bio} · 조건 맞는 장소 {c.n_matched}곳</div>
                 </div>
-                <div className="right"><div className="temp" style={{ color: tColor(c.temp) }}><DTemp d={c.temp_delta} />{c.temp.toFixed(1)}℃</div><div className="small">{c.group}</div></div>
+                <div className="right"><div className="temp" style={{ color: tColor(c.temp) }}><DTemp d={c.temp_delta} /><Lv t={c.temp} /></div><div className="small">{c.group}</div></div>
               </div>
             ))}
         </>

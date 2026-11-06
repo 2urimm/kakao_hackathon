@@ -3,7 +3,7 @@ import { AppCtx } from "../context.js";
 import { qs, useApi } from "../api.js";
 import { PLMap } from "../map.js";
 import { usePins } from "../pins.js";
-import { Avatar, Ico, tColor } from "../ui.jsx";
+import { Avatar, Ico, Lv } from "../ui.jsx";
 import { fmtWhen } from "../chat.js";
 
 function ParsedChips({ q }) {
@@ -41,7 +41,7 @@ function ResultCard({ u, main }) {
         <div className="src">
           <Avatar name={u.list.curator} size="sm" />
           <div>
-            <b>{u.list.curator}</b>님(<span className="temp" style={{ color: tColor(u.curator_temp) }}>{u.curator_temp}℃</span>)의{" "}
+            <b>{u.list.curator}</b>님(<Lv t={u.curator_temp} full />)의{" "}
             <span className="linkish" onClick={e => { e.stopPropagation(); openList(u.list.id); }}>'{u.list.title}'</span>
             <div className="small">{u.tier_name}</div>
           </div>
@@ -78,7 +78,7 @@ export default function Search({ q }) {
         <>
           {r.follow_suggest && (
             <div className="suggest">
-              <span><b>{r.follow_suggest}</b>님은 이 분야 온도가 높은 카이드예요</span>
+              <span><b>{r.follow_suggest}</b>님은 이 분야 레벨이 높은 카이드예요</span>
               <span className="linkish" onClick={() => openList(r.main.list.id)}>리스트 보기</span>
             </div>
           )}

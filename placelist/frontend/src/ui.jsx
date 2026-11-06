@@ -14,15 +14,57 @@ export const Ico = ({ n, px = 18 }) => (
 );
 export const PIN_COLOR = { "음식점": "var(--pin-food)", "카페": "var(--pin-cafe)", "미용": "var(--pin-beauty)" };
 
-// ---- 온도: 낮음(회색) → 보통(파랑) → 좋음(초록) → 높음(주황) → 매우 높음(빨강)
-export const tColor = t => (t < 34 ? "#8b95a1" : t < 38 ? "#1A73E8" : t < 42 ? "#2fa36b" : t < 46 ? "#f08a24" : "#e8523f");
+// ---- 티어·레벨 (카카오맵 배지 티어표 그대로: app.map.kakao.com/info/timeline/score/table.html)
+//  브론즈 Lv1~10 (0~49점) · 실버 Lv11~30 (50~399) · 골드 Lv31~60 (400~3,499) · 블루 Lv61~80 (3,500~8,499) · 퍼플 Lv81~100 (8,500~19,300)
+// 계산은 서버의 온도(30~50℃) 그대로 쓰고, 화면에서만 레벨 1~100 으로 고르게 펼친다 (1℃ ≈ 5레벨).
+const LEVEL_START = (() => {
+  const steps = [[0, 5], [50, 10], [150, 25], [400, 60], [1000, 100], [2000, 150], [3500, 200], [5500, 300], [8500, 450], [13000, 700]];
+  const a = [];
+  steps.forEach(([base, step]) => { for (let i = 0; i < 10; i++) a.push(base + step * i); });
+  a[99] = 19300;                                  // 레벨100 = 19,300점
+  return a;                                       // a[lv-1] = 그 레벨 시작 점수
+})();
+export const TIERS = [
+  { name: "브론즈", from: 1, color: "#c8743a" },
+  { name: "실버", from: 11, color: "#8e9aab" },
+  { name: "골드", from: 31, color: "#e8a800" },
+  { name: "블루", from: 61, color: "#2b7de9" },
+  { name: "퍼플", from: 81, color: "#a93ad6" },
+];
+const LV_PER_DEG = 99 / 20;
+/** 온도 → {level, tier, color, score} */
+export function tierOf(t) {
+  const x = Math.min(100, Math.max(1, 1 + (t - 30) * LV_PER_DEG));
+  const level = Math.floor(x);
+  const start = LEVEL_START[level - 1], next = level < 100 ? LEVEL_START[level] : start;
+  const tier = [...TIERS].reverse().find(tt => level >= tt.from);
+  return { level, tier: tier.name, color: tier.color, score: Math.round(start + (x - level) * (next - start)) };
+}
+export const tierText = t => { const v = tierOf(t); return `${v.tier} Lv.${v.level}`; };
+export const tColor = t => tierOf(t).color;
+/** 배지 아이콘 (티어 색 육각형 + 별) */
+export const TierBadge = ({ t, px = 14 }) => (
+  <svg className="tier-badge" width={px} height={px} viewBox="0 0 24 24" aria-hidden="true">
+    <path fill={tColor(t)} d="M12 1.5 21.1 6.75v10.5L12 22.5 2.9 17.25V6.75z" />
+    <path fill="#fff" d="M12 6.8l1.5 3.1 3.4.5-2.5 2.4.6 3.4-3-1.6-3 1.6.6-3.4-2.5-2.4 3.4-.5z" />
+  </svg>
+);
+/** "🛡 Lv.75" (마우스를 올리면 "블루 · 6,912점") */
+export const Lv = ({ t, full = false }) => {
+  const v = tierOf(t);
+  return (
+    <span className="lv" style={{ color: v.color }} title={`${v.tier} Lv.${v.level} · ${v.score.toLocaleString()}점`}>
+      <TierBadge t={t} />{full ? `${v.tier} ` : ""}Lv.{v.level}
+    </span>
+  );
+};
 export const Tpill = ({ t, label }) => (
   <span className="tpill" style={{ color: tColor(t) }}>
-    {label && <span className="small" style={{ fontWeight: 500 }}>{label}</span>}{t.toFixed(1)}℃
+    {label && <span className="small" style={{ fontWeight: 500 }}>{label}</span>}<Lv t={t} />
   </span>
 );
 export const Tbar = ({ t }) => {
-  const w = Math.max(4, Math.min(100, (t - 30) / 20 * 100));
+  const w = Math.max(4, tierOf(t).level);
   return <div className="tbar"><i style={{ width: `${w}%`, background: tColor(t) }} /></div>;
 };
 export const ProfTemps = ({ p }) => (
@@ -44,8 +86,11 @@ export function Avatar({ name, size = "" }) {
 }
 
 // ---- 예약 확정으로 바뀐 값: 온도 ▲0.6, 순위 ▲2
-export const DTemp = ({ d = 0 }) =>
-  d > 0.04 ? <span className="dt up">▲{d.toFixed(1)}</span> : d < -0.04 ? <span className="dt down">▼{Math.abs(d).toFixed(1)}</span> : null;
+// 온도 변화 → 레벨 변화 (1℃ ≈ 5레벨)
+export const DTemp = ({ d = 0 }) => {
+  const l = Math.round(d * LV_PER_DEG);
+  return d > 0.04 ? <span className="dt up">▲{l || ""}</span> : d < -0.04 ? <span className="dt down">▼{-l || ""}</span> : null;
+};
 export const DRank = ({ d = 0 }) =>
   d > 0 ? <span className="mv up">▲{d}</span> : d < 0 ? <span className="mv down">▼{-d}</span> : null;
 
@@ -67,7 +112,7 @@ export function FolderRow({ c, rank }) {
         <div className="m">{c.curator} · {c.n_items}곳{c.n_matched ? ` (조건 맞는 곳 ${c.n_matched})` : ""} · 구독 {c.subscribers} · {c.지역}</div>
       </div>
       <div className="right">
-        <div className="temp" style={{ color: tColor(c.temp) }}><DTemp d={c.temp_delta} />{c.temp.toFixed(1)}℃</div>
+        <div className="temp" style={{ color: tColor(c.temp) }}><DTemp d={c.temp_delta} /><Lv t={c.temp} /></div>
         <Tbar t={c.temp} />
       </div>
     </div>

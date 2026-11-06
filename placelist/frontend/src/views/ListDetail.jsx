@@ -3,10 +3,10 @@ import { AppCtx } from "../context.js";
 import { api, qs, useApi } from "../api.js";
 import { PLMap } from "../map.js";
 import { usePins } from "../pins.js";
-import { Avatar, DTemp, PIN_COLOR, ProfTemps, tColor } from "../ui.jsx";
+import { Avatar, DTemp, PIN_COLOR, ProfTemps, TierBadge, tColor, tierOf } from "../ui.jsx";
 import { fmtWhen } from "../chat.js";
 
-/** 리스트 온도. 예약 확정으로 올랐으면 이전 값에서 새 값까지 숫자가 올라간다. */
+/** 리스트 레벨 (카카오맵 티어). 예약 확정으로 올랐으면 이전 레벨에서 새 레벨까지 숫자가 올라간다. */
 function BigTemp({ d }) {
   const { flash } = useContext(AppCtx);
   const [shown, setShown] = useState(d.temp);
@@ -26,8 +26,11 @@ function BigTemp({ d }) {
   }, [d.temp, d.list_id, flash]);
   return (
     <div>
-      <div className="small">리스트 온도</div>
-      <div className="v" style={{ color: tColor(d.temp) }}>{shown.toFixed(1)}℃</div><DTemp d={d.temp_delta} />
+      <div className="small">리스트 레벨</div>
+      <div className="v" style={{ color: tColor(shown) }}>
+        <TierBadge t={shown} px={26} /> {tierOf(shown).tier} Lv.{tierOf(shown).level}
+      </div>
+      <div className="small">{tierOf(shown).score.toLocaleString()}점 <DTemp d={d.temp_delta} /></div>
     </div>
   );
 }
@@ -63,9 +66,9 @@ export default function ListDetail({ id }) {
             : <button className={`follow ${d.followed ? "on" : ""}`} onClick={follow}>{d.followed ? "구독 중" : "구독하기"}</button>}
         </div>
         <details className="why">
-          <summary>이 온도는 어떻게 나왔나요?</summary>
+          <summary>이 레벨은 어떻게 정해졌나요?</summary>
           <div className="small" style={{ marginTop: 6 }}>
-            36.5℃에서 시작 · 좋았어요 {st["좋았어요"]}건, 별로였어요 {st["별로였어요"]}건 · 방문 인증 {Math.round(st["방문인증 비율"] * 100)}% · 재방문 {Math.round(st["재방문 비율"] * 100)}% · 평균 {st["평균 경과일"]}일 전 저장
+            골드 Lv.33에서 시작 · 좋았어요 {st["좋았어요"]}건, 별로였어요 {st["별로였어요"]}건 · 방문 인증 {Math.round(st["방문인증 비율"] * 100)}% · 재방문 {Math.round(st["재방문 비율"] * 100)}% · 평균 {st["평균 경과일"]}일 전 저장
           </div>
           <div className="parts">
             {parts.map(([k, v]) => {
@@ -74,7 +77,7 @@ export default function ListDetail({ id }) {
               return (
                 <div key={k} style={{ display: "contents" }}>
                   <div>{k}</div><div className="pbar"><i style={bar} /></div>
-                  <div className="pv" style={{ color: v > 0 ? "var(--ok)" : v < 0 ? "var(--bad)" : "var(--sub)" }}>{v > 0 ? "+" : ""}{v.toFixed(1)}</div>
+                  <div className="pv" style={{ color: v > 0 ? "var(--ok)" : v < 0 ? "var(--bad)" : "var(--sub)" }}>{v > 0 ? "+" : ""}{(v * 99 / 20).toFixed(1)}</div>
                 </div>
               );
             })}

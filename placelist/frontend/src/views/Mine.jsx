@@ -4,7 +4,7 @@ import { qs, useApi } from "../api.js";
 import { STATUS, fmtWhen, toPlaceId } from "../chat.js";
 import { PLMap } from "../map.js";
 import { useAllPins } from "../pins.js";
-import { Avatar, FolderRow, ProfTemps } from "../ui.jsx";
+import { Avatar, FolderRow, ProfTemps, tierText } from "../ui.jsx";
 
 /** 채팅에서 잡은 예약 카드 한 장 (채팅 서버 ReservationOut) */
 function ChatRsv({ r }) {
@@ -21,7 +21,7 @@ function ChatRsv({ r }) {
       <div className="small">함께: {others.join(", ")}{r.requested_by ? ` · ${r.requested_by}님이 예약` : ""}</div>
       {fx && (
         <div className="rfx" onClick={e => { e.stopPropagation(); openList(ev.list.id); }}>
-          '{ev.list.title}' 온도 {fx.list_temp[0].toFixed(1)} → <b>{fx.list_temp[1].toFixed(1)}℃</b>
+          '{ev.list.title}' {tierText(fx.list_temp[0])} → <b>{tierText(fx.list_temp[1])}</b>
           {fx.rank && fx.rank[0] !== fx.rank[1] ? ` · ${ev.place.지역} ${ev.place.업종} 랭킹 ${fx.rank[0]}위 → ${fx.rank[1]}위` : ""}
         </div>
       )}
@@ -58,14 +58,14 @@ export default function Mine() {
 
       {rsv && rsv.filter(r => !String(r.reservation_id).startsWith("C")).length > 0 && (
         <>
-          <div className="sec">리스트 온도에 반영된 예약 (채팅 밖)</div>
+          <div className="sec">리스트 레벨에 반영된 예약 (채팅 밖)</div>
           {rsv.filter(r => !String(r.reservation_id).startsWith("C")).map(r => (
             <div key={r.reservation_id} className="rsv ok" onClick={() => r.list && openList(r.list.id)}>
               <span className="badge-rsv ok">예약 확정</span>
               <div className="rt">{r.place.name}</div>
               <div className="small">{r.datetime || ""}{r.party_size ? ` · ${r.party_size}명` : ""} · {r.place.지역}</div>
               {r.list && r.effect && (
-                <div className="rfx">'{r.list.title}' 온도 {r.effect.list_temp[0].toFixed(1)} → <b>{r.effect.list_temp[1].toFixed(1)}℃</b></div>
+                <div className="rfx">'{r.list.title}' {tierText(r.effect.list_temp[0])} → <b>{tierText(r.effect.list_temp[1])}</b></div>
               )}
             </div>
           ))}
