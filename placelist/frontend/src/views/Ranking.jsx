@@ -49,8 +49,9 @@ export default function Ranking() {
       <div className="rk-head">
         <div className="kind">
           <button className={rank.kind === "lists" ? "on" : ""} onClick={() => set("kind", "lists")}>리스트 랭킹</button>
-          <button className={rank.kind === "curators" ? "on" : ""} onClick={() => set("kind", "curators")}>큐레이터 랭킹</button>
+          <button className={rank.kind === "curators" ? "on" : ""} onClick={() => set("kind", "curators")}>카이드 랭킹</button>
         </div>
+        {rank.kind === "curators" && <div className="small kaide-note">카이드 = 카카오맵 + 가이드. 맛집·숙소·놀거리 리스트를 만들어 공유하는 사람</div>}
       </div>
       <div className="filters">
         <div className="line"><span className="lbl">지역</span>{chips("region", meta.regions)}</div>

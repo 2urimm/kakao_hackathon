@@ -78,7 +78,7 @@ export default function Search({ q }) {
         <>
           {r.follow_suggest && (
             <div className="suggest">
-              <span><b>{r.follow_suggest}</b>님은 이 분야 온도가 높은 큐레이터예요</span>
+              <span><b>{r.follow_suggest}</b>님은 이 분야 온도가 높은 카이드예요</span>
               <span className="linkish" onClick={() => openList(r.main.list.id)}>리스트 보기</span>
             </div>
           )}

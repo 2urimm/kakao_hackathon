@@ -25,7 +25,7 @@ export default function Login({ owners, onLogin }) {
         </div>
         {owners.length > 0 && (
           <div className="login-pick">
-            <div className="small">리스트 주인</div>
+            <div className="small">카이드 <span className="kaide-hint">· 카카오맵 + 가이드, 장소 리스트를 만든 사람</span></div>
             <div className="chips">
               {owners.map(o => (
                 <button type="button" key={o.name} className="chip" title={o.title} onClick={() => go(o.name)}>

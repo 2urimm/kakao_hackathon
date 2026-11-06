@@ -328,3 +328,6 @@ details.why summary{cursor:pointer;font-weight:600;font-size:13px}
 .wordmark b{font-weight:800}
 .brand h1.wordmark{font-size:23px;color:#fff;-webkit-text-fill-color:#fff}
 .login h1.wordmark{font-size:26px;color:var(--accent);margin-bottom:8px}
+/* ---- 카이드 (카카오맵 + 가이드) 한 줄 설명 ---- */
+.kaide-note{padding:8px 4px 0;text-align:center}
+.kaide-hint{font-weight:400}
