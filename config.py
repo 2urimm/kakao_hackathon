@@ -24,6 +24,12 @@ MCP_TIMEOUT: float = float(os.getenv("MCP_TIMEOUT", "10"))
 # 데모 식당 목록 (카카오맵 추출 JSON). 봇 답변에 이 목록의 식당 이름이 나오면 "@봇 예약해줘" 로 예약 가능
 PLACES_FILE: str = os.getenv("PLACES_FILE", "places")  # 폴더면 안의 *.json 전부
 
+# placelist (카카오맵 목업) 서버. 예약이 생기거나 취소되면 POST /api/reservation 으로 알려 리스트 온도에 반영
+PLACELIST_URL: str = os.getenv("PLACELIST_URL", "").rstrip("/")  # 예: http://192.168.x.x:8200. 비우면 안 보냄
+# 식당 목록 파일(places/<이름>_places.json) → placelist 리스트 id. "이 리스트를 보고 예약했다"로 온도에 반영
+PLACELIST_LISTS: dict[str, str] = dict(
+    kv.split(":", 1) for kv in os.getenv("PLACELIST_LISTS", "mapo:M01,seocho:S01,busan:B02").split(",") if ":" in kv)
+
 # MySQL
 DB_HOST: str = os.getenv("DB_HOST", "localhost")
 DB_PORT: int = int(os.getenv("DB_PORT", "3306"))

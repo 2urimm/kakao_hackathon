@@ -490,7 +490,49 @@ def _make_reservation(db: Session, background: BackgroundTasks | None, room_id: 
     text += f"\n👥 참여: {', '.join(u.name for u in people)}"
     _post_message(db, background, room_id, config.BOT_NAME, text,
                   place=Place(place_id=r.place_id, place_name=r.place_name), reservation_id=r.id)
+    _schedule_placelist(background, r.id)
     return r, text, mcp_ok
+
+
+# ---------- placelist (카카오맵 목업) 온도 반영 ----------
+# 데모에는 실제 "확정" 단계가 없으므로, 채팅에서 잡은 예약(requested)도 placelist 에는 확정으로 보낸다.
+_PLACELIST_STATUS = {"requested": "confirmed", "confirmed": "confirmed", "cancelled": "cancelled"}
+
+
+def _send_to_placelist(reservation_id: int) -> None:
+    """예약 상태를 placelist POST /api/reservation 으로 알림 → 그 리스트 온도·랭킹에 반영. 실패해도 예약엔 영향 없음.
+    reservation_id 는 "C<예약 id>" 로 보내서 같은 예약이 두 번 반영되지 않게 한다 (placelist 가 멱등 처리)."""
+    with SessionLocal() as db:
+        r = db.get(Reservation, reservation_id)
+        if r is None:
+            return
+        src = next((p["list"] for p in load_places() if p["place_id"] == r.place_id), None)
+        body = {
+            "reservation_id": f"C{r.id}", "user": r.user.name,
+            "place_id": f"k{r.place_id}", "place_name": r.place_name,
+            "datetime": r.reserved_at.strftime("%Y-%m-%d %H:%M"), "party_size": r.party_size,
+            "status": _PLACELIST_STATUS[r.status],
+        }
+        if src in config.PLACELIST_LISTS:
+            body["list_id"] = config.PLACELIST_LISTS[src]
+    url = f"{config.PLACELIST_URL}/api/reservation"
+    try:
+        resp = httpx.post(url, json=body, timeout=5)
+        data = resp.json()
+        fx = (data.get("event") or {}).get("effect") or {}
+        log.info("placelist 반영 (예약 %s, %s) %s %s", reservation_id, body["status"], resp.status_code,
+                 f"온도 {fx['list_temp'][0]} → {fx['list_temp'][1]}" if fx.get("list_temp") else data)
+    except (httpx.HTTPError, ValueError) as e:
+        log.error("placelist 반영 실패 (%s): %r", url, e)
+
+
+def _schedule_placelist(background: BackgroundTasks | None, reservation_id: int) -> None:
+    if not config.PLACELIST_URL:
+        return
+    if background is not None:
+        background.add_task(_send_to_placelist, reservation_id)
+    else:  # 이미 백그라운드 작업 안 ("@봇 예약해줘")
+        _send_to_placelist(reservation_id)
 
 
 def _find_recommendation(db: Session, room_id: int, before_id: int) -> tuple[Message, Place] | None:
@@ -620,6 +662,7 @@ def update_reservation_status(reservation_id: int, body: ReservationStatusIn, ba
     }[r.status]
     _post_message(db, background, r.room_id, config.BOT_NAME, text,
                   place=Place(place_id=r.place_id, place_name=r.place_name), reservation_id=r.id)
+    _schedule_placelist(background, r.id)
     return _reservation_out(_get_reservation(db, r.id), message=text)
 
 
@@ -765,5 +808,6 @@ if __name__ == "__main__":
         print("  답변 생성 서버      →  (미설정: .env 의 ANSWER_SERVER_URL 을 넣으면 봇 호출 활성화)\n", flush=True)
     mcp = config.MCP_SERVER_URL or "(미설정: 예약은 저장만, 안내 문구는 이 서버가 생성)"
     print(f"  예약 MCP 서버       →  {mcp}", flush=True)
-    print(f"  데모 식당 목록      →  {config.PLACES_FILE} ({len(load_places())}곳)\n", flush=True)
+    print(f"  데모 식당 목록      →  {config.PLACES_FILE} ({len(load_places())}곳)", flush=True)
+    print(f"  placelist 온도 반영 →  {config.PLACELIST_URL or '(미설정)'}\n", flush=True)
     uvicorn.run(app, host=config.HOST, port=config.PORT)
