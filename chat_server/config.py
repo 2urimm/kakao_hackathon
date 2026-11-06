@@ -14,7 +14,7 @@ CORS_ORIGINS: list[str] = [o.strip() for o in os.getenv("CORS_ORIGINS", "*").spl
 # 챗봇 (답변 생성 서버)
 ANSWER_SERVER_URL: str = os.getenv("ANSWER_SERVER_URL", "").rstrip("/")  # 예: http://192.168.x.x:8000
 # 채팅에 이 단어 중 하나가 있으면 봇 호출 (쉼표로 여러 개). 첫 번째가 대표 호출어 (안내 문구에 사용)
-BOT_TRIGGERS: list[str] = [t.strip() for t in os.getenv("BOT_TRIGGER", "@톡스픽,@봇").split(",") if t.strip()]
+BOT_TRIGGERS: list[str] = [t.strip() for t in os.getenv("BOT_TRIGGER", "@톡스픽").split(",") if t.strip()]
 BOT_TRIGGER: str = BOT_TRIGGERS[0]
 BOT_NAME: str = os.getenv("BOT_NAME", "톡스픽")          # 봇 메시지의 user_name (이 이름의 메시지는 봇을 다시 부르지 않음)
 # 이 이름으로 온 메시지도 봇으로 보고 BOT_NAME 으로 저장 (답변 서버가 예전 이름 "봇"으로 보내도 됨)

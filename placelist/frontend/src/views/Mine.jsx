@@ -48,7 +48,7 @@ export default function Mine() {
 
       <div className="sec">내 예약 <span className="cnt">{active.length}</span></div>
       {active.length ? active.map(r => <ChatRsv key={r.id} r={r} />)
-        : <div className="empty small-empty">{chatOk ? "채팅방에서 \"@봇 예약해줘\"로 예약하면 여기에 떠요" : "채팅 서버에 연결하지 못했어요"}</div>}
+        : <div className="empty small-empty">{chatOk ? "채팅방에서 \"@톡스픽 예약해줘\"로 예약하면 여기에 떠요" : "채팅 서버에 연결하지 못했어요"}</div>}
       {cancelled.length > 0 && (
         <details className="rsv-old">
           <summary className="small">취소된 예약 {cancelled.length}</summary>
