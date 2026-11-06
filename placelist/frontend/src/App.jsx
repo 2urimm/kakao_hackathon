@@ -164,7 +164,7 @@ export default function App() {
   return (
     <AppCtx.Provider value={ctx}>
       <div id="map" />
-      {meta && !user && <Login personas={Object.keys(meta.users)} onLogin={n => { setUser(n); setView({ type: "tab" }); setTab("mine"); }} />}
+      {meta && !user && <Login owners={meta.owners || []} onLogin={n => { setUser(n); setView({ type: "tab" }); setTab("mine"); }} />}
       {meta && user && <>
       <aside id="panel">
         <header className="top">

@@ -131,7 +131,7 @@ class Engine:
                 and (group is None or self.s.group_of_place(it["place_id"]) == group))
         return min(1.0, n / ALPHA_K), n
 
-    def search_places(self, text, user="민준", use_llm=True):
+    def search_places(self, text, user="자갈치토박이", use_llm=True):
         q = parse(text, self.vocab, use_llm=use_llm)
         notes = []
         if not q["지역"]:

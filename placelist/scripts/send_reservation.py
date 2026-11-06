@@ -1,8 +1,8 @@
 """채팅 백엔드를 대신해 예약 확정 이벤트를 보내 보는 시연용 스크립트.
 
-  python scripts/send_reservation.py 민준 "황태를벗삼아"                # 확정
+  python scripts/send_reservation.py 자갈치토박이 "황태를벗삼아"                # 확정
   python scripts/send_reservation.py 하늘 "동래밀면" --list F01 --time "2026-11-09 12:30" --party 3
-  python scripts/send_reservation.py 민준 "황태를벗삼아" --cancel R0001  # 취소 (온도 되돌림)
+  python scripts/send_reservation.py 자갈치토박이 "황태를벗삼아" --cancel R0001  # 취소 (온도 되돌림)
   python scripts/send_reservation.py --reset                          # 저장된 예약 지우기 (서버 재시작 필요)
 """
 import argparse

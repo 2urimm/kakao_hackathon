@@ -67,7 +67,7 @@ python server.py                                      # http://localhost:8000
 
 ```http
 POST /api/reservation          (CORS 허용)
-{"reservation_id": "R123", "user": "민준", "place_id": "k1297139609" 또는 "place_name": "다무치아",
+{"reservation_id": "R123", "user": "자갈치토박이", "place_id": "k1297139609" 또는 "place_name": "다무치아",
  "list_id": "B01",             // 선택: 어느 리스트를 보고 예약했는지. 없으면 팔로우 → 친구 → 온도 높은 순으로 고름
  "datetime": "2026-11-08 19:00", "party_size": 2, "status": "confirmed"}   // confirmed | pending | cancelled
 ```
@@ -77,8 +77,8 @@ POST /api/reservation          (CORS 허용)
 - 화면(2초마다 `GET /api/events`): 오른쪽 위 알림("예약 확정 · 리스트 온도 44.4 → 45.1℃ · 동래 음식점 랭킹 4위 → 3위"), 리스트 온도 ▲ 표시와 숫자 올라가는 애니메이션, 랭킹 순위 ▲▼ 표시, 내 리스트 탭의 "내 예약". 알림을 누르면 그 리스트로 이동.
 - 예약이 없을 때와 비교한 값(`temp_delta`, `rank_delta`)은 서버가 항상 계산하므로 새로고침해도 유지된다. 예약은 `data/build/reservations.json`에 저장.
 
-시연용: `python scripts/send_reservation.py 지수 "스필아웃" --list F07` (마포 음식점 2위 → 1위),
-`python scripts/send_reservation.py 지수 "동래밀면" --list F01` (동래 음식점 4위 → 3위),
+시연용: `python scripts/send_reservation.py 동래빵지순례자 "스필아웃" --list F07` (마포 음식점 2위 → 1위),
+`python scripts/send_reservation.py 동래빵지순례자 "동래밀면" --list F01` (동래 음식점 4위 → 3위),
 `--cancel R0001`로 취소, `--reset`으로 예약 기록 삭제.
 
 ## 파일

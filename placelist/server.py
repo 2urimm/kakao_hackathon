@@ -4,18 +4,18 @@
 
 GET  /api/meta                                  사용자 목록
 GET  /api/places                                지도 마커용 장소
-GET  /api/mylists?user=민준                     내 리스트 + 팔로우한 리스트 + 내 온도
-GET  /api/list?id=F02&user=민준                 리스트 상세 (항목, 리스트 온도와 근거)
-GET  /api/friends?user=민준                     친구들의 리스트 (친밀도 순)
-GET  /api/compat?user=민준                      친구별 리스트 궁합 점수
-GET  /api/ranking?region=홍대&category=미용&purpose=&kind=lists|curators&user=민준
-GET  /api/search?q=...&user=민준&llm=0          자연어 추천
+GET  /api/mylists?user=자갈치토박이                     내 리스트 + 팔로우한 리스트 + 내 온도
+GET  /api/list?id=F02&user=자갈치토박이                 리스트 상세 (항목, 리스트 온도와 근거)
+GET  /api/friends?user=자갈치토박이                     친구들의 리스트 (친밀도 순)
+GET  /api/compat?user=자갈치토박이                      친구별 리스트 궁합 점수
+GET  /api/ranking?region=홍대&category=미용&purpose=&kind=lists|curators&user=자갈치토박이
+GET  /api/search?q=...&user=자갈치토박이&llm=0          자연어 추천
 GET  /api/events?since=0                        예약 확정·취소 이벤트 (화면이 주기적으로 읽음)
-GET  /api/reservations?user=민준                내 확정 예약
-POST /api/reservation {"reservation_id":"R1","user":"민준","place_id":"k1297139609"|"place_name":"다무치아",
+GET  /api/reservations?user=자갈치토박이                내 확정 예약
+POST /api/reservation {"reservation_id":"R1","user":"자갈치토박이","place_id":"k1297139609"|"place_name":"다무치아",
                        "list_id":"B01"(선택),"datetime":"2026-11-08 19:00","party_size":2,
                        "status":"confirmed"|"pending"|"cancelled"}     ← 채팅 백엔드가 호출
-POST /api/follow  {"user":"민준","list_id":"F02","on":true}
+POST /api/follow  {"user":"자갈치토박이","list_id":"F02","on":true}
 """
 import json
 import sys
@@ -58,12 +58,15 @@ class Handler(SimpleHTTPRequestHandler):
     def do_GET(self):
         u = urlparse(self.path)
         qs = {k: v[0] for k, v in parse_qs(u.query).items()}
-        user = qs.get("user", "민준")
+        user = qs.get("user", "자갈치토박이")
         s = ENGINE.s
         try:
             if u.path == "/api/meta":
                 return self._json({"users": {k: {**v, "temps": s.profile_temps(k)}
                                              for k, v in s.users.items() if k in s.intimacy},
+                                   # 리스트 주인 (답변 서버 프롬프트의 리스트 4개 = scores 가 있는 리스트) → 로그인 화면 칩
+                                   "owners": [{"name": L["curator"], "list_id": L["list_id"], "title": L["title"]}
+                                              for L in s.lists.values() if "scores" in L],
                                    "regions": [r for r, _ in Counter(pl["공통"]["지역"] for pl in s.places.values()).most_common()],
                                    "categories": [c for c in ("음식점", "카페", "미용") if any(pl["업종"] == c for pl in s.places.values())],
                                    "purposes": ["데이트", "혼자", "친구", "가족", "단체"]})
@@ -103,7 +106,7 @@ class Handler(SimpleHTTPRequestHandler):
             body, code = SERVICE.hub.receive(data)
             return self._json(body, code)
         if u.path == "/api/follow" and data.get("list_id") in ENGINE.s.lists:
-            return self._json(SERVICE.follow(data.get("user", "민준"), data["list_id"], bool(data.get("on", True))))
+            return self._json(SERVICE.follow(data.get("user", "자갈치토박이"), data["list_id"], bool(data.get("on", True))))
         return self._json({"error": "잘못된 요청"}, 400)
 
     def log_message(self, fmt, *args):
