@@ -114,7 +114,7 @@ python main.py
       │ 2. 날짜/시간/인원: 이 문장 → 없으면 추천 받기 전후 대화에서 ("내일 저녁 7시 4명")
       │ 3. 예약 + 참여자(방 멤버 전원, 봇 제외) 저장 → MCP 서버 POST /tools/reserve
       ▼
-톡스픽: 📅 유림님이 성수 파스타집 2026-11-07 19:00 4명 예약을 요청했어요. 예약 링크: ...
+톡스픽: ✅ 유림님이 성수 파스타집 2026-11-07 19:00 4명 예약을 확정했어요. 예약 링크: ...
       👥 참여: 유림, 민수, 지수
 예약 카드에서 지수 X → DELETE /api/reservations/{id}/participants/{user_id}
 톡스픽: 👋 지수님이 성수 파스타집 예약에서 빠졌어요. (이제 3명)
@@ -144,7 +144,7 @@ python main.py
 
 - `chat_server/.env`: `PLACELIST_URL=http://<placelist 서버 IP>:8200` (비우면 안 보냄)
 - `reservation_id`는 `"C<예약 id>"` (같은 예약은 한 번만 반영), `user`는 예약한 사람
-- 데모엔 실제 확정 단계가 없어서 채팅 예약(`requested`)도 **확정(`confirmed`)으로 보냄**. `PATCH .../{id} {"status":"cancelled"}` → 온도 되돌림
+- 데모엔 식당 쪽 확정 단계가 없어서 채팅 예약은 **처음부터 확정(`confirmed`)으로 저장**하고 placelist 에도 확정으로 보냄. `PATCH .../{id} {"status":"cancelled"}` → 온도 되돌림
 - 어느 리스트를 보고 예약했는지: 식당 목록 파일 → `PLACELIST_LISTS` (기본 `mapo:M01,seocho:S01,busan_1:B02,busan_2:B01`)
 - 예: 진우네초밥 예약 → '마포 리스트'(M01) 45.1 → 45.8℃, 마포 음식점 랭킹 3위 → 1위
 
@@ -268,7 +268,7 @@ ws.onclose = () => setTimeout(reconnect, 1000);  // 와이파이 끊기면 재�
 { "id": 1, "room_id": 2, "place_id": "12345", "place_name": "성수 파스타집",
   "reserved_at": "2026-11-08T19:00:00", "party_size": 2, "requested_by": "유림",
   "participants": [ {"user_id": 10, "user_name": "유림"}, {"user_id": 11, "user_name": "민수"} ],
-  "status": "requested", "link": "https://place.map.kakao.com/12345", "created_at": "...",
+  "status": "confirmed", "link": "https://place.map.kakao.com/12345", "created_at": "...",
   "message": "📅 유림님이 성수 파스타집 2026-11-08 19:00 2명 예약을 요청했어요. ...", "mcp_ok": true }
 ```
 

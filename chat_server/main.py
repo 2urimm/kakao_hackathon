@@ -474,15 +474,17 @@ def _make_reservation(db: Session, background: BackgroundTasks | None, room_id: 
         party_size=party_size or len(people),
         link=f"https://place.map.kakao.com/{place_id}",
         participants=[ReservationParticipant(user_id=u.id) for u in people],
+        status="confirmed",   # 데모에는 식당 쪽 확정 단계가 없으므로 바로 확정으로 저장
     )
     db.add(r)
     db.commit()
     db.refresh(r)
 
-    mcp_ok, text = _call_mcp_reserve(r, requester.name)
-    if not text:
-        text = (f"📅 {requester.name}님이 {r.place_name} {r.reserved_at:%Y-%m-%d %H:%M} {r.party_size}명 예약을 "
-                f"요청했어요. 예약 링크: {r.link}")
+    # MCP reserve 는 그대로 호출 (데모용 예약 처리). 안내 문구는 확정 기준으로 이 서버가 만든다
+    # (MCP 문구는 "예약을 요청했어요" 라서 확정과 맞지 않음)
+    mcp_ok, _ = _call_mcp_reserve(r, requester.name)
+    text = (f"✅ {requester.name}님이 {r.place_name} {r.reserved_at:%Y-%m-%d %H:%M} {r.party_size}명 예약을 "
+            f"확정했어요. 예약 링크: {r.link}")
     text += f"\n👥 참여: {', '.join(u.name for u in people)}"
     _post_message(db, background, room_id, config.BOT_NAME, text, reservation_id=r.id)
     _schedule_placelist(background, r.id)
