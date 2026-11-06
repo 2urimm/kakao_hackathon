@@ -2,3 +2,6 @@
 .env
 *.db
 __pycache__/
+node_modules/
+*.crdownload
+placelist/data/build/reservations.json

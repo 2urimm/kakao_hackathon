@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>플레이스리스트</title>
+<link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+<link rel="stylesheet" href="app.css">
+<script src="config.js"></script>
+</head>
+<body>
+<div id="map"></div>
+
+<aside id="panel">
+  <header class="top">
+    <div class="brand"><h1>placelist</h1></div>
+    <form id="sf">
+      <input id="q" type="text" placeholder="어디 갈까? 예) 동래 가성비 국밥" autocomplete="off">
+      <button aria-label="검색">검색</button>
+    </form>
+    <nav id="tabs">
+      <button data-tab="mine" class="on">내 리스트</button>
+      <button data-tab="friends">친구</button>
+      <button data-tab="compat">궁합</button>
+      <button data-tab="ranking">랭킹</button>
+    </nav>
+  </header>
+  <div class="who-row">
+    <span class="small">보는 사람</span>
+    <div id="users" class="seg"></div>
+  </div>
+  <div id="view"></div>
+</aside>
+
+<div id="toasts"></div>
+<script src="vendor/leaflet/leaflet.js"></script>
+<script src="map.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

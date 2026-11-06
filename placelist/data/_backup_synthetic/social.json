@@ -1,0 +1,966 @@
+{
+ "users": {
+  "민준": {
+   "home_region": "신촌",
+   "bio": "신촌 대학생, 가성비·노포 좋아함"
+  },
+  "지수": {
+   "home_region": "신촌",
+   "bio": "민준 팀플 동료, 카페 작업러"
+  },
+  "수진": {
+   "home_region": "홍대",
+   "bio": "탈색 3년차, 신촌 밥집 단골"
+  },
+  "민지": {
+   "home_region": "합정",
+   "bio": "합정 데이트 코스 전문"
+  },
+  "하늘": {
+   "home_region": "홍대",
+   "bio": "홍대 술자리 총무"
+  },
+  "도윤": {
+   "home_region": "연남",
+   "bio": "혼밥러"
+  },
+  "서연": {
+   "home_region": "홍대",
+   "bio": "미용 리뷰 블로거 (모르는 사람)"
+  },
+  "예린": {
+   "home_region": "합정",
+   "bio": "프리랜서, 카페 유목민"
+  },
+  "태현": {
+   "home_region": "신촌",
+   "bio": "동아리 회장, 회식 담당"
+  },
+  "유나": {
+   "home_region": "홍대",
+   "bio": "탈색 매니아"
+  },
+  "현우": {
+   "home_region": "신촌",
+   "bio": "가성비 탐험가 (최근 활동 적음)"
+  },
+  "소희": {
+   "home_region": "합정",
+   "bio": "가족 모임 담당"
+  },
+  "핫플봇": {
+   "home_region": "홍대",
+   "bio": "홍보성 계정 (어뷰징 예시)"
+  }
+ },
+ "intimacy": {
+  "민준": {
+   "지수": 0.95,
+   "수진": 0.85,
+   "하늘": 0.6,
+   "태현": 0.5,
+   "현우": 0.3,
+   "도윤": 0.2
+  },
+  "지수": {
+   "민준": 0.95,
+   "민지": 0.8,
+   "수진": 0.7,
+   "예린": 0.6,
+   "태현": 0.3
+  }
+ },
+ "follows": {
+  "민준": [
+   "F04",
+   "F12",
+   "F08",
+   "F21",
+   "F22"
+  ],
+  "지수": [
+   "F03",
+   "F07",
+   "F01",
+   "F23"
+  ]
+ },
+ "visits": [
+  {
+   "folder_id": "F01",
+   "place_id": "s1",
+   "verified": true,
+   "revisit": 2
+  },
+  {
+   "folder_id": "F01",
+   "place_id": "s6",
+   "verified": true,
+   "revisit": 1
+  },
+  {
+   "folder_id": "F01",
+   "place_id": "s4",
+   "verified": true,
+   "revisit": 0
+  },
+  {
+   "folder_id": "F01",
+   "place_id": "s7",
+   "verified": true,
+   "revisit": 1
+  },
+  {
+   "folder_id": "F02",
+   "place_id": "h9",
+   "verified": true,
+   "revisit": 3
+  },
+  {
+   "folder_id": "F02",
+   "place_id": "h10",
+   "verified": true,
+   "revisit": 1
+  },
+  {
+   "folder_id": "F02",
+   "place_id": "s9",
+   "verified": true,
+   "revisit": 1
+  },
+  {
+   "folder_id": "F03",
+   "place_id": "j1",
+   "verified": true,
+   "revisit": 1
+  },
+  {
+   "folder_id": "F03",
+   "place_id": "j4",
+   "verified": true,
+   "revisit": 0
+  },
+  {
+   "folder_id": "F03",
+   "place_id": "j6",
+   "verified": true,
+   "revisit": 2
+  },
+  {
+   "folder_id": "F03",
+   "place_id": "y2",
+   "verified": true,
+   "revisit": 0
+  },
+  {
+   "folder_id": "F04",
+   "place_id": "h5",
+   "verified": true,
+   "revisit": 4
+  },
+  {
+   "folder_id": "F04",
+   "place_id": "h2",
+   "verified": true,
+   "revisit": 2
+  },
+  {
+   "folder_id": "F04",
+   "place_id": "h1",
+   "verified": true,
+   "revisit": 1
+  },
+  {
+   "folder_id": "F04",
+   "place_id": "y1",
+   "verified": false,
+   "revisit": 0
+  },
+  {
+   "folder_id": "F05",
+   "place_id": "y3",
+   "verified": true,
+   "revisit": 5
+  },
+  {
+   "folder_id": "F05",
+   "place_id": "y5",
+   "verified": true,
+   "revisit": 3
+  },
+  {
+   "folder_id": "F05",
+   "place_id": "h6",
+   "verified": true,
+   "revisit": 0
+  },
+  {
+   "folder_id": "F05",
+   "place_id": "y7",
+   "verified": true,
+   "revisit": 2
+  },
+  {
+   "folder_id": "F06",
+   "place_id": "h9",
+   "verified": true,
+   "revisit": 2
+  },
+  {
+   "folder_id": "F06",
+   "place_id": "h10",
+   "verified": true,
+   "revisit": 1
+  },
+  {
+   "folder_id": "F06",
+   "place_id": "j8",
+   "verified": true,
+   "revisit": 1
+  },
+  {
+   "folder_id": "F06",
+   "place_id": "y8",
+   "verified": true,
+   "revisit": 0
+  },
+  {
+   "folder_id": "F07",
+   "place_id": "s7",
+   "verified": true,
+   "revisit": 6
+  },
+  {
+   "folder_id": "F07",
+   "place_id": "j6",
+   "verified": true,
+   "revisit": 3
+  },
+  {
+   "folder_id": "F07",
+   "place_id": "y7",
+   "verified": true,
+   "revisit": 2
+  },
+  {
+   "folder_id": "F07",
+   "place_id": "h7",
+   "verified": true,
+   "revisit": 0
+  },
+  {
+   "folder_id": "F08",
+   "place_id": "s5",
+   "verified": true,
+   "revisit": 3
+  },
+  {
+   "folder_id": "F08",
+   "place_id": "s2",
+   "verified": true,
+   "revisit": 2
+  },
+  {
+   "folder_id": "F08",
+   "place_id": "j3",
+   "verified": true,
+   "revisit": 1
+  },
+  {
+   "folder_id": "F08",
+   "place_id": "y1",
+   "verified": true,
+   "revisit": 0
+  },
+  {
+   "folder_id": "F08",
+   "place_id": "h2",
+   "verified": true,
+   "revisit": 1
+  },
+  {
+   "folder_id": "F09",
+   "place_id": "h10",
+   "verified": true,
+   "revisit": 2
+  },
+  {
+   "folder_id": "F09",
+   "place_id": "h9",
+   "verified": true,
+   "revisit": 0
+  },
+  {
+   "folder_id": "F09",
+   "place_id": "h11",
+   "verified": false,
+   "revisit": 0
+  },
+  {
+   "folder_id": "F10",
+   "place_id": "s1",
+   "verified": false,
+   "revisit": 0
+  },
+  {
+   "folder_id": "F10",
+   "place_id": "s2",
+   "verified": true,
+   "revisit": 0
+  },
+  {
+   "folder_id": "F10",
+   "place_id": "s6",
+   "verified": false,
+   "revisit": 0
+  },
+  {
+   "folder_id": "F11",
+   "place_id": "h4",
+   "verified": true,
+   "revisit": 1
+  },
+  {
+   "folder_id": "F11",
+   "place_id": "j5",
+   "verified": true,
+   "revisit": 0
+  },
+  {
+   "folder_id": "F11",
+   "place_id": "j2",
+   "verified": true,
+   "revisit": 2
+  },
+  {
+   "folder_id": "F12",
+   "place_id": "s1",
+   "verified": true,
+   "revisit": 1
+  },
+  {
+   "folder_id": "F12",
+   "place_id": "s5",
+   "verified": true,
+   "revisit": 1
+  },
+  {
+   "folder_id": "F12",
+   "place_id": "s4",
+   "verified": false,
+   "revisit": 0
+  },
+  {
+   "folder_id": "F12",
+   "place_id": "s3",
+   "verified": true,
+   "revisit": 0
+  },
+  {
+   "folder_id": "F13",
+   "place_id": "j8",
+   "verified": true,
+   "revisit": 2
+  },
+  {
+   "folder_id": "F13",
+   "place_id": "j9",
+   "verified": true,
+   "revisit": 1
+  },
+  {
+   "folder_id": "F14",
+   "place_id": "y2",
+   "verified": true,
+   "revisit": 1
+  },
+  {
+   "folder_id": "F14",
+   "place_id": "y4",
+   "verified": true,
+   "revisit": 0
+  },
+  {
+   "folder_id": "F14",
+   "place_id": "y6",
+   "verified": false,
+   "revisit": 0
+  },
+  {
+   "folder_id": "F15",
+   "place_id": "h8",
+   "verified": false,
+   "revisit": 0
+  },
+  {
+   "folder_id": "F15",
+   "place_id": "h3",
+   "verified": false,
+   "revisit": 0
+  },
+  {
+   "folder_id": "F16",
+   "place_id": "h8",
+   "verified": false,
+   "revisit": 0
+  },
+  {
+   "folder_id": "F16",
+   "place_id": "s8",
+   "verified": false,
+   "revisit": 0
+  },
+  {
+   "folder_id": "F17",
+   "place_id": "s9",
+   "verified": true,
+   "revisit": 2
+  },
+  {
+   "folder_id": "F17",
+   "place_id": "s10",
+   "verified": true,
+   "revisit": 1
+  },
+  {
+   "folder_id": "F17",
+   "place_id": "s11",
+   "verified": true,
+   "revisit": 0
+  },
+  {
+   "folder_id": "F18",
+   "place_id": "s2",
+   "verified": true,
+   "revisit": 3
+  },
+  {
+   "folder_id": "F18",
+   "place_id": "h1",
+   "verified": true,
+   "revisit": 2
+  },
+  {
+   "folder_id": "F18",
+   "place_id": "y3",
+   "verified": true,
+   "revisit": 1
+  },
+  {
+   "folder_id": "F19",
+   "place_id": "s7",
+   "verified": true,
+   "revisit": 2
+  },
+  {
+   "folder_id": "F19",
+   "place_id": "j6",
+   "verified": true,
+   "revisit": 0
+  },
+  {
+   "folder_id": "F20",
+   "place_id": "s5",
+   "verified": true,
+   "revisit": 2
+  },
+  {
+   "folder_id": "F20",
+   "place_id": "j3",
+   "verified": true,
+   "revisit": 1
+  },
+  {
+   "folder_id": "F20",
+   "place_id": "h2",
+   "verified": true,
+   "revisit": 1
+  },
+  {
+   "folder_id": "F20",
+   "place_id": "s2",
+   "verified": true,
+   "revisit": 0
+  },
+  {
+   "folder_id": "F20",
+   "place_id": "h4",
+   "verified": false,
+   "revisit": 0
+  },
+  {
+   "folder_id": "F21",
+   "place_id": "h1",
+   "verified": true,
+   "revisit": 3
+  },
+  {
+   "folder_id": "F21",
+   "place_id": "h5",
+   "verified": true,
+   "revisit": 4
+  },
+  {
+   "folder_id": "F21",
+   "place_id": "y3",
+   "verified": true,
+   "revisit": 5
+  },
+  {
+   "folder_id": "F21",
+   "place_id": "y1",
+   "verified": true,
+   "revisit": 1
+  },
+  {
+   "folder_id": "F21",
+   "place_id": "j4",
+   "verified": true,
+   "revisit": 0
+  },
+  {
+   "folder_id": "F22",
+   "place_id": "s1",
+   "verified": true,
+   "revisit": 4
+  },
+  {
+   "folder_id": "F22",
+   "place_id": "s6",
+   "verified": true,
+   "revisit": 3
+  },
+  {
+   "folder_id": "F22",
+   "place_id": "y5",
+   "verified": true,
+   "revisit": 2
+  },
+  {
+   "folder_id": "F22",
+   "place_id": "h6",
+   "verified": true,
+   "revisit": 5
+  },
+  {
+   "folder_id": "F22",
+   "place_id": "j2",
+   "verified": true,
+   "revisit": 1
+  },
+  {
+   "folder_id": "F23",
+   "place_id": "j1",
+   "verified": true,
+   "revisit": 1
+  },
+  {
+   "folder_id": "F23",
+   "place_id": "j5",
+   "verified": true,
+   "revisit": 0
+  },
+  {
+   "folder_id": "F23",
+   "place_id": "y2",
+   "verified": true,
+   "revisit": 1
+  },
+  {
+   "folder_id": "F23",
+   "place_id": "h4",
+   "verified": true,
+   "revisit": 0
+  },
+  {
+   "folder_id": "F24",
+   "place_id": "s2",
+   "verified": true,
+   "revisit": 3
+  },
+  {
+   "folder_id": "F24",
+   "place_id": "s6",
+   "verified": true,
+   "revisit": 2
+  },
+  {
+   "folder_id": "F24",
+   "place_id": "y3",
+   "verified": true,
+   "revisit": 2
+  },
+  {
+   "folder_id": "F24",
+   "place_id": "j2",
+   "verified": false,
+   "revisit": 0
+  },
+  {
+   "folder_id": "F24",
+   "place_id": "y5",
+   "verified": true,
+   "revisit": 1
+  }
+ ],
+ "feedback": [
+  {
+   "visitor": "민준",
+   "folder_id": "F02",
+   "place_id": "h9",
+   "sentiment": 1,
+   "visitor_verified": true
+  },
+  {
+   "visitor": "지수",
+   "folder_id": "F02",
+   "place_id": "h9",
+   "sentiment": 1,
+   "visitor_verified": true
+  },
+  {
+   "visitor": "유나",
+   "folder_id": "F02",
+   "place_id": "h10",
+   "sentiment": 1,
+   "visitor_verified": true
+  },
+  {
+   "visitor": "하늘",
+   "folder_id": "F01",
+   "place_id": "s1",
+   "sentiment": 1,
+   "visitor_verified": true
+  },
+  {
+   "visitor": "민준",
+   "folder_id": "F01",
+   "place_id": "s1",
+   "sentiment": 1,
+   "visitor_verified": true
+  },
+  {
+   "visitor": "태현",
+   "folder_id": "F01",
+   "place_id": "s6",
+   "sentiment": 1,
+   "visitor_verified": true
+  },
+  {
+   "visitor": "지수",
+   "folder_id": "F03",
+   "place_id": "j1",
+   "sentiment": 1,
+   "visitor_verified": true
+  },
+  {
+   "visitor": "예린",
+   "folder_id": "F03",
+   "place_id": "j6",
+   "sentiment": 1,
+   "visitor_verified": true
+  },
+  {
+   "visitor": "하늘",
+   "folder_id": "F03",
+   "place_id": "j4",
+   "sentiment": 1,
+   "visitor_verified": true
+  },
+  {
+   "visitor": "수진",
+   "folder_id": "F06",
+   "place_id": "h9",
+   "sentiment": 1,
+   "visitor_verified": true
+  },
+  {
+   "visitor": "유나",
+   "folder_id": "F06",
+   "place_id": "h10",
+   "sentiment": 1,
+   "visitor_verified": true
+  },
+  {
+   "visitor": "민지",
+   "folder_id": "F06",
+   "place_id": "j8",
+   "sentiment": 1,
+   "visitor_verified": true
+  },
+  {
+   "visitor": "소희",
+   "folder_id": "F06",
+   "place_id": "y8",
+   "sentiment": 1,
+   "visitor_verified": true
+  },
+  {
+   "visitor": "하늘",
+   "folder_id": "F06",
+   "place_id": "h10",
+   "sentiment": 1,
+   "visitor_verified": true
+  },
+  {
+   "visitor": "도윤",
+   "folder_id": "F06",
+   "place_id": "j8",
+   "sentiment": 1,
+   "visitor_verified": true
+  },
+  {
+   "visitor": "민준",
+   "folder_id": "F04",
+   "place_id": "h5",
+   "sentiment": 1,
+   "visitor_verified": true
+  },
+  {
+   "visitor": "태현",
+   "folder_id": "F04",
+   "place_id": "h2",
+   "sentiment": 1,
+   "visitor_verified": true
+  },
+  {
+   "visitor": "지수",
+   "folder_id": "F04",
+   "place_id": "h1",
+   "sentiment": -1,
+   "visitor_verified": true
+  },
+  {
+   "visitor": "민준",
+   "folder_id": "F08",
+   "place_id": "s5",
+   "sentiment": 1,
+   "visitor_verified": true
+  },
+  {
+   "visitor": "하늘",
+   "folder_id": "F08",
+   "place_id": "s2",
+   "sentiment": 1,
+   "visitor_verified": true
+  },
+  {
+   "visitor": "지수",
+   "folder_id": "F07",
+   "place_id": "s7",
+   "sentiment": 1,
+   "visitor_verified": true
+  },
+  {
+   "visitor": "민지",
+   "folder_id": "F07",
+   "place_id": "j6",
+   "sentiment": 1,
+   "visitor_verified": true
+  },
+  {
+   "visitor": "수진",
+   "folder_id": "F07",
+   "place_id": "y7",
+   "sentiment": 1,
+   "visitor_verified": true
+  },
+  {
+   "visitor": "민준",
+   "folder_id": "F05",
+   "place_id": "y3",
+   "sentiment": 1,
+   "visitor_verified": true
+  },
+  {
+   "visitor": "소희",
+   "folder_id": "F17",
+   "place_id": "s9",
+   "sentiment": 1,
+   "visitor_verified": true
+  },
+  {
+   "visitor": "수진",
+   "folder_id": "F17",
+   "place_id": "s10",
+   "sentiment": 1,
+   "visitor_verified": true
+  },
+  {
+   "visitor": "민지",
+   "folder_id": "F11",
+   "place_id": "h4",
+   "sentiment": 1,
+   "visitor_verified": true
+  },
+  {
+   "visitor": "지수",
+   "folder_id": "F12",
+   "place_id": "s1",
+   "sentiment": 1,
+   "visitor_verified": true
+  },
+  {
+   "visitor": "하늘",
+   "folder_id": "F08",
+   "place_id": "j3",
+   "sentiment": 1,
+   "visitor_verified": true
+  },
+  {
+   "visitor": "하늘",
+   "folder_id": "F08",
+   "place_id": "y1",
+   "sentiment": 1,
+   "visitor_verified": true
+  },
+  {
+   "visitor": "하늘",
+   "folder_id": "F08",
+   "place_id": "h2",
+   "sentiment": 1,
+   "visitor_verified": true
+  },
+  {
+   "visitor": "하늘",
+   "folder_id": "F08",
+   "place_id": "s5",
+   "sentiment": 1,
+   "visitor_verified": true
+  },
+  {
+   "visitor": "하늘",
+   "folder_id": "F08",
+   "place_id": "s2",
+   "sentiment": 1,
+   "visitor_verified": true
+  },
+  {
+   "visitor": "핫플봇",
+   "folder_id": "F15",
+   "place_id": "h8",
+   "sentiment": 1,
+   "visitor_verified": false
+  },
+  {
+   "visitor": "핫플봇",
+   "folder_id": "F16",
+   "place_id": "h8",
+   "sentiment": 1,
+   "visitor_verified": false
+  },
+  {
+   "visitor": "민지",
+   "folder_id": "F15",
+   "place_id": "h8",
+   "sentiment": -1,
+   "visitor_verified": true
+  },
+  {
+   "visitor": "예린",
+   "folder_id": "F16",
+   "place_id": "s8",
+   "sentiment": -1,
+   "visitor_verified": true
+  },
+  {
+   "visitor": "수진",
+   "folder_id": "F15",
+   "place_id": "h3",
+   "sentiment": -1,
+   "visitor_verified": true
+  },
+  {
+   "visitor": "도윤",
+   "folder_id": "F10",
+   "place_id": "s6",
+   "sentiment": 1,
+   "visitor_verified": false
+  },
+  {
+   "visitor": "민준",
+   "folder_id": "F20",
+   "place_id": "s5",
+   "sentiment": 1,
+   "visitor_verified": true
+  },
+  {
+   "visitor": "민지",
+   "folder_id": "F20",
+   "place_id": "j3",
+   "sentiment": 1,
+   "visitor_verified": true
+  },
+  {
+   "visitor": "민준",
+   "folder_id": "F21",
+   "place_id": "h1",
+   "sentiment": 1,
+   "visitor_verified": true
+  },
+  {
+   "visitor": "도윤",
+   "folder_id": "F21",
+   "place_id": "y3",
+   "sentiment": 1,
+   "visitor_verified": true
+  },
+  {
+   "visitor": "지수",
+   "folder_id": "F21",
+   "place_id": "h5",
+   "sentiment": -1,
+   "visitor_verified": true
+  },
+  {
+   "visitor": "민준",
+   "folder_id": "F22",
+   "place_id": "s1",
+   "sentiment": 1,
+   "visitor_verified": true
+  },
+  {
+   "visitor": "예린",
+   "folder_id": "F22",
+   "place_id": "h6",
+   "sentiment": 1,
+   "visitor_verified": true
+  },
+  {
+   "visitor": "수진",
+   "folder_id": "F22",
+   "place_id": "s6",
+   "sentiment": 1,
+   "visitor_verified": true
+  },
+  {
+   "visitor": "지수",
+   "folder_id": "F23",
+   "place_id": "j1",
+   "sentiment": 1,
+   "visitor_verified": true
+  },
+  {
+   "visitor": "소희",
+   "folder_id": "F23",
+   "place_id": "j5",
+   "sentiment": 1,
+   "visitor_verified": true
+  },
+  {
+   "visitor": "하늘",
+   "folder_id": "F23",
+   "place_id": "y2",
+   "sentiment": 1,
+   "visitor_verified": true
+  },
+  {
+   "visitor": "지수",
+   "folder_id": "F24",
+   "place_id": "s2",
+   "sentiment": 1,
+   "visitor_verified": true
+  }
+ ],
+ "_note": "카카오맵에 없는 값. 데모용 시뮬레이션 데이터"
+}

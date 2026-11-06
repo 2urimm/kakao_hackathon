@@ -1,0 +1,758 @@
+[
+ {
+  "list_id": "F01",
+  "title": "신촌 조용한 밥집",
+  "curator": "수진",
+  "subscribers": 48,
+  "visibility": "전체 공개",
+  "source": "카카오맵 즐겨찾기 폴더",
+  "items": [
+   {
+    "place_id": "s1",
+    "designer": null,
+    "comment": "점심 지나면 한산하고 김치찌개 정식 9천 원",
+    "saved_at": "2026-10-21"
+   },
+   {
+    "place_id": "s6",
+    "designer": null,
+    "comment": "비 오는 날 칼국수. 혼밥해도 눈치 안 보임",
+    "saved_at": "2026-09-30"
+   },
+   {
+    "place_id": "s4",
+    "designer": null,
+    "comment": "생일에 갔는데 조용해서 대화하기 좋았어",
+    "saved_at": "2026-08-12"
+   },
+   {
+    "place_id": "s7",
+    "designer": null,
+    "comment": "밥 먹고 2차로 조용히 수다 떨기 좋은 곳",
+    "saved_at": "2026-10-02"
+   }
+  ]
+ },
+ {
+  "list_id": "F02",
+  "title": "홍대 머리 맡길 곳",
+  "curator": "수진",
+  "subscribers": 61,
+  "visibility": "전체 공개",
+  "source": "카카오맵 즐겨찾기 폴더",
+  "items": [
+   {
+    "place_id": "h9",
+    "designer": "지은",
+    "comment": "탈색 세 번째인데 손상 제일 적었어. 상담 꼼꼼함",
+    "saved_at": "2026-10-28"
+   },
+   {
+    "place_id": "h10",
+    "designer": "루나",
+    "comment": "탈색 빠르게 하고 싶을 때. 말 거의 안 걸어서 편함",
+    "saved_at": "2026-09-14"
+   },
+   {
+    "place_id": "s9",
+    "designer": "다온",
+    "comment": "펌 컬이 오래 감. 가격 미리 다 알려줌",
+    "saved_at": "2026-07-03"
+   }
+  ]
+ },
+ {
+  "list_id": "F03",
+  "title": "합정 데이트",
+  "curator": "민지",
+  "subscribers": 112,
+  "visibility": "전체 공개",
+  "source": "카카오맵 즐겨찾기 폴더",
+  "items": [
+   {
+    "place_id": "j1",
+    "designer": null,
+    "comment": "창가 자리 분위기 좋고 트러플 파스타 꼭 먹어",
+    "saved_at": "2026-10-11"
+   },
+   {
+    "place_id": "j4",
+    "designer": null,
+    "comment": "2차로 와인 한 잔. 조명이 어두워서 분위기 좋음",
+    "saved_at": "2026-09-20"
+   },
+   {
+    "place_id": "j6",
+    "designer": null,
+    "comment": "강 보이는 창가가 진짜 좋음. 해 질 때 가",
+    "saved_at": "2026-10-25"
+   },
+   {
+    "place_id": "y2",
+    "designer": null,
+    "comment": "작아서 예약 필수. 둘이 가기 딱",
+    "saved_at": "2026-06-18"
+   }
+  ]
+ },
+ {
+  "list_id": "F04",
+  "title": "홍대 2차 성지",
+  "curator": "하늘",
+  "subscribers": 87,
+  "visibility": "전체 공개",
+  "source": "카카오맵 즐겨찾기 폴더",
+  "items": [
+   {
+    "place_id": "h5",
+    "designer": null,
+    "comment": "하이볼 무한리필 시간 노려. 시끄러워도 재밌음",
+    "saved_at": "2026-10-30"
+   },
+   {
+    "place_id": "h2",
+    "designer": null,
+    "comment": "인원 많아도 자리 잘 잡아줌",
+    "saved_at": "2026-10-05"
+   },
+   {
+    "place_id": "h1",
+    "designer": null,
+    "comment": "새벽 1시에도 열어. 라멘 국물 진함",
+    "saved_at": "2026-09-01"
+   },
+   {
+    "place_id": "y1",
+    "designer": null,
+    "comment": "양꼬치에 칭따오. 단체로 가기 좋음",
+    "saved_at": "2026-08-22"
+   }
+  ]
+ },
+ {
+  "list_id": "F05",
+  "title": "연남 혼밥 지도",
+  "curator": "도윤",
+  "subscribers": 35,
+  "visibility": "전체 공개",
+  "source": "카카오맵 즐겨찾기 폴더",
+  "items": [
+   {
+    "place_id": "y3",
+    "designer": null,
+    "comment": "혼자 순대국 먹기 제일 편한 곳. 늦게까지 함",
+    "saved_at": "2026-10-15"
+   },
+   {
+    "place_id": "y5",
+    "designer": null,
+    "comment": "1인석 바 자리. 연어덮밥 가성비 최고",
+    "saved_at": "2026-10-01"
+   },
+   {
+    "place_id": "h6",
+    "designer": null,
+    "comment": "가볍게 먹고 싶을 때. 조용함",
+    "saved_at": "2026-07-27"
+   },
+   {
+    "place_id": "y7",
+    "designer": null,
+    "comment": "고양이 있는 조용한 카페. 책 읽기 좋음",
+    "saved_at": "2026-09-09"
+   }
+  ]
+ },
+ {
+  "list_id": "F06",
+  "title": "홍대·합정 탈색 총정리",
+  "curator": "서연",
+  "subscribers": 540,
+  "visibility": "전체 공개",
+  "source": "카카오맵 즐겨찾기 폴더",
+  "items": [
+   {
+    "place_id": "h9",
+    "designer": "태오",
+    "comment": "태오쌤 톤 잡는 거 미쳤음. 애쉬 원하면 무조건",
+    "saved_at": "2026-10-19"
+   },
+   {
+    "place_id": "h10",
+    "designer": "루나",
+    "comment": "블리치 2번에 화이트 나옴. 손상 케어 따로 해줌",
+    "saved_at": "2026-10-03"
+   },
+   {
+    "place_id": "j8",
+    "designer": "하람",
+    "comment": "하람쌤 탈색 꼼꼼함. 가격표 미리 보여줌",
+    "saved_at": "2026-09-12"
+   },
+   {
+    "place_id": "y8",
+    "designer": "해솔",
+    "comment": "연남에서 탈색하면 여기. 예약 잘 잡힘",
+    "saved_at": "2026-08-30"
+   }
+  ]
+ },
+ {
+  "list_id": "F07",
+  "title": "작업하기 좋은 카페",
+  "curator": "예린",
+  "subscribers": 203,
+  "visibility": "전체 공개",
+  "source": "카카오맵 즐겨찾기 폴더",
+  "items": [
+   {
+    "place_id": "s7",
+    "designer": null,
+    "comment": "콘센트 많고 조용함. 3시간 있어도 눈치 안 줌",
+    "saved_at": "2026-10-22"
+   },
+   {
+    "place_id": "j6",
+    "designer": null,
+    "comment": "창가 자리에서 작업하면 집중 잘 됨",
+    "saved_at": "2026-10-08"
+   },
+   {
+    "place_id": "y7",
+    "designer": null,
+    "comment": "평일 낮엔 거의 독서실",
+    "saved_at": "2026-09-17"
+   },
+   {
+    "place_id": "h7",
+    "designer": null,
+    "comment": "서서 마시는 곳이라 작업은 비추, 커피는 최고",
+    "saved_at": "2026-06-10"
+   }
+  ]
+ },
+ {
+  "list_id": "F08",
+  "title": "회식 장소 안전빵",
+  "curator": "태현",
+  "subscribers": 76,
+  "visibility": "전체 공개",
+  "source": "카카오맵 즐겨찾기 폴더",
+  "items": [
+   {
+    "place_id": "s5",
+    "designer": null,
+    "comment": "30명 단체석 OK, 사장님이 서비스 잘 줌",
+    "saved_at": "2026-10-17"
+   },
+   {
+    "place_id": "s2",
+    "designer": null,
+    "comment": "탕수육 대자 시키면 10명도 배부름. 싸다",
+    "saved_at": "2026-09-25"
+   },
+   {
+    "place_id": "j3",
+    "designer": null,
+    "comment": "족발 대자 + 막국수 조합. 예약하면 룸 줌",
+    "saved_at": "2026-08-14"
+   },
+   {
+    "place_id": "y1",
+    "designer": null,
+    "comment": "회식 2차로 무난",
+    "saved_at": "2026-07-21"
+   },
+   {
+    "place_id": "h2",
+    "designer": null,
+    "comment": "인원 많아도 금방 나옴",
+    "saved_at": "2026-10-09"
+   }
+  ]
+ },
+ {
+  "list_id": "F09",
+  "title": "홍대 탈색 실패 없는 곳",
+  "curator": "유나",
+  "subscribers": 94,
+  "visibility": "전체 공개",
+  "source": "카카오맵 즐겨찾기 폴더",
+  "items": [
+   {
+    "place_id": "h10",
+    "designer": "루나",
+    "comment": "루나쌤 블리치 2번에 화이트 나옴",
+    "saved_at": "2026-10-12"
+   },
+   {
+    "place_id": "h9",
+    "designer": "지은",
+    "comment": "지은쌤 상담 길게 해줘서 좋았음",
+    "saved_at": "2026-09-28"
+   },
+   {
+    "place_id": "h11",
+    "designer": "민서",
+    "comment": "탈색은 안 하는데 컷이 깔끔함",
+    "saved_at": "2026-05-02"
+   }
+  ]
+ },
+ {
+  "list_id": "F10",
+  "title": "가성비 신촌",
+  "curator": "현우",
+  "subscribers": 22,
+  "visibility": "전체 공개",
+  "source": "카카오맵 즐겨찾기 폴더",
+  "items": [
+   {
+    "place_id": "s1",
+    "designer": null,
+    "comment": "제육 정식 양 많음",
+    "saved_at": "2026-04-19"
+   },
+   {
+    "place_id": "s2",
+    "designer": null,
+    "comment": "짜장면 6천 원",
+    "saved_at": "2026-03-11"
+   },
+   {
+    "place_id": "s6",
+    "designer": null,
+    "comment": "칼국수 리필 됨",
+    "saved_at": "2026-05-23"
+   }
+  ]
+ },
+ {
+  "list_id": "F11",
+  "title": "부모님 모시고",
+  "curator": "소희",
+  "subscribers": 58,
+  "visibility": "전체 공개",
+  "source": "카카오맵 즐겨찾기 폴더",
+  "items": [
+   {
+    "place_id": "h4",
+    "designer": null,
+    "comment": "주차 돼서 부모님 모시기 좋음. 룸 있음",
+    "saved_at": "2026-10-04"
+   },
+   {
+    "place_id": "j5",
+    "designer": null,
+    "comment": "엄마 생신 때 갔는데 조용하고 정갈함",
+    "saved_at": "2026-09-06"
+   },
+   {
+    "place_id": "j2",
+    "designer": null,
+    "comment": "아빠가 제일 좋아한 칼국수",
+    "saved_at": "2026-08-01"
+   }
+  ]
+ },
+ {
+  "list_id": "F12",
+  "title": "신촌 팀플 끝나고",
+  "curator": "지수",
+  "subscribers": 15,
+  "visibility": "전체 공개",
+  "source": "카카오맵 즐겨찾기 폴더",
+  "items": [
+   {
+    "place_id": "s1",
+    "designer": null,
+    "comment": "팀플 끝나고 4명이서 가기 딱. 조용해서 회의 이어서 해도 됨",
+    "saved_at": "2026-10-29"
+   },
+   {
+    "place_id": "s5",
+    "designer": null,
+    "comment": "종강 파티는 여기",
+    "saved_at": "2026-06-20"
+   },
+   {
+    "place_id": "s4",
+    "designer": null,
+    "comment": "조금 비싸도 조용히 얘기하기 좋음",
+    "saved_at": "2026-09-15"
+   },
+   {
+    "place_id": "s3",
+    "designer": null,
+    "comment": "해산물 좋아하면 여기. 시끄러움",
+    "saved_at": "2026-08-08"
+   }
+  ]
+ },
+ {
+  "list_id": "F13",
+  "title": "합정 머리",
+  "curator": "민지",
+  "subscribers": 30,
+  "visibility": "전체 공개",
+  "source": "카카오맵 즐겨찾기 폴더",
+  "items": [
+   {
+    "place_id": "j8",
+    "designer": "유진",
+    "comment": "유진쌤 펌 상담 꼼꼼해서 원하는 컬 그대로 나옴",
+    "saved_at": "2026-10-06"
+   },
+   {
+    "place_id": "j9",
+    "designer": "도하",
+    "comment": "말 거의 안 걸어서 편함. 컷 빠름",
+    "saved_at": "2026-08-19"
+   }
+  ]
+ },
+ {
+  "list_id": "F14",
+  "title": "연남 데이트",
+  "curator": "하늘",
+  "subscribers": 66,
+  "visibility": "전체 공개",
+  "source": "카카오맵 즐겨찾기 폴더",
+  "items": [
+   {
+    "place_id": "y2",
+    "designer": null,
+    "comment": "파스타 + 와인. 조용하고 아늑",
+    "saved_at": "2026-10-13"
+   },
+   {
+    "place_id": "y4",
+    "designer": null,
+    "comment": "팟타이 맛집인데 웨이팅 있음",
+    "saved_at": "2026-09-03"
+   },
+   {
+    "place_id": "y6",
+    "designer": null,
+    "comment": "크로플 사진 잘 나옴",
+    "saved_at": "2026-07-15"
+   }
+  ]
+ },
+ {
+  "list_id": "F15",
+  "title": "홍대 핫플 모음",
+  "curator": "핫플봇",
+  "subscribers": 9,
+  "visibility": "전체 공개",
+  "source": "카카오맵 즐겨찾기 폴더",
+  "items": [
+   {
+    "place_id": "h8",
+    "designer": null,
+    "comment": "인생 디저트!! 무조건 가세요!!",
+    "saved_at": "2025-11-02"
+   },
+   {
+    "place_id": "h3",
+    "designer": null,
+    "comment": "여기 안 가면 홍대 안 간 것",
+    "saved_at": "2025-11-02"
+   }
+  ]
+ },
+ {
+  "list_id": "F16",
+  "title": "홍대 디저트 BEST",
+  "curator": "핫플봇",
+  "subscribers": 4,
+  "visibility": "전체 공개",
+  "source": "카카오맵 즐겨찾기 폴더",
+  "items": [
+   {
+    "place_id": "h8",
+    "designer": null,
+    "comment": "디저트 1등!! 강추!!",
+    "saved_at": "2025-11-03"
+   },
+   {
+    "place_id": "s8",
+    "designer": null,
+    "comment": "뷰 미쳤어요!!",
+    "saved_at": "2025-11-03"
+   }
+  ]
+ },
+ {
+  "list_id": "F17",
+  "title": "신촌 미용 리스트",
+  "curator": "서연",
+  "subscribers": 210,
+  "visibility": "전체 공개",
+  "source": "카카오맵 즐겨찾기 폴더",
+  "items": [
+   {
+    "place_id": "s9",
+    "designer": "서윤",
+    "comment": "서윤쌤 염색 발색 예쁨. 상담 꼼꼼",
+    "saved_at": "2026-10-10"
+   },
+   {
+    "place_id": "s10",
+    "designer": "준혁",
+    "comment": "말 안 걸고 컷만 깔끔하게. 가격 저렴",
+    "saved_at": "2026-09-22"
+   },
+   {
+    "place_id": "s11",
+    "designer": "하린",
+    "comment": "네일 디자인 상담 길게 해줌",
+    "saved_at": "2026-08-27"
+   }
+  ]
+ },
+ {
+  "list_id": "F18",
+  "title": "민준 단골",
+  "curator": "민준",
+  "subscribers": 3,
+  "visibility": "전체 공개",
+  "source": "카카오맵 즐겨찾기 폴더",
+  "items": [
+   {
+    "place_id": "s2",
+    "designer": null,
+    "comment": "짬뽕 국물 진함",
+    "saved_at": "2026-10-01"
+   },
+   {
+    "place_id": "h1",
+    "designer": null,
+    "comment": "혼자 라멘",
+    "saved_at": "2026-09-10"
+   },
+   {
+    "place_id": "y3",
+    "designer": null,
+    "comment": "해장 순대국",
+    "saved_at": "2026-08-05"
+   }
+  ]
+ },
+ {
+  "list_id": "F19",
+  "title": "지수 카페",
+  "curator": "지수",
+  "subscribers": 5,
+  "visibility": "전체 공개",
+  "source": "카카오맵 즐겨찾기 폴더",
+  "items": [
+   {
+    "place_id": "s7",
+    "designer": null,
+    "comment": "과제할 때 여기",
+    "saved_at": "2026-10-20"
+   },
+   {
+    "place_id": "j6",
+    "designer": null,
+    "comment": "주말 산책 후 커피",
+    "saved_at": "2026-09-02"
+   }
+  ]
+ },
+ {
+  "list_id": "F20",
+  "title": "예약 되는 회식집",
+  "curator": "태현",
+  "subscribers": 41,
+  "visibility": "전체 공개",
+  "source": "카카오맵 즐겨찾기 폴더",
+  "items": [
+   {
+    "place_id": "s5",
+    "designer": null,
+    "comment": "카톡 예약하기로 30명 잡힘. 단체석 따로 있음",
+    "saved_at": "2026-10-31"
+   },
+   {
+    "place_id": "j3",
+    "designer": null,
+    "comment": "10인 룸은 전화로 미리. 족발 대자 2개면 충분",
+    "saved_at": "2026-10-20"
+   },
+   {
+    "place_id": "h2",
+    "designer": null,
+    "comment": "전화 예약 OK. 룸 있어서 시끄러워도 괜찮음",
+    "saved_at": "2026-10-12"
+   },
+   {
+    "place_id": "s2",
+    "designer": null,
+    "comment": "10명 넘으면 전화 예약 받아줌. 화요일 휴무 주의",
+    "saved_at": "2026-09-27"
+   },
+   {
+    "place_id": "h4",
+    "designer": null,
+    "comment": "임원 낀 회식이면 여기 룸. 발렛 됨",
+    "saved_at": "2026-09-05"
+   }
+  ]
+ },
+ {
+  "list_id": "F21",
+  "title": "새벽까지 하는 집",
+  "curator": "하늘",
+  "subscribers": 64,
+  "visibility": "전체 공개",
+  "source": "카카오맵 즐겨찾기 폴더",
+  "items": [
+   {
+    "place_id": "h1",
+    "designer": null,
+    "comment": "새벽 2시까지. 자정 넘으면 줄 없음",
+    "saved_at": "2026-11-01"
+   },
+   {
+    "place_id": "h5",
+    "designer": null,
+    "comment": "새벽 3시까지, 일요일은 쉼",
+    "saved_at": "2026-10-28"
+   },
+   {
+    "place_id": "y3",
+    "designer": null,
+    "comment": "새벽 2시까지 해장. 아침 7시에도 열어",
+    "saved_at": "2026-10-22"
+   },
+   {
+    "place_id": "y1",
+    "designer": null,
+    "comment": "새벽 2시까지. 3차로 딱",
+    "saved_at": "2026-10-03"
+   },
+   {
+    "place_id": "j4",
+    "designer": null,
+    "comment": "조용히 한잔 더 하고 싶으면. 새벽 1시까지",
+    "saved_at": "2026-09-19"
+   }
+  ]
+ },
+ {
+  "list_id": "F22",
+  "title": "웨이팅 없이 바로 들어가는 밥집",
+  "curator": "도윤",
+  "subscribers": 52,
+  "visibility": "전체 공개",
+  "source": "카카오맵 즐겨찾기 폴더",
+  "items": [
+   {
+    "place_id": "s1",
+    "designer": null,
+    "comment": "점심 피크만 피하면 바로 앉음",
+    "saved_at": "2026-10-26"
+   },
+   {
+    "place_id": "s6",
+    "designer": null,
+    "comment": "회전 빨라서 줄 있어도 금방",
+    "saved_at": "2026-10-14"
+   },
+   {
+    "place_id": "y5",
+    "designer": null,
+    "comment": "키오스크라 주문부터 빠름",
+    "saved_at": "2026-10-09"
+   },
+   {
+    "place_id": "h6",
+    "designer": null,
+    "comment": "평일 12시 반 이후면 무조건 바로",
+    "saved_at": "2026-09-30"
+   },
+   {
+    "place_id": "j2",
+    "designer": null,
+    "comment": "점심만 피하면 한산. 수요일 휴무",
+    "saved_at": "2026-09-11"
+   }
+  ]
+ },
+ {
+  "list_id": "F23",
+  "title": "기념일 예약 필수",
+  "curator": "민지",
+  "subscribers": 133,
+  "visibility": "전체 공개",
+  "source": "카카오맵 즐겨찾기 폴더",
+  "items": [
+   {
+    "place_id": "j1",
+    "designer": null,
+    "comment": "2주 전 카톡 예약 오픈. 창가석 요청 꼭",
+    "saved_at": "2026-10-30"
+   },
+   {
+    "place_id": "j5",
+    "designer": null,
+    "comment": "예약제, 노쇼 위약금 있음. 룸 6인",
+    "saved_at": "2026-10-15"
+   },
+   {
+    "place_id": "y2",
+    "designer": null,
+    "comment": "테이블 6개라 예약 안 하면 40분 대기",
+    "saved_at": "2026-10-02"
+   },
+   {
+    "place_id": "h4",
+    "designer": null,
+    "comment": "부모님 기념일엔 룸 전화 예약",
+    "saved_at": "2026-08-24"
+   }
+  ]
+ },
+ {
+  "list_id": "F24",
+  "title": "1만원 이하 한 끼",
+  "curator": "민준",
+  "subscribers": 7,
+  "visibility": "전체 공개",
+  "source": "카카오맵 즐겨찾기 폴더",
+  "items": [
+   {
+    "place_id": "s2",
+    "designer": null,
+    "comment": "짜장면 6천, 짬뽕 7천5백",
+    "saved_at": "2026-10-30"
+   },
+   {
+    "place_id": "s6",
+    "designer": null,
+    "comment": "칼국수 9천, 면 리필 무료",
+    "saved_at": "2026-10-18"
+   },
+   {
+    "place_id": "y3",
+    "designer": null,
+    "comment": "순대국 9천. 새벽에도 됨",
+    "saved_at": "2026-10-11"
+   },
+   {
+    "place_id": "j2",
+    "designer": null,
+    "comment": "칼국수 8천",
+    "saved_at": "2026-09-26"
+   },
+   {
+    "place_id": "y5",
+    "designer": null,
+    "comment": "규동 9천5백",
+    "saved_at": "2026-09-13"
+   }
+  ]
+ }
+]

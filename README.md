@@ -1,4 +1,13 @@
-# 카카오 장소추천 챗봇 – 채팅 저장 서버
+# 카카오 장소추천 챗봇
+
+| 폴더 | 내용 | 실행 |
+|---|---|---|
+| `chat_server/` | **채팅 저장 서버** (FastAPI + MySQL): 채팅·방·예약 저장, `@봇` 호출, 웹소켓, MCP 알림, placelist 온도 반영 | `cd chat_server` → `python main.py` (포트 8000) |
+| `placelist/` | **카카오맵 목업 "placelist"**: 지도 + 리스트 온도·랭킹·친구. 채팅에서 잡은 예약을 지도에 표시 (자세한 내용은 `placelist/README.md`) | `cd placelist` → `python server.py 8200` |
+
+아래는 채팅 저장 서버(`chat_server/`) 설명. placelist 연동은 맨 아래 "placelist 지도 화면" 참고.
+
+---
 
 프론트에서 받은 채팅(유저 이름 + 내용)을 MySQL에 저장하는 FastAPI 서버.
 MySQL은 서버 PC에서 돌고, 같은 와이파이에 연결된 팀원들은 서버 PC의 IP로 DB에 직접 접속해서 볼 수 있음.
@@ -8,16 +17,18 @@ MySQL은 서버 PC에서 돌고, 같은 와이파이에 연결된 팀원들은 �
 ## 처음 한 번 설정 (서버 PC)
 
 ```bash
-python -m venv .venv
+python -m venv .venv            # 저장소 맨 위 폴더에서 (venv 는 위에 하나만)
 .venv\Scripts\activate          # macOS/Linux: source .venv/bin/activate
+cd chat_server
 pip install -r requirements.txt
-cp .env.example .env            # DB_PASSWORD 등 수정
+cp .env.example .env            # DB_PASSWORD 등 수정 (.env 는 chat_server/ 안에)
 python setup_mysql.py           # MySQL root 비밀번호 입력 → DB + 팀 공용 계정 생성
 ```
 
 ## 실행
 
 ```bash
+cd chat_server
 python main.py
 ```
 
@@ -33,7 +44,7 @@ python main.py
 1. 저장소를 clone한 뒤 `.env.example`을 복사해 `.env`를 만든다.
    ```bash
    git clone https://github.com/2urimm/kakao_hackathon.git
-   cd kakao_hackathon
+   cd kakao_hackathon/chat_server
    cp .env.example .env
    ```
 2. `.env`의 `DB_PASSWORD`에는 서버 담당자가 따로 알려준 비밀번호를 넣는다. (카톡 등으로 직접 전달 — 비밀번호는 깃허브에 올리지 않음)
@@ -117,7 +128,7 @@ python main.py
   1. 답변에 `place`가 붙어 있으면 그것
   2. 없으면 답변 본문에서 `places/` 목록의 식당 이름을 찾음 (띄어쓰기·`**굵게**` 무시, `이름 지점명` 도 매칭, 이름이 겹치면 더 긴 이름: `인하순대국 아들집` > `인하순대국`). 여러 곳이면 가장 먼저 언급된 곳
   3. 직전 답변에 아는 식당이 없으면 "못 찾았어요" (더 예전 답변의 식당을 예약하지 않음)
-- **데모 식당 목록 `places/`**: 답변 서버 시스템 프롬프트에 넣은 카카오맵 추출 파일 그대로 (`mapo_places.json`, `seocho_places.json`, `busan_places.json`, 각 20곳). 폴더에 JSON을 넣거나 고치면 재시작 없이 반영. 확인: `GET /api/places`. 다른 위치면 `.env`의 `PLACES_FILE`
+- **데모 식당 목록 `chat_server/places/`**: 답변 서버 시스템 프롬프트에 넣은 카카오맵 추출 파일 그대로 (`mapo_places.json`, `seocho_places.json`, `busan_places.json`, 각 20곳). 폴더에 JSON을 넣거나 고치면 재시작 없이 반영. 확인: `GET /api/places`. 다른 위치면 `.env`의 `PLACES_FILE`
 - 예약 요청으로 보는 말: `@봇` + `예약해 / 예약 좀 해 / 예약하자 / 예약 잡아 / 예약 부탁 / 예약 ㄱ` (`@봇 예약 가능한 곳 추천해줘`는 일반 질문 → 답변 서버)
 - 알아듣는 날짜·시간: `오늘/내일/모레`, `11월 8일`, `8일`, `토요일`, `다음주 금요일`, `7시`, `7시 반`, `오후 1시`, `점심 12시`, `19:30`, `일곱시` / 인원: `4명`, `네 명`, `4인`
   - 오전/오후 없이 `1~9시`는 저녁으로 봄 (`7시` → 19:00). 날짜가 없으면 오늘, 이미 지난 시간이면 내일
@@ -136,7 +147,7 @@ python main.py
 
 예약이 생기거나 상태가 바뀌면 이 서버가 placelist 서버의 `POST /api/reservation`을 호출한다 → 그 리스트 온도·랭킹이 바뀌고 지도 화면에 알림.
 
-- `.env`: `PLACELIST_URL=http://<placelist 서버 IP>:8200` (비우면 안 보냄)
+- `chat_server/.env`: `PLACELIST_URL=http://<placelist 서버 IP>:8200` (비우면 안 보냄)
 - `reservation_id`는 `"C<예약 id>"` (같은 예약은 한 번만 반영), `user`는 예약한 사람
 - 데모엔 실제 확정 단계가 없어서 채팅 예약(`requested`)도 **확정(`confirmed`)으로 보냄**. `PATCH .../{id} {"status":"cancelled"}` → 온도 되돌림
 - 어느 리스트를 보고 예약했는지: 식당 목록 파일 → `PLACELIST_LISTS` (기본 `mapo:M01,seocho:S01,busan:B02`)
@@ -311,3 +322,21 @@ users ─┬─< room_members >─┬─ rooms
 | | `user_id` PK, FK → users.id | 참여자 (이 사람 계정에 예약 장소가 뜸) |
 
 `room_members`는 (방, 유저) 쌍이 PK라서 같은 사람이 같은 방에 두 번 들어갈 수 없음.
+
+## placelist 지도 화면
+
+`placelist/` 는 카카오맵 목업 (지도 + 리스트 온도·랭킹·친구). 채팅 서버와 이렇게 이어진다.
+
+```bash
+cd placelist
+python server.py 8200                 # http://localhost:8200  (채팅 서버가 8000 을 쓰므로 8200)
+# 화면을 고쳤으면: cd frontend && npm install && npm run build   (→ placelist/web 에 반영)
+```
+
+- **이름 로그인**: 처음 들어오면 이름 입력 (비밀번호 없음). 채팅방에서 쓰는 이름과 같아야 그 사람의 예약이 보인다.
+- **내 예약**: 채팅 서버 `GET /api/reservations?user_name=<이름>` 을 3초마다 읽어 "내 리스트" 탭 카드, 지도 초록 "예약" 핀, 리스트 상세 배지, 새 예약 알림으로 표시
+- **단톡방 친구**: 같은 채팅방 멤버는 자동으로 친구 (`GET /api/rooms?user_name=`). 친구가 잡은 예약도 카드와 지도 핀으로
+- **온도 반영**: 채팅 서버가 예약 시 placelist `POST /api/reservation` 호출 (`chat_server/.env` 의 `PLACELIST_URL`) → 예약 카드에 "리스트 온도 45.1 → 45.8℃ · 랭킹 3위 → 1위"
+- 설정: `placelist/frontend/public/config.js` (빌드 후 `placelist/web/config.js`)
+  - `CHAT_API_BASE`: 채팅 서버 주소 (예: `http://172.168.45.126:8000`)
+  - `KAKAO_JS_KEY`: 카카오 디벨로퍼스 앱 "쩝쩝박사 placelist" 의 JavaScript 키. **접속 주소를 그 키의 JS SDK 도메인에 등록해야** 카카오맵이 뜸 (현재 `http://localhost:8200`, `http://172.168.45.126:8200`, `http://localhost:5173`). 등록 안 된 주소면 OpenStreetMap 대체 지도
