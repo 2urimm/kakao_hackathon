@@ -264,7 +264,8 @@ hub = RoomHub()
 
 # ---------- 챗봇 호출 ----------
 # "@톡스픽 예약해줘 / 예약 좀 해줘 / 예약하자 / 예약 잡아줘 / 예약 부탁해" → 예약 요청
-_RESERVE_RE = re.compile(r"예약\s*(?:을\s*)?(?:좀\s*)?(?:해|하자|할게|할래|부탁|ㄱ|잡아|진행|넣어)")
+# "예약 요청해줘 / 예약 요청 좀 해줘 / 예약요청 부탁해" 도 포함
+_RESERVE_RE = re.compile(r"예약\s*(?:을\s*)?(?:좀\s*)?(?:요청\s*(?:을\s*)?(?:좀\s*)?)?(?:해|하자|할게|할래|부탁|ㄱ|잡아|진행|넣어)")
 
 
 def _bot_mentioned(user_name: str, content: str) -> bool:
@@ -560,12 +561,20 @@ def _reserve_from_chat(room_id: int, requester_name: str, request_msg_id: int) -
     with SessionLocal() as db:
         try:
             found = _find_recommendation(db, room_id, request_msg_id)
-            if found is None:
+            # 요청 문장에 식당 이름이 있으면 그 식당 우선 ("@톡스픽 서초삼계탕 수요일 7시 예약해줘")
+            req = db.get(Message, request_msg_id)
+            named = find_place_in_text(req.content) if req else None
+            if named:
+                place = Place(place_id=str(named["place_id"]), place_name=named["place_name"],
+                              x=named.get("x"), y=named.get("y"))
+                rec = found[0] if found else req   # 날짜·시간을 찾을 대화 범위의 기준
+            elif found is None:
                 _post_message(db, None, room_id, config.BOT_NAME,
                               f"예약할 식당을 못 찾았어요 🥲 먼저 \"{config.BOT_TRIGGER} OO 맛집 추천해줘\"로 식당을 추천받은 뒤 "
                               f"\"{config.BOT_TRIGGER} 내일 저녁 7시에 예약해줘\"라고 말해 주세요.")
                 return
-            rec, place = found
+            else:
+                rec, place = found
 
             # 날짜/시간/인원: 이 요청 → 추천 받기 직전의 봇 메시지 이후 대화 (최신 → 오래된 순)
             prev_bot_id = db.scalar(
