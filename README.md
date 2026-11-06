@@ -341,5 +341,19 @@ python server.py 8200                 # http://localhost:8200  (채팅 서버가
 - **레벨 반영**: 채팅 서버가 예약 시 placelist `POST /api/reservation` 호출 (`chat_server/.env` 의 `PLACELIST_URL`) → 예약 카드에 "(배지) Lv.75 → (배지) Lv.78 · 랭킹 3위 → 1위"
 - **티어·레벨**: 카카오맵 배지 티어표 그대로 (브론즈 Lv1~10 · 실버 11~30 · 골드 31~60 · 블루 61~80 · 퍼플 81~100, 점수 0~19,300). 서버 계산(온도 30~50℃)은 그대로 두고 화면에서 레벨 1~100 으로 고르게 펼침 (1℃ ≈ 5레벨). 화면엔 티어 이름 없이 카카오맵 배지 이미지 + "Lv.N" — `placelist/frontend/src/ui.jsx` 의 `tierOf`, `TierBadge`
 - 설정: `placelist/frontend/public/config.js` (빌드 후 `placelist/web/config.js`)
-  - `CHAT_API_BASE`: 채팅 서버 주소 (예: `http://172.168.45.126:8000`)
-  - `KAKAO_JS_KEY`: 카카오 디벨로퍼스 앱 "쩝쩝박사 placelist" 의 JavaScript 키. **접속 주소를 그 키의 JS SDK 도메인에 등록해야** 카카오맵이 뜸 (현재 `http://localhost:8200`, `http://172.168.45.126:8200`, `http://localhost:5173`). 등록 안 된 주소면 OpenStreetMap 대체 지도
+  - `CHAT_API_BASE`: 기본 `"/chat"` = 지도 서버(`server.py`)가 `/chat/api/...` 를 채팅 서버로 대신 전달 (채팅 서버 주소는 `CHAT_SERVER_URL` 환경변수, 기본 `http://localhost:8000`). 그래서 와이파이 주소로 열든 외부 링크로 열든 설정을 안 바꿔도 됨
+  - `KAKAO_JS_KEY`: 카카오 디벨로퍼스 앱 "쩝쩝박사 placelist" 의 JavaScript 키. **접속 주소를 그 키의 JS SDK 도메인에 등록해야** 카카오맵이 뜸 (현재 `http://localhost:8200`, `http://172.168.45.126:8200`, `http://localhost:5173`, `https://ebony-professor-identity.ngrok-free.dev`). 등록 안 된 주소면 OpenStreetMap 대체 지도
+
+### 외부 링크 (ngrok)
+
+같은 와이파이면 `http://172.168.45.126:8200` 으로 충분. 와이파이가 기기끼리 막혀 있거나 LTE 폰으로 볼 때는 ngrok 고정 주소를 쓴다.
+
+```bash
+C:
+grok
+grok.exe http 8200       # → https://ebony-professor-identity.ngrok-free.dev (이 계정의 고정 주소, 카카오 도메인 등록 완료)
+```
+
+- 처음 여는 사람은 ngrok 안내 화면에서 **Visit Site** 를 한 번 눌러야 한다 (무료 요금제, 브라우저마다 한 번)
+- 채팅 서버(8000)는 따로 열 필요 없음 — 지도 서버가 `/chat` 으로 전달
+- 터널 상태: http://127.0.0.1:4040

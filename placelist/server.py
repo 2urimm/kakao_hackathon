@@ -16,9 +16,14 @@ POST /api/reservation {"reservation_id":"R1","user":"자갈치토박이","place_
                        "list_id":"B01"(선택),"datetime":"2026-11-08 19:00","party_size":2,
                        "status":"confirmed"|"pending"|"cancelled"}     ← 채팅 백엔드가 호출
 POST /api/follow  {"user":"자갈치토박이","list_id":"F02","on":true}
+GET|POST /chat/...                              채팅 저장 서버로 그대로 전달 (CHAT_SERVER_URL, 기본 http://localhost:8000)
+                                                → 외부 링크(ngrok) 하나로 지도 + 채팅 예약 정보를 같이 보여 주려고
 """
 import json
+import os
 import sys
+import urllib.error
+import urllib.request
 from collections import Counter
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -35,6 +40,9 @@ SERVICE = Service(ENGINE.s)
 SERVICE.hub = Reservations(SERVICE)
 
 
+CHAT_SERVER_URL = os.environ.get("CHAT_SERVER_URL", "http://localhost:8000").rstrip("/")
+
+
 class Handler(SimpleHTTPRequestHandler):
     def __init__(self, *a, **kw):
         super().__init__(*a, directory=str(ROOT / "web"), **kw)
@@ -48,6 +56,24 @@ class Handler(SimpleHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(body)
 
+    def _proxy_chat(self, body=None):
+        """/chat/api/... → 채팅 저장 서버 /api/... (같은 주소에서 부르니 CORS·https 문제 없음)"""
+        url = CHAT_SERVER_URL + self.path[len("/chat"):]
+        req = urllib.request.Request(url, data=body, method=self.command,
+                                     headers={"Content-Type": self.headers.get("Content-Type", "application/json")})
+        try:
+            with urllib.request.urlopen(req, timeout=10) as r:
+                code, data, ctype = r.status, r.read(), r.headers.get("Content-Type", "application/json")
+        except urllib.error.HTTPError as e:
+            code, data, ctype = e.code, e.read(), e.headers.get("Content-Type", "application/json")
+        except Exception as e:  # 채팅 서버가 꺼져 있어도 지도는 살아 있게
+            return self._json({"error": f"채팅 서버 연결 실패: {e}"}, 502)
+        self.send_response(code)
+        self.send_header("Content-Type", ctype)
+        self.send_header("Content-Length", str(len(data)))
+        self.end_headers()
+        self.wfile.write(data)
+
     def do_OPTIONS(self):
         self.send_response(204)
         self.send_header("Access-Control-Allow-Origin", "*")
@@ -56,6 +82,8 @@ class Handler(SimpleHTTPRequestHandler):
         self.end_headers()
 
     def do_GET(self):
+        if self.path.startswith("/chat/"):
+            return self._proxy_chat()
         u = urlparse(self.path)
         qs = {k: v[0] for k, v in parse_qs(u.query).items()}
         user = qs.get("user", "자갈치토박이")
@@ -101,7 +129,10 @@ class Handler(SimpleHTTPRequestHandler):
     def do_POST(self):
         u = urlparse(self.path)
         n = int(self.headers.get("Content-Length", 0))
-        data = json.loads(self.rfile.read(n) or b"{}")
+        raw = self.rfile.read(n)
+        if self.path.startswith("/chat/"):
+            return self._proxy_chat(raw)
+        data = json.loads(raw or b"{}")
         if u.path == "/api/reservation":
             body, code = SERVICE.hub.receive(data)
             return self._json(body, code)

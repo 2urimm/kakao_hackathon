@@ -1,7 +1,9 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { AppCtx } from "./context.js";
 
-export const api = async (p, opt) => (await fetch(p, opt)).json();
+// ngrok 무료 링크의 "Visit Site" 경고 화면이 API 응답 대신 오지 않게 하는 헤더 (같은 주소라 다른 곳엔 영향 없음)
+export const NO_WARN = { "ngrok-skip-browser-warning": "1" };
+export const api = async (p, opt = {}) => (await fetch(p, { ...opt, headers: { ...NO_WARN, ...(opt.headers || {}) } })).json();
 export const qs = o => Object.entries(o).map(([k, v]) => `${k}=${encodeURIComponent(v ?? "")}`).join("&");
 
 const cache = new Map();        // 주소 → 마지막 응답 (뒤로 가기·탭 전환 때 바로 보여주고 뒤에서 새로 읽음)
