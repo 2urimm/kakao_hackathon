@@ -100,7 +100,7 @@ def list_users(db: Session = Depends(get_db)):
 
 # ---------- 실행 ----------
 def _local_ip() -> str:
-    """현재 연결된 네트워크(핫스팟 등)에서의 내 IP 추정. 실제 패킷은 안 보냄."""
+    """현재 연결된 네트워크(와이파이 등)에서의 내 IP 추정. 실제 패킷은 안 보냄."""
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     try:
         s.connect(("8.8.8.8", 80))

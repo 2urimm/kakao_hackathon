@@ -6,7 +6,7 @@ from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship,
 
 from config import DATABASE_URL
 
-# pool_pre_ping: 핫스팟이 잠깐 끊겼다 붙어도 죽은 연결을 자동으로 버리고 새로 연결
+# pool_pre_ping: 와이파이가 잠깐 끊겼다 붙어도 죽은 연결을 자동으로 버리고 새로 연결
 engine = create_engine(DATABASE_URL, pool_pre_ping=True, pool_recycle=3600)
 SessionLocal = sessionmaker(bind=engine, autoflush=False)
 

@@ -3,7 +3,7 @@
 실행:  .venv\\Scripts\\python setup_mysql.py
  - MySQL root 비밀번호를 물어봄 (화면에 안 보임, 저장 안 함)
  - .env 의 DB_NAME / DB_USER / DB_PASSWORD 로 DB와 계정을 생성
- - 계정은 '%' 호스트로 만들어서 핫스팟에 붙은 팀원 PC에서도 접속 가능
+ - 계정은 '%' 호스트로 만들어서 같은 와이파이에 붙은 팀원 PC에서도 접속 가능
 여러 번 실행해도 안전함 (이미 있으면 비밀번호만 .env 값으로 맞춤).
 """
 import getpass
