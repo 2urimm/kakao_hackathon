@@ -28,7 +28,7 @@ PLACES_FILE: str = os.getenv("PLACES_FILE", "places")  # 폴더면 안의 *.json
 PLACELIST_URL: str = os.getenv("PLACELIST_URL", "").rstrip("/")  # 예: http://192.168.x.x:8200. 비우면 안 보냄
 # 식당 목록 파일(places/<이름>_places.json) → placelist 리스트 id. "이 리스트를 보고 예약했다"로 온도에 반영
 PLACELIST_LISTS: dict[str, str] = dict(
-    kv.split(":", 1) for kv in os.getenv("PLACELIST_LISTS", "mapo:M01,seocho:S01,busan:B02").split(",") if ":" in kv)
+    kv.split(":", 1) for kv in os.getenv("PLACELIST_LISTS", "mapo:M01,seocho:S01,busan_1:B02,busan_2:B01").split(",") if ":" in kv)
 
 # MySQL
 DB_HOST: str = os.getenv("DB_HOST", "localhost")

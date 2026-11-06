@@ -122,7 +122,7 @@ python main.py
 - **어떤 식당?** 직전 봇 답변 하나만 봄 (예약·택시 안내 같은 이 서버 안내 메시지는 건너뜀)
   1. 답변 본문에서 `places/` 목록의 식당 이름을 찾음 (띄어쓰기·`**굵게**` 무시, `이름 지점명` 도 매칭, 이름이 겹치면 더 긴 이름: `인하순대국 아들집` > `인하순대국`). 여러 곳이면 가장 먼저 언급된 곳
   2. 직전 답변에 아는 식당이 없으면 "못 찾았어요" (더 예전 답변의 식당을 예약하지 않음)
-- **데모 식당 목록 `chat_server/places/`**: 답변 서버 시스템 프롬프트에 넣은 카카오맵 추출 파일 그대로 (`mapo_places.json`, `seocho_places.json`, `busan_places.json`, 각 20곳). 폴더에 JSON을 넣거나 고치면 재시작 없이 반영. 확인: `GET /api/places`. 다른 위치면 `.env`의 `PLACES_FILE`
+- **데모 식당 목록 `chat_server/places/`**: 답변 서버 시스템 프롬프트에 넣은 카카오맵 추출 파일 그대로 (`mapo_places.json`, `seocho_places.json`, `busan_1_places.json`, `busan_2_places.json`, 각 20곳, 총 80곳). 폴더에 JSON을 넣거나 고치면 재시작 없이 반영. 확인: `GET /api/places`. 다른 위치면 `.env`의 `PLACES_FILE`
 - 예약 요청으로 보는 말: `@봇` + `예약해 / 예약 좀 해 / 예약하자 / 예약 잡아 / 예약 부탁 / 예약 ㄱ` (`@봇 예약 가능한 곳 추천해줘`는 일반 질문 → 답변 서버)
 - 알아듣는 날짜·시간: `오늘/내일/모레`, `11월 8일`, `8일`, `토요일`, `다음주 금요일`, `7시`, `7시 반`, `오후 1시`, `점심 12시`, `19:30`, `일곱시` / 인원: `4명`, `네 명`, `4인`
   - 오전/오후 없이 `1~9시`는 저녁으로 봄 (`7시` → 19:00). 날짜가 없으면 오늘, 이미 지난 시간이면 내일
@@ -144,8 +144,8 @@ python main.py
 - `chat_server/.env`: `PLACELIST_URL=http://<placelist 서버 IP>:8200` (비우면 안 보냄)
 - `reservation_id`는 `"C<예약 id>"` (같은 예약은 한 번만 반영), `user`는 예약한 사람
 - 데모엔 실제 확정 단계가 없어서 채팅 예약(`requested`)도 **확정(`confirmed`)으로 보냄**. `PATCH .../{id} {"status":"cancelled"}` → 온도 되돌림
-- 어느 리스트를 보고 예약했는지: 식당 목록 파일 → `PLACELIST_LISTS` (기본 `mapo:M01,seocho:S01,busan:B02`)
-- 예: 진우네초밥 예약 → '마포 맛집 모음'(M01) 45.1 → 45.8℃, 마포 음식점 랭킹 3위 → 1위
+- 어느 리스트를 보고 예약했는지: 식당 목록 파일 → `PLACELIST_LISTS` (기본 `mapo:M01,seocho:S01,busan_1:B02,busan_2:B01`)
+- 예: 진우네초밥 예약 → '마포 리스트'(M01) 45.1 → 45.8℃, 마포 음식점 랭킹 3위 → 1위
 
 ## MCP 서버 알림 `POST /ai/notify` (쩝쩝박사 MCP 서버 → 이 서버)
 
@@ -316,6 +316,15 @@ users ─┬─< room_members >─┬─ rooms
 `room_members`는 (방, 유저) 쌍이 PK라서 같은 사람이 같은 방에 두 번 들어갈 수 없음.
 
 ## placelist 지도 화면
+
+리스트 4개 = 답변 서버 프롬프트의 리스트와 같은 이름·주인 (`placelist/data/build/lists.json`, 점수 11개는 `scores`)
+
+| 식당 목록 파일 | placelist | 리스트 이름 | 주인 |
+|---|---|---|---|
+| `mapo_places.json` | M01 | 마포 리스트 | 연남동카레요정 |
+| `seocho_places.json` | S01 | 서초 리스트 | 교대역점심사냥꾼 |
+| `busan_1_places.json` | B02 | 부산 리스트 1 | 자갈치토박이 |
+| `busan_2_places.json` | B01 | 부산 리스트 2 | 동래빵지순례자 |
 
 `placelist/` 는 카카오맵 목업 (지도 + 리스트 온도·랭킹·친구). 채팅 서버와 이렇게 이어진다.
 
