@@ -89,26 +89,48 @@ python main.py
 | `CONTEXT_MESSAGES` | 봇에게 넘길 최근 대화 개수 | `20` |
 | `ANSWER_TIMEOUT` | 답변 서버 접수 대기 시간(초) | `10` |
 
-**답변 생성 서버 담당자에게**: 답변은 이 서버의 `POST /api/messages`로 `{"user_name": "봇", "content": "<답변>", "room_id": "<받은 room_id>"}` 형태로 보내주세요. `user_name`은 `BOT_NAME`과 같아야 함.
+**답변 생성 서버 담당자에게**: 답변은 이 서버의 `POST /api/messages`로 `{"user_name": "봇", "content": "<답변>", "room_id": <받은 room_id>}` 형태로 (방 번호, 숫자/문자열 둘 다 됨) 보내주세요. `user_name`은 `BOT_NAME`과 같아야 함.
 
 ## API (프론트 담당자용)
 
 전체 문서/테스트 화면: `http://<서버IP>:<PORT>/docs`
 
+**순서: 방을 먼저 만들고(`POST /api/rooms`) → 응답의 방 `id`로 채팅을 보낸다.** 없는 방에 채팅을 보내면 404.
+
+### 채팅방
+
+| API | 설명 |
+|---|---|
+| `POST /api/rooms` | 방 만들기 + 멤버 초대. `name` 필수, 방 `id`는 자동(1, 2, 3...) |
+| `GET /api/rooms` | 전체 방 + 멤버 목록. `?user_name=유림` → 그 사람이 속한 방만 |
+| `GET /api/rooms/{room_id}` | 방 하나 + 멤버 (없으면 404) |
+| `PATCH /api/rooms/{room_id}` | 방 이름 바꾸기 `{"name": "주말 강릉 여행"}` |
+| `POST /api/rooms/{room_id}/members` | 멤버 초대 `{"user_name": "민수"}` (이미 멤버면 그대로) |
+
+```json
+// POST /api/rooms
+{ "name": "해커톤 팀방", "member_names": ["유림", "민수"] }
+
+// 응답 (RoomOut)
+{ "id": 2, "name": "해커톤 팀방", "created_at": "...",
+  "members": [ { "user_id": 1, "user_name": "유림", "joined_at": "..." },
+               { "user_id": 2, "user_name": "민수", "joined_at": "..." } ] }
+```
+
 ### 채팅 저장 `POST /api/messages`
 ```json
-{ "user_name": "유림", "content": "@봇 성수동 카페 추천해줘", "room_id": "room1" }
+{ "user_name": "유림", "content": "@봇 성수동 카페 추천해줘", "room_id": 2 }
 ```
-- `room_id`는 생략 가능 (기본 `"default"`)
-- 처음 보는 `user_name`이면 자동으로 유저 등록
+- `room_id`는 필수 (방 `id` 숫자)
+- 처음 보는 `user_name`이면 자동으로 유저 등록, 그 방 멤버가 아니었으면 자동으로 멤버 등록
 
 응답:
 ```json
-{ "id": 1, "user_name": "유림", "room_id": "room1", "content": "@봇 성수동 카페 추천해줘", "created_at": "2026-11-06T15:50:34", "bot_called": true }
+{ "id": 1, "user_name": "유림", "room_id": 2, "content": "@봇 성수동 카페 추천해줘", "created_at": "2026-11-06T15:50:34", "bot_called": true }
 ```
 - `bot_called: true` → 봇을 불렀으니 곧 `user_name: "봇"` 메시지가 올라옴. 이때 "봇이 답변 중..." 표시하면 됨
 
-### 채팅 조회 `GET /api/messages?room_id=room1&user_name=유림&limit=50`
+### 채팅 조회 `GET /api/messages?room_id=2&user_name=유림&limit=50`
 모든 파라미터 선택. 오래된 → 최신 순으로 최근 `limit`개.
 
 ### 실시간 수신 (웹소켓) `ws://<서버IP>:<PORT>/ws/<room_id>`
@@ -128,31 +150,10 @@ ws.onclose = () => setTimeout(reconnect, 1000);  // 와이파이 끊기면 재�
 
 봇 답변(`content`)은 마크다운(`###`, `**굵게**`, 목록)으로 오니 마크다운 렌더링 추천.
 
-### 새 메시지만 조회 `GET /api/messages?room_id=room1&after_id=12`
+### 새 메시지만 조회 `GET /api/messages?room_id=2&after_id=12`
 `id`가 12보다 큰 메시지만 반환. 웹소켓 재연결 후 끊긴 동안 놓친 메시지를 받아올 때 사용 (웹소켓을 못 쓰면 2~3초마다 폴링해도 됨).
 
 ### 유저 목록 `GET /api/users`
-
-### 채팅방
-
-채팅을 보내면 방이 없을 때 자동으로 만들어지고, 보낸 사람은 그 방 멤버로 자동 등록됨. 아래 API는 방을 미리 만들거나 멤버를 초대할 때 사용.
-
-| API | 설명 |
-|---|---|
-| `GET /api/rooms` | 전체 방 + 멤버 목록. `?user_name=유림` → 그 사람이 속한 방만 |
-| `GET /api/rooms/{room_id}` | 방 하나 + 멤버 (없으면 404) |
-| `POST /api/rooms` | 방 만들기 + 멤버 초대. 이미 있는 방이면 이름 수정 + 멤버 추가 |
-| `POST /api/rooms/{room_id}/members` | 멤버 초대 `{"user_name": "민수"}` (이미 멤버면 그대로) |
-
-```json
-// POST /api/rooms
-{ "id": "hackathon-room", "name": "해커톤 팀방", "member_names": ["유림", "민수"] }
-
-// 응답 (RoomOut)
-{ "id": "hackathon-room", "name": "해커톤 팀방", "created_at": "...",
-  "members": [ { "user_id": 1, "user_name": "유림", "joined_at": "..." },
-               { "user_id": 2, "user_name": "민수", "joined_at": "..." } ] }
-```
 
 ### 헬스체크 `GET /health`
 
@@ -166,10 +167,10 @@ users ─┬─< room_members >─┬─ rooms
 | 테이블 | 컬럼 | 설명 |
 |---|---|---|
 | **users** | `id` PK | |
-| | `name` unique | 유저 이름 |
+| | `name` NOT NULL, unique | 유저 이름 |
 | | `created_at` | |
-| **rooms** | `id` PK (문자열) | 프론트가 보내는 `room_id` 그대로 (예: `"1"`) |
-| | `name` | 방 이름 (선택) |
+| **rooms** | `id` PK, 자동 증가 | 방 번호 |
+| | `name` NOT NULL | 방 이름 (중복 가능) |
 | | `created_at` | |
 | **room_members** | `room_id` PK, FK → rooms.id | 방 삭제 시 같이 삭제 |
 | | `user_id` PK, FK → users.id | 유저 삭제 시 같이 삭제 |
@@ -181,4 +182,3 @@ users ─┬─< room_members >─┬─ rooms
 | | `created_at` | |
 
 `room_members`는 (방, 유저) 쌍이 PK라서 같은 사람이 같은 방에 두 번 들어갈 수 없음.
-rooms 테이블이 생기기 전에 쌓인 채팅은 서버 시작 시 자동으로 옮겨짐 (`database.py`의 `_migrate_rooms`).
