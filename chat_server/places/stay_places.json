@@ -1,0 +1,2364 @@
+{
+  "source": "kakaomap",
+  "extracted_at": "2026-11-07T04:40:21+09:00",
+  "folder": {
+    "id": 70641,
+    "title": "휴식이 필요해, 국내 숙소 모음",
+    "url": "https://kko.to/q0WVKs5KD5"
+  },
+  "places": [
+    {
+      "place_id": "25611302",
+      "url": "https://place.map.kakao.com/25611302",
+      "name": "디자인호텔 무무",
+      "branch": null,
+      "category": "펜션",
+      "address": "인천 강화군 화도면 해안남로1066번길 12 (화도면 사기리)",
+      "phone": "010-7180-9065",
+      "menus": [
+        {
+          "name": "P4파우더블루(PB)-펜션형",
+          "price": 170000,
+          "price_text": "170,000원~",
+          "description": "기준 2인 / 최대 2인 · 작은 비사자 타일이 무지개 빛으로 빛나는 침실입니다.",
+          "badges": []
+        },
+        {
+          "name": "P5샤이닝카키(SK)-펜션형",
+          "price": 200000,
+          "price_text": "200,000원~",
+          "description": "기준 2인 / 최대 2인 · 파벽돌의 깊은 색감 위에  에스닉한 느낌을 주조로한  객실입니다.",
+          "badges": []
+        },
+        {
+          "name": "P3쉐비화이트(SW)-펜션형",
+          "price": 220000,
+          "price_text": "220,000원~",
+          "description": "기준 2인 / 최대 2인 · 한면 가득 창을 열고 숲 속으로 다가갑니다.",
+          "badges": []
+        },
+        {
+          "name": "P2빈티지그린(VG)-펜션형",
+          "price": 240000,
+          "price_text": "240,000원~",
+          "description": "기준 2인 / 최대 3인 · 스위트룸(2인 기준 최대 3)",
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": {
+        "min": 170000,
+        "max": 240000
+      },
+      "facilities": [
+        "무료주차",
+        "반려견동반",
+        "주차가능",
+        "예약가능"
+      ],
+      "business_hours": null,
+      "business_hours_raw": null,
+      "closed_days": null,
+      "reservation": {
+        "available": true,
+        "method": "예약"
+      },
+      "waiting": null,
+      "status": "ok",
+      "check_in": "15:00",
+      "check_out": "11:00",
+      "tags": [
+        "관광펜션",
+        "무무건축",
+        "무무카페",
+        "무무펜션",
+        "무무호텔",
+        "2인실",
+        "글램핑",
+        "노천탕",
+        "단풍명소",
+        "독채펜션",
+        "바베큐장",
+        "산책로",
+        "스파룸",
+        "스파펜션",
+        "야외테라스",
+        "조식서비스",
+        "풀빌라"
+      ],
+      "aliases": [
+        "무무펜션"
+      ]
+    },
+    {
+      "place_id": "1104867532",
+      "url": "https://place.map.kakao.com/1104867532",
+      "name": "더뷰1151",
+      "branch": null,
+      "category": "펜션",
+      "address": "경남 남해군 서면 남서대로 1477 (서면 서상리)",
+      "phone": "010-3512-1151",
+      "menus": [],
+      "menu_board_image_only": false,
+      "price_range": null,
+      "facilities": [
+        "주차가능",
+        "예약가능"
+      ],
+      "business_hours": null,
+      "business_hours_raw": null,
+      "closed_days": null,
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": null,
+      "status": "ok",
+      "tags": [
+        "2인실",
+        "가족실",
+        "개별수영장",
+        "노천탕",
+        "물놀이",
+        "바베큐장",
+        "산책로",
+        "수영장펜션",
+        "스파펜션",
+        "실외수영장",
+        "야외테라스",
+        "오션뷰",
+        "오션뷰풀빌라",
+        "캠프파이어장",
+        "커플여행",
+        "풀빌라",
+        "풀빌라펜션",
+        "핑크뮬리명소"
+      ]
+    },
+    {
+      "place_id": "1544553746",
+      "url": "https://place.map.kakao.com/1544553746",
+      "name": "생각속의집",
+      "branch": null,
+      "category": "펜션",
+      "address": "경기 양평군 단월면 대부록길 37 (단월면 부안리)",
+      "phone": "010-9634-7938",
+      "menus": [
+        {
+          "name": "타임(히노끼)",
+          "price": 169000,
+          "price_text": "169,000원~",
+          "description": "기준 2인 / 최대 4인 · ㅁ복층 / 히노끼 / 독채 / 개별바베큐",
+          "badges": []
+        },
+        {
+          "name": "민트(히노끼)",
+          "price": 169000,
+          "price_text": "169,000원~",
+          "description": "기준 2인 / 최대 4인 · ㅁ복층 / 히노끼 / 독채 / 개별바베큐",
+          "badges": []
+        },
+        {
+          "name": "쟈스민(히노끼)",
+          "price": 189000,
+          "price_text": "189,000원~",
+          "description": "기준 2인 / 최대 4인 · ㅁ복층 / 히노끼 / 독채 / 개별바베큐",
+          "badges": []
+        },
+        {
+          "name": "로즈마리(히노끼)",
+          "price": 189000,
+          "price_text": "189,000원~",
+          "description": "기준 2인 / 최대 4인 · ㅁ 복층 / 히노끼 / 독채 / 개별바베큐",
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": {
+        "min": 169000,
+        "max": 189000
+      },
+      "facilities": [
+        "주차가능",
+        "예약가능"
+      ],
+      "business_hours": {
+        "sat": {
+          "open": "00:00",
+          "close": "24:00",
+          "break": null,
+          "last_order": null
+        },
+        "sun": {
+          "open": "00:00",
+          "close": "24:00",
+          "break": null,
+          "last_order": null
+        },
+        "mon": {
+          "open": "00:00",
+          "close": "24:00",
+          "break": null,
+          "last_order": null
+        },
+        "tue": {
+          "open": "00:00",
+          "close": "24:00",
+          "break": null,
+          "last_order": null
+        },
+        "wed": {
+          "open": "00:00",
+          "close": "24:00",
+          "break": null,
+          "last_order": null
+        },
+        "thu": {
+          "open": "00:00",
+          "close": "24:00",
+          "break": null,
+          "last_order": null
+        },
+        "fri": {
+          "open": "00:00",
+          "close": "24:00",
+          "break": null,
+          "last_order": null
+        }
+      },
+      "business_hours_raw": "토(11/7)|00:00 ~ 24:00 / 일(11/8)|00:00 ~ 24:00 / 월(11/9)|00:00 ~ 24:00 / 화(11/10)|00:00 ~ 24:00 / 수(11/11)|00:00 ~ 24:00 / 목(11/12)|00:00 ~ 24:00 / 금(11/13)|00:00 ~ 24:00",
+      "closed_days": null,
+      "reservation": {
+        "available": true,
+        "method": "예약"
+      },
+      "waiting": null,
+      "status": "ok",
+      "check_in": "15:00",
+      "check_out": "11:00",
+      "tags": [
+        "가족실",
+        "가족펜션",
+        "글램핑",
+        "독채펜션",
+        "바베큐장",
+        "스파펜션",
+        "야외테라스",
+        "온돌룸",
+        "워크샵",
+        "커플룸",
+        "커플여행",
+        "커플펜션",
+        "파우더룸",
+        "힐링펜션"
+      ],
+      "aliases": [
+        "생각속의집펜션"
+      ]
+    },
+    {
+      "place_id": "25116670",
+      "url": "https://place.map.kakao.com/25116670",
+      "name": "영덕 비사이드 풀빌라오션뷰펜션",
+      "branch": null,
+      "category": "펜션",
+      "address": "경북 영덕군 병곡면 흰돌로 40-1 (병곡면 병곡리)",
+      "phone": "010-5224-6943",
+      "menus": [],
+      "menu_board_image_only": false,
+      "price_range": null,
+      "facilities": [
+        "예약가능"
+      ],
+      "business_hours": null,
+      "business_hours_raw": null,
+      "closed_days": null,
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": null,
+      "status": "ok",
+      "tags": [
+        "가족펜션",
+        "글램핑",
+        "단체펜션",
+        "독채펜션",
+        "물놀이",
+        "바베큐장",
+        "산책로",
+        "수영장펜션",
+        "실외수영장",
+        "오션뷰",
+        "오션뷰풀빌라",
+        "온수수영장",
+        "조식서비스",
+        "커플여행",
+        "풀빌라",
+        "풀빌라펜션",
+        "픽업서비스",
+        "해수욕장펜션"
+      ],
+      "aliases": [
+        "비사이드풀빌라펜션"
+      ]
+    },
+    {
+      "place_id": "1577541606",
+      "url": "https://place.map.kakao.com/1577541606",
+      "name": "서락나인",
+      "branch": null,
+      "category": "펜션",
+      "address": "경기 가평군 설악면 전위골길 61-5 (설악면 방일리)",
+      "phone": "010-6449-7827",
+      "menus": [
+        {
+          "name": "STAY 101 (노천탕)",
+          "price": 250000,
+          "price_text": "250,000원~",
+          "description": "기준 2인 / 최대 4인 · 인원 추가 정보",
+          "badges": []
+        },
+        {
+          "name": "STAY 103 (노천탕)",
+          "price": 250000,
+          "price_text": "250,000원~",
+          "description": "기준 2인 / 최대 4인 · 인원 추가 정보",
+          "badges": []
+        },
+        {
+          "name": "STAY 104 (노천탕)",
+          "price": 250000,
+          "price_text": "250,000원~",
+          "description": "기준 2인 / 최대 4인 · 인원 추가 정보",
+          "badges": []
+        },
+        {
+          "name": "STAY 102 (노천탕)",
+          "price": 250000,
+          "price_text": "250,000원~",
+          "description": "기준 2인 / 최대 4인 · 인원 추가 정보",
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": {
+        "min": 250000,
+        "max": 250000
+      },
+      "facilities": [
+        "예약가능"
+      ],
+      "business_hours": null,
+      "business_hours_raw": null,
+      "closed_days": null,
+      "reservation": {
+        "available": true,
+        "method": "예약"
+      },
+      "waiting": null,
+      "status": "ok",
+      "check_in": "15:00",
+      "check_out": "11:00",
+      "tags": [
+        "2인실",
+        "가족실",
+        "글램핑",
+        "노래방",
+        "노천탕",
+        "당구대",
+        "독채펜션",
+        "물놀이",
+        "바베큐장",
+        "수영장펜션",
+        "스파펜션",
+        "실외수영장",
+        "야외테라스",
+        "카라반",
+        "픽업서비스"
+      ]
+    },
+    {
+      "place_id": "1940644859",
+      "url": "https://place.map.kakao.com/1940644859",
+      "name": "더퍼스트펜션",
+      "branch": null,
+      "category": "펜션",
+      "address": "강원특별자치도 강릉시 사천면 진리해변길 113-1 (사천면 사천진리)",
+      "phone": "010-6578-7911",
+      "menus": [
+        {
+          "name": "201호(하프 오션뷰 /26년 06월 리모델링)",
+          "price": 75000,
+          "price_text": "75,000원~",
+          "description": "기준 2인 / 최대 3인 · 인원 추가 정보",
+          "badges": []
+        },
+        {
+          "name": "202호(하프 오션뷰 /26년 06월 리모델링)",
+          "price": 75000,
+          "price_text": "75,000원~",
+          "description": "기준 2인 / 최대 3인 · 인원 추가 정보",
+          "badges": []
+        },
+        {
+          "name": "203호(테라스 /26년 06월 객실 리모델링)",
+          "price": 75000,
+          "price_text": "75,000원~",
+          "description": "기준 2인 / 최대 3인 · 인원 추가 정보",
+          "badges": []
+        },
+        {
+          "name": "303호(하프 오션뷰 /26년 06월 리모델링)",
+          "price": 75000,
+          "price_text": "75,000원~",
+          "description": "기준 2인 / 최대 3인 · 인원 추가 정보",
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": {
+        "min": 75000,
+        "max": 75000
+      },
+      "facilities": [
+        "주차가능",
+        "예약가능"
+      ],
+      "business_hours": null,
+      "business_hours_raw": null,
+      "closed_days": null,
+      "reservation": {
+        "available": true,
+        "method": "예약"
+      },
+      "waiting": null,
+      "status": "ok",
+      "check_in": "15:00",
+      "check_out": "11:00",
+      "tags": [
+        "가족펜션",
+        "단체룸",
+        "단체펜션",
+        "루프탑있는",
+        "물놀이",
+        "바베큐장",
+        "복층펜션",
+        "스파룸",
+        "스파펜션",
+        "실외수영장",
+        "야외테라스",
+        "오션뷰",
+        "해수욕장펜션"
+      ]
+    },
+    {
+      "place_id": "1769179168",
+      "url": "https://place.map.kakao.com/1769179168",
+      "name": "꽃신민박",
+      "branch": null,
+      "category": "민박",
+      "address": "제주특별자치도 제주시 한경면 용금로 552-3 (한경면 저지리)",
+      "phone": null,
+      "menus": [],
+      "menu_board_image_only": false,
+      "price_range": null,
+      "facilities": [
+        "무료주차",
+        "주차가능",
+        "예약가능"
+      ],
+      "business_hours": {
+        "fri": {
+          "open": "16:00",
+          "close": "11:00",
+          "break": null,
+          "last_order": null
+        },
+        "sat": {
+          "open": "16:00",
+          "close": "11:00",
+          "break": null,
+          "last_order": null
+        },
+        "sun": {
+          "open": "16:00",
+          "close": "11:00",
+          "break": null,
+          "last_order": null
+        },
+        "mon": {
+          "open": "16:00",
+          "close": "11:00",
+          "break": null,
+          "last_order": null
+        },
+        "tue": {
+          "open": "16:00",
+          "close": "11:00",
+          "break": null,
+          "last_order": null
+        },
+        "wed": {
+          "open": "16:00",
+          "close": "11:00",
+          "break": null,
+          "last_order": null
+        },
+        "thu": {
+          "open": "16:00",
+          "close": "11:00",
+          "break": null,
+          "last_order": null
+        }
+      },
+      "business_hours_raw": "금(11/6)|16:00 ~ 11:00 / 토(11/7)|16:00 ~ 11:00 / 일(11/8)|16:00 ~ 11:00 / 월(11/9)|16:00 ~ 11:00 / 화(11/10)|16:00 ~ 11:00 / 수(11/11)|16:00 ~ 11:00 / 목(11/12)|16:00 ~ 11:00",
+      "closed_days": null,
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": null,
+      "status": "ok",
+      "tags": [
+        "1인실",
+        "2인실",
+        "쉐어하우스",
+        "조식서비스"
+      ]
+    },
+    {
+      "place_id": "1852889062",
+      "url": "https://place.map.kakao.com/1852889062",
+      "name": "그라운드 휴",
+      "branch": null,
+      "category": "숙박",
+      "address": "경기 가평군 조종면 명지산로 137-49 (조종면 상판리)",
+      "phone": "031-584-3965",
+      "menus": [],
+      "menu_board_image_only": false,
+      "price_range": null,
+      "facilities": [
+        "주차가능",
+        "예약가능"
+      ],
+      "business_hours": null,
+      "business_hours_raw": null,
+      "closed_days": null,
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": null,
+      "status": "ok",
+      "tags": [
+        "가족실",
+        "물놀이",
+        "바베큐장",
+        "산책로",
+        "세미나실",
+        "야외테라스",
+        "조식서비스",
+        "캠프파이어장",
+        "키즈풀빌라"
+      ]
+    },
+    {
+      "place_id": "318516631",
+      "url": "https://place.map.kakao.com/318516631",
+      "name": "별을다는아이캠핑장",
+      "branch": null,
+      "category": "야영,캠핑장",
+      "address": "경기 양주시 장흥면 권율로309번길 132 (장흥면 석현리)",
+      "phone": null,
+      "menus": [],
+      "menu_board_image_only": false,
+      "price_range": null,
+      "facilities": null,
+      "business_hours": null,
+      "business_hours_raw": null,
+      "closed_days": null,
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": null,
+      "status": "ok",
+      "tags": [
+        "가족캠핑",
+        "단풍명소",
+        "산책로",
+        "솔로캠핑",
+        "오토캠핑",
+        "우중캠핑",
+        "캠핑"
+      ]
+    },
+    {
+      "place_id": "845286366",
+      "url": "https://place.map.kakao.com/845286366",
+      "name": "미즈노씨네 트리하우스",
+      "branch": null,
+      "category": "테마카페",
+      "address": "전북특별자치도 김제시 만경읍 대동1길 49-5 (만경읍 대동리)",
+      "phone": "010-7731-7744",
+      "menus": [
+        {
+          "name": "미즈노 커피",
+          "price": null,
+          "price_text": "변동가격",
+          "description": "미즈노씨가 직접 로스팅하고 넬드립으로 내린 커피. 최고급 에티오피아 예가체프 G1 원두를 사용합니다.",
+          "badges": [
+            "사장님 추천",
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "미즈노 초코",
+          "price": null,
+          "price_text": "변동가격",
+          "description": "마일로를 사용하여 너무 달지않고 맛있는 코코아.",
+          "badges": [
+            "사장님 추천"
+          ]
+        },
+        {
+          "name": "거봉에이드",
+          "price": null,
+          "price_text": "변동가격",
+          "description": "청포도와 오미자의 조화로 달콤한 거봉의 맛을 느낄 수 있는 에이드.",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "야끼 오니기리 (구운 주먹밥)",
+          "price": null,
+          "price_text": "변동가격",
+          "description": "2가지 맛선택 (소불고기/치즈불닭/참치마요) 겉을 노릇노릇하게 구워 만든 한우물의 구운 주먹밥 입니다. (주먹밥 2개 + 미소된장국 + 단무지 포함)  *3가지맛 주문시 만원.",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "카레라이스",
+          "price": null,
+          "price_text": "변동가격",
+          "description": "신선한 계란후라이가 올라간 일본식 카레라이스. (미소된장국 + 단무지 포함) ",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "커스터드 푸딩",
+          "price": null,
+          "price_text": "변동가격",
+          "description": "우유의 진한 맛이 가미된 은은하게 달달한 부드러운 푸딩",
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "미즈노 라떼",
+          "price": null,
+          "price_text": "변동가격",
+          "description": "미즈노 커피와 우유의 부드러운 조화.",
+          "badges": []
+        },
+        {
+          "name": "오미자차",
+          "price": null,
+          "price_text": "변동가격",
+          "description": "장수에서 온 오미자청으로 만든 오미자차.",
+          "badges": []
+        },
+        {
+          "name": "레몬에이드",
+          "price": null,
+          "price_text": "변동가격",
+          "description": "새콤하고 맛있는 레몬을 시원한 에이드와 따뜻한 차로 즐겨보세요.",
+          "badges": []
+        },
+        {
+          "name": "사과주스",
+          "price": null,
+          "price_text": "변동가격",
+          "description": "김제시 청하농원에서 만든 100% 일품 사과주스입니다.",
+          "badges": []
+        },
+        {
+          "name": "생과즙 주스 (오렌지/자몽/오몽)",
+          "price": null,
+          "price_text": "변동가격",
+          "description": "저온착즙공법으로 과일 한 통의 과즙을 담은 생과즙 주스. ",
+          "badges": []
+        },
+        {
+          "name": "모카번 / 크림치즈번",
+          "price": null,
+          "price_text": "변동가격",
+          "description": "커피와 먹으면 더욱 맛있는 겉바속촉 번.",
+          "badges": []
+        },
+        {
+          "name": "새우볶음밥",
+          "price": null,
+          "price_text": "변동가격",
+          "description": "우리 지역 브랜드 한우물에서 만든 새우볶음밥.  탱글탱글한 새우가 맛있는 볶음밥 드셔보세요! (미소된장국 + 단무지 포함) ",
+          "badges": []
+        },
+        {
+          "name": "미즈노 바닐라 라떼",
+          "price": null,
+          "price_text": "변동가격",
+          "description": "미즈노 라떼에 바닐라빈 파우더와 바닐라시럽을 가미한 달달라떼.",
+          "badges": []
+        },
+        {
+          "name": "귀여운 쿠키",
+          "price": null,
+          "price_text": "변동가격",
+          "description": "가격은 쇼케이스에서 확인해주세요!",
+          "badges": []
+        },
+        {
+          "name": "히비스커스티",
+          "price": null,
+          "price_text": "변동가격",
+          "description": "새콤한 맛이 매력적인 유기농 디카페인 꽃차.",
+          "badges": []
+        },
+        {
+          "name": "유자차",
+          "price": null,
+          "price_text": "변동가격",
+          "description": "국내산 유자청으로 만든 유자차.",
+          "badges": []
+        },
+        {
+          "name": "생강차",
+          "price": null,
+          "price_text": "변동가격",
+          "description": "국내산 생강청으로 만든 생강차.",
+          "badges": []
+        },
+        {
+          "name": "꿀자몽차",
+          "price": null,
+          "price_text": "변동가격",
+          "description": "씁쓸한 자몽에 꿀을 넣어 더욱 달달하게 즐기는 꿀자몽차.",
+          "badges": []
+        },
+        {
+          "name": "복숭아 아이스티",
+          "price": null,
+          "price_text": "변동가격",
+          "description": "갈증해소에 최고, 복숭아 시원한 아이스티.",
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": null,
+      "facilities": [
+        "무료주차",
+        "놀이방",
+        "포장가능"
+      ],
+      "business_hours": {
+        "sat": {
+          "open": "11:00",
+          "close": "18:00",
+          "break": null,
+          "last_order": null
+        },
+        "sun": {
+          "open": "11:00",
+          "close": "18:00",
+          "break": null,
+          "last_order": null
+        },
+        "mon": {
+          "open": "11:00",
+          "close": "18:00",
+          "break": null,
+          "last_order": null
+        },
+        "tue": null,
+        "wed": {
+          "open": "11:00",
+          "close": "18:00",
+          "break": null,
+          "last_order": null
+        },
+        "thu": {
+          "open": "11:00",
+          "close": "18:00",
+          "break": null,
+          "last_order": null
+        },
+        "fri": {
+          "open": "11:00",
+          "close": "18:00",
+          "break": null,
+          "last_order": null
+        }
+      },
+      "business_hours_raw": "토(11/7)|11:00 ~ 18:00 / 일(11/8)|11:00 ~ 18:00 / 월(11/9)|11:00 ~ 18:00 / 화(11/10)|휴무일 / 수(11/11)|11:00 ~ 18:00 / 목(11/12)|11:00 ~ 18:00 / 금(11/13)|11:00 ~ 18:00",
+      "closed_days": [
+        "화요일 휴무일"
+      ],
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": null,
+      "status": "ok",
+      "tags": [
+        "실내놀거리",
+        "이색카페",
+        "전북우체국맛집",
+        "조용한카페"
+      ]
+    },
+    {
+      "place_id": "21055163",
+      "url": "https://place.map.kakao.com/21055163",
+      "name": "황매산별쿵캠핑장",
+      "branch": null,
+      "category": "오토캠핑장",
+      "address": "경남 합천군 가회면 황매산공원길 331 (가회면 둔내리)",
+      "phone": "010-9258-5233",
+      "menus": [],
+      "menu_board_image_only": false,
+      "price_range": null,
+      "facilities": [
+        "예약가능"
+      ],
+      "business_hours": null,
+      "business_hours_raw": null,
+      "closed_days": null,
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": null,
+      "status": "ok",
+      "tags": [
+        "가족캠핑",
+        "글램핑",
+        "단체캠핑",
+        "물놀이",
+        "솔로캠핑",
+        "야영장",
+        "오토캠핑",
+        "우중캠핑",
+        "차박",
+        "카라반",
+        "캠핑"
+      ],
+      "aliases": [
+        "황매산군립공원 오토캠핑장"
+      ]
+    },
+    {
+      "place_id": "24692879",
+      "url": "https://place.map.kakao.com/24692879",
+      "name": "트리하우스",
+      "branch": null,
+      "category": "펜션",
+      "address": "경기 평택시 진위면 삼봉로 442-15 (진위면 마산리)",
+      "phone": "031-663-9900",
+      "menus": [],
+      "menu_board_image_only": false,
+      "price_range": null,
+      "facilities": [
+        "주차가능",
+        "반려견동반",
+        "예약가능"
+      ],
+      "business_hours": null,
+      "business_hours_raw": null,
+      "closed_days": null,
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": null,
+      "status": "ok",
+      "tags": [
+        "가족펜션",
+        "글램핑",
+        "독채펜션",
+        "물놀이",
+        "바베큐장",
+        "산책로",
+        "워크샵",
+        "캠프파이어장",
+        "캠핑"
+      ]
+    },
+    {
+      "place_id": "21548006",
+      "url": "https://place.map.kakao.com/21548006",
+      "name": "롤링힐스호텔 더키친",
+      "branch": null,
+      "category": "이탈리안",
+      "address": "경기 화성시 만세구 남양읍 활초리 4-21",
+      "phone": "031-369-7900",
+      "menus": [],
+      "menu_board_image_only": false,
+      "price_range": null,
+      "facilities": [
+        "예약가능",
+        "포장가능"
+      ],
+      "business_hours": {
+        "sat": {
+          "open": "12:00",
+          "close": "21:00",
+          "break": "15:00~17:30",
+          "last_order": null
+        },
+        "sun": {
+          "open": "12:00",
+          "close": "21:00",
+          "break": "15:00~17:30",
+          "last_order": null
+        },
+        "mon": {
+          "open": "12:00",
+          "close": "21:00",
+          "break": "15:00~17:30",
+          "last_order": null
+        },
+        "tue": {
+          "open": "12:00",
+          "close": "21:00",
+          "break": "15:00~17:30",
+          "last_order": null
+        },
+        "wed": {
+          "open": "12:00",
+          "close": "21:00",
+          "break": "15:00~17:30",
+          "last_order": null
+        },
+        "thu": {
+          "open": "12:00",
+          "close": "21:00",
+          "break": "15:00~17:30",
+          "last_order": null
+        },
+        "fri": {
+          "open": "12:00",
+          "close": "21:00",
+          "break": "15:00~17:30",
+          "last_order": null
+        }
+      },
+      "business_hours_raw": "토(11/7)|12:00 ~ 21:00|15:00 ~ 17:30 브레이크타임 / 일(11/8)|12:00 ~ 21:00|15:00 ~ 17:30 브레이크타임 / 월(11/9)|12:00 ~ 21:00|15:00 ~ 17:30 브레이크타임 / 화(11/10)|12:00 ~ 21:00|15:00 ~ 17:30 브레이크타임 / 수(11/11)|12:00 ~ 21:00|15:00 ~ 17:30 브레이크타임 / 목(11/12)|12:00 ~ 21:00|15:00 ~ 17:30 브레이크타임 / 금(11/13)|12:00 ~ 21:00|15:00 ~ 17:30 브레이크타임",
+      "closed_days": null,
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": null,
+      "status": "ok",
+      "tags": [
+        "가족모임",
+        "데이트코스",
+        "소개팅",
+        "친목모임"
+      ]
+    },
+    {
+      "place_id": "954921784",
+      "url": "https://place.map.kakao.com/954921784",
+      "name": "포시즌스호텔서울 아키라 백",
+      "branch": null,
+      "category": "일식집",
+      "address": "서울 종로구 새문안로 97 12층 (당주동)",
+      "phone": "02-6388-5500",
+      "menus": [
+        {
+          "name": "Weekday Lunch Zen Set",
+          "price": 89000,
+          "price_text": "89,000원",
+          "description": "평일 런치 젠 세트",
+          "badges": [
+            "사장님 추천"
+          ]
+        },
+        {
+          "name": "시그니처 참치 피자",
+          "price": 37000,
+          "price_text": "37,000원",
+          "description": null,
+          "badges": [
+            "사장님 추천"
+          ]
+        },
+        {
+          "name": "Weekday Lunch Set",
+          "price": 129000,
+          "price_text": "129,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "Greatest Hits Set",
+          "price": 169000,
+          "price_text": "169,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "Dinner Set",
+          "price": 289000,
+          "price_text": "289,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "Chef Shin's Recommendations",
+          "price": null,
+          "price_text": "변동가격",
+          "description": null,
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": {
+        "min": 37000,
+        "max": 289000
+      },
+      "facilities": [
+        "예약가능",
+        "포장가능"
+      ],
+      "business_hours": {
+        "sat": {
+          "open": "11:30",
+          "close": "21:30",
+          "break": "14:30~17:30",
+          "last_order": null
+        },
+        "sun": {
+          "open": "11:30",
+          "close": "21:30",
+          "break": "14:30~17:30",
+          "last_order": null
+        },
+        "mon": {
+          "open": "11:30",
+          "close": "21:30",
+          "break": "14:30~17:30",
+          "last_order": null
+        },
+        "tue": {
+          "open": "11:30",
+          "close": "21:30",
+          "break": "14:30~17:30",
+          "last_order": null
+        },
+        "wed": {
+          "open": "11:30",
+          "close": "21:30",
+          "break": "14:30~17:30",
+          "last_order": null
+        },
+        "thu": {
+          "open": "11:30",
+          "close": "21:30",
+          "break": "14:30~17:30",
+          "last_order": null
+        },
+        "fri": {
+          "open": "11:30",
+          "close": "21:30",
+          "break": "14:30~17:30",
+          "last_order": null
+        }
+      },
+      "business_hours_raw": "토(11/7)|11:30 ~ 21:30|14:30 ~ 17:30 브레이크타임 / 일(11/8)|11:30 ~ 21:30|14:30 ~ 17:30 브레이크타임 / 월(11/9)|11:30 ~ 21:30|14:30 ~ 17:30 브레이크타임 / 화(11/10)|11:30 ~ 21:30|14:30 ~ 17:30 브레이크타임 / 수(11/11)|11:30 ~ 21:30|14:30 ~ 17:30 브레이크타임 / 목(11/12)|11:30 ~ 21:30|14:30 ~ 17:30 브레이크타임 / 금(11/13)|11:30 ~ 21:30|14:30 ~ 17:30 브레이크타임",
+      "closed_days": null,
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": null,
+      "status": "ok",
+      "tags": [
+        "상견례",
+        "친목모임",
+        "코스요리",
+        "퓨전일식"
+      ],
+      "aliases": [
+        "아키라백"
+      ]
+    },
+    {
+      "place_id": "21306045",
+      "url": "https://place.map.kakao.com/21306045",
+      "name": "웨스틴조선서울 홍연",
+      "branch": null,
+      "category": "중국요리",
+      "address": "서울 중구 소공로 106 1층 (소공동)",
+      "phone": "02-317-0494",
+      "menus": [
+        {
+          "name": "특제자장면",
+          "price": 37000,
+          "price_text": "37,000원",
+          "description": null,
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "북경오리",
+          "price": 180000,
+          "price_text": "180,000원",
+          "description": null,
+          "badges": [
+            "AI 추천"
+          ]
+        },
+        {
+          "name": "삼선자장면",
+          "price": 29000,
+          "price_text": "29,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "삼선짬뽕",
+          "price": 37000,
+          "price_text": "37,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "해물우동",
+          "price": 37000,
+          "price_text": "37,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "팔진초면",
+          "price": 35000,
+          "price_text": "35,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "팔진탕면",
+          "price": 35000,
+          "price_text": "35,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "야채초면",
+          "price": 32000,
+          "price_text": "32,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "라즈등갈비(소)",
+          "price": 100000,
+          "price_text": "100,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "동파육(소)",
+          "price": 80000,
+          "price_text": "80,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "송이소고기(소)",
+          "price": 115000,
+          "price_text": "115,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "탕수육(소)",
+          "price": 105000,
+          "price_text": "105,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "라즈지(소)",
+          "price": 65000,
+          "price_text": "65,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "깐풍기(소)",
+          "price": 65000,
+          "price_text": "65,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "해물볶음밥",
+          "price": 38000,
+          "price_text": "38,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "게살볶음밥",
+          "price": 34000,
+          "price_text": "34,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "차슈볶음밥",
+          "price": 33000,
+          "price_text": "33,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "팔진덮밥",
+          "price": 60000,
+          "price_text": "60,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "류산슬덮밥",
+          "price": 60000,
+          "price_text": "60,000원",
+          "description": null,
+          "badges": []
+        },
+        {
+          "name": "마파두부덮밥",
+          "price": 45000,
+          "price_text": "45,000원",
+          "description": null,
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": {
+        "min": 29000,
+        "max": 180000
+      },
+      "facilities": [
+        "주차가능",
+        "휠체어사용",
+        "예약가능",
+        "포장가능"
+      ],
+      "business_hours": {
+        "sat": {
+          "open": "12:00",
+          "close": "22:00",
+          "break": "15:00~18:00",
+          "last_order": null
+        },
+        "sun": {
+          "open": "12:00",
+          "close": "22:00",
+          "break": "15:00~18:00",
+          "last_order": null
+        },
+        "mon": {
+          "open": "12:00",
+          "close": "22:00",
+          "break": "15:00~18:00",
+          "last_order": null
+        },
+        "tue": {
+          "open": "12:00",
+          "close": "22:00",
+          "break": "15:00~18:00",
+          "last_order": null
+        },
+        "wed": {
+          "open": "12:00",
+          "close": "22:00",
+          "break": "15:00~18:00",
+          "last_order": null
+        },
+        "thu": {
+          "open": "12:00",
+          "close": "22:00",
+          "break": "15:00~18:00",
+          "last_order": null
+        },
+        "fri": {
+          "open": "12:00",
+          "close": "22:00",
+          "break": "15:00~18:00",
+          "last_order": null
+        }
+      },
+      "business_hours_raw": "토(11/7)|12:00 ~ 22:00|15:00 ~ 18:00 브레이크타임 / 일(11/8)|12:00 ~ 22:00|15:00 ~ 18:00 브레이크타임 / 월(11/9)|12:00 ~ 22:00|15:00 ~ 18:00 브레이크타임 / 화(11/10)|12:00 ~ 22:00|15:00 ~ 18:00 브레이크타임 / 수(11/11)|12:00 ~ 22:00|15:00 ~ 18:00 브레이크타임 / 목(11/12)|12:00 ~ 22:00|15:00 ~ 18:00 브레이크타임 / 금(11/13)|12:00 ~ 22:00|15:00 ~ 18:00 브레이크타임",
+      "closed_days": null,
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": null,
+      "status": "ok",
+      "tags": [
+        "가족행사",
+        "돌잔치",
+        "상견례",
+        "이동약자접근",
+        "친목모임",
+        "코스요리"
+      ],
+      "aliases": [
+        "서울 웨스틴조선호텔 홍연"
+      ]
+    },
+    {
+      "place_id": "21536589",
+      "url": "https://place.map.kakao.com/21536589",
+      "name": "숯.더붓처스엣지&바",
+      "branch": null,
+      "category": "양식",
+      "address": "서울 영등포구 국제금융로 10 콘래드서울 37층 (여의도동)",
+      "phone": "02-6137-7110",
+      "menus": [
+        {
+          "name": "변동가격",
+          "price": null,
+          "price_text": "변동가격",
+          "description": null,
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": null,
+      "facilities": [
+        "주차가능",
+        "예약가능",
+        "포장가능"
+      ],
+      "business_hours": {
+        "sat": {
+          "open": "11:00",
+          "close": "22:30",
+          "break": "14:30~18:00",
+          "last_order": null
+        },
+        "sun": {
+          "open": "11:00",
+          "close": "22:30",
+          "break": "14:30~18:00",
+          "last_order": null
+        },
+        "mon": {
+          "open": "11:30",
+          "close": "22:30",
+          "break": "14:30~18:00",
+          "last_order": null
+        },
+        "tue": {
+          "open": "11:30",
+          "close": "22:30",
+          "break": "14:30~18:00",
+          "last_order": null
+        },
+        "wed": {
+          "open": "11:30",
+          "close": "22:30",
+          "break": "14:30~18:00",
+          "last_order": null
+        },
+        "thu": {
+          "open": "11:30",
+          "close": "22:30",
+          "break": "14:30~18:00",
+          "last_order": null
+        },
+        "fri": {
+          "open": "11:30",
+          "close": "22:30",
+          "break": "14:30~18:00",
+          "last_order": null
+        }
+      },
+      "business_hours_raw": "토(11/7)|11:00 ~ 22:30|14:30 ~ 18:00 브레이크타임 / 일(11/8)|11:00 ~ 22:30|14:30 ~ 18:00 브레이크타임 / 월(11/9)|11:30 ~ 22:30|14:30 ~ 18:00 브레이크타임 / 화(11/10)|11:30 ~ 22:30|14:30 ~ 18:00 브레이크타임 / 수(11/11)|11:30 ~ 22:30|14:30 ~ 18:00 브레이크타임 / 목(11/12)|11:30 ~ 22:30|14:30 ~ 18:00 브레이크타임 / 금(11/13)|11:30 ~ 22:30|14:30 ~ 18:00 브레이크타임",
+      "closed_days": null,
+      "reservation": {
+        "available": true,
+        "method": "예약"
+      },
+      "waiting": null,
+      "status": "ok",
+      "tags": [
+        "소개팅장소",
+        "스테이크",
+        "코스요리",
+        "파인다이닝",
+        "한강뷰",
+        "데이트코스",
+        "칵테일바"
+      ],
+      "aliases": [
+        "37그릴&바"
+      ]
+    },
+    {
+      "place_id": "752967563",
+      "url": "https://place.map.kakao.com/752967563",
+      "name": "해운대영무파라드호텔",
+      "branch": null,
+      "category": "호텔",
+      "address": "부산 해운대구 해운대해변로298번길 25 (중동)",
+      "phone": "051-743-0003",
+      "menus": [
+        {
+          "name": "스탠다드더블",
+          "price": 65000,
+          "price_text": "65,000원~",
+          "description": "기준 2인 / 최대 2인 · [필독] 본 객실은 턱이 없는 구조와 욕실 내 안전 바가 설치된 배리어 프리(장애인 전용 객실)로 랜덤 배정될 수 있으며, 사전 지정은 불가한 점 참고 부탁드립니다.",
+          "badges": []
+        },
+        {
+          "name": "[반려견 동반 객실] 디럭스더블",
+          "price": 65000,
+          "price_text": "65,000원~",
+          "description": "기준 2인 / 최대 2인 · **애견 동반 시, 반드시 [반려견] 타입으로 예약바랍니다.**",
+          "badges": []
+        },
+        {
+          "name": "스탠다드트윈",
+          "price": 65000,
+          "price_text": "65,000원~",
+          "description": "기준 2인 / 최대 3인 · ※ 일부 저층 객실은 오션뷰가 제공되지 않습니다. 바다 전망 여부는 객실 위치 및 현장 배정에 따라 달라질 수 있으니 예약 시 참고 부탁드립니다.",
+          "badges": []
+        },
+        {
+          "name": "패밀리 트윈",
+          "price": 65000,
+          "price_text": "65,000원~",
+          "description": "기준 3인 / 최대 3인 · ※ 일부 저층 객실은 오션뷰가 제공되지 않습니다. 바다 전망 여부는 객실 위치 및 현장 배정에 따라 달라질 수 있으니 예약 시 참고 부탁드립니다.",
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": {
+        "min": 65000,
+        "max": 65000
+      },
+      "facilities": [
+        "반려견동반",
+        "예약가능"
+      ],
+      "business_hours": {
+        "fri": {
+          "open": "16:00",
+          "close": "11:00",
+          "break": null,
+          "last_order": null
+        },
+        "sat": {
+          "open": "16:00",
+          "close": "11:00",
+          "break": null,
+          "last_order": null
+        },
+        "sun": {
+          "open": "16:00",
+          "close": "11:00",
+          "break": null,
+          "last_order": null
+        },
+        "mon": {
+          "open": "16:00",
+          "close": "11:00",
+          "break": null,
+          "last_order": null
+        },
+        "tue": {
+          "open": "16:00",
+          "close": "11:00",
+          "break": null,
+          "last_order": null
+        },
+        "wed": {
+          "open": "16:00",
+          "close": "11:00",
+          "break": null,
+          "last_order": null
+        },
+        "thu": {
+          "open": "16:00",
+          "close": "11:00",
+          "break": null,
+          "last_order": null
+        }
+      },
+      "business_hours_raw": "금(11/6)|16:00 ~ 11:00 / 토(11/7)|16:00 ~ 11:00 / 일(11/8)|16:00 ~ 11:00 / 월(11/9)|16:00 ~ 11:00 / 화(11/10)|16:00 ~ 11:00 / 수(11/11)|16:00 ~ 11:00 / 목(11/12)|16:00 ~ 11:00",
+      "closed_days": null,
+      "reservation": {
+        "available": true,
+        "method": "예약"
+      },
+      "waiting": null,
+      "status": "ok",
+      "check_in": "16:00",
+      "check_out": "11:00",
+      "tags": [
+        "2인실",
+        "무인호텔",
+        "애견동반호텔",
+        "오션뷰",
+        "온돌룸",
+        "조식서비스",
+        "호캉스"
+      ]
+    },
+    {
+      "place_id": "18206183",
+      "url": "https://place.map.kakao.com/18206183",
+      "name": "콘래드 서울",
+      "branch": null,
+      "category": "호텔",
+      "address": "서울 영등포구 국제금융로 10 (여의도동)",
+      "phone": "02-6137-7000",
+      "menus": [
+        {
+          "name": "디럭스 킹",
+          "price": 484374,
+          "price_text": "484,374원~",
+          "description": "기준 2인 / 최대 3인 · 48㎡ (15평), 킹 베드 1개",
+          "badges": []
+        },
+        {
+          "name": "디럭스 트윈",
+          "price": 484374,
+          "price_text": "484,374원~",
+          "description": "기준 2인 / 최대 3인 · 48㎡ (15평), 퀸 베드 2개",
+          "badges": []
+        },
+        {
+          "name": "프리미엄 킹 리버뷰",
+          "price": 529474,
+          "price_text": "529,474원~",
+          "description": "기준 2인 / 최대 3인 · 48㎡ (15평), 킹 베드 1개",
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": {
+        "min": 484374,
+        "max": 529474
+      },
+      "facilities": [
+        "무료주차",
+        "휠체어사용",
+        "반려견동반",
+        "예약가능"
+      ],
+      "business_hours": null,
+      "business_hours_raw": null,
+      "closed_days": null,
+      "reservation": {
+        "available": true,
+        "method": "예약"
+      },
+      "waiting": null,
+      "status": "ok",
+      "check_in": "16:00",
+      "check_out": "11:00",
+      "tags": [
+        "2인실",
+        "가족실",
+        "럭셔리호텔",
+        "비즈니스호텔",
+        "사우나",
+        "스파룸",
+        "실외수영장",
+        "전망좋은호텔",
+        "조식서비스",
+        "호캉스"
+      ]
+    },
+    {
+      "place_id": "7870383",
+      "url": "https://place.map.kakao.com/7870383",
+      "name": "파티즈호텔",
+      "branch": null,
+      "category": "여관,모텔",
+      "address": "경기 수원시 권선구 서부로1934번길 42 (구운동)",
+      "phone": "031-278-7780",
+      "menus": [
+        {
+          "name": "스탠다드(주차가능, 사우나 없음, 2인욕조, 넷플릭스,웨이브,디즈니,티빙,애플TV)",
+          "price": 45000,
+          "price_text": "45,000원~",
+          "description": "기준 2인 / 최대 2인",
+          "badges": []
+        },
+        {
+          "name": "디럭스 랜덤배정 (사우나 현장 상황에 따라 배정)(2인 욕조, 넷플릭스, 왓챠, 티빙, 애플 tv)",
+          "price": 50000,
+          "price_text": "50,000원~",
+          "description": "기준 2인 / 최대 2인",
+          "badges": []
+        },
+        {
+          "name": "디럭스B 핀란드 사우나(핀란드 사우나, 2인욕조, 넷플릭스,웨이브,디즈니,티빙,애플TV)",
+          "price": 55000,
+          "price_text": "55,000원~",
+          "description": "기준 2인 / 최대 2인",
+          "badges": []
+        },
+        {
+          "name": "프리미엄 스위트(1호라인, 핀란드 사우나, 2인욕조,넷플릭스,웨이브,디즈니,티빙,애플TV)",
+          "price": 60000,
+          "price_text": "60,000원~",
+          "description": "기준 2인 / 최대 2인",
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": {
+        "min": 45000,
+        "max": 60000
+      },
+      "facilities": [
+        "무료주차",
+        "휠체어사용",
+        "흡연실"
+      ],
+      "business_hours": {
+        "sat": {
+          "open": "00:00",
+          "close": "24:00",
+          "break": null,
+          "last_order": null
+        },
+        "sun": {
+          "open": "00:00",
+          "close": "24:00",
+          "break": null,
+          "last_order": null
+        },
+        "mon": {
+          "open": "00:00",
+          "close": "24:00",
+          "break": null,
+          "last_order": null
+        },
+        "tue": {
+          "open": "00:00",
+          "close": "24:00",
+          "break": null,
+          "last_order": null
+        },
+        "wed": {
+          "open": "00:00",
+          "close": "24:00",
+          "break": null,
+          "last_order": null
+        },
+        "thu": {
+          "open": "00:00",
+          "close": "24:00",
+          "break": null,
+          "last_order": null
+        },
+        "fri": {
+          "open": "00:00",
+          "close": "24:00",
+          "break": null,
+          "last_order": null
+        }
+      },
+      "business_hours_raw": "토(11/7)|00:00 ~ 24:00 / 일(11/8)|00:00 ~ 24:00 / 월(11/9)|00:00 ~ 24:00 / 화(11/10)|00:00 ~ 24:00 / 수(11/11)|00:00 ~ 24:00 / 목(11/12)|00:00 ~ 24:00 / 금(11/13)|00:00 ~ 24:00",
+      "closed_days": null,
+      "reservation": {
+        "available": true,
+        "method": "예약"
+      },
+      "waiting": null,
+      "status": "ok",
+      "check_in": "21:00",
+      "check_out": "12:00",
+      "tags": [
+        "노래방",
+        "물놀이",
+        "부티크호텔",
+        "비즈니스호텔",
+        "사우나",
+        "스파룸",
+        "워크샵",
+        "월풀모텔",
+        "이동약자접근",
+        "제트스파",
+        "커플룸",
+        "파티룸",
+        "풀빌라",
+        "호캉스"
+      ]
+    },
+    {
+      "place_id": "24019548",
+      "url": "https://place.map.kakao.com/24019548",
+      "name": "소설호텔",
+      "branch": null,
+      "category": "호텔",
+      "address": "서울 서초구 반포대로14길 53 2~12층 (서초동)",
+      "phone": "02-507-0505",
+      "menus": [
+        {
+          "name": "체크인 시 디럭스 랜덤 배정(15시 체크인)",
+          "price": 165000,
+          "price_text": "165,000원~",
+          "description": "기준 2인 / 최대 2인 · 15시 체크인 상품은 연박 가능",
+          "badges": []
+        },
+        {
+          "name": "Pine Deluxe(15시 체크인)",
+          "price": 175000,
+          "price_text": "175,000원~",
+          "description": "기준 2인 / 최대 2인 · 15시 체크인 상품은 연박 가능",
+          "badges": []
+        },
+        {
+          "name": "White Deluxe(15시 체크인)",
+          "price": 175000,
+          "price_text": "175,000원~",
+          "description": "기준 2인 / 최대 2인 · 15시 체크인 상품은 연박 가능",
+          "badges": []
+        },
+        {
+          "name": "체크인 시 스위트 랜덤 배정(15시 체크인)",
+          "price": 199000,
+          "price_text": "199,000원~",
+          "description": "기준 2인 / 최대 3인 · 15시 체크인 상품은 연박 가능",
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": {
+        "min": 165000,
+        "max": 199000
+      },
+      "facilities": [
+        "예약가능"
+      ],
+      "business_hours": {
+        "sat": {
+          "open": "00:00",
+          "close": "24:00",
+          "break": null,
+          "last_order": null
+        },
+        "sun": {
+          "open": "00:00",
+          "close": "24:00",
+          "break": null,
+          "last_order": null
+        },
+        "mon": {
+          "open": "00:00",
+          "close": "24:00",
+          "break": null,
+          "last_order": null
+        },
+        "tue": {
+          "open": "00:00",
+          "close": "24:00",
+          "break": null,
+          "last_order": null
+        },
+        "wed": {
+          "open": "00:00",
+          "close": "24:00",
+          "break": null,
+          "last_order": null
+        },
+        "thu": {
+          "open": "00:00",
+          "close": "24:00",
+          "break": null,
+          "last_order": null
+        },
+        "fri": {
+          "open": "00:00",
+          "close": "24:00",
+          "break": null,
+          "last_order": null
+        }
+      },
+      "business_hours_raw": "토(11/7)|00:00 ~ 24:00 / 일(11/8)|00:00 ~ 24:00 / 월(11/9)|00:00 ~ 24:00 / 화(11/10)|00:00 ~ 24:00 / 수(11/11)|00:00 ~ 24:00 / 목(11/12)|00:00 ~ 24:00 / 금(11/13)|00:00 ~ 24:00",
+      "closed_days": null,
+      "reservation": {
+        "available": true,
+        "method": "예약"
+      },
+      "waiting": null,
+      "status": "ok",
+      "check_in": "15:00",
+      "check_out": "12:00",
+      "tags": [
+        "2인실",
+        "관광호텔",
+        "럭셔리호텔",
+        "물놀이",
+        "부티크호텔",
+        "비즈니스호텔",
+        "사우나",
+        "스파룸",
+        "실외수영장",
+        "제트스파",
+        "조식서비스",
+        "파티룸",
+        "호캉스"
+      ]
+    },
+    {
+      "place_id": "327520717",
+      "url": "https://place.map.kakao.com/327520717",
+      "name": "시그니엘 부산",
+      "branch": null,
+      "category": "호텔",
+      "address": "부산 해운대구 달맞이길 30 (중동)",
+      "phone": "051-922-1000",
+      "menus": [
+        {
+          "name": "그랜드 디럭스 더블 미포하버뷰",
+          "price": 363000,
+          "price_text": "363,000원~",
+          "description": "기준 2인 / 최대 2인",
+          "badges": []
+        },
+        {
+          "name": "프리미어 더블 시티뷰",
+          "price": 363000,
+          "price_text": "363,000원~",
+          "description": "기준 2인 / 최대 2인",
+          "badges": []
+        },
+        {
+          "name": "그랜드 디럭스 더블 미포 하버뷰",
+          "price": 348843,
+          "price_text": "348,843원~",
+          "description": "기준 2인 / 최대 2인",
+          "badges": []
+        },
+        {
+          "name": "드레이튼 오션 슈퍼브 스위트(Drayton Ocean Superb Suite)",
+          "price": 260000,
+          "price_text": "260,000원~",
+          "description": "기준 4인 / 최대 6인 · ※ 객실은 호텔 임의배정 입니다.",
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": {
+        "min": 260000,
+        "max": 363000
+      },
+      "facilities": [
+        "예약가능"
+      ],
+      "business_hours": null,
+      "business_hours_raw": null,
+      "closed_days": null,
+      "reservation": {
+        "available": true,
+        "method": "예약"
+      },
+      "waiting": null,
+      "status": "ok",
+      "check_in": "15:00",
+      "check_out": "11:00",
+      "tags": [
+        "2인실",
+        "물놀이",
+        "사우나",
+        "야외테라스",
+        "오션뷰",
+        "조식서비스",
+        "호캉스"
+      ]
+    },
+    {
+      "place_id": "633529767",
+      "url": "https://place.map.kakao.com/633529767",
+      "name": "사유의숲",
+      "branch": null,
+      "category": "펜션",
+      "address": "강원특별자치도 삼척시 뒷나루길 276-5 (교동)",
+      "phone": null,
+      "menus": [],
+      "menu_board_image_only": false,
+      "price_range": null,
+      "facilities": [
+        "주차장없음",
+        "예약가능"
+      ],
+      "business_hours": null,
+      "business_hours_raw": null,
+      "closed_days": null,
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": null,
+      "status": "ok",
+      "tags": [
+        "가족펜션",
+        "노천탕",
+        "독채펜션",
+        "물놀이",
+        "바베큐장",
+        "스파펜션",
+        "풀빌라",
+        "풀빌라펜션"
+      ]
+    },
+    {
+      "place_id": "1089285344",
+      "url": "https://place.map.kakao.com/1089285344",
+      "name": "멜로우멘션",
+      "branch": null,
+      "category": "펜션",
+      "address": "인천 강화군 내가면 고비고개로771번길 65-12 (내가면 고천리)",
+      "phone": "010-4568-6512",
+      "menus": [],
+      "menu_board_image_only": false,
+      "price_range": null,
+      "facilities": [
+        "무료주차",
+        "주차가능",
+        "반려견동반",
+        "예약가능"
+      ],
+      "business_hours": null,
+      "business_hours_raw": null,
+      "closed_days": null,
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": null,
+      "status": "ok",
+      "tags": [
+        "가족펜션",
+        "노천탕",
+        "독채펜션",
+        "럭셔리펜션",
+        "물놀이",
+        "바베큐장",
+        "불멍",
+        "산책로",
+        "스파펜션",
+        "애견동반펜션",
+        "캠핑",
+        "커플펜션",
+        "키즈펜션",
+        "파우더룸",
+        "풀빌라펜션"
+      ]
+    },
+    {
+      "place_id": "996859928",
+      "url": "https://place.map.kakao.com/996859928",
+      "name": "까망감스테이",
+      "branch": null,
+      "category": "펜션",
+      "address": "전남광주통합특별시 담양군 용면 추월산로 900-11 (용면 월계리)",
+      "phone": "010-8691-9193",
+      "menus": [],
+      "menu_board_image_only": false,
+      "price_range": null,
+      "facilities": [
+        "주차가능",
+        "반려견동반",
+        "예약가능"
+      ],
+      "business_hours": null,
+      "business_hours_raw": null,
+      "closed_days": null,
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": null,
+      "status": "ok",
+      "tags": [
+        "독채펜션",
+        "바베큐장",
+        "산책로",
+        "애견동반펜션",
+        "조식서비스",
+        "커플여행"
+      ]
+    },
+    {
+      "place_id": "10509859",
+      "url": "https://place.map.kakao.com/10509859",
+      "name": "포레스트 리솜",
+      "branch": null,
+      "category": "콘도,리조트",
+      "address": "충북 제천시 백운면 금봉로 365 (백운면 평동리)",
+      "phone": "043-649-6000",
+      "menus": [
+        {
+          "name": "S20 타워 클린",
+          "price": 293440,
+          "price_text": "293,440원~",
+          "description": "기준 2인 / 최대 4인 · [패키지 안내]",
+          "badges": []
+        },
+        {
+          "name": "S25 타워 클린",
+          "price": 303520,
+          "price_text": "303,520원~",
+          "description": "기준 2인 / 최대 4인 · [패키지 안내]",
+          "badges": []
+        },
+        {
+          "name": "S25 빌라 클린",
+          "price": 311360,
+          "price_text": "311,360원~",
+          "description": "기준 5인 / 최대 7인 · [패키지 안내]",
+          "badges": []
+        },
+        {
+          "name": "S30 타워 클린",
+          "price": 329280,
+          "price_text": "329,280원~",
+          "description": "기준 5인 / 최대 7인 · [패키지 안내]",
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": {
+        "min": 293440,
+        "max": 329280
+      },
+      "facilities": [
+        "예약가능"
+      ],
+      "business_hours": null,
+      "business_hours_raw": null,
+      "closed_days": null,
+      "reservation": {
+        "available": true,
+        "method": "예약"
+      },
+      "waiting": null,
+      "status": "ok",
+      "check_in": "15:00",
+      "check_out": "11:00",
+      "tags": [
+        "골프텔",
+        "노천탕",
+        "럭셔리리조트",
+        "물놀이",
+        "사우나",
+        "산책로",
+        "스파룸",
+        "야외테라스",
+        "온돌룸",
+        "온천리조트",
+        "워크샵",
+        "조식서비스"
+      ]
+    },
+    {
+      "place_id": "27610260",
+      "url": "https://place.map.kakao.com/27610260",
+      "name": "소설재 첨성대점",
+      "branch": null,
+      "category": "게스트하우스",
+      "address": "경북 경주시 포석로1050번길 46 (황남동)",
+      "phone": "070-7357-7412",
+      "menus": [],
+      "menu_board_image_only": false,
+      "price_range": null,
+      "facilities": [
+        "주차가능",
+        "예약가능"
+      ],
+      "business_hours": {
+        "sat": {
+          "open": "10:00",
+          "close": "20:00",
+          "break": null,
+          "last_order": null
+        },
+        "sun": {
+          "open": "10:00",
+          "close": "20:00",
+          "break": null,
+          "last_order": null
+        },
+        "mon": {
+          "open": "10:00",
+          "close": "20:00",
+          "break": null,
+          "last_order": null
+        },
+        "tue": {
+          "open": "10:00",
+          "close": "20:00",
+          "break": null,
+          "last_order": null
+        },
+        "wed": {
+          "open": "10:00",
+          "close": "20:00",
+          "break": null,
+          "last_order": null
+        },
+        "thu": {
+          "open": "10:00",
+          "close": "20:00",
+          "break": null,
+          "last_order": null
+        },
+        "fri": {
+          "open": "10:00",
+          "close": "20:00",
+          "break": null,
+          "last_order": null
+        }
+      },
+      "business_hours_raw": "토(11/7)|10:00 ~ 20:00 / 일(11/8)|10:00 ~ 20:00 / 월(11/9)|10:00 ~ 20:00 / 화(11/10)|10:00 ~ 20:00 / 수(11/11)|10:00 ~ 20:00 / 목(11/12)|10:00 ~ 20:00 / 금(11/13)|10:00 ~ 20:00",
+      "closed_days": null,
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": null,
+      "status": "ok",
+      "tags": [
+        "2인실",
+        "다과공간",
+        "단체룸",
+        "온돌룸",
+        "조식서비스",
+        "한옥게스트하우스",
+        "한옥펜션"
+      ]
+    },
+    {
+      "place_id": "1480928405",
+      "url": "https://place.map.kakao.com/1480928405",
+      "name": "어타이니리틀피스",
+      "branch": null,
+      "category": "게스트하우스",
+      "address": "제주특별자치도 서귀포시 대정읍 보성상로 11-38 (대정읍 보성리)",
+      "phone": null,
+      "menus": [],
+      "menu_board_image_only": false,
+      "price_range": null,
+      "facilities": null,
+      "business_hours": null,
+      "business_hours_raw": null,
+      "closed_days": null,
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": null,
+      "status": "ok"
+    },
+    {
+      "place_id": "19263640",
+      "url": "https://place.map.kakao.com/19263640",
+      "name": "듀플렉스펜션",
+      "branch": null,
+      "category": "펜션",
+      "address": "강원특별자치도 고성군 토성면 아야진해변길 117 (토성면 아야진리)",
+      "phone": "010-4824-8210",
+      "menus": [
+        {
+          "name": "2층랜덤//",
+          "price": 104000,
+          "price_text": "104,000원~",
+          "description": "기준 2인 / 최대 4인",
+          "badges": []
+        },
+        {
+          "name": "2층랜덤/",
+          "price": 104000,
+          "price_text": "104,000원~",
+          "description": "기준 2인 / 최대 4인",
+          "badges": []
+        },
+        {
+          "name": "2층랜덤",
+          "price": 104000,
+          "price_text": "104,000원~",
+          "description": "기준 2인 / 최대 4인 · 성인:20,000원",
+          "badges": []
+        }
+      ],
+      "menu_board_image_only": false,
+      "price_range": {
+        "min": 104000,
+        "max": 104000
+      },
+      "facilities": [
+        "주차가능",
+        "예약가능"
+      ],
+      "business_hours": null,
+      "business_hours_raw": null,
+      "closed_days": null,
+      "reservation": {
+        "available": true,
+        "method": "예약"
+      },
+      "waiting": null,
+      "status": "ok",
+      "check_in": "15:00",
+      "check_out": "11:00",
+      "tags": [
+        "2인실",
+        "가족펜션",
+        "물놀이",
+        "바다낚시",
+        "산책로",
+        "스파펜션",
+        "오션뷰",
+        "월풀펜션",
+        "제트스파",
+        "커플여행",
+        "커플펜션",
+        "키즈펜션"
+      ]
+    },
+    {
+      "place_id": "1124402678",
+      "url": "https://place.map.kakao.com/1124402678",
+      "name": "브라운스테이민박",
+      "branch": null,
+      "category": "펜션",
+      "address": "경남 통영시 평인일주로 427 (평림동)",
+      "phone": null,
+      "menus": [],
+      "menu_board_image_only": false,
+      "price_range": null,
+      "facilities": [
+        "주차가능",
+        "예약가능"
+      ],
+      "business_hours": {
+        "sat": {
+          "open": "11:30",
+          "close": "21:00",
+          "break": null,
+          "last_order": null
+        },
+        "sun": {
+          "open": "11:30",
+          "close": "21:00",
+          "break": null,
+          "last_order": null
+        },
+        "mon": {
+          "open": "11:30",
+          "close": "21:00",
+          "break": null,
+          "last_order": null
+        },
+        "tue": {
+          "open": "11:30",
+          "close": "21:00",
+          "break": null,
+          "last_order": null
+        },
+        "wed": null,
+        "thu": null,
+        "fri": {
+          "open": "11:30",
+          "close": "21:00",
+          "break": null,
+          "last_order": null
+        }
+      },
+      "business_hours_raw": "토(11/7)|11:30 ~ 21:00 / 일(11/8)|11:30 ~ 21:00 / 월(11/9)|11:30 ~ 21:00 / 화(11/10)|11:30 ~ 21:00 / 수(11/11)|휴무일 / 목(11/12)|휴무일 / 금(11/13)|11:30 ~ 21:00",
+      "closed_days": [
+        "수요일 휴무일",
+        "목요일 휴무일"
+      ],
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": null,
+      "status": "ok",
+      "tags": [
+        "독채펜션",
+        "바베큐장",
+        "야외테라스",
+        "오션뷰",
+        "커플여행",
+        "파우더룸"
+      ],
+      "aliases": [
+        "브라운하우스앤카페"
+      ]
+    },
+    {
+      "place_id": "17911868",
+      "url": "https://place.map.kakao.com/17911868",
+      "name": "네이처풀빌라",
+      "branch": null,
+      "category": "펜션",
+      "address": "경북 포항시 북구 청하면 해안로 2092 (청하면 이가리)",
+      "phone": "054-253-2233",
+      "menus": [],
+      "menu_board_image_only": false,
+      "price_range": null,
+      "facilities": [
+        "주차가능",
+        "예약가능"
+      ],
+      "business_hours": null,
+      "business_hours_raw": null,
+      "closed_days": null,
+      "reservation": {
+        "available": false,
+        "method": null
+      },
+      "waiting": null,
+      "status": "ok",
+      "tags": [
+        "가족펜션",
+        "노천탕",
+        "물놀이",
+        "바베큐장",
+        "수영장펜션",
+        "스파룸",
+        "스파펜션",
+        "실외수영장",
+        "야외테라스",
+        "오션뷰",
+        "오션뷰풀빌라",
+        "제트스파",
+        "커플여행",
+        "커플펜션",
+        "풀빌라",
+        "풀빌라펜션"
+      ]
+    }
+  ]
+}
