@@ -15,7 +15,7 @@ export default function Login({ owners, onLogin }) {
   return (
     <div className="login-wrap">
       <form className="login" onSubmit={e => { e.preventDefault(); go(name); }}>
-        <h1>placelist</h1>
+        <h1>카카오맵</h1>
         <p className="small">채팅방에서 쓰는 이름으로 들어오면 그 이름으로 잡힌 예약이 지도에 표시돼요.</p>
         <label htmlFor="login-name">이름</label>
         <div className="login-row">
