@@ -44,6 +44,7 @@ from sqlalchemy.orm import Session, selectinload
 import config
 from database import (Message, Reservation, ReservationParticipant, Room, RoomMember, SessionLocal, User,
                       get_db, init_db)
+from places import find_place_in_text, load_places
 from when_parser import parse_when
 
 log = logging.getLogger("uvicorn.error")
@@ -492,21 +493,43 @@ def _make_reservation(db: Session, background: BackgroundTasks | None, room_id: 
     return r, text, mcp_ok
 
 
+def _find_recommendation(db: Session, room_id: int, before_id: int) -> tuple[Message, Place] | None:
+    """직전 봇 답변에서 추천 식당 찾기.
+    1) 메시지에 place 가 붙어 있으면 그것
+    2) 없으면 본문에 나온 식당 이름을 demo_places.json 목록에서 찾음 (가장 먼저 언급된 곳)
+    이 서버가 올린 안내(예약/택시 알림, "못 찾았어요" 등)는 건너뛰고, 그 앞의 진짜 답변 하나만 본다.
+    그 답변에 아는 식당이 없으면 None (더 예전 답변의 식당을 잘못 예약하지 않게)."""
+    bot_msgs = db.scalars(
+        select(Message).join(User)
+        .where(Message.room_id == room_id, Message.id < before_id, User.name == config.BOT_NAME,
+               Message.reservation_id.is_(None))
+        .order_by(Message.id.desc()).limit(10)).all()
+    for m in bot_msgs:
+        if m.place_id:
+            return m, Place(place_id=m.place_id, place_name=m.place_name, x=m.place_x, y=m.place_y)
+        if m.content.startswith(_SYSTEM_PREFIXES):
+            continue
+        if p := find_place_in_text(m.content):
+            return m, Place(place_id=str(p["place_id"]), place_name=p["place_name"], x=p.get("x"), y=p.get("y"))
+        return None
+    return None
+
+
+# 이 서버(또는 MCP 알림)가 올리는 봇 안내 문구의 시작. 추천 답변이 아니므로 "직전 답변" 찾을 때 건너뜀
+_SYSTEM_PREFIXES = ("예약할 식당을 못 찾았어요", "예약 중에 문제가", "📅", "🚕", "✅", "❌", "👋", "🙌", "ℹ️")
+
+
 def _reserve_from_chat(room_id: int, requester_name: str, request_msg_id: int) -> None:
     """"@봇 ... 예약해줘" 처리 (백그라운드). 그 방에서 봇이 가장 최근에 추천한 식당을 예약한다."""
     with SessionLocal() as db:
         try:
-            # 직전 추천 = 이 요청보다 앞선, place 가 붙은 봇 메시지 중 예약 안내가 아닌 것
-            rec = db.scalar(
-                select(Message).join(User)
-                .where(Message.room_id == room_id, Message.id < request_msg_id, User.name == config.BOT_NAME,
-                       Message.place_id.is_not(None), Message.reservation_id.is_(None))
-                .order_by(Message.id.desc()).limit(1))
-            if rec is None:
+            found = _find_recommendation(db, room_id, request_msg_id)
+            if found is None:
                 _post_message(db, None, room_id, config.BOT_NAME,
                               "예약할 식당을 못 찾았어요 🥲 먼저 \"@봇 OO 맛집 추천해줘\"로 식당을 추천받은 뒤 "
                               "\"@봇 내일 저녁 7시에 예약해줘\"라고 말해 주세요.")
                 return
+            rec, place = found
 
             # 날짜/시간/인원: 이 요청 → 추천 받기 직전의 봇 메시지 이후 대화 (최신 → 오래된 순)
             prev_bot_id = db.scalar(
@@ -521,14 +544,13 @@ def _reserve_from_chat(room_id: int, requester_name: str, request_msg_id: int) -
             when, party = parse_when([(m.content, m.created_at) for m in talk], datetime.now())
             if when is None:
                 _post_message(db, None, room_id, config.BOT_NAME,
-                              f"{rec.place_name} 몇 시로 예약할까요? ⏰\n예) \"@봇 내일 저녁 7시에 예약해줘\"",
-                              place=Place(place_id=rec.place_id, place_name=rec.place_name,
-                                          x=rec.place_x, y=rec.place_y))
+                              f"{place.place_name} 몇 시로 예약할까요? ⏰\n예) \"@봇 내일 저녁 7시에 예약해줘\"",
+                              place=place)
                 return
 
             # 같은 말을 두 번 해서 같은 예약이 또 생기지 않게
             dup = db.scalar(select(Reservation).where(
-                Reservation.room_id == room_id, Reservation.place_id == rec.place_id,
+                Reservation.room_id == room_id, Reservation.place_id == place.place_id,
                 Reservation.reserved_at == when, Reservation.status != "cancelled"))
             if dup is not None:
                 _post_message(db, None, room_id, config.BOT_NAME,
@@ -537,7 +559,7 @@ def _reserve_from_chat(room_id: int, requester_name: str, request_msg_id: int) -
                 return
 
             requester = _get_or_create_user(db, requester_name)
-            _make_reservation(db, None, room_id, requester, rec.place_id, rec.place_name, when, party_size=party)
+            _make_reservation(db, None, room_id, requester, place.place_id, place.place_name, when, party_size=party)
         except Exception:
             log.exception("채팅 예약 처리 실패 (room=%s, msg=%s)", room_id, request_msg_id)
             db.rollback()
@@ -638,6 +660,12 @@ def add_participant(reservation_id: int, body: ParticipantIn, background: Backgr
     return _reservation_out(_get_reservation(db, r.id), message=text)
 
 
+@app.get("/api/places")
+def list_places():
+    """데모 식당 목록 (demo_places.json). 봇 답변에 이 이름이 나오면 "@봇 예약해줘" 로 예약 가능."""
+    return load_places()
+
+
 # ---------- API: MCP 서버 알림 ----------
 NOTIFY_TYPES = ("reserve", "taxi", "info")
 
@@ -736,5 +764,6 @@ if __name__ == "__main__":
     else:
         print("  답변 생성 서버      →  (미설정: .env 의 ANSWER_SERVER_URL 을 넣으면 봇 호출 활성화)\n", flush=True)
     mcp = config.MCP_SERVER_URL or "(미설정: 예약은 저장만, 안내 문구는 이 서버가 생성)"
-    print(f"  예약 MCP 서버       →  {mcp}\n", flush=True)
+    print(f"  예약 MCP 서버       →  {mcp}", flush=True)
+    print(f"  데모 식당 목록      →  {config.PLACES_FILE} ({len(load_places())}곳)\n", flush=True)
     uvicorn.run(app, host=config.HOST, port=config.PORT)
