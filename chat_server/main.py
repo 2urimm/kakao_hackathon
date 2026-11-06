@@ -12,9 +12,9 @@
      (웹소켓을 못 쓰면 GET /api/messages?room_id=...&after_id=<마지막 id> 폴링도 가능)
 
 예약 (채팅으로):
-  1. 답변 생성 서버가 음식점을 추천할 때 메시지에 place {place_id, place_name, x, y} 를 같이 저장
+  1. 답변 생성 서버가 음식점을 추천 (답변 본문에 places/ 목록의 식당 이름)
   2. 채팅 "@봇 내일 7시에 예약해줘" → 답변 서버로 안 보내고 이 서버가 처리
-     - 그 방에서 봇이 가장 최근에 추천한 식당(place 붙은 봇 메시지)을 예약
+     - 그 방의 직전 봇 답변에 나온 식당 이름을 places/ 목록에서 찾아 예약
      - 날짜/시간/인원은 이 문장 → 없으면 추천 받기 전후 대화에서 찾음. 시간이 끝내 없으면 봇이 되물음
      - 참여자 = 방 멤버 전원 (봇 제외)
   3. 예약 + 참여자 저장 → MCP 서버 reserve 도구 호출 → 안내 문구를 봇 메시지로 채팅방에 올림 (웹소켓 푸시)
@@ -61,7 +61,7 @@ init_db()
 
 # ---------- 요청/응답 스키마 ----------
 class Place(BaseModel):
-    """봇이 추천한 장소. "@봇 예약해줘" 하면 가장 최근에 추천된 이 장소를 예약한다."""
+    """직전 봇 답변에서 찾은 식당 (내부용). "@봇 예약해줘" 하면 이 식당을 예약한다."""
     place_id: str = Field(..., min_length=1, max_length=50, examples=["12345"], description="카카오 장소 ID")
     place_name: str = Field(..., min_length=1, max_length=200, examples=["성수 파스타집"])
     x: float | None = Field(None, ge=-180, le=180, description="경도 (선택)")
@@ -72,7 +72,6 @@ class MessageIn(BaseModel):
     user_name: str = Field(..., min_length=1, max_length=100, examples=["유림"])
     content: str = Field(..., min_length=1, examples=["@봇 성수동 분위기 좋은 카페 추천해줘"])
     room_id: int = Field(..., examples=[1], description="POST /api/rooms 로 만든 방의 id")
-    place: Place | None = Field(None, description="봇이 음식점 하나를 추천한 답변이면 그 장소 (일반 채팅은 생략)")
 
 
 class MessageOut(BaseModel):
@@ -81,7 +80,6 @@ class MessageOut(BaseModel):
     room_id: int
     content: str
     created_at: datetime
-    place: Place | None = None           # 봇이 추천한 식당이면 값이 있음 ("@봇 예약해줘" 대상)
     reservation_id: int | None = None    # 예약 안내 메시지면 그 예약 id
     # 저장 응답에서만 의미 있음: True면 봇을 호출했으니 곧 봇 답변이 올라옴 ("답변 중..." 표시용)
     bot_called: bool = False
@@ -166,11 +164,9 @@ class ReservationOut(BaseModel):
 
 
 def _to_out(m: Message, bot_called: bool = False) -> MessageOut:
-    place = (Place(place_id=m.place_id, place_name=m.place_name, x=m.place_x, y=m.place_y)
-             if m.place_id else None)
     return MessageOut(
         id=m.id, user_name=m.user.name, room_id=m.room_id, content=m.content, created_at=m.created_at,
-        place=place, reservation_id=m.reservation_id, bot_called=bot_called,
+        reservation_id=m.reservation_id, bot_called=bot_called,
     )
 
 
@@ -216,14 +212,12 @@ def _ensure_member(db: Session, room_id: int, user: User) -> None:
 
 
 def _post_message(db: Session, background: BackgroundTasks | None, room_id: int, user_name: str, content: str,
-                  place: "Place | None" = None, reservation_id: int | None = None) -> MessageOut:
+                  reservation_id: int | None = None) -> MessageOut:
     """메시지 저장 + 그 방 웹소켓으로 푸시 (채팅 / 봇 답변 / 예약 안내 공통).
     background=None 은 이미 백그라운드 작업(스레드) 안이라는 뜻 → 바로 푸시."""
     user = _get_or_create_user(db, user_name)
     _ensure_member(db, room_id, user)
     msg = Message(user_id=user.id, room_id=room_id, content=content, reservation_id=reservation_id)
-    if place:
-        msg.place_id, msg.place_name, msg.place_x, msg.place_y = place.place_id, place.place_name, place.x, place.y
     db.add(msg)
     db.commit()
     db.refresh(msg)
@@ -376,10 +370,10 @@ def save_message(body: MessageIn, background: BackgroundTasks, db: Session = Dep
     """채팅 1건 저장. 방이 없으면 404. 처음 보는 유저면 자동 등록하고, 보낸 사람은 그 방 멤버로 자동 등록.
     - "@봇 ... 예약해줘" → 그 방에서 봇이 가장 최근에 추천한 식당을 예약 (이 서버가 처리)
     - 그 밖의 "@봇 ..." → 답변 생성 서버 호출
-    - 봇 답변이 음식점 하나를 추천하는 거면 place 를 같이 보내야 "@봇 예약해줘" 로 예약할 수 있다."""
+    - 봇 답변에 places/ 목록의 식당 이름이 나오면 "@봇 예약해줘" 로 그 식당을 예약할 수 있다."""
     _require_room(db, body.room_id)
     # 저장 즉시 그 방에 연결된 프론트들에게 푸시 (봇 답변도 이 경로로 저장되므로 생성 즉시 표시됨)
-    out = _post_message(db, background, body.room_id, body.user_name, body.content, body.place)
+    out = _post_message(db, background, body.room_id, body.user_name, body.content)
     if _is_reserve_request(out.user_name, out.content):
         background.add_task(_reserve_from_chat, body.room_id, out.user_name, out.id)
     elif _should_call_bot(out.user_name, out.content):
@@ -488,8 +482,7 @@ def _make_reservation(db: Session, background: BackgroundTasks | None, room_id: 
         text = (f"📅 {requester.name}님이 {r.place_name} {r.reserved_at:%Y-%m-%d %H:%M} {r.party_size}명 예약을 "
                 f"요청했어요. 예약 링크: {r.link}")
     text += f"\n👥 참여: {', '.join(u.name for u in people)}"
-    _post_message(db, background, room_id, config.BOT_NAME, text,
-                  place=Place(place_id=r.place_id, place_name=r.place_name), reservation_id=r.id)
+    _post_message(db, background, room_id, config.BOT_NAME, text, reservation_id=r.id)
     _schedule_placelist(background, r.id)
     return r, text, mcp_ok
 
@@ -537,8 +530,7 @@ def _schedule_placelist(background: BackgroundTasks | None, reservation_id: int)
 
 def _find_recommendation(db: Session, room_id: int, before_id: int) -> tuple[Message, Place] | None:
     """직전 봇 답변에서 추천 식당 찾기.
-    1) 메시지에 place 가 붙어 있으면 그것
-    2) 없으면 본문에 나온 식당 이름을 places/ 목록에서 찾음 (가장 먼저 언급된 곳)
+    본문에 나온 식당 이름을 places/ 목록에서 찾음 (가장 먼저 언급된 곳)
     이 서버가 올린 안내(예약/택시 알림, "못 찾았어요" 등)는 건너뛰고, 그 앞의 진짜 답변 하나만 본다.
     그 답변에 아는 식당이 없으면 None (더 예전 답변의 식당을 잘못 예약하지 않게)."""
     bot_msgs = db.scalars(
@@ -547,8 +539,6 @@ def _find_recommendation(db: Session, room_id: int, before_id: int) -> tuple[Mes
                Message.reservation_id.is_(None))
         .order_by(Message.id.desc()).limit(10)).all()
     for m in bot_msgs:
-        if m.place_id:
-            return m, Place(place_id=m.place_id, place_name=m.place_name, x=m.place_x, y=m.place_y)
         if m.content.startswith(_SYSTEM_PREFIXES):
             continue
         if p := find_place_in_text(m.content):
@@ -586,8 +576,7 @@ def _reserve_from_chat(room_id: int, requester_name: str, request_msg_id: int) -
             when, party = parse_when([(m.content, m.created_at) for m in talk], datetime.now())
             if when is None:
                 _post_message(db, None, room_id, config.BOT_NAME,
-                              f"{place.place_name} 몇 시로 예약할까요? ⏰\n예) \"@봇 내일 저녁 7시에 예약해줘\"",
-                              place=place)
+                              f"{place.place_name} 몇 시로 예약할까요? ⏰\n예) \"@봇 내일 저녁 7시에 예약해줘\"")
                 return
 
             # 같은 말을 두 번 해서 같은 예약이 또 생기지 않게
@@ -660,8 +649,7 @@ def update_reservation_status(reservation_id: int, body: ReservationStatusIn, ba
         "cancelled": f"❌ {r.place_name} {when} {r.party_size}명 예약이 취소됐어요.",
         "requested": f"📅 {r.place_name} {when} {r.party_size}명 예약이 다시 요청됐어요.",
     }[r.status]
-    _post_message(db, background, r.room_id, config.BOT_NAME, text,
-                  place=Place(place_id=r.place_id, place_name=r.place_name), reservation_id=r.id)
+    _post_message(db, background, r.room_id, config.BOT_NAME, text, reservation_id=r.id)
     _schedule_placelist(background, r.id)
     return _reservation_out(_get_reservation(db, r.id), message=text)
 

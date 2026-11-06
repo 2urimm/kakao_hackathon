@@ -7,7 +7,7 @@ users ─┬─< room_members >─┬─ rooms
 """
 from datetime import datetime
 
-from sqlalchemy import DateTime, Float, ForeignKey, Integer, String, Text, create_engine
+from sqlalchemy import DateTime, ForeignKey, Integer, String, Text, create_engine
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship, sessionmaker
 
 from config import DATABASE_URL
@@ -66,11 +66,6 @@ class Message(Base):
     content: Mapped[str] = mapped_column(Text)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.now, index=True)  # 서버 로컬시간(KST)
 
-    # 봇이 음식점을 추천한 메시지면 그 장소 정보 (프론트가 "예약하기" 버튼을 띄우는 데 사용). 일반 채팅은 NULL
-    place_id: Mapped[str | None] = mapped_column(String(50))
-    place_name: Mapped[str | None] = mapped_column(String(200))
-    place_x: Mapped[float | None] = mapped_column(Float)  # 경도
-    place_y: Mapped[float | None] = mapped_column(Float)  # 위도
     # 예약 안내 메시지(봇)면 그 예약 id. 일반 채팅은 NULL
     reservation_id: Mapped[int | None] = mapped_column(ForeignKey("reservations.id", ondelete="SET NULL"))
 
