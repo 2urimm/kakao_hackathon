@@ -37,24 +37,28 @@ export function tierOf(t) {
   const x = Math.min(100, Math.max(1, 1 + (t - 30) * LV_PER_DEG));
   const level = Math.floor(x);
   const start = LEVEL_START[level - 1], next = level < 100 ? LEVEL_START[level] : start;
-  const tier = [...TIERS].reverse().find(tt => level >= tt.from);
-  return { level, tier: tier.name, color: tier.color, score: Math.round(start + (x - level) * (next - start)) };
+  const idx = TIERS.length - 1 - [...TIERS].reverse().findIndex(tt => level >= tt.from);
+  const tier = TIERS[idx];
+  return { level, idx, tier: tier.name, color: tier.color, score: Math.round(start + (x - level) * (next - start)) };
 }
-export const tierText = t => { const v = tierOf(t); return `${v.tier} Lv.${v.level}`; };
 export const tColor = t => tierOf(t).color;
-/** 배지 아이콘 (티어 색 육각형 + 별) */
-export const TierBadge = ({ t, px = 14 }) => (
-  <svg className="tier-badge" width={px} height={px} viewBox="0 0 24 24" aria-hidden="true">
-    <path fill={tColor(t)} d="M12 1.5 21.1 6.75v10.5L12 22.5 2.9 17.25V6.75z" />
-    <path fill="#fff" d="M12 6.8l1.5 3.1 3.4.5-2.5 2.4.6 3.4-3-1.6-3 1.6.6-3.4-2.5-2.4 3.4-.5z" />
-  </svg>
-);
-/** "🛡 Lv.75" (마우스를 올리면 "블루 · 6,912점") */
-export const Lv = ({ t, full = false }) => {
+// 카카오맵 배지 이미지 (브론즈·실버·골드·블루·퍼플이 가로로 이어진 스프라이트, 칸마다 40px)
+const BADGE_SPRITE = "https://t1.kakaocdn.net/localimg/localimages/07/2023/mw/rtn/ico_badge.png";
+/** 카카오맵 배지 아이콘 (티어 이름 글자 없이 배지만) */
+export const TierBadge = ({ t, px = 16 }) => {
   const v = tierOf(t);
   return (
-    <span className="lv" style={{ color: v.color }} title={`${v.tier} Lv.${v.level} · ${v.score.toLocaleString()}점`}>
-      <TierBadge t={t} />{full ? `${v.tier} ` : ""}Lv.{v.level}
+    <span className="tier-badge" role="img" aria-label={v.tier}
+          style={{ width: px, height: px, backgroundImage: `url(${BADGE_SPRITE})`,
+                   backgroundSize: `${px * 5}px auto`, backgroundPosition: `${-v.idx * px}px 0` }} />
+  );
+};
+/** 배지 + "Lv.75" (마우스를 올리면 점수) */
+export const Lv = ({ t, px }) => {
+  const v = tierOf(t);
+  return (
+    <span className="lv" style={{ color: v.color }} title={`Lv.${v.level} · ${v.score.toLocaleString()}점`}>
+      <TierBadge t={t} px={px} />Lv.{v.level}
     </span>
   );
 };

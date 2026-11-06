@@ -333,5 +333,5 @@ details.why summary{cursor:pointer;font-weight:600;font-size:13px}
 .kaide-hint{font-weight:400}
 /* ---- 카카오맵 티어·레벨 ---- */
 .lv{display:inline-flex;align-items:center;gap:3px;font-weight:800;white-space:nowrap}
-.tier-badge{flex:none;vertical-align:-2px}
+.tier-badge{flex:none;display:inline-block;background-repeat:no-repeat;vertical-align:-3px}
 .bigtemp .v{display:flex;align-items:center;gap:6px}

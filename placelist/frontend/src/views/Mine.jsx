@@ -4,7 +4,7 @@ import { qs, useApi } from "../api.js";
 import { STATUS, fmtWhen, toPlaceId } from "../chat.js";
 import { PLMap } from "../map.js";
 import { useAllPins } from "../pins.js";
-import { Avatar, FolderRow, ProfTemps, tierText } from "../ui.jsx";
+import { Avatar, FolderRow, Lv, ProfTemps } from "../ui.jsx";
 
 /** 채팅에서 잡은 예약 카드 한 장 (채팅 서버 ReservationOut) */
 function ChatRsv({ r }) {
@@ -21,7 +21,7 @@ function ChatRsv({ r }) {
       <div className="small">함께: {others.join(", ")}{r.requested_by ? ` · ${r.requested_by}님이 예약` : ""}</div>
       {fx && (
         <div className="rfx" onClick={e => { e.stopPropagation(); openList(ev.list.id); }}>
-          '{ev.list.title}' {tierText(fx.list_temp[0])} → <b>{tierText(fx.list_temp[1])}</b>
+          '{ev.list.title}' <Lv t={fx.list_temp[0]} /> → <b><Lv t={fx.list_temp[1]} /></b>
           {fx.rank && fx.rank[0] !== fx.rank[1] ? ` · ${ev.place.지역} ${ev.place.업종} 랭킹 ${fx.rank[0]}위 → ${fx.rank[1]}위` : ""}
         </div>
       )}
@@ -65,7 +65,7 @@ export default function Mine() {
               <div className="rt">{r.place.name}</div>
               <div className="small">{r.datetime || ""}{r.party_size ? ` · ${r.party_size}명` : ""} · {r.place.지역}</div>
               {r.list && r.effect && (
-                <div className="rfx">'{r.list.title}' {tierText(r.effect.list_temp[0])} → <b>{tierText(r.effect.list_temp[1])}</b></div>
+                <div className="rfx">'{r.list.title}' <Lv t={r.effect.list_temp[0]} /> → <b><Lv t={r.effect.list_temp[1]} /></b></div>
               )}
             </div>
           ))}

@@ -15,7 +15,7 @@ function Podium({ c, i, kind, onCurator }) {
         <div className="top-r"><span className={`medal m${i + 1}`}>{i + 1}</span><span className="small sub">{c.지역} · <Ico n={c.업종} px={14} /> {c.업종}</span></div>
         <div className="pt">{c.title}</div>
         <div className="m">{c.curator} · {c.n_items}곳 · 구독 {c.subscribers}{c.friend ? " · 친구" : ""}</div>
-        <div className="pv2" style={{ color: tColor(c.temp) }}><Lv t={c.temp} full /> <DTemp d={c.temp_delta} /><DRank d={c.rank_delta} /></div>
+        <div className="pv2" style={{ color: tColor(c.temp) }}><Lv t={c.temp} px={22} /> <DTemp d={c.temp_delta} /><DRank d={c.rank_delta} /></div>
         {i === 0 && <div className="prev">{(c.preview || []).map(n => <span key={n}>{n}</span>)}</div>}
       </div>
     );
@@ -25,7 +25,7 @@ function Podium({ c, i, kind, onCurator }) {
       <div className="top-r"><span className={`medal m${i + 1}`}>{i + 1}</span><span className="small sub">{c.group}</span></div>
       <div className="pt">{c.curator}{c.friend && <span className="badge">친구</span>}</div>
       <div className="m">{c.bio}</div>
-      <div className="pv2" style={{ color: tColor(c.temp) }}><Lv t={c.temp} full /> <DTemp d={c.temp_delta} /><DRank d={c.rank_delta} /></div>
+      <div className="pv2" style={{ color: tColor(c.temp) }}><Lv t={c.temp} px={22} /> <DTemp d={c.temp_delta} /><DRank d={c.rank_delta} /></div>
     </div>
   );
 }

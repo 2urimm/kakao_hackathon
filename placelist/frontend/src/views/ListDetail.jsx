@@ -28,7 +28,7 @@ function BigTemp({ d }) {
     <div>
       <div className="small">리스트 레벨</div>
       <div className="v" style={{ color: tColor(shown) }}>
-        <TierBadge t={shown} px={26} /> {tierOf(shown).tier} Lv.{tierOf(shown).level}
+        <TierBadge t={shown} px={30} /> Lv.{tierOf(shown).level}
       </div>
       <div className="small">{tierOf(shown).score.toLocaleString()}점 <DTemp d={d.temp_delta} /></div>
     </div>
@@ -68,7 +68,7 @@ export default function ListDetail({ id }) {
         <details className="why">
           <summary>이 레벨은 어떻게 정해졌나요?</summary>
           <div className="small" style={{ marginTop: 6 }}>
-            골드 Lv.33에서 시작 · 좋았어요 {st["좋았어요"]}건, 별로였어요 {st["별로였어요"]}건 · 방문 인증 {Math.round(st["방문인증 비율"] * 100)}% · 재방문 {Math.round(st["재방문 비율"] * 100)}% · 평균 {st["평균 경과일"]}일 전 저장
+            <TierBadge t={36.5} px={13} /> Lv.33에서 시작 · 좋았어요 {st["좋았어요"]}건, 별로였어요 {st["별로였어요"]}건 · 방문 인증 {Math.round(st["방문인증 비율"] * 100)}% · 재방문 {Math.round(st["재방문 비율"] * 100)}% · 평균 {st["평균 경과일"]}일 전 저장
           </div>
           <div className="parts">
             {parts.map(([k, v]) => {

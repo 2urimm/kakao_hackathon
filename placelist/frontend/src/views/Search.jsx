@@ -41,7 +41,7 @@ function ResultCard({ u, main }) {
         <div className="src">
           <Avatar name={u.list.curator} size="sm" />
           <div>
-            <b>{u.list.curator}</b>님(<Lv t={u.curator_temp} full />)의{" "}
+            <b>{u.list.curator}</b>님(<Lv t={u.curator_temp} />)의{" "}
             <span className="linkish" onClick={e => { e.stopPropagation(); openList(u.list.id); }}>'{u.list.title}'</span>
             <div className="small">{u.tier_name}</div>
           </div>
