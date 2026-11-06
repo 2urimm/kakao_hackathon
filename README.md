@@ -127,6 +127,33 @@ python main.py
 | `MCP_SERVER_URL` | 쩝쩝박사 MCP 서버 주소 (예: `http://192.168.x.x:8100`). 비우면 MCP 호출 없이 저장만 | (없음) |
 | `MCP_TIMEOUT` | MCP 호출 대기 시간(초) | `10` |
 
+## MCP 서버 알림 `POST /ai/notify` (쩝쩝박사 MCP 서버 → 이 서버)
+
+AI가 MCP 도구(`reserve`, `call_taxi`)를 부르면 MCP 서버가 실제 예약 대신 이 경로로 안내 문구를 보낸다. 이 서버는 `text`를 **그 방에 봇 메시지로 그대로** 올리고 웹소켓으로 푸시한다. 인증 없음(내부망).
+
+```json
+{ "roomId": "3", "type": "taxi", "text": "🚕 민수님이 서초칼국수까지 택시를 요청했어요. 예상 4분",
+  "payload": { "ok": true, "status": "requested", "eta_min": 4 } }
+```
+
+| 필드 | 타입 | 설명 |
+|---|---|---|
+| `roomId` | string, 필수 | **이 서버의 방 번호를 문자열로** (`"1"`, `"3"`). 답변 생성 서버가 `/api/chat`에서 받은 `room_id` 그대로 |
+| `type` | string, 필수 | `reserve` / `taxi` / `info` |
+| `text` | string, 필수 | 방에 그대로 표시할 문구 |
+| `payload` | object, 필수 | 원본 데이터 (표시 안 함) |
+
+| 상황 | 응답 |
+|---|---|
+| 정상 | `200 {"ok": true}` |
+| 필드 누락·형식 오류·깨진 JSON | `400 {"ok": false, "error": "..."}` |
+| 방 없음 (`"r1"`처럼 숫자가 아닌 것 포함) | `422 {"ok": false, "error": "room not found"}` |
+| 내부 오류 | `500 {"ok": false, "error": "..."}` |
+
+- 서버 로그: `notify room=3 type=taxi ok=True`
+- 이 서버가 "@봇 예약해줘"로 직접 MCP `reserve`를 부른 경우, 그 호출 중에 오는 `type=reserve` 알림은 표시하지 않고 200만 준다 (이 서버가 참여자·예약 id를 붙인 안내를 따로 올리므로 중복 방지)
+- 테스트용 방: `3` ("알림테스트")
+
 ## API (프론트 담당자용)
 
 전체 문서/테스트 화면: `http://<서버IP>:<PORT>/docs`

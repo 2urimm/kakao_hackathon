@@ -24,6 +24,7 @@
 import logging
 import re
 import socket
+import threading
 from collections import defaultdict
 from datetime import datetime
 from typing import Literal
@@ -31,8 +32,10 @@ from typing import Literal
 import anyio.from_thread
 import httpx
 import uvicorn
-from fastapi import BackgroundTasks, Depends, FastAPI, HTTPException, WebSocket, WebSocketDisconnect
+from fastapi import BackgroundTasks, Depends, FastAPI, HTTPException, Request, WebSocket, WebSocketDisconnect
+from fastapi.concurrency import run_in_threadpool
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 from pydantic import BaseModel, ConfigDict, Field
 from sqlalchemy import select
 from sqlalchemy.dialects.mysql import insert as mysql_insert
@@ -403,6 +406,10 @@ def list_messages(room_id: int | None = None, user_name: str | None = None,
 
 
 # ---------- API: 예약 ----------
+_self_mcp_lock = threading.Lock()
+_self_mcp_calls: dict[str, int] = defaultdict(int)  # 방별로 이 서버가 지금 MCP reserve 를 부르는 중인 횟수
+
+
 def _call_mcp_reserve(r: Reservation, requested_by: str) -> tuple[bool, str | None]:
     """MCP 서버 reserve 도구 호출 → (성공 여부, 안내 문구). 실제 예약은 하지 않는 데모용 도구."""
     if not config.MCP_SERVER_URL:
@@ -414,7 +421,15 @@ def _call_mcp_reserve(r: Reservation, requested_by: str) -> tuple[bool, str | No
         "requested_by": requested_by,
     }
     try:
-        resp = httpx.post(url, json={"args": args}, timeout=config.MCP_TIMEOUT)
+        # MCP 서버는 reserve 처리 중에 POST /ai/notify 로 같은 문구를 이 서버에 보낸다.
+        # 이 서버가 직접 부른 호출은 참여자·예약 id 를 붙여 따로 올리므로, 그 알림은 건너뛰게 표시해 둠
+        with _self_mcp_lock:
+            _self_mcp_calls[str(r.room_id)] += 1
+        try:
+            resp = httpx.post(url, json={"args": args}, timeout=config.MCP_TIMEOUT)
+        finally:
+            with _self_mcp_lock:
+                _self_mcp_calls[str(r.room_id)] -= 1
         resp.raise_for_status()
         data = resp.json()
         if not data.get("ok"):
@@ -621,6 +636,67 @@ def add_participant(reservation_id: int, body: ParticipantIn, background: Backgr
     text = f"🙌 {user.name}님이 {r.place_name} 예약에 함께해요. (이제 {r.party_size}명)"
     _post_message(db, background, r.room_id, config.BOT_NAME, text, reservation_id=r.id)
     return _reservation_out(_get_reservation(db, r.id), message=text)
+
+
+# ---------- API: MCP 서버 알림 ----------
+NOTIFY_TYPES = ("reserve", "taxi", "info")
+
+
+def _notify_room(room_id: int, text: str) -> bool:
+    """방에 봇 메시지로 text 를 그대로 올리고 웹소켓 푸시. 방이 없으면 False."""
+    with SessionLocal() as db:
+        if db.get(Room, room_id) is None:
+            return False
+        _post_message(db, None, room_id, config.BOT_NAME, text)
+        return True
+
+
+@app.post("/ai/notify")
+async def ai_notify(request: Request):
+    """쩝쩝박사 MCP 서버 → 이 서버. AI 가 예약/택시 도구를 부르면 그 안내 문구(text)를 그 방에 봇 메시지로 그대로 띄운다.
+    본문 {roomId: str, type: "reserve"|"taxi"|"info", text: str, payload: object}. 인증 없음(내부망).
+    응답: 200 {ok:true} / 400 형식 오류 / 422 방 없음 / 500 내부 오류 (모두 {ok:false, error})."""
+    def fail(code: int, error: str, room="-", typ="-") -> JSONResponse:
+        log.info("notify room=%s type=%s ok=False (%s)", room, typ, error)
+        return JSONResponse({"ok": False, "error": error}, status_code=code)
+
+    try:
+        body = await request.json()
+    except Exception:
+        return fail(400, "invalid JSON body")
+    if not isinstance(body, dict):
+        return fail(400, "body must be a JSON object")
+    missing = [k for k in ("roomId", "type", "text", "payload") if k not in body]
+    if missing:
+        return fail(400, f"missing field: {', '.join(missing)}")
+    room, typ, text, payload = body["roomId"], body["type"], body["text"], body["payload"]
+    if not isinstance(room, str) or not room.strip():
+        return fail(400, "roomId must be a non-empty string")
+    if typ not in NOTIFY_TYPES:
+        return fail(400, f"type must be one of {', '.join(NOTIFY_TYPES)}", room)
+    if not isinstance(text, str) or not text.strip():
+        return fail(400, "text must be a non-empty string", room, typ)
+    if not isinstance(payload, dict):
+        return fail(400, "payload must be an object", room, typ)
+    if not room.strip().isdigit():  # 이 서버의 방 id 는 숫자 ("1", "2", ...)
+        return fail(422, "room not found", room, typ)
+
+    # 이 서버가 직접 부른 reserve 의 알림이면 이미 (참여자·예약 id 포함) 안내를 올리므로 건너뜀
+    with _self_mcp_lock:
+        own_call = typ == "reserve" and _self_mcp_calls[room.strip()] > 0
+    if own_call:
+        log.info("notify room=%s type=%s ok=True (이 서버가 부른 예약이라 표시 생략)", room, typ)
+        return {"ok": True}
+
+    try:
+        found = await run_in_threadpool(_notify_room, int(room), text)
+    except Exception as e:
+        log.exception("notify 처리 실패")
+        return fail(500, f"internal error: {e.__class__.__name__}", room, typ)
+    if not found:
+        return fail(422, "room not found", room, typ)
+    log.info("notify room=%s type=%s ok=True", room, typ)
+    return {"ok": True}
 
 
 @app.websocket("/ws/{room_id}")
