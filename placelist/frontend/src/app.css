@@ -322,3 +322,9 @@ details.why summary{cursor:pointer;font-weight:600;font-size:13px}
 /* ---- 단톡방 친구 ---- */
 .frsv{margin:2px 14px 6px;padding:8px 10px;border-radius:10px;background:#f4fbf7;border:1px solid #bfe6d2;font-size:13px;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .fnone{padding:2px 14px 10px}
+/* ---- 로고: kakao(얇게) + map(굵게) ---- */
+.wordmark{margin:0;font-family:"Helvetica Neue",Arial,"Apple SD Gothic Neo",sans-serif;letter-spacing:-.6px;line-height:1}
+.wordmark span{font-weight:400}
+.wordmark b{font-weight:800}
+.brand h1.wordmark{font-size:23px;color:#fff;-webkit-text-fill-color:#fff}
+.login h1.wordmark{font-size:26px;color:var(--accent);margin-bottom:8px}

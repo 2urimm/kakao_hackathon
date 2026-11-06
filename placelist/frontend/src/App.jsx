@@ -168,7 +168,7 @@ export default function App() {
       {meta && user && <>
       <aside id="panel">
         <header className="top">
-          <div className="brand"><h1>카카오맵</h1></div>
+          <div className="brand"><h1 className="wordmark" aria-label="카카오맵"><span>kakao</span><b>map</b></h1></div>
           <form id="sf" onSubmit={e => { e.preventDefault(); if (q.trim()) setView({ type: "search", q: q.trim() }); }}>
             <input id="q" type="text" value={q} onChange={e => setQ(e.target.value)} placeholder="어디 갈까? 예) 동래 가성비 국밥" autoComplete="off" />
             <button aria-label="검색">검색</button>
