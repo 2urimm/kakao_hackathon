@@ -133,14 +133,52 @@ ws.onclose = () => setTimeout(reconnect, 1000);  // 와이파이 끊기면 재�
 
 ### 유저 목록 `GET /api/users`
 
+### 채팅방
+
+채팅을 보내면 방이 없을 때 자동으로 만들어지고, 보낸 사람은 그 방 멤버로 자동 등록됨. 아래 API는 방을 미리 만들거나 멤버를 초대할 때 사용.
+
+| API | 설명 |
+|---|---|
+| `GET /api/rooms` | 전체 방 + 멤버 목록. `?user_name=유림` → 그 사람이 속한 방만 |
+| `GET /api/rooms/{room_id}` | 방 하나 + 멤버 (없으면 404) |
+| `POST /api/rooms` | 방 만들기 + 멤버 초대. 이미 있는 방이면 이름 수정 + 멤버 추가 |
+| `POST /api/rooms/{room_id}/members` | 멤버 초대 `{"user_name": "민수"}` (이미 멤버면 그대로) |
+
+```json
+// POST /api/rooms
+{ "id": "hackathon-room", "name": "해커톤 팀방", "member_names": ["유림", "민수"] }
+
+// 응답 (RoomOut)
+{ "id": "hackathon-room", "name": "해커톤 팀방", "created_at": "...",
+  "members": [ { "user_id": 1, "user_name": "유림", "joined_at": "..." },
+               { "user_id": 2, "user_name": "민수", "joined_at": "..." } ] }
+```
+
 ### 헬스체크 `GET /health`
 
 ## DB 구조
 
-| users | | messages | |
-|---|---|---|---|
-| id | PK | id | PK |
-| name | unique | user_id | FK → users.id |
-| created_at | | room_id | 카톡방 구분 |
-| | | content | 채팅 내용 |
-| | | created_at | |
+```
+users ─┬─< room_members >─┬─ rooms
+       └──── messages ────┘
+```
+
+| 테이블 | 컬럼 | 설명 |
+|---|---|---|
+| **users** | `id` PK | |
+| | `name` unique | 유저 이름 |
+| | `created_at` | |
+| **rooms** | `id` PK (문자열) | 프론트가 보내는 `room_id` 그대로 (예: `"1"`) |
+| | `name` | 방 이름 (선택) |
+| | `created_at` | |
+| **room_members** | `room_id` PK, FK → rooms.id | 방 삭제 시 같이 삭제 |
+| | `user_id` PK, FK → users.id | 유저 삭제 시 같이 삭제 |
+| | `joined_at` | 방에 들어온 시간 |
+| **messages** | `id` PK | |
+| | `user_id` FK → users.id | 보낸 사람 |
+| | `room_id` FK → rooms.id | 채팅방 |
+| | `content` | 채팅 내용 |
+| | `created_at` | |
+
+`room_members`는 (방, 유저) 쌍이 PK라서 같은 사람이 같은 방에 두 번 들어갈 수 없음.
+rooms 테이블이 생기기 전에 쌓인 채팅은 서버 시작 시 자동으로 옮겨짐 (`database.py`의 `_migrate_rooms`).

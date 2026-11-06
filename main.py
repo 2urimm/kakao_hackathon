@@ -17,14 +17,15 @@ from datetime import datetime
 
 import httpx
 import uvicorn
-from fastapi import BackgroundTasks, Depends, FastAPI, WebSocket, WebSocketDisconnect
+from fastapi import BackgroundTasks, Depends, FastAPI, HTTPException, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, ConfigDict, Field
 from sqlalchemy import select
-from sqlalchemy.orm import Session
+from sqlalchemy.dialects.mysql import insert as mysql_insert
+from sqlalchemy.orm import Session, selectinload
 
 import config
-from database import Message, User, get_db, init_db
+from database import Message, Room, RoomMember, User, get_db, init_db
 
 log = logging.getLogger("uvicorn.error")
 
@@ -65,11 +66,69 @@ class UserOut(BaseModel):
     created_at: datetime
 
 
+class RoomIn(BaseModel):
+    id: str = Field(..., min_length=1, max_length=100, examples=["hackathon-room"])
+    name: str | None = Field(None, max_length=100, examples=["해커톤 팀방"])
+    member_names: list[str] = Field(default_factory=list, examples=[["유림", "민수"]])
+
+
+class MemberIn(BaseModel):
+    user_name: str = Field(..., min_length=1, max_length=100, examples=["민수"])
+
+
+class MemberOut(BaseModel):
+    user_id: int
+    user_name: str
+    joined_at: datetime
+
+
+class RoomOut(BaseModel):
+    id: str
+    name: str | None
+    created_at: datetime
+    members: list[MemberOut]
+
+
 def _to_out(m: Message, bot_called: bool = False) -> MessageOut:
     return MessageOut(
         id=m.id, user_name=m.user.name, room_id=m.room_id, content=m.content,
         created_at=m.created_at, bot_called=bot_called,
     )
+
+
+def _room_out(r: Room) -> RoomOut:
+    return RoomOut(
+        id=r.id, name=r.name, created_at=r.created_at,
+        members=[MemberOut(user_id=m.user_id, user_name=m.user.name, joined_at=m.joined_at)
+                 for m in sorted(r.members, key=lambda m: m.joined_at)],
+    )
+
+
+# ---------- DB 헬퍼 ----------
+def _get_or_create_user(db: Session, name: str) -> User:
+    name = name.strip()
+    user = db.scalar(select(User).where(User.name == name))
+    if user is None:
+        user = User(name=name)
+        db.add(user)
+        db.flush()
+    return user
+
+
+def _ensure_room(db: Session, room_id: str) -> None:
+    """방이 없으면 생성 (동시에 여러 요청이 와도 안전하도록 INSERT IGNORE)."""
+    db.execute(mysql_insert(Room).values(id=room_id).prefix_with("IGNORE"))
+
+
+def _ensure_member(db: Session, room_id: str, user: User) -> None:
+    _ensure_room(db, room_id)
+    db.execute(mysql_insert(RoomMember).values(room_id=room_id, user_id=user.id).prefix_with("IGNORE"))
+
+
+def _load_room(db: Session, room_id: str) -> Room | None:
+    return db.scalar(select(Room).where(Room.id == room_id)
+                     .options(selectinload(Room.members).selectinload(RoomMember.user))
+                     .execution_options(populate_existing=True))
 
 
 # ---------- 실시간 푸시 (웹소켓) ----------
@@ -136,14 +195,11 @@ def health():
 
 @app.post("/api/messages", response_model=MessageOut)
 def save_message(body: MessageIn, background: BackgroundTasks, db: Session = Depends(get_db)):
-    """채팅 1건 저장. 처음 보는 유저 이름이면 자동 등록.
+    """채팅 1건 저장. 처음 보는 유저/방이면 자동 생성하고, 보낸 사람을 그 방 멤버로 자동 등록.
     내용에 BOT_TRIGGER(기본 "@봇")가 있으면 답변 생성 서버를 호출한다."""
-    name = body.user_name.strip()
-    user = db.scalar(select(User).where(User.name == name))
-    if user is None:
-        user = User(name=name)
-        db.add(user)
-        db.flush()
+    user = _get_or_create_user(db, body.user_name)
+    name = user.name
+    _ensure_member(db, body.room_id, user)
 
     msg = Message(user_id=user.id, room_id=body.room_id, content=body.content)
     db.add(msg)
@@ -194,6 +250,46 @@ def list_messages(room_id: str | None = None, user_name: str | None = None,
 @app.get("/api/users", response_model=list[UserOut])
 def list_users(db: Session = Depends(get_db)):
     return db.scalars(select(User).order_by(User.id)).all()
+
+
+# ---------- 채팅방 ----------
+@app.get("/api/rooms", response_model=list[RoomOut])
+def list_rooms(user_name: str | None = None, db: Session = Depends(get_db)):
+    """채팅방 목록 + 멤버. user_name 을 주면 그 사람이 속한 방만."""
+    q = select(Room).options(selectinload(Room.members).selectinload(RoomMember.user)).order_by(Room.created_at)
+    if user_name:
+        q = q.join(RoomMember).join(User).where(User.name == user_name.strip())
+    return [_room_out(r) for r in db.scalars(q).unique()]
+
+
+@app.get("/api/rooms/{room_id}", response_model=RoomOut)
+def get_room(room_id: str, db: Session = Depends(get_db)):
+    room = _load_room(db, room_id)
+    if room is None:
+        raise HTTPException(404, f"방 '{room_id}' 이 없습니다")
+    return _room_out(room)
+
+
+@app.post("/api/rooms", response_model=RoomOut)
+def create_room(body: RoomIn, db: Session = Depends(get_db)):
+    """채팅방 만들기 + 멤버 초대. 이미 있는 방이면 name 수정 + 멤버 추가만.
+    (채팅을 먼저 보내도 방은 자동으로 생기므로 필수는 아님)"""
+    _ensure_room(db, body.id)
+    if body.name is not None:
+        db.get(Room, body.id).name = body.name
+    for n in body.member_names:
+        if n.strip():
+            _ensure_member(db, body.id, _get_or_create_user(db, n))
+    db.commit()
+    return _room_out(_load_room(db, body.id))
+
+
+@app.post("/api/rooms/{room_id}/members", response_model=RoomOut)
+def add_member(room_id: str, body: MemberIn, db: Session = Depends(get_db)):
+    """방에 멤버 초대 (방이 없으면 만들고, 이미 멤버면 그대로)."""
+    _ensure_member(db, room_id, _get_or_create_user(db, body.user_name))
+    db.commit()
+    return _room_out(_load_room(db, room_id))
 
 
 # ---------- 실행 ----------
