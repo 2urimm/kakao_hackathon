@@ -132,6 +132,16 @@ python main.py
 | `MCP_SERVER_URL` | 쩝쩝박사 MCP 서버 주소 (예: `http://192.168.x.x:8100`). 비우면 MCP 호출 없이 저장만 | (없음) |
 | `MCP_TIMEOUT` | MCP 호출 대기 시간(초) | `10` |
 
+## placelist (카카오맵 목업) 온도 반영
+
+예약이 생기거나 상태가 바뀌면 이 서버가 placelist 서버의 `POST /api/reservation`을 호출한다 → 그 리스트 온도·랭킹이 바뀌고 지도 화면에 알림.
+
+- `.env`: `PLACELIST_URL=http://<placelist 서버 IP>:8200` (비우면 안 보냄)
+- `reservation_id`는 `"C<예약 id>"` (같은 예약은 한 번만 반영), `user`는 예약한 사람
+- 데모엔 실제 확정 단계가 없어서 채팅 예약(`requested`)도 **확정(`confirmed`)으로 보냄**. `PATCH .../{id} {"status":"cancelled"}` → 온도 되돌림
+- 어느 리스트를 보고 예약했는지: 식당 목록 파일 → `PLACELIST_LISTS` (기본 `mapo:M01,seocho:S01,busan:B02`)
+- 예: 진우네초밥 예약 → '마포 맛집 모음'(M01) 45.1 → 45.8℃, 마포 음식점 랭킹 3위 → 1위
+
 ## MCP 서버 알림 `POST /ai/notify` (쩝쩝박사 MCP 서버 → 이 서버)
 
 AI가 MCP 도구(`reserve`, `call_taxi`)를 부르면 MCP 서버가 실제 예약 대신 이 경로로 안내 문구를 보낸다. 이 서버는 `text`를 **그 방에 봇 메시지로 그대로** 올리고 웹소켓으로 푸시한다. 인증 없음(내부망).
