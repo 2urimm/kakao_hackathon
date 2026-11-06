@@ -11,6 +11,13 @@ HOST: str = os.getenv("HOST", "0.0.0.0")
 PORT: int = int(os.getenv("PORT", "8000"))
 CORS_ORIGINS: list[str] = [o.strip() for o in os.getenv("CORS_ORIGINS", "*").split(",") if o.strip()]
 
+# 챗봇 (답변 생성 서버)
+ANSWER_SERVER_URL: str = os.getenv("ANSWER_SERVER_URL", "").rstrip("/")  # 예: http://192.168.x.x:8000
+BOT_TRIGGER: str = os.getenv("BOT_TRIGGER", "@봇")      # 채팅에 이 단어가 있으면 봇 호출
+BOT_NAME: str = os.getenv("BOT_NAME", "봇")             # 봇 답변이 저장될 때의 user_name (이 이름의 메시지는 봇을 다시 부르지 않음)
+CONTEXT_MESSAGES: int = int(os.getenv("CONTEXT_MESSAGES", "20"))  # 봇에게 넘길 최근 대화 개수
+ANSWER_TIMEOUT: float = float(os.getenv("ANSWER_TIMEOUT", "10"))  # 답변 서버 접수 대기 시간(초)
+
 # MySQL
 DB_HOST: str = os.getenv("DB_HOST", "localhost")
 DB_PORT: int = int(os.getenv("DB_PORT", "3306"))

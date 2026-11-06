@@ -63,24 +63,55 @@ python main.py
 2. **건물 와이파이가 기기 간 통신을 막는 경우** – 공용 와이파이는 보안상 같은 와이파이 안에서도 PC끼리 접속을 막아두는 경우가 있음(AP 격리). 방화벽을 열어도 안 되면 휴대폰 핫스팟으로 모두 옮겨서 해보기.
 3. 서버 PC에서 `http://localhost:8000/health` 가 열리는지 먼저 확인 → 열리는데 다른 PC에서만 안 되면 1·2번 문제.
 
+## 챗봇 (`@봇` 호출)
+
+채팅에 `@봇`이 들어 있으면 답변 생성 서버(팀원 PC)가 그 방의 대화를 보고 장소를 추천한다.
+
+```
+프론트 ──POST /api/messages "@봇 홍대 식당 추천"──▶ 채팅 저장 서버 (이 서버)
+                                                    │ 저장 후, 그 방 최근 대화 20개를
+                                                    ▼ POST /api/chat 으로 전달 (202 접수)
+                                              답변 생성 서버
+                                                    │ 답변 생성 (약 10초)
+채팅 저장 서버 ◀──POST /api/messages user_name="봇"──┘
+프론트 ──GET /api/messages?room_id=...&after_id=<마지막 id>──▶ 봇 답변 확인
+```
+
+`.env` 설정:
+
+| 변수 | 설명 | 기본값 |
+|---|---|---|
+| `ANSWER_SERVER_URL` | 답변 생성 서버 주소. 비우면 봇 호출 안 함 | (없음) |
+| `BOT_TRIGGER` | 이 단어가 채팅에 있으면 봇 호출 | `@봇` |
+| `BOT_NAME` | 답변 생성 서버가 답변 저장할 때 쓰는 `user_name`. 이 이름의 메시지는 봇을 다시 부르지 않음(무한루프 방지) | `봇` |
+| `CONTEXT_MESSAGES` | 봇에게 넘길 최근 대화 개수 | `20` |
+| `ANSWER_TIMEOUT` | 답변 서버 접수 대기 시간(초) | `10` |
+
+**답변 생성 서버 담당자에게**: 답변은 이 서버의 `POST /api/messages`로 `{"user_name": "봇", "content": "<답변>", "room_id": "<받은 room_id>"}` 형태로 보내주세요. `user_name`은 `BOT_NAME`과 같아야 함.
+
 ## API (프론트 담당자용)
 
 전체 문서/테스트 화면: `http://<서버IP>:<PORT>/docs`
 
 ### 채팅 저장 `POST /api/messages`
 ```json
-{ "user_name": "유림", "content": "성수동 카페 추천해줘", "room_id": "room1" }
+{ "user_name": "유림", "content": "@봇 성수동 카페 추천해줘", "room_id": "room1" }
 ```
 - `room_id`는 생략 가능 (기본 `"default"`)
 - 처음 보는 `user_name`이면 자동으로 유저 등록
 
 응답:
 ```json
-{ "id": 1, "user_name": "유림", "room_id": "room1", "content": "성수동 카페 추천해줘", "created_at": "2026-11-06T15:50:34" }
+{ "id": 1, "user_name": "유림", "room_id": "room1", "content": "@봇 성수동 카페 추천해줘", "created_at": "2026-11-06T15:50:34", "bot_called": true }
 ```
+- `bot_called: true` → 봇을 불렀으니 곧 `user_name: "봇"` 메시지가 올라옴. 이때 "봇이 답변 중..." 표시하면 됨
 
 ### 채팅 조회 `GET /api/messages?room_id=room1&user_name=유림&limit=50`
 모든 파라미터 선택. 오래된 → 최신 순으로 최근 `limit`개.
+
+### 새 메시지만 조회 (봇 답변 기다릴 때) `GET /api/messages?room_id=room1&after_id=12`
+`id`가 12보다 큰 메시지만 반환. 프론트는 화면의 마지막 메시지 `id`를 넣고 2~3초마다 호출하면 봇 답변을 받을 수 있음.
+봇 답변(`content`)은 마크다운(`###`, `**굵게**`, 목록)으로 오니 마크다운 렌더링 추천.
 
 ### 유저 목록 `GET /api/users`
 
