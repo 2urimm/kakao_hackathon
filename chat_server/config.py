@@ -13,15 +13,19 @@ CORS_ORIGINS: list[str] = [o.strip() for o in os.getenv("CORS_ORIGINS", "*").spl
 
 # 챗봇 (답변 생성 서버)
 ANSWER_SERVER_URL: str = os.getenv("ANSWER_SERVER_URL", "").rstrip("/")  # 예: http://192.168.x.x:8000
-BOT_TRIGGER: str = os.getenv("BOT_TRIGGER", "@봇")      # 채팅에 이 단어가 있으면 봇 호출
-BOT_NAME: str = os.getenv("BOT_NAME", "봇")             # 봇 답변이 저장될 때의 user_name (이 이름의 메시지는 봇을 다시 부르지 않음)
+# 채팅에 이 단어 중 하나가 있으면 봇 호출 (쉼표로 여러 개). 첫 번째가 대표 호출어 (안내 문구에 사용)
+BOT_TRIGGERS: list[str] = [t.strip() for t in os.getenv("BOT_TRIGGER", "@톡스픽,@봇").split(",") if t.strip()]
+BOT_TRIGGER: str = BOT_TRIGGERS[0]
+BOT_NAME: str = os.getenv("BOT_NAME", "톡스픽")          # 봇 메시지의 user_name (이 이름의 메시지는 봇을 다시 부르지 않음)
+# 이 이름으로 온 메시지도 봇으로 보고 BOT_NAME 으로 저장 (답변 서버가 예전 이름 "봇"으로 보내도 됨)
+BOT_ALIASES: set[str] = {a.strip() for a in os.getenv("BOT_ALIASES", "봇").split(",") if a.strip()}
 CONTEXT_MESSAGES: int = int(os.getenv("CONTEXT_MESSAGES", "20"))  # 봇에게 넘길 최근 대화 개수
 ANSWER_TIMEOUT: float = float(os.getenv("ANSWER_TIMEOUT", "10"))  # 답변 서버 접수 대기 시간(초)
 
 # 예약 (쩝쩝박사 MCP 서버의 reserve 도구)
 MCP_SERVER_URL: str = os.getenv("MCP_SERVER_URL", "").rstrip("/")  # 예: http://192.168.x.x:8100. 비우면 MCP 없이 예약만 저장
 MCP_TIMEOUT: float = float(os.getenv("MCP_TIMEOUT", "10"))
-# 데모 식당 목록 (카카오맵 추출 JSON). 봇 답변에 이 목록의 식당 이름이 나오면 "@봇 예약해줘" 로 예약 가능
+# 데모 식당 목록 (카카오맵 추출 JSON). 봇 답변에 이 목록의 식당 이름이 나오면 "@톡스픽 예약해줘" 로 예약 가능
 PLACES_FILE: str = os.getenv("PLACES_FILE", "places")  # 폴더면 안의 *.json 전부
 
 # placelist (카카오맵 목업) 서버. 예약이 생기거나 취소되면 POST /api/reservation 으로 알려 리스트 온도에 반영

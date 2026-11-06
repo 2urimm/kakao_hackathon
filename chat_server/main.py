@@ -5,7 +5,7 @@
 
 흐름:
   0. 프론트 → POST /api/rooms {"name": "해커톤 팀방", "member_names": [...]}  → 방 id 받음
-  1. 프론트 → POST /api/messages {"room_id": <방 id>, ...}  ("@봇 ..." 채팅)
+  1. 프론트 → POST /api/messages {"room_id": <방 id>, ...}  ("@톡스픽 ..." 채팅)
   2. 이 서버가 저장 후, 그 방의 최근 대화를 답변 생성 서버 POST /api/chat 으로 전달 (백그라운드)
   3. 답변 생성 서버가 답변을 만들어서 → 이 서버 POST /api/messages 로 user_name=BOT_NAME 으로 저장
   4. 저장되는 순간 ws://<서버IP>:<PORT>/ws/<room_id> 에 연결된 프론트로 바로 푸시
@@ -13,7 +13,7 @@
 
 예약 (채팅으로):
   1. 답변 생성 서버가 음식점을 추천 (답변 본문에 places/ 목록의 식당 이름)
-  2. 채팅 "@봇 내일 7시에 예약해줘" → 답변 서버로 안 보내고 이 서버가 처리
+  2. 채팅 "@톡스픽 내일 7시에 예약해줘" → 답변 서버로 안 보내고 이 서버가 처리
      - 그 방의 직전 봇 답변에 나온 식당 이름을 places/ 목록에서 찾아 예약
      - 날짜/시간/인원은 이 문장 → 없으면 추천 받기 전후 대화에서 찾음. 시간이 끝내 없으면 봇이 되물음
      - 참여자 = 방 멤버 전원 (봇 제외)
@@ -61,7 +61,7 @@ init_db()
 
 # ---------- 요청/응답 스키마 ----------
 class Place(BaseModel):
-    """직전 봇 답변에서 찾은 식당 (내부용). "@봇 예약해줘" 하면 이 식당을 예약한다."""
+    """직전 봇 답변에서 찾은 식당 (내부용). "@톡스픽 예약해줘" 하면 이 식당을 예약한다."""
     place_id: str = Field(..., min_length=1, max_length=50, examples=["12345"], description="카카오 장소 ID")
     place_name: str = Field(..., min_length=1, max_length=200, examples=["성수 파스타집"])
     x: float | None = Field(None, ge=-180, le=180, description="경도 (선택)")
@@ -70,7 +70,7 @@ class Place(BaseModel):
 
 class MessageIn(BaseModel):
     user_name: str = Field(..., min_length=1, max_length=100, examples=["유림"])
-    content: str = Field(..., min_length=1, examples=["@봇 성수동 분위기 좋은 카페 추천해줘"])
+    content: str = Field(..., min_length=1, examples=["@톡스픽 성수동 분위기 좋은 카페 추천해줘"])
     room_id: int = Field(..., examples=[1], description="POST /api/rooms 로 만든 방의 id")
 
 
@@ -263,13 +263,13 @@ hub = RoomHub()
 
 
 # ---------- 챗봇 호출 ----------
-# "@봇 예약해줘 / 예약 좀 해줘 / 예약하자 / 예약 잡아줘 / 예약 부탁해" → 예약 요청
+# "@톡스픽 예약해줘 / 예약 좀 해줘 / 예약하자 / 예약 잡아줘 / 예약 부탁해" → 예약 요청
 _RESERVE_RE = re.compile(r"예약\s*(?:을\s*)?(?:좀\s*)?(?:해|하자|할게|할래|부탁|ㄱ|잡아|진행|넣어)")
 
 
 def _bot_mentioned(user_name: str, content: str) -> bool:
     # 봇이 쓴 메시지는 봇을 다시 부르지 않음 (무한루프 방지)
-    return user_name != config.BOT_NAME and config.BOT_TRIGGER in content
+    return user_name != config.BOT_NAME and any(t in content for t in config.BOT_TRIGGERS)
 
 
 def _is_reserve_request(user_name: str, content: str) -> bool:
@@ -368,12 +368,14 @@ def add_member(room_id: int, body: MemberIn, db: Session = Depends(get_db)):
 @app.post("/api/messages", response_model=MessageOut)
 def save_message(body: MessageIn, background: BackgroundTasks, db: Session = Depends(get_db)):
     """채팅 1건 저장. 방이 없으면 404. 처음 보는 유저면 자동 등록하고, 보낸 사람은 그 방 멤버로 자동 등록.
-    - "@봇 ... 예약해줘" → 그 방에서 봇이 가장 최근에 추천한 식당을 예약 (이 서버가 처리)
-    - 그 밖의 "@봇 ..." → 답변 생성 서버 호출
-    - 봇 답변에 places/ 목록의 식당 이름이 나오면 "@봇 예약해줘" 로 그 식당을 예약할 수 있다."""
+    - "@톡스픽 ... 예약해줘" → 그 방에서 봇이 가장 최근에 추천한 식당을 예약 (이 서버가 처리)
+    - 그 밖의 "@톡스픽 ..." → 답변 생성 서버 호출
+    - 봇 답변에 places/ 목록의 식당 이름이 나오면 "@톡스픽 예약해줘" 로 그 식당을 예약할 수 있다."""
     _require_room(db, body.room_id)
+    # 답변 서버가 예전 봇 이름("봇")으로 보내도 톡스픽(BOT_NAME)으로 저장
+    user_name = config.BOT_NAME if body.user_name.strip() in config.BOT_ALIASES else body.user_name
     # 저장 즉시 그 방에 연결된 프론트들에게 푸시 (봇 답변도 이 경로로 저장되므로 생성 즉시 표시됨)
-    out = _post_message(db, background, body.room_id, body.user_name, body.content)
+    out = _post_message(db, background, body.room_id, user_name, body.content)
     if _is_reserve_request(out.user_name, out.content):
         background.add_task(_reserve_from_chat, body.room_id, out.user_name, out.id)
     elif _should_call_bot(out.user_name, out.content):
@@ -524,7 +526,7 @@ def _schedule_placelist(background: BackgroundTasks | None, reservation_id: int)
         return
     if background is not None:
         background.add_task(_send_to_placelist, reservation_id)
-    else:  # 이미 백그라운드 작업 안 ("@봇 예약해줘")
+    else:  # 이미 백그라운드 작업 안 ("@톡스픽 예약해줘")
         _send_to_placelist(reservation_id)
 
 
@@ -552,14 +554,14 @@ _SYSTEM_PREFIXES = ("예약할 식당을 못 찾았어요", "예약 중에 문�
 
 
 def _reserve_from_chat(room_id: int, requester_name: str, request_msg_id: int) -> None:
-    """"@봇 ... 예약해줘" 처리 (백그라운드). 그 방에서 봇이 가장 최근에 추천한 식당을 예약한다."""
+    """"@톡스픽 ... 예약해줘" 처리 (백그라운드). 그 방에서 봇이 가장 최근에 추천한 식당을 예약한다."""
     with SessionLocal() as db:
         try:
             found = _find_recommendation(db, room_id, request_msg_id)
             if found is None:
                 _post_message(db, None, room_id, config.BOT_NAME,
-                              "예약할 식당을 못 찾았어요 🥲 먼저 \"@봇 OO 맛집 추천해줘\"로 식당을 추천받은 뒤 "
-                              "\"@봇 내일 저녁 7시에 예약해줘\"라고 말해 주세요.")
+                              f"예약할 식당을 못 찾았어요 🥲 먼저 \"{config.BOT_TRIGGER} OO 맛집 추천해줘\"로 식당을 추천받은 뒤 "
+                              f"\"{config.BOT_TRIGGER} 내일 저녁 7시에 예약해줘\"라고 말해 주세요.")
                 return
             rec, place = found
 
@@ -576,7 +578,7 @@ def _reserve_from_chat(room_id: int, requester_name: str, request_msg_id: int) -
             when, party = parse_when([(m.content, m.created_at) for m in talk], datetime.now())
             if when is None:
                 _post_message(db, None, room_id, config.BOT_NAME,
-                              f"{place.place_name} 몇 시로 예약할까요? ⏰\n예) \"@봇 내일 저녁 7시에 예약해줘\"")
+                              f"{place.place_name} 몇 시로 예약할까요? ⏰\n예) \"{config.BOT_TRIGGER} 내일 저녁 7시에 예약해줘\"")
                 return
 
             # 같은 말을 두 번 해서 같은 예약이 또 생기지 않게
@@ -599,7 +601,7 @@ def _reserve_from_chat(room_id: int, requester_name: str, request_msg_id: int) -
 
 @app.post("/api/reservations", response_model=ReservationOut)
 def create_reservation(body: ReservationIn, background: BackgroundTasks, db: Session = Depends(get_db)):
-    """(선택) 화면에서 직접 예약할 때. 보통은 채팅 "@봇 내일 7시에 예약해줘" 로 예약된다.
+    """(선택) 화면에서 직접 예약할 때. 보통은 채팅 "@톡스픽 내일 7시에 예약해줘" 로 예약된다.
     참여자: participant_names 생략 시 방 멤버 전원(봇 제외).
     예약 + 참여자를 저장하고 MCP 서버 reserve 도구를 호출한 뒤, 안내 문구를 봇 메시지로 채팅방에 올린다.
     MCP 서버가 꺼져 있어도 예약은 저장되고 안내 문구는 이 서버가 만든다 (mcp_ok=false)."""
@@ -693,7 +695,7 @@ def add_participant(reservation_id: int, body: ParticipantIn, background: Backgr
 
 @app.get("/api/places")
 def list_places():
-    """데모 식당 목록 (places/*.json, 메뉴 등 상세 제외). 봇 답변에 이 이름이 나오면 "@봇 예약해줘" 로 예약 가능."""
+    """데모 식당 목록 (places/*.json, 메뉴 등 상세 제외). 봇 답변에 이 이름이 나오면 "@톡스픽 예약해줘" 로 예약 가능."""
     return load_places()
 
 
@@ -791,7 +793,7 @@ if __name__ == "__main__":
     print(f"  API 문서            →  http://{shown}:{config.PORT}/docs")
     print(f"  실시간 수신         →  ws://{shown}:{config.PORT}/ws/<room_id>")
     if config.ANSWER_SERVER_URL:
-        print(f"  답변 생성 서버      →  {config.ANSWER_SERVER_URL}  (호출어: {config.BOT_TRIGGER}, 봇 이름: {config.BOT_NAME})\n", flush=True)
+        print(f"  답변 생성 서버      →  {config.ANSWER_SERVER_URL}  (호출어: {", ".join(config.BOT_TRIGGERS)}, 봇 이름: {config.BOT_NAME})\n", flush=True)
     else:
         print("  답변 생성 서버      →  (미설정: .env 의 ANSWER_SERVER_URL 을 넣으면 봇 호출 활성화)\n", flush=True)
     mcp = config.MCP_SERVER_URL or "(미설정: 예약은 저장만, 안내 문구는 이 서버가 생성)"

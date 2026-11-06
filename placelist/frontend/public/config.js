@@ -6,4 +6,4 @@ window.KAKAO_JS_KEY = "2d90ed1918361f837324e3ca375a0eda";   // 앱 "쩝쩝박사
 // 채팅 저장 서버 주소 (카톡방 챗봇 백엔드). 채팅에서 "@봇 예약해줘"로 잡은 예약을 여기서 읽어 지도에 표시.
 // 서버 PC의 IP가 바뀌면 이 값만 바꾸면 됩니다.
 window.CHAT_API_BASE = "http://172.168.45.126:8000";
-window.CHAT_BOT_NAME = "봇";
+window.CHAT_BOT_NAME = "톡스픽";   // 채팅 서버의 BOT_NAME (톡스픽 = 카카오톡에서 고른 곳)
