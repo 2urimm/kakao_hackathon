@@ -23,7 +23,7 @@ python main.py
 
 시작하면 `프론트에 알려줄 주소 → http://192.168.x.x:8000` 이 출력됨. 이 주소를 프론트 담당자에게 공유.
 
-- 설정은 전부 `.env` 또는 환경변수 (`HOST`, `PORT`, `CORS_ORIGINS`, `DB_HOST`, `DB_PORT`, `DB_USER`, `DB_PASSWORD`, `DB_NAME`)
+- 설정은 전부 `.env` 또는 환경변수 (`HOST`, `PORT`, `CORS_ORIGINS`, `DB_*`, `ANSWER_SERVER_URL`, `MCP_SERVER_URL` 등)
 - 테이블은 서버 처음 실행할 때 자동 생성
 - 코드를 고쳤으면 서버를 껐다(`Ctrl+C`) 다시 켜야 반영됨
 - 와이파이를 바꾸거나 다시 연결하면 IP가 바뀔 수 있음 → 코드 수정 없이 새로 출력된 IP만 다시 공유
@@ -90,6 +90,35 @@ python main.py
 | `ANSWER_TIMEOUT` | 답변 서버 접수 대기 시간(초) | `10` |
 
 **답변 생성 서버 담당자에게**: 답변은 이 서버의 `POST /api/messages`로 `{"user_name": "봇", "content": "<답변>", "room_id": <받은 room_id>}` 형태로 (방 번호, 숫자/문자열 둘 다 됨) 보내주세요. `user_name`은 `BOT_NAME`과 같아야 함.
+**음식점 하나를 추천하는 답변이면 `place`를 같이** 보내주세요. 그래야 프론트가 그 메시지에 "예약하기" 버튼을 띄울 수 있음.
+```json
+{ "user_name": "봇", "room_id": "2", "content": "### 성수 파스타집 추천 ...",
+  "place": { "place_id": "12345", "place_name": "성수 파스타집", "x": 127.05, "y": 37.54 } }
+```
+(`x`=경도, `y`=위도는 선택)
+
+## 예약 (쩝쩝박사 MCP 서버 연동)
+
+```
+봇 추천 메시지 (place 포함) ──▶ 프론트: "예약하기" 버튼
+                                  │
+카카오맵 목업 예약 화면: 일시 선택 + 참여자 칩 (기본 = 방 전원, X 로 제외)
+                                  │ POST /api/reservations
+                                  ▼
+채팅 저장 서버: 예약 + 참여자 저장 → MCP 서버 POST /tools/reserve 호출
+                                  │ 받은 안내 문구를 봇 메시지로 채팅방에 저장
+                                  ▼
+웹소켓 푸시 "📅 유림님이 성수 파스타집 ... 예약을 요청했어요 / 👥 참여: 유림, 민수"
+참여자 각자의 계정: GET /api/reservations?user_name=<이름> 으로 예약 장소 목록
+```
+
+- MCP의 `reserve`는 **실제 예약을 하지 않는 데모용** (안내 문구 + 카카오맵 장소 링크만 만듦)
+- MCP 서버가 꺼져 있어도 예약은 저장되고, 안내 문구는 이 서버가 대신 만든다 (응답의 `mcp_ok: false`)
+
+| 변수 | 설명 | 기본값 |
+|---|---|---|
+| `MCP_SERVER_URL` | 쩝쩝박사 MCP 서버 주소 (예: `http://192.168.x.x:8100`). 비우면 MCP 호출 없이 저장만 | (없음) |
+| `MCP_TIMEOUT` | MCP 호출 대기 시간(초) | `10` |
 
 ## API (프론트 담당자용)
 
@@ -129,6 +158,9 @@ python main.py
 { "id": 1, "user_name": "유림", "room_id": 2, "content": "@봇 성수동 카페 추천해줘", "created_at": "2026-11-06T15:50:34", "bot_called": true }
 ```
 - `bot_called: true` → 봇을 불렀으니 곧 `user_name: "봇"` 메시지가 올라옴. 이때 "봇이 답변 중..." 표시하면 됨
+- 모든 메시지(`MessageOut`)에 `place`, `reservation_id` 가 있음 (보통은 `null`)
+  - `place` 있고 `reservation_id` 없음 → 봇의 장소 추천 → **"예약하기" 버튼**
+  - `reservation_id` 있음 → 예약 안내 메시지 → 예약 카드 (`GET /api/reservations/{id}` 로 상세)
 
 ### 채팅 조회 `GET /api/messages?room_id=2&user_name=유림&limit=50`
 모든 파라미터 선택. 오래된 → 최신 순으로 최근 `limit`개.
@@ -153,6 +185,36 @@ ws.onclose = () => setTimeout(reconnect, 1000);  // 와이파이 끊기면 재�
 ### 새 메시지만 조회 `GET /api/messages?room_id=2&after_id=12`
 `id`가 12보다 큰 메시지만 반환. 웹소켓 재연결 후 끊긴 동안 놓친 메시지를 받아올 때 사용 (웹소켓을 못 쓰면 2~3초마다 폴링해도 됨).
 
+### 예약
+
+| API | 설명 |
+|---|---|
+| `POST /api/reservations` | 예약 요청 (카카오맵 목업의 예약 버튼) |
+| `GET /api/reservations?user_name=유림` | **그 사람이 참여자인 예약 목록** (= 그 계정의 예약 장소). `room_id`, `status` 필터도 가능. 예약 일시 순 |
+| `GET /api/reservations/{id}` | 예약 하나 |
+| `PATCH /api/reservations/{id}` | 상태 변경 `{"status": "confirmed"}` / `"cancelled"` → 채팅방에 ✅/❌ 안내 |
+
+```json
+// POST /api/reservations
+{ "room_id": 2, "place_id": "12345", "place_name": "성수 파스타집",
+  "reserved_at": "2026-11-08 19:00", "requested_by": "유림",
+  "participant_names": ["유림", "민수"] }
+```
+- `participant_names` **생략(또는 null) = 방 멤버 전원** (봇 제외). 화면에서 X로 뺀 사람을 제외한 이름들을 보내면 그 사람들만 참여
+- 참여자 칩 목록은 `GET /api/rooms/{room_id}` 의 `members` 로 그리기 (봇은 빼기)
+- 요청자(`requested_by`)는 목록에 없어도 항상 참여자에 포함
+- 방 멤버가 아닌 이름 → 400, 없는 방 → 404
+- `party_size` 생략 시 참여자 수
+
+응답 (`ReservationOut`):
+```json
+{ "id": 1, "room_id": 2, "place_id": "12345", "place_name": "성수 파스타집",
+  "reserved_at": "2026-11-08T19:00:00", "party_size": 2, "requested_by": "유림",
+  "participants": [ {"user_id": 10, "user_name": "유림"}, {"user_id": 11, "user_name": "민수"} ],
+  "status": "requested", "link": "https://place.map.kakao.com/12345", "created_at": "...",
+  "message": "📅 유림님이 성수 파스타집 2026-11-08 19:00 2명 예약을 요청했어요. ...", "mcp_ok": true }
+```
+
 ### 유저 목록 `GET /api/users`
 
 ### 헬스체크 `GET /health`
@@ -161,7 +223,9 @@ ws.onclose = () => setTimeout(reconnect, 1000);  // 와이파이 끊기면 재�
 
 ```
 users ─┬─< room_members >─┬─ rooms
-       └──── messages ────┘
+       ├──── messages ────┤
+       └── reservations ──┘
+             └─< reservation_participants >── users
 ```
 
 | 테이블 | 컬럼 | 설명 |
@@ -180,5 +244,18 @@ users ─┬─< room_members >─┬─ rooms
 | | `room_id` FK → rooms.id | 채팅방 |
 | | `content` | 채팅 내용 |
 | | `created_at` | |
+| | `place_id`, `place_name`, `place_x`, `place_y` | 봇이 추천한 장소 (없으면 NULL) |
+| | `reservation_id` FK → reservations.id | 예약 안내 메시지면 그 예약 (없으면 NULL) |
+| **reservations** | `id` PK, 자동 증가 | 예약 번호 |
+| | `room_id` FK → rooms.id | 예약한 채팅방 |
+| | `user_id` FK → users.id | 예약 요청자 |
+| | `place_id`, `place_name` | 카카오 장소 ID / 이름 |
+| | `reserved_at` | 예약 일시 |
+| | `party_size` | 인원 |
+| | `status` | `requested` / `confirmed` / `cancelled` |
+| | `link` | 카카오맵 장소 링크 |
+| | `created_at` | |
+| **reservation_participants** | `reservation_id` PK, FK → reservations.id | 예약 삭제 시 같이 삭제 |
+| | `user_id` PK, FK → users.id | 참여자 (이 사람 계정에 예약 장소가 뜸) |
 
 `room_members`는 (방, 유저) 쌍이 PK라서 같은 사람이 같은 방에 두 번 들어갈 수 없음.

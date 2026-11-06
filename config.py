@@ -18,6 +18,10 @@ BOT_NAME: str = os.getenv("BOT_NAME", "봇")             # 봇 답변이 저장�
 CONTEXT_MESSAGES: int = int(os.getenv("CONTEXT_MESSAGES", "20"))  # 봇에게 넘길 최근 대화 개수
 ANSWER_TIMEOUT: float = float(os.getenv("ANSWER_TIMEOUT", "10"))  # 답변 서버 접수 대기 시간(초)
 
+# 예약 (쩝쩝박사 MCP 서버의 reserve 도구)
+MCP_SERVER_URL: str = os.getenv("MCP_SERVER_URL", "").rstrip("/")  # 예: http://192.168.x.x:8100. 비우면 MCP 없이 예약만 저장
+MCP_TIMEOUT: float = float(os.getenv("MCP_TIMEOUT", "10"))
+
 # MySQL
 DB_HOST: str = os.getenv("DB_HOST", "localhost")
 DB_PORT: int = int(os.getenv("DB_PORT", "3306"))

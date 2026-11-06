@@ -1,11 +1,13 @@
 """DB 연결 + 테이블 정의.
 
 users ─┬─< room_members >─┬─ rooms
-       └──── messages ────┘
+       ├──── messages ────┤
+       └── reservations ──┘
+             └─< reservation_participants >── users
 """
 from datetime import datetime
 
-from sqlalchemy import DateTime, ForeignKey, String, Text, create_engine
+from sqlalchemy import DateTime, Float, ForeignKey, Integer, String, Text, create_engine
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship, sessionmaker
 
 from config import DATABASE_URL
@@ -40,6 +42,7 @@ class Room(Base):
 
     members: Mapped[list["RoomMember"]] = relationship(back_populates="room", cascade="all, delete-orphan")
     messages: Mapped[list["Message"]] = relationship(back_populates="room")
+    reservations: Mapped[list["Reservation"]] = relationship(back_populates="room")
 
 
 class RoomMember(Base):
@@ -63,8 +66,48 @@ class Message(Base):
     content: Mapped[str] = mapped_column(Text)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.now, index=True)  # 서버 로컬시간(KST)
 
+    # 봇이 음식점을 추천한 메시지면 그 장소 정보 (프론트가 "예약하기" 버튼을 띄우는 데 사용). 일반 채팅은 NULL
+    place_id: Mapped[str | None] = mapped_column(String(50))
+    place_name: Mapped[str | None] = mapped_column(String(200))
+    place_x: Mapped[float | None] = mapped_column(Float)  # 경도
+    place_y: Mapped[float | None] = mapped_column(Float)  # 위도
+    # 예약 안내 메시지(봇)면 그 예약 id. 일반 채팅은 NULL
+    reservation_id: Mapped[int | None] = mapped_column(ForeignKey("reservations.id", ondelete="SET NULL"))
+
     user: Mapped[User] = relationship(back_populates="messages")
     room: Mapped[Room] = relationship(back_populates="messages")
+
+
+class Reservation(Base):
+    """음식점 예약. 실제 예약은 하지 않는 데모용 (MCP reserve 도구로 카톡방에 알림 + 카카오맵 링크)."""
+    __tablename__ = "reservations"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    room_id: Mapped[int] = mapped_column(ForeignKey("rooms.id"), index=True)
+    user_id: Mapped[int] = mapped_column(ForeignKey("users.id"), index=True)  # 예약 요청자
+    place_id: Mapped[str] = mapped_column(String(50))
+    place_name: Mapped[str] = mapped_column(String(200))
+    reserved_at: Mapped[datetime] = mapped_column(DateTime)      # 예약 일시
+    party_size: Mapped[int] = mapped_column(Integer)
+    status: Mapped[str] = mapped_column(String(20), default="requested")  # requested / confirmed / cancelled
+    link: Mapped[str | None] = mapped_column(String(300))       # 카카오맵 장소 링크
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.now)
+
+    room: Mapped[Room] = relationship(back_populates="reservations")
+    user: Mapped[User] = relationship()
+    participants: Mapped[list["ReservationParticipant"]] = relationship(
+        back_populates="reservation", cascade="all, delete-orphan")
+
+
+class ReservationParticipant(Base):
+    """예약 참여자 (예약 ↔ 사용자 다대다). 여기 들어간 사람들의 계정에 예약 장소가 뜬다."""
+    __tablename__ = "reservation_participants"
+
+    reservation_id: Mapped[int] = mapped_column(ForeignKey("reservations.id", ondelete="CASCADE"), primary_key=True)
+    user_id: Mapped[int] = mapped_column(ForeignKey("users.id", ondelete="CASCADE"), primary_key=True, index=True)
+
+    reservation: Mapped[Reservation] = relationship(back_populates="participants")
+    user: Mapped[User] = relationship()
 
 
 def init_db() -> None:
